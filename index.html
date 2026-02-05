@@ -199,6 +199,114 @@
             }
         }
 
+        /* Godmode Flashing Animation */
+        @keyframes btnFlash {
+
+            0%,
+            100% {
+                box-shadow: 0 0 5px rgba(225, 29, 72, 0.2);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(225, 29, 72, 0.8), 0 0 50px rgba(225, 29, 72, 0.4);
+                border-color: var(--rose-600);
+                transform: scale(1.02);
+                background: rgba(225, 29, 72, 0.05);
+            }
+        }
+
+        .btn-flash {
+            animation: btnFlash 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Subtle Nav Flash */
+        @keyframes navBtnFlash {
+
+            0%,
+            100% {
+                border-color: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 0 0px rgba(225, 29, 72, 0);
+            }
+
+            50% {
+                border-color: rgba(225, 29, 72, 0.5);
+                box-shadow: 0 0 15px rgba(225, 29, 72, 0.3);
+            }
+        }
+
+        .nav-btn-flash {
+            animation: navBtnFlash 3s ease-in-out infinite;
+        }
+
+        /* Integrated Resume Styles */
+        .resume-modal-container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            background: var(--bg-card);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .resume-sidebar {
+            background: rgba(255, 255, 255, 0.02);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+        }
+
+        .resume-main {
+            padding: 60px;
+        }
+
+        .resume-skill-tag {
+            background: rgba(225, 29, 72, 0.05);
+            border: 1px solid rgba(225, 29, 72, 0.1);
+            color: var(--rose-600);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .resume-exp-item {
+            position: relative;
+            padding-left: 24px;
+            border-left: 1px solid rgba(225, 29, 72, 0.2);
+            margin-bottom: 32px;
+        }
+
+        .resume-exp-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 4px;
+            width: 9px;
+            height: 9px;
+            background: var(--rose-600);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--rose-600);
+        }
+
+        @media (max-width: 768px) {
+            .resume-modal-container {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-sidebar {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                padding: 40px 24px !important;
+                display: block !important;
+            }
+
+            .resume-main {
+                padding: 40px 24px !important;
+            }
+        }
+
         /* Utility Classes */
         .glass {
             background: rgba(13, 13, 18, 0.8);
@@ -264,11 +372,13 @@
         /* Mobile-Specific Compacting - Fits in one proper window */
         @media (max-width: 768px) {
             .project-card {
-                height: 280px !important;
+                height: auto !important;
+                min-height: 320px !important;
+                width: 100% !important;
             }
 
             .card-front .p-4 {
-                padding: 1rem !important;
+                padding: 1.25rem !important;
             }
 
             .card-front h3 {
@@ -512,6 +622,27 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Latest Badge Flicker - Neon Green */
+        @keyframes latest-flicker {
+
+            0%,
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 10px rgba(52, 211, 153, 0.8), 0 0 20px rgba(52, 211, 153, 0.4);
+                color: #fff;
+            }
+
+            50% {
+                opacity: 0.7;
+                text-shadow: 0 0 2px rgba(52, 211, 153, 0.2);
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        .latest-badge {
+            animation: latest-flicker 1.5s infinite ease-in-out;
         }
 
         /* Premium Button with Ripple Effect */
@@ -848,7 +979,7 @@
             </nav>
         </div>
         <div class="mt-auto mx-auto flex flex-col items-center space-y-4">
-            <a href="javascript:void(0)" onclick="showComingSoon('GitHub')"
+            <a href="https://github.com/jackvdmerwe" target="_blank"
                 class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
                     class="uil uil-github-alt text-xl"></i></a>
             <a href="https://www.linkedin.com/in/jackvdmerwe1990/" target="_blank"
@@ -962,7 +1093,7 @@
 
         <!-- Minimized Announcement Icon -->
         <button id="minimized-announcement"
-            class="fixed bottom-24 right-8 z-40 w-12 h-12 bg-gradient-to-r from-rose-600 to-purple-600 rounded-full flex items-center justify-center text-white text-xl shadow-xl shadow-rose-600/30 hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-20 pointer-events-none group">
+            class="fixed bottom-24 right-8 z-40 w-12 h-12 bg-gradient-to-r from-rose-600 to-purple-600 rounded-full flex items-center justify-center text-white text-xl shadow-xl shadow-rose-600/30 hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none group btn-premium">
             <div class="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full animate-bounce shadow-sm"></div>
             <i class="uil uil-bell animate-swing"></i>
             <!-- Tooltip -->
@@ -1342,25 +1473,30 @@
 
                 <!-- Mobile Carousel Container -->
                 <div class="relative md:hidden">
-                    <!-- Left Arrow -->
-                    <button id="mobile-prev"
-                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-rose-600/80 rounded-full flex items-center justify-center text-white shadow-lg -translate-x-4 transition-all duration-300 hover:bg-rose-600 hover:scale-110 active:scale-95">
-                        <i class="uil uil-arrow-left transition-transform duration-300"></i>
-                    </button>
-
                     <!-- Projects Carousel -->
-                    <div class="overflow-hidden mx-8">
-                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 transition-transform duration-300 ease-in-out"
-                            id="projects-grid">
+                    <div class="overflow-scroll no-scrollbar" id="mobile-projects-scroll">
+                        <div class="flex gap-6 transition-transform duration-300 ease-in-out px-4" id="projects-grid">
                             <!-- Projects will be injected here via JS -->
                         </div>
                     </div>
 
-                    <!-- Right Arrow -->
-                    <button id="mobile-next"
-                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-rose-600/80 rounded-full flex items-center justify-center text-white shadow-lg translate-x-4 transition-all duration-300 hover:bg-rose-600 hover:scale-110 active:scale-95">
-                        <i class="uil uil-arrow-right transition-transform duration-300"></i>
-                    </button>
+                    <!-- Modern Navigation Under Cards -->
+                    <div class="flex items-center justify-center gap-8 mt-8 pb-10">
+                        <button id="mobile-prev"
+                            class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 border border-white/10 hover:text-white transition-all active:scale-90 nav-btn-flash">
+                            <i class="uil uil-angle-left-b text-2xl"></i>
+                        </button>
+
+                        <!-- Page Dots -->
+                        <div id="mobile-carousel-dots" class="flex gap-2">
+                            <!-- Dots injected via JS -->
+                        </div>
+
+                        <button id="mobile-next"
+                            class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 border border-white/10 hover:text-white transition-all active:scale-90 nav-btn-flash">
+                            <i class="uil uil-angle-right-b text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Desktop Grid -->
@@ -1417,7 +1553,7 @@
                             <textarea placeholder="Message" rows="4"
                                 class="w-full bg-transparent border-b-2 border-white/10 py-3 lg:py-4 text-white focus:outline-none focus:border-rose-600 transition-colors"></textarea>
                             <button type="button"
-                                class="w-full lg:w-auto px-10 py-4 bg-rose-600 text-white rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-rose-900/20">Send
+                                class="w-full lg:w-auto px-10 py-4 bg-gradient-to-r from-rose-600 to-purple-600 text-white rounded-full font-bold hover:scale-105 transition-transform shadow-lg shadow-rose-600/20 btn-premium">Send
                                 Message</button>
                         </form>
                     </div>
@@ -1488,18 +1624,12 @@
 
             <!-- Professional Links -->
             <div class="flex flex-wrap justify-center gap-4 lg:gap-8 mb-10">
-                <a href="resume-jaxx.html"
-                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-6 py-3 rounded-xl transition-all hover:bg-white/5">
+                <a href="javascript:void(0)" id="resume-trigger"
+                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-8 py-4 rounded-xl transition-all hover:bg-white/5 btn-flash">
                     <i class="uil uil-file-alt mr-2"></i> Professional Resume
                 </a>
-                <a href="resume-visual.html"
-                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-6 py-3 rounded-xl transition-all hover:bg-white/5">
-                    <i class="uil uil-chart-matrix mr-2"></i> Visual Matrix
-                </a>
-                <a href="nova-chatbot-preview.html"
-                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-6 py-3 rounded-xl transition-all hover:bg-white/5">
-                    <i class="uil uil-robot mr-2"></i> Nova AI Chat
-                </a>
+
+
             </div>
 
             <!-- Mobile Social Icons -->
@@ -1510,12 +1640,152 @@
                 <a href="https://github.com/jackvdmerwe" target="_blank"
                     class="text-gray-400 hover:text-rose-500 text-2xl transition-colors"><i
                         class="uil uil-github-alt"></i></a>
+                <a href="javascript:void(0)" onclick="showComingSoon('Facebook')"
+                    class="text-gray-400 hover:text-rose-500 text-2xl transition-colors"><i
+                        class="uil uil-facebook-f"></i></a>
+                <a href="javascript:void(0)" onclick="showComingSoon('Instagram')"
+                    class="text-gray-400 hover:text-rose-500 text-2xl transition-colors"><i
+                        class="uil uil-instagram"></i></a>
             </div>
 
             <p class="text-gray-600 text-[10px] uppercase tracking-tighter">© 2026 LASTIC PRODUCTIONS · CRAFTED BY JAXX
                 WITH <span class="text-rose-600">❤</span></p>
         </footer>
     </main>
+
+    <!-- Professional Resume Modal -->
+    <div id="resume-modal"
+        class="fixed inset-0 z-[200] hidden items-center justify-center p-4 lg:p-10 opacity-0 transition-all duration-500 ease-out backdrop-blur-0 overflow-y-auto">
+        <div class="absolute inset-0 bg-black/95 transition-opacity duration-500 opacity-0" id="resume-modal-overlay">
+        </div>
+        <div id="resume-modal-container"
+            class="relative w-full max-w-6xl transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
+
+            <button id="close-resume-modal"
+                class="absolute -top-12 lg:top-6 lg:right-6 text-gray-400 hover:text-white z-[210] transition-transform hover:rotate-90">
+                <i class="uil uil-times text-3xl"></i>
+            </button>
+
+            <div class="resume-modal-container">
+                <!-- Sidebar -->
+                <aside class="resume-sidebar">
+                    <div class="mb-10 text-center">
+                        <div
+                            class="w-24 h-24 bg-rose-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-rose-600/20 overflow-hidden border border-white/10">
+                            <img src="https://i.postimg.cc/Df1cGhWc/1770228379822.png"
+                                class="object-cover w-full h-full" alt="Jack Identity">
+                        </div>
+                        <h1 class="text-2xl font-bold mb-1 leading-tight text-white">Jack van der Merwe</h1>
+                        <p class="text-rose-500 font-bold tracking-widest text-[10px] uppercase">Full Stack Architect &
+                            AI Enthusiast</p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Contact</h3>
+                            <ul class="space-y-3 text-xs">
+                                <li class="flex items-center gap-3 text-gray-300">
+                                    <i class="uil uil-location-point text-rose-500"></i>
+                                    Pretoria, South Africa
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-300">
+                                    <i class="uil uil-phone text-rose-500"></i>
+                                    +27 76 364 3994
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-300">
+                                    <i class="uil uil-envelope text-rose-500"></i>
+                                    lasticproductions247@gmail.com
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Core Tech</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="resume-skill-tag">Python</span>
+                                <span class="resume-skill-tag">JavaScript</span>
+                                <span class="resume-skill-tag">React</span>
+                                <span class="resume-skill-tag">Node.js</span>
+                                <span class="resume-skill-tag">Tailwind</span>
+                                <span class="resume-skill-tag">SQL</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Education</h3>
+                            <div class="text-gray-300 text-xs">
+                                <p class="font-bold text-white">Matric (Grade 12)</p>
+                                <p class="mb-1">Sybrand van Niekerk High School</p>
+                                <p class="text-gray-500">Completed 2008</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="resume-main">
+                    <header class="mb-12">
+                        <h2 class="text-3xl font-extrabold mb-4 leading-tight text-white">Professional Summary</h2>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            I'm a self-taught, full-stack junior developer, rapidly advancing through Udemy's 5-part
+                            Computer Science and Audio Engineering course studies, with ongoing self-trained focus on
+                            Machine Learning, AI Integration, Android App Development, and UI/UX (Human-Centric Design).
+                        </p>
+                    </header>
+
+                    <section class="mb-12">
+                        <h3 class="flex items-center gap-3 text-white font-extrabold text-xl mb-8">
+                            <span class="w-8 h-[2px] bg-rose-600"></span>
+                            Experience
+                        </h3>
+
+                        <div class="resume-exp-item">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-white uppercase italic">Freelance AI & Automation
+                                        Developer</h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Self-Employed, Remote</p>
+                                </div>
+                                <span
+                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">May
+                                    2025 — 2027</span>
+                            </div>
+                            <ul class="text-gray-400 text-xs space-y-2 mt-4 list-disc list-inside">
+                                <li>Engineered AI-driven automations using n8n/Zapier and LLMs (OpenAI/Claude).</li>
+                                <li>Drafted and optimized neural pathways for high-conversion web ecosystems.</li>
+                                <li>Created responsive front-end/back-end features for web apps using
+                                    HTML/JS/React/Node.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-exp-item">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-white uppercase italic">Floor Manager & Barman
+                                    </h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Hospitality Group, South Africa</p>
+                                </div>
+                                <span
+                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2018
+                                    — 2024</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+                        <button onclick="window.print()"
+                            class="w-full sm:w-auto px-8 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-full transition-all flex items-center justify-center gap-2">
+                            <i class="uil uil-print"></i> Print Resume
+                        </button>
+                        <button onclick="window.print()"
+                            class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-rose-600 to-purple-600 text-white font-bold rounded-full transition-all shadow-lg shadow-rose-600/30 hover:scale-105 flex items-center justify-center gap-2">
+                            <i class="uil uil-download-alt"></i> Download CV (PDF)
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
 
     <!-- Project Modal Template -->
     <div id="project-modal"
@@ -1561,20 +1831,20 @@
 
         // Project Data
         const projects = [
-            { id: '1', title: 'Phoneboxx E-commerce', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.phoneboxx.co.za?w=1280', tech: ['React', 'Shopify'], link: 'https://phoneboxx.co.za/', desc: 'Crafted by Jaxx to revolutionize e-commerce, integrating seamless Shopify flows with a custom React frontend for peak performance.', date: 'March 2023', role: 'Team Project' },
-            { id: '2', title: 'Medical Insight', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.medical-insight-solutions.co.za?w=1280', tech: ['Next.js', 'PostgreSQL'], link: 'https://www.medical-insight-solutions.co.za', desc: 'A healthcare solution engineered by Jaxx to bridge the gap between patient data and medical records using secure, scalable architecture.', date: 'June 2024', role: 'Team Project' },
-            { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WebSocket', 'D3.js'], link: 'https://www.vaultfunder.trade', desc: 'Architected for Serious Traders as one of South Africa\'s largest trading platforms, providing elite market access and real-time insights.', date: 'September 2024', role: 'Team Project' },
-            { id: '9', title: 'Brokers Select', category: 'web', type: 'brokers', tech: ['Next.js', 'PostgreSQL', 'Tailwind CSS'], link: 'https://brokersselect.com/', desc: 'Designed by Jaxx to simplify the Forex landscape, comparing top brokers through a premium, data-driven fintech interface.', date: 'November 2024', role: 'Team Project' },
-            { id: '7', title: 'Lisbon Hideaway', category: 'web', type: 'lisbon', tech: ['HTML5', 'CSS3', 'JavaScript'], desc: 'A boutique travel platform built by Jaxx, focusing on immersive storytelling and pixel-perfect responsive motion design.', date: 'February 2026', role: 'Solo Architect & Developer' },
-            { id: '4', title: 'June AI', category: 'app', type: 'june', tech: ['Python', 'Neural Networks'], desc: 'Jaxx developed June AI to push neural networking boundaries, creating an app that learns and adapts to user behavior in real-time.', date: 'April 2026', role: 'Solo Architect & Developer' },
-            { id: '5', title: 'Lastic.Dev', category: 'software', type: 'lastic', tech: ['Rust', 'WebAssembly'], desc: 'An elite developer ecosystem forged by Jaxx, leveraging Rust and WASM to deliver blistering performance for modern web apps.', date: 'June 2026', role: 'Solo Architect & Developer' },
-            { id: '6', title: 'Lastic IDE', category: 'software', type: 'ide', tech: ['Python', 'AI-Powered', 'Real-time'], desc: "Jaxx's specialized AI-integrated development environment, optimized for real-time coding efficiency and intelligent auto-completion.", date: 'August 2026', role: 'Solo Architect & Developer' },
+            { id: '13', title: 'Aether Avatar', category: 'ai', type: 'avatar', tech: ['Stable Diffusion', 'DeepFace', 'TensorFlow'], desc: 'An AI-powered avatar engine created by Jaxx, using Stable Diffusion to generate hyper-realistic digital identities for the web.', date: 'February 2026', role: 'Solo Architect & Developer' },
+            { id: '1', title: 'Phoneboxx E-commerce', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.phoneboxx.co.za?w=1280', tech: ['React', 'Shopify'], link: 'https://phoneboxx.co.za/', desc: 'Crafted by Jaxx to revolutionize e-commerce, integrating seamless Shopify flows with a custom React frontend for peak performance.', date: 'March 2025', role: 'Team Project' },
+            { id: '2', title: 'Medical Insight', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.medical-insight-solutions.co.za?w=1280', tech: ['Next.js', 'PostgreSQL'], link: 'https://www.medical-insight-solutions.co.za', desc: 'A healthcare solution engineered by Jaxx to bridge the gap between patient data and medical records using secure, scalable architecture.', date: 'June 2025', role: 'Team Project' },
+            { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WebSocket', 'D3.js'], link: 'https://www.vaultfunder.trade', desc: 'Architected for Serious Traders as one of South Africa\'s largest trading platforms, providing elite market access and real-time insights.', date: 'September 2025', role: 'Team Project' },
+            { id: '9', title: 'Brokers Select', category: 'web', type: 'brokers', tech: ['Next.js', 'PostgreSQL', 'Tailwind CSS'], link: 'https://brokersselect.com/', desc: 'Designed by Jaxx to simplify the Forex landscape, comparing top brokers through a premium, data-driven fintech interface.', date: 'November 2025', role: 'Team Project' },
+            { id: '7', title: 'Lisbon Hideaway', category: 'web', type: 'lisbon', tech: ['HTML5', 'CSS3', 'JavaScript'], desc: 'A boutique travel platform built by Jaxx, focusing on immersive storytelling and pixel-perfect responsive motion design.', date: 'November 2025', role: 'Solo Architect & Developer' },
+            { id: '4', title: 'June AI', category: 'app', type: 'june', tech: ['Python', 'Neural Networks'], desc: 'Jaxx developed June AI to push neural networking boundaries, creating an app that learns and adapts to user behavior in real-time.', date: 'January 2026', role: 'Solo Architect & Developer' },
+            { id: '5', title: 'Lastic.Dev', category: 'software', type: 'lastic', tech: ['Rust', 'WebAssembly'], desc: 'An elite developer ecosystem forged by Jaxx, leveraging Rust and WASM to deliver blistering performance for modern web apps.', date: 'June 2025', role: 'Solo Architect & Developer' },
+            { id: '6', title: 'Lastic IDE', category: 'software', type: 'ide', tech: ['Python', 'AI-Powered', 'Real-time'], desc: "Jaxx's specialized AI-integrated development environment, optimized for real-time coding efficiency and intelligent auto-completion.", date: 'August 2025', role: 'Solo Architect & Developer' },
             { id: '8', title: 'Neural Nexus', category: 'ai', type: 'nexus', tech: ['PyTorch', 'Transformer', 'NLP'], desc: 'A powerhouse NLP research project by Jaxx, utilizing Transformer models to process and understand complex human-AI interactions.', date: 'October 2026', role: 'Solo Architect & Developer' },
             { id: '10', title: 'Nova AI Chatbot', category: 'app', type: 'chatbot', tech: ['OpenAI', 'Next.js', 'Tailwind'], desc: "Jaxx's flagship conversational agent, blending OpenAI intelligence with a custom-built, ultra-responsive Next.js interface.", date: 'November 2026', role: 'Solo Architect & Developer' },
             { id: '11', title: 'Aura Voice Intelligence', category: 'app', type: 'voice', tech: ['Whisper AI', 'PyTorch', 'FastAPI'], desc: 'A cutting-edge voice assistant system by Jaxx, specializing in Whisper AI integration for flawless speech-to-intent processing.', date: 'December 2026', role: 'Solo Architect & Developer' },
-            { id: '12', title: 'Lastic AGI Agent', category: 'ai', type: 'agent', tech: ['LangChain', 'AutoGPT', 'Python'], desc: "Jaxx's autonomous agentic model designed for complex task orchestration, utilizing advanced LangChain reasoning loops.", date: 'January 2027', role: 'Solo Architect & Developer' },
-            { id: '13', title: 'Aether Avatar', category: 'ai', type: 'avatar', tech: ['Stable Diffusion', 'DeepFace', 'TensorFlow'], desc: 'An AI-powered avatar engine created by Jaxx, using Stable Diffusion to generate hyper-realistic digital identities for the web.', date: 'February 2027', role: 'Solo Architect & Developer' },
-            { id: '14', title: 'Lastic Local AI', category: 'ai', type: 'localai', tech: ['Llama 3', 'GGUF', 'C++', 'Python'], desc: 'A high-performance local inference engine built by Jaxx, allowing users to run large language models entirely offline with zero data leakage.', date: 'March 2027', role: 'Solo Architect & Developer' }
+            { id: '12', title: 'Lastic AGI Agent', category: 'ai', type: 'agent', tech: ['LangChain', 'AutoGPT', 'Python'], desc: "Jaxx's autonomous agentic model designed for complex task orchestration, utilizing advanced LangChain reasoning loops.", date: 'January 2026', role: 'Solo Architect & Developer' },
+            { id: '14', title: 'Lastic Local AI', category: 'ai', type: 'localai', tech: ['Llama 3', 'GGUF', 'C++', 'Python'], desc: 'A high-performance local inference engine built by Jaxx, allowing users to run large language models entirely offline with zero data leakage.', date: 'March 2026', role: 'Solo Architect & Developer' }
         ];
 
         // Custom Previews
@@ -1887,6 +2157,10 @@
         const renderGrid = (filter = 'all') => {
             filteredProjects = projects.filter(p => filter === 'all' || p.category === filter);
 
+            // Reset carousel state when filtering
+            currentProjectIndex = 0;
+            previousProjectIndex = 0;
+
             // Mobile Carousel
             const mobileGrid = document.getElementById('projects-grid');
             mobileGrid.innerHTML = '';
@@ -1938,9 +2212,19 @@
             if (p.type === 'localai') preview = getLocalAIPreview();
 
             card.innerHTML = `
-                <div class="project-card-inner" onclick="openModal(${index})">
-                    <div class="card-front">
-                        <div class="aspect-video overflow-hidden relative">${preview}</div>
+                <div class="project-card-inner h-full" onclick="openModal(${index})">
+                    <div class="card-front h-full">
+                        <div class="aspect-[16/10] md:aspect-video w-full overflow-hidden relative">
+                            ${preview}
+                            ${p.id === '13' ? `
+                            <div class="absolute top-4 left-4 z-20 px-3 py-1 bg-emerald-500/90 backdrop-blur-md rounded-full border border-emerald-400/30 shadow-lg shadow-emerald-500/40">
+                                <span class="text-[8px] font-black text-white uppercase tracking-[0.2em] latest-badge flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-[0_0_8px_#fff]"></span>
+                                    Latest
+                                </span>
+                            </div>
+                            ` : ''}
+                        </div>
                         <div class="p-4">
                             <div class="flex justify-between items-center mb-1">
                                 <span class="text-[10px] font-bold text-rose-500 uppercase tracking-widest">${p.category}</span>
@@ -1961,10 +2245,19 @@
             const mobileGrid = document.getElementById('projects-grid');
             const prevBtn = document.getElementById('mobile-prev');
             const nextBtn = document.getElementById('mobile-next');
+            const dotsContainer = document.getElementById('mobile-carousel-dots');
 
             if (!mobileGrid || filteredProjects.length === 0) return;
 
-            // Show only current project on mobile
+            // Generate exactly 3 bubbles for a cleaner look
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < 3; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = `w-2.5 h-2.5 rounded-full transition-all duration-500 bubble-indicator ${i === 1 ? 'bg-rose-600 shadow-[0_0_10px_#e11d48]' : 'bg-white/10'}`;
+                dotsContainer.appendChild(bubble);
+            }
+
+            // Show current project
             updateMobileCarousel();
 
             // Navigation events
@@ -1984,12 +2277,12 @@
 
             mobileGrid.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
-            });
+            }, { passive: true });
 
             mobileGrid.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
                 handleSwipe();
-            });
+            }, { passive: true });
 
             const handleSwipe = () => {
                 const swipeThreshold = 50;
@@ -1997,10 +2290,8 @@
 
                 if (Math.abs(diff) > swipeThreshold) {
                     if (diff > 0) {
-                        // Swipe left - next project
                         nextBtn.click();
                     } else {
-                        // Swipe right - previous project
                         prevBtn.click();
                     }
                 }
@@ -2010,36 +2301,43 @@
         const updateMobileCarousel = () => {
             const mobileGrid = document.getElementById('projects-grid');
             const cards = mobileGrid.querySelectorAll('.project-card');
+            const bubbles = document.querySelectorAll('.bubble-indicator');
 
-            // Determine slide direction based on previous index
+            // Determine slide direction
             const direction = currentProjectIndex > previousProjectIndex ? 1 : -1;
             previousProjectIndex = currentProjectIndex;
 
-            // Hide all cards with smooth slide animation
-            cards.forEach((card, index) => {
-                card.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                card.style.opacity = '0';
-                card.style.transform = `translateX(${direction * -100}%) scale(0.8)`;
+            // Update 3-Bubble Logic: Simple & Modern
+            bubbles.forEach((bubble, i) => {
+                // Reset bubbles
+                bubble.className = 'w-2.5 h-2.5 rounded-full transition-all duration-500 bubble-indicator bg-white/10';
+
+                if (i === 1) { // Middle bubble is always the focus/active
+                    bubble.className = 'w-5 h-2.5 rounded-full transition-all duration-500 bubble-indicator bg-rose-600 shadow-[0_0_15px_#e11d48]';
+                } else if (i === 0 && currentProjectIndex === 0) {
+                    bubble.className = 'w-2.5 h-2.5 rounded-full transition-all duration-500 bubble-indicator bg-white/20 scale-75 opacity-50';
+                } else if (i === 2 && currentProjectIndex === filteredProjects.length - 1) {
+                    bubble.className = 'w-2.5 h-2.5 rounded-full transition-all duration-500 bubble-indicator bg-white/20 scale-75 opacity-50';
+                }
             });
 
-            // Show current card with smooth slide animation
-            setTimeout(() => {
-                cards.forEach((card, index) => {
-                    if (index === currentProjectIndex) {
-                        card.style.display = 'block';
-                        // Start from opposite side
-                        card.style.transform = `translateX(${direction * 100}%) scale(0.8)`;
-                        card.style.opacity = '0';
+            // Hide/Show cards
+            cards.forEach((card, index) => {
+                if (index === currentProjectIndex) {
+                    card.style.display = 'block';
+                    card.style.transition = 'none';
+                    card.style.transform = `translateX(${direction * 30}px) scale(0.95)`;
+                    card.style.opacity = '0';
 
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateX(0) scale(1)';
-                        }, 50);
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }, 300);
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateX(0) scale(1)';
+                    }, 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         };
 
         const setupDesktopInteractions = () => {
@@ -2723,7 +3021,7 @@
 
     <!-- Scroll to Top Button -->
     <button id="scroll-to-top"
-        class="fixed bottom-8 right-8 z-[190] w-14 h-14 bg-gradient-to-br from-rose-600 to-rose-500 text-white rounded-full flex items-center justify-center shadow-lg shadow-rose-600/30 translate-y-20 opacity-0 transition-all duration-500 hover:scale-110 hover:shadow-rose-600/50 cursor-pointer pointer-events-none border border-white/10 glass">
+        class="fixed bottom-8 right-8 z-[190] w-12 h-12 bg-gradient-to-br from-rose-600 to-rose-500 text-white rounded-full flex items-center justify-center shadow-lg shadow-rose-600/30 translate-y-20 opacity-0 transition-all duration-500 hover:scale-110 hover:shadow-rose-600/50 cursor-pointer pointer-events-none border border-white/10 glass">
         <i class="uil uil-arrow-up text-2xl"></i>
     </button>
 
@@ -2771,6 +3069,44 @@
         };
 
         scrollToTopBtn.addEventListener('click', smoothScrollToTop);
+
+        // Resume Modal Toggle Logic
+        const resumeTrigger = document.getElementById('resume-trigger');
+        const resumeModal = document.getElementById('resume-modal');
+        const closeResumeBtn = document.getElementById('close-resume-modal');
+        const resumeOverlay = document.getElementById('resume-modal-overlay');
+        const resumeContainer = document.getElementById('resume-modal-container');
+
+        const openResume = () => {
+            resumeModal.classList.remove('hidden');
+            resumeModal.classList.add('flex');
+            setTimeout(() => {
+                resumeModal.classList.add('backdrop-blur-xl', 'opacity-100');
+                resumeOverlay.classList.remove('opacity-0');
+                resumeOverlay.classList.add('opacity-100');
+                resumeContainer.classList.remove('scale-95', 'opacity-0');
+                resumeContainer.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeResume = () => {
+            resumeContainer.classList.remove('scale-100', 'opacity-100');
+            resumeContainer.classList.add('scale-95', 'opacity-0');
+            resumeOverlay.classList.remove('opacity-100');
+            resumeOverlay.classList.add('opacity-0');
+            resumeModal.classList.remove('opacity-100');
+
+            setTimeout(() => {
+                resumeModal.classList.add('hidden');
+                resumeModal.classList.remove('flex', 'backdrop-blur-xl');
+                document.body.style.overflow = 'auto';
+            }, 500);
+        };
+
+        if (resumeTrigger) resumeTrigger.addEventListener('click', openResume);
+        if (closeResumeBtn) closeResumeBtn.addEventListener('click', closeResume);
+        if (resumeOverlay) resumeOverlay.addEventListener('click', closeResume);
     </script>
     <div id="toast-container" class="fixed bottom-8 right-8 z-[200] flex flex-col gap-4 pointer-events-none"></div>
 </body>
