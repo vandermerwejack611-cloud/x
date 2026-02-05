@@ -1114,8 +1114,10 @@
                     <div class="relative group">
                         <div class="absolute -inset-4 bg-rose-600/10 rounded-3xl blur-2xl opacity-50"></div>
                         <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                            <img src="https://i.postimg.cc/Df1cGhWc/1770228379822.png"
-                                class="w-full object-cover h-[500px] transition-all duration-700 hover:scale-105">
+                            <video
+                                src="https://res.cloudinary.com/dtjsghrkm/video/upload/v1770327965/grok-video-159b03cd-ee47-4c8d-9479-ed7ebd4e1aaf_bqhpll.mp4"
+                                autoplay loop muted playsinline
+                                class="w-full object-cover h-[500px] transition-all duration-700 hover:scale-105"></video>
                             <div
                                 class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
                             </div>
@@ -1998,38 +2000,74 @@
             </div>`;
 
         const getChatbotPreview = (isModal = false) => `
-            <div class="relative w-full h-full bg-[#050505] overflow-hidden font-['Turret_Road'] ${isModal ? 'rounded-2xl' : ''}">
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_70%)]"></div>
-                <div class="p-4 h-full flex flex-col justify-end space-y-3">
+            <div class="relative w-full h-full bg-[#050505] overflow-hidden font-['Turret_Road'] ${isModal ? 'rounded-2xl' : ''} flex flex-col">
+                <!-- Chat Header with Model Dropdown -->
+                <div class="flex items-center justify-between p-4 border-b border-white/10 bg-black/40 backdrop-blur-md z-10">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center animate-pulse">
+                        <div class="w-8 h-8 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
                             <i class="uil uil-robot text-blue-500 text-sm"></i>
                         </div>
-                        <div class="bg-blue-600/10 border border-blue-500/20 px-4 py-2 rounded-2xl rounded-bl-none text-[10px] text-blue-100 backdrop-blur-md">
-                            Analyzing project metrics...
+                        <div>
+                            <h3 class="text-white text-xs font-bold uppercase tracking-widest">Nova AI</h3>
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                                <span class="text-[9px] text-green-500/80 font-mono">Online</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-center gap-3 justify-end">
-                        <div class="bg-gray-800/40 border border-white/5 px-4 py-2 rounded-2xl rounded-br-none text-[10px] text-gray-300">
-                            Is performance optimized?
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                         <div class="w-8 h-8 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
-                            <i class="uil uil-robot text-blue-500 text-sm"></i>
-                        </div>
-                        <div class="bg-blue-600/10 border border-blue-500/20 px-4 py-2 rounded-2xl rounded-bl-none">
-                            <div class="flex gap-1">
-                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce"></span>
-                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                    <div class="relative group/model">
+                        <button class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                            <span class="text-[10px] text-gray-400 font-mono">Model: Nova-7B</span>
+                            <i class="uil uil-angle-down text-gray-400 text-xs"></i>
+                        </button>
+                        <!-- Model Info Dropdown -->
+                        <div class="absolute right-0 top-full mt-2 w-48 bg-[#1a1a24] border border-white/10 rounded-xl shadow-2xl p-3 hidden z-50">
+                            <h4 class="text-[10px] text-gray-500 uppercase tracking-widest mb-2 font-bold">Model Specs</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px]">
+                                    <span class="text-gray-400">Architecture</span>
+                                    <span class="text-blue-400 font-mono">Transformer</span>
+                                </div>
+                                <div class="flex justify-between text-[10px]">
+                                    <span class="text-gray-400">Params</span>
+                                    <span class="text-purple-400 font-mono">7 Billion</span>
+                                </div>
+                                <div class="flex justify-between text-[10px]">
+                                    <span class="text-gray-400">Context</span>
+                                    <span class="text-emerald-400 font-mono">32k Tokens</span>
+                                </div>
+                                <div class="pt-2 border-t border-white/5 mt-1">
+                                    <div class="flex items-center gap-1.5">
+                                        <i class="uil uil-shield-check text-green-500 text-xs"></i>
+                                        <span class="text-[9px] text-green-500/80 font-bold">Safety Guardrails Active</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="absolute top-4 right-4 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                    <span class="text-[8px] text-blue-500/80 font-bold uppercase tracking-widest">Nova AI active</span>
+
+                <!-- Chat Messages Area -->
+                <div class="flex-1 p-4 space-y-4 overflow-y-auto custom-scrollbar" id="chat-messages-${Math.random().toString(36).substr(2, 9)}">
+                    <!-- Bot Welcome -->
+                    <div class="flex items-start gap-3">
+                         <div class="w-8 h-8 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center shrink-0">
+                            <i class="uil uil-robot text-blue-500 text-xs"></i>
+                        </div>
+                        <div class="bg-blue-600/10 border border-blue-500/20 px-3 py-2 rounded-2xl rounded-tl-none text-[11px] text-blue-100 backdrop-blur-md max-w-[80%]">
+                            Systems initialized. Nova AI ready for interaction. How can I optimizing your workflow today?
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input Area -->
+                <div class="p-3 bg-black/40 backdrop-blur-md border-t border-white/5">
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="Type a command..." class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-[11px] text-white focus:outline-none focus:border-blue-500/50 transition-colors font-mono" onkeypress="handleChatInput(event, this)">
+                        <button class="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 hover:bg-blue-600/20 hover:border-blue-500/50 hover:text-blue-400 text-gray-400 transition-all group" onclick="toggleSpeech(this)">
+                            <i class="uil uil-microphone text-sm group-[.active]:animate-pulse group-[.active]:text-red-500"></i>
+                        </button>
+                    </div>
                 </div>
             </div>`;
 
@@ -2598,6 +2636,121 @@
         // Show popup after scrolling past hero section
         window.addEventListener('scroll', () => {
             if (!hasShown) {
+                // ... (rest of logic)
+            }
+        });
+
+        // Chatbot Logic
+        let speechEnabled = false;
+
+        window.handleChatInput = (e, input) => {
+            if (e.key === 'Enter' && input.value.trim() !== '') {
+                const text = input.value.trim();
+                const container = input.closest('.flex-col').querySelector('.space-y-4'); // Find message container
+                input.value = '';
+
+                // Add User Message
+                const userMsg = document.createElement('div');
+                userMsg.className = 'flex items-center gap-3 justify-end';
+                userMsg.innerHTML = `
+                    <div class="bg-gray-800/40 border border-white/5 px-3 py-2 rounded-xl rounded-tr-none text-[11px] text-gray-300 backdrop-blur-md max-w-[80%]">
+                        ${text}
+                    </div>
+                `;
+                container.appendChild(userMsg);
+                container.scrollTop = container.scrollHeight;
+
+                // Add Typing Indicator
+                const formattingBox = document.createElement('div');
+                formattingBox.className = 'flex items-center gap-3';
+                formattingBox.id = 'typing-indicator';
+                formattingBox.innerHTML = `
+                     <div class="w-8 h-8 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center shrink-0">
+                        <i class="uil uil-robot text-blue-500 text-xs"></i>
+                    </div>
+                    <div class="bg-blue-600/10 border border-blue-500/20 px-3 py-2 rounded-2xl rounded-tl-none backdrop-blur-md">
+                        <div class="flex gap-1">
+                            <span class="w-1 h-1 bg-blue-400 rounded-full animate-bounce"></span>
+                            <span class="w-1 h-1 bg-blue-400 rounded-full animate-bounce delay-100"></span>
+                            <span class="w-1 h-1 bg-blue-400 rounded-full animate-bounce delay-200"></span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(formattingBox);
+                container.scrollTop = container.scrollHeight;
+
+                // Generate Response
+                setTimeout(() => {
+                    container.removeChild(formattingBox);
+                    const response = generateResponse(text);
+
+                    const botMsg = document.createElement('div');
+                    botMsg.className = 'flex items-start gap-3';
+                    botMsg.innerHTML = `
+                         <div class="w-8 h-8 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center shrink-0">
+                            <i class="uil uil-robot text-blue-500 text-xs"></i>
+                        </div>
+                        <div class="bg-blue-600/10 border border-blue-500/20 px-3 py-2 rounded-2xl rounded-tl-none text-[11px] text-blue-100 backdrop-blur-md max-w-[80%]">
+                            ${response}
+                        </div>
+                    `;
+                    container.appendChild(botMsg);
+                    container.scrollTop = container.scrollHeight;
+
+                    if (speechEnabled) speakText(response);
+
+                }, 1000 + Math.random() * 1000);
+            }
+        };
+
+        window.toggleSpeech = (btn) => {
+            speechEnabled = !speechEnabled;
+            btn.classList.toggle('active');
+            btn.querySelector('i').className = speechEnabled ? 'uil uil-microphone-slash text-sm text-rose-500' : 'uil uil-microphone text-sm';
+
+            if (speechEnabled) {
+                const ut = new SpeechSynthesisUtterance("Voice output enabled.");
+                window.speechSynthesis.speak(ut);
+            }
+        };
+
+        const generateResponse = (input) => {
+            const lower = input.toLowerCase();
+            const responses = [
+                "Processing request... Analyzing system metrics.",
+                "I can certainly help with that. Accessing secure database.",
+                "Optimization complete. Efficiency increased by 14%.",
+                "Protocol executed successfully. Zero errors detected.",
+                "Scanning network for vulnerabilities... System secure.",
+                "Deploying new instance to the edge server.",
+                "That's outside my current parameter set, but I'm learning."
+            ];
+
+            if (lower.includes("hello") || lower.includes("hi")) return "Greetings, User. Systems represent optimal performance.";
+            if (lower.includes("status") || lower.includes("how are you")) return "Operating at 99.9% efficiency. All core systems nominal.";
+            if (lower.includes("help")) return "I am capable of code generation, system analysis, and data retrieval. What do you require?";
+            if (lower.includes("time")) return `Current server time is ${new Date().toLocaleTimeString()}.`;
+
+            return responses[Math.floor(Math.random() * responses.length)];
+        };
+
+        const speakText = (text) => {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Stop any current speech
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.pitch = 0.9; // Slightly lower pitch for robot feel
+                utterance.rate = 1.1;  // Slightly faster
+                // Try to find a good voice
+                const voices = window.speechSynthesis.getVoices();
+                const techVoice = voices.find(v => v.name.includes('Google US English') || v.name.includes('Samantha'));
+                if (techVoice) utterance.voice = techVoice;
+
+                window.speechSynthesis.speak(utterance);
+            }
+        };
+        // Scroll Event for Announcement
+        window.addEventListener('scroll', () => {
+            if (!hasShown) {
                 const heroSection = document.getElementById('home');
                 const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
 
@@ -2611,6 +2764,9 @@
         function showAnnouncement() {
             announcementPopup.classList.remove('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
             announcementPopup.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+
+            // Explicitly force style update to ensure visibility
+            announcementPopup.style.display = 'block';
 
             // Hide minimized
             minimizedAnnouncement.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
