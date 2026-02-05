@@ -1,0 +1,2778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jaxx | Full Stack Developer & AI Architect - Premium Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Turret+Road:wght@400;700&family=Montserrat:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <style>
+        :root {
+            --rose-600: #e11d48;
+            --rose-500: #f43f5e;
+            --bg-dark: #0d0d12;
+            --bg-card: #121218;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+
+        .signature-font {
+            font-family: 'Turret Road', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a24;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--rose-600);
+        }
+
+        /* Section Headings */
+        .section-title::before {
+            content: attr(data-heading);
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--rose-600);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Crafting Digital Excellence Animation */
+        .crafting-excellence {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: craftingGradient 6s ease infinite;
+            position: relative;
+        }
+
+        @keyframes craftingGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .crafting-excellence::after {
+            content: 'Crafting Digital Excellence';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: craftingGradient 6s ease infinite reverse;
+            opacity: 0.8;
+            filter: blur(2px);
+            z-index: -1;
+        }
+
+        /* Sidebar Navigation Rotation */
+        .vertical-nav {
+            transform: rotate(-90deg);
+            transform-origin: center;
+            white-space: nowrap;
+        }
+
+        /* June AI Animations */
+        @keyframes junePulse {
+            0% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(0.85);
+            }
+
+            100% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        /* Lastic.Dev Animations */
+        @keyframes grid-move {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(50px);
+            }
+        }
+
+        @keyframes scan {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        @keyframes data-flow {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            20% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Utility Classes */
+        .glass {
+            background: rgba(13, 13, 18, 0.8);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        /* Gradient Border Button Style */
+        .gradient-border-btn {
+            position: relative;
+            background: #0d0d12;
+            color: white;
+            z-index: 1;
+        }
+
+        .gradient-border-btn::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 9999px;
+            padding: 2px;
+            background: linear-gradient(to right, #e11d48, #9333ea, #4f46e5);
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .gradient-border-btn:hover {
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.4);
+        }
+
+        .details-link:hover .uil-arrow-right {
+            transform: translateX(12px);
+        }
+
+        .details-link:hover {
+            color: var(--rose-500);
+            filter: brightness(1.2);
+        }
+
+        /* Simplified Card Logic (No Flip) - Smooth Hover */
+        .project-card {
+            background-color: transparent;
+            height: 380px;
+            cursor: pointer;
+            perspective: 1000px;
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+            user-select: none;
+        }
+
+        /* Mobile-Specific Compacting - Fits in one proper window */
+        @media (max-width: 768px) {
+            .project-card {
+                height: 280px !important;
+            }
+
+            .card-front .p-4 {
+                padding: 1rem !important;
+            }
+
+            .card-front h3 {
+                font-size: 0.9rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+
+            .card-front .details-link {
+                font-size: 0.7rem !important;
+            }
+
+            .card-front span {
+                font-size: 9px !important;
+            }
+        }
+
+        .project-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card:hover .project-card-inner {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow:
+                0 20px 40px -10px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(225, 29, 72, 0.2);
+            border-color: rgba(225, 29, 72, 0.4);
+            outline: none !important;
+        }
+
+        .card-front {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            outline: none !important;
+        }
+
+        /* Purged legacy flip and mobile styles */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Arrow styling for mobile - Left side & flickering */
+        @media (max-width: 768px) {
+            .skill-toggle {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 1.5rem;
+            }
+
+            .skill-toggle .text-right {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .skill-toggle .flex.items-center.gap-4 {
+                width: 100%;
+            }
+
+            /* Target the arrow container specifically */
+            .skill-toggle .flex.items-center.gap-4>div:first-child {
+                border: 1px solid rgba(255, 30, 86, 0.3);
+                animation: mobile-arrow-flicker 2s infinite ease-in-out;
+            }
+        }
+
+        @keyframes mobile-arrow-flicker {
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 5px rgba(255, 30, 86, 0.2);
+            }
+
+            50% {
+                opacity: 0.6;
+                box-shadow: 0 0 0 rgba(255, 30, 86, 0);
+            }
+        }
+
+        /* Typewriter Cursor */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 0.8em;
+            background-color: var(--rose-600);
+            margin-left: 4px;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes toastIn {
+            from {
+                transform: translateX(100%) scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .toast-active {
+            animation: toastIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .glass-toast {
+            background: rgba(225, 29, 72, 0.1);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(225, 29, 72, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ========== SUPROSE PREMIUM ENHANCEMENTS ========== */
+
+        /* Premium Particle System */
+        .premium-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(225, 29, 72, 0.8), transparent);
+            border-radius: 50%;
+            animation: float-particle 15s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        @keyframes float-particle {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Enhanced Glassmorphism with Depth */
+        .glass-premium {
+            background: rgba(13, 13, 18, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow:
+                0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+
+        /* Premium Card Hover Effect */
+        .premium-card {
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg,
+                    rgba(225, 29, 72, 0.5),
+                    rgba(147, 51, 234, 0.5),
+                    rgba(79, 70, 229, 0.5));
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .premium-card:hover::before {
+            opacity: 1;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 20px 60px -10px rgba(225, 29, 72, 0.3),
+                0 0 40px rgba(225, 29, 72, 0.1);
+        }
+
+        /* Smooth Page Transitions */
+        .page-transition {
+            animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Premium Button with Ripple Effect */
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .btn-premium::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-premium:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.4);
+        }
+
+        /* Premium Text Gradient Animation */
+        .text-premium {
+            background: linear-gradient(135deg,
+                    #e11d48 0%,
+                    #f43f5e 25%,
+                    #9333ea 50%,
+                    #4f46e5 75%,
+                    #e11d48 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: premium-gradient 8s ease infinite;
+        }
+
+        @keyframes premium-gradient {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Staggered Entrance Animation */
+        @keyframes staggerFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-in {
+            animation: staggerFadeUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            opacity: 0;
+        }
+
+        /* Enhanced Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce-slow 2s infinite;
+        }
+
+        @keyframes bounce-slow {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* Premium Shadow Layers */
+        .shadow-premium {
+            box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.1),
+                0 8px 16px rgba(0, 0, 0, 0.1),
+                0 16px 32px rgba(0, 0, 0, 0.1),
+                0 32px 64px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Magnetic Hover Effect */
+        .magnetic {
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* Premium Loading Animation */
+        .loading-premium {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+
+        .loading-premium::before,
+        .loading-premium::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #e11d48;
+        }
+
+        .loading-premium::before {
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-premium::after {
+            width: 30px;
+            height: 30px;
+            top: 10px;
+            left: 10px;
+            border-top-color: #9333ea;
+            animation: spin 0.7s linear infinite reverse;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Enhanced Typewriter with Glow */
+        #typewriter {
+            text-shadow:
+                0 0 10px rgba(225, 29, 72, 0.5),
+                0 0 20px rgba(225, 29, 72, 0.3),
+                0 0 30px rgba(225, 29, 72, 0.2);
+        }
+
+        /* Premium Skill Bar Animation */
+        .skill-progress {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(400%);
+            }
+        }
+
+        /* Purged redundant project card outer shadow to fix blue line artifact */
+
+        /* Smooth Section Transitions */
+        section {
+            animation: section-fade 0.8s ease-out;
+        }
+
+        @keyframes section-fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Premium Cursor Trail Effect */
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(225, 29, 72, 0.3), transparent);
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease-out;
+        }
+
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .premium-card:hover {
+                transform: translateY(-4px) scale(1.01);
+            }
+
+            .particle {
+                width: 2px;
+                height: 2px;
+            }
+        }
+
+        /* Premium Focus States */
+        *:focus-visible {
+            outline: 2px solid rgba(225, 29, 72, 0.5);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        /* Premium Selection */
+        ::selection {
+            background: rgba(225, 29, 72, 0.3);
+            color: white;
+        }
+
+        /* Enhanced Backdrop Blur Support */
+        @supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
+            .glass-premium {
+                background: rgba(13, 13, 18, 0.6);
+            }
+        }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.29.2"
+  }
+}
+</script>
+</head>
+
+<body>
+
+    <!-- Mobile Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-2 glass lg:hidden">
+        <div class="w-10 h-10 bg-rose-600 rounded-full flex items-center justify-center shadow-lg shadow-rose-900/20">
+            <span class="text-lg font-bold text-white">J</span>
+        </div>
+        <button id="mobile-menu-btn" class="text-white text-2xl focus:outline-none">
+            <i class="uil uil-bars"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-[#0d0d12]/95 backdrop-blur-xl hidden flex-col items-center justify-center transition-all duration-300">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-400 hover:text-white text-3xl">
+            <i class="uil uil-times"></i>
+        </button>
+        <nav class="text-center space-y-8">
+            <a href="#home"
+                class="mobile-link block text-2xl font-bold text-white hover:text-rose-500 transition-colors">Home</a>
+            <a href="#about"
+                class="mobile-link block text-2xl font-bold text-white hover:text-rose-500 transition-colors">About</a>
+            <a href="#skills"
+                class="mobile-link block text-2xl font-bold text-white hover:text-rose-500 transition-colors">Skills</a>
+            <a href="#work"
+                class="mobile-link block text-2xl font-bold text-white hover:text-rose-500 transition-colors">Work</a>
+            <a href="#contact"
+                class="mobile-link block text-2xl font-bold text-white hover:text-rose-500 transition-colors">Contact</a>
+        </nav>
+        <div class="mt-12 flex gap-6">
+            <a href="javascript:void(0)" onclick="showComingSoon('GitHub')"
+                class="text-gray-400 hover:text-rose-500 text-2xl"><i class="uil uil-github-alt"></i></a>
+            <a href="https://www.linkedin.com/in/jackvdmerwe1990/" target="_blank"
+                class="text-gray-400 hover:text-rose-500 text-2xl"><i class="uil uil-linkedin-alt"></i></a>
+            <a href="javascript:void(0)" onclick="showComingSoon('Facebook')"
+                class="text-gray-400 hover:text-rose-500 text-2xl"><i class="uil uil-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="fixed inset-y-0 left-0 z-50 w-[100px] hidden lg:flex flex-col glass py-8">
+        <div
+            class="mx-auto w-12 h-12 bg-rose-600 rounded-full flex items-center justify-center shadow-lg shadow-rose-900/20 group cursor-pointer transition-transform hover:scale-110">
+            <span class="text-xl font-bold text-white group-hover:rotate-12 transition-transform">J</span>
+        </div>
+        <div class="flex-1 flex items-center justify-center">
+            <nav class="vertical-nav">
+                <ul class="flex flex-row-reverse space-x-reverse space-x-12 items-center">
+                    <li><a href="#home"
+                            class="nav-link text-[11px] uppercase tracking-[0.2em] font-bold text-gray-500 hover:text-white transition-colors">Home</a>
+                    </li>
+                    <li><a href="#about"
+                            class="nav-link text-[11px] uppercase tracking-[0.2em] font-bold text-gray-500 hover:text-white transition-colors">About</a>
+                    </li>
+                    <li><a href="#skills"
+                            class="nav-link text-[11px] uppercase tracking-[0.2em] font-bold text-gray-500 hover:text-white transition-colors">Skills</a>
+                    </li>
+                    <li><a href="#work"
+                            class="nav-link text-[11px] uppercase tracking-[0.2em] font-bold text-gray-500 hover:text-white transition-colors">Work</a>
+                    </li>
+                    <li><a href="#contact"
+                            class="nav-link text-[11px] uppercase tracking-[0.2em] font-bold text-gray-500 hover:text-white transition-colors">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mt-auto mx-auto flex flex-col items-center space-y-4">
+            <a href="javascript:void(0)" onclick="showComingSoon('GitHub')"
+                class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
+                    class="uil uil-github-alt text-xl"></i></a>
+            <a href="https://www.linkedin.com/in/jackvdmerwe1990/" target="_blank"
+                class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
+                    class="uil uil-linkedin-alt text-xl"></i></a>
+            <a href="javascript:void(0)" onclick="showComingSoon('Facebook')"
+                class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
+                    class="uil uil-facebook-f text-xl"></i></a>
+            <a href="javascript:void(0)" onclick="showComingSoon('Instagram')"
+                class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
+                    class="uil uil-instagram text-xl"></i></a>
+            <a href="javascript:void(0)" onclick="showComingSoon('YouTube')"
+                class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
+                    class="uil uil-youtube text-xl"></i></a>
+            <div class="w-[1px] h-20 bg-gradient-to-t from-gray-800 to-transparent"></div>
+        </div>
+    </aside>
+
+    <main class="lg:ml-[100px] lg:pt-0">
+        <!-- Hero Section -->
+        <section id="home" class="relative h-[100vh] flex items-center justify-center overflow-hidden bg-black">
+            <div class="absolute inset-0">
+                <video autoPlay muted loop playsInline class="w-full h-full object-cover brightness-[0.4]">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2408-large.mp4"
+                        type="video/mp4" />
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0d0d12]/60 via-transparent to-[#0d0d12]/30"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-16 lg:pt-0">
+                <span
+                    class="inline-block px-4 py-1.5 rounded-full bg-rose-600/10 border border-rose-500/20 text-rose-500 text-xs font-semibold uppercase tracking-widest mb-4 lg:mb-6">Available
+                    for new projects</span>
+                <h1 class="text-5xl md:text-8xl font-bold text-white mb-4 lg:mb-6 tracking-tight">Hi, I'm <span
+                        id="typewriter" class="text-rose-600">Jaxx</span><span class="typewriter-cursor"></span></h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-6 lg:mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Crafting exceptional digital experiences as a <span class="text-white font-medium">Full Stack
+                        Developer</span> specialized in building high-performance systems.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#work"
+                        class="px-8 py-4 bg-rose-600 text-white rounded-xl font-semibold hover:scale-105 transition-transform shadow-xl shadow-rose-900/20">View
+                        Projects</a>
+                    <a href="#contact"
+                        class="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-semibold hover:bg-white/10 transition-all">Get
+                        in touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Announcement Popup -->
+        <div id="announcement-popup"
+            class="fixed top-24 right-8 lg:right-12 z-50 opacity-0 translate-y-[-20px] transition-all duration-700 ease-out pointer-events-none">
+            <div
+                class="relative bg-gradient-to-r from-rose-600 via-purple-600 to-indigo-600 p-[2px] rounded-2xl shadow-2xl shadow-rose-600/25">
+                <div class="bg-[#0d0d12] rounded-2xl p-6 relative overflow-hidden">
+                    <!-- Animated Background Elements -->
+                    <div class="absolute inset-0 opacity-10">
+                        <div
+                            class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-rose-600/20 to-purple-600/20 animate-pulse">
+                        </div>
+                        <div class="absolute top-2 right-2 w-4 h-4 bg-rose-500 rounded-full animate-ping"></div>
+                        <div class="absolute bottom-2 left-2 w-3 h-3 bg-purple-500 rounded-full animate-ping"
+                            style="animation-delay: 0.5s"></div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="relative z-10 text-center">
+                        <div class="inline-flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 bg-rose-500 rounded-full animate-pulse"></div>
+                            <span class="text-rose-400 text-xs font-bold uppercase tracking-widest">Breaking News</span>
+                            <div class="w-2 h-2 bg-rose-500 rounded-full animate-pulse"></div>
+                        </div>
+
+                        <h3 class="text-white font-bold text-lg mb-2 leading-tight">
+                            First Available Software<br>
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-purple-400">Dropping
+                                in a Week!!!</span>
+                        </h3>
+
+                        <p class="text-gray-400 text-sm mb-4">Stay tuned for something revolutionary</p>
+
+                        <div class="flex items-center justify-center gap-2">
+                            <div class="flex gap-1">
+                                <div class="w-1 h-4 bg-rose-500 rounded-full animate-bounce"></div>
+                                <div class="w-1 h-4 bg-purple-500 rounded-full animate-bounce"
+                                    style="animation-delay: 0.1s"></div>
+                                <div class="w-1 h-4 bg-indigo-500 rounded-full animate-bounce"
+                                    style="animation-delay: 0.2s"></div>
+                            </div>
+                            <span class="text-rose-400 text-xs font-medium">Get Ready</span>
+                            <div class="flex gap-1">
+                                <div class="w-1 h-4 bg-indigo-500 rounded-full animate-bounce"
+                                    style="animation-delay: 0.3s"></div>
+                                <div class="w-1 h-4 bg-purple-500 rounded-full animate-bounce"
+                                    style="animation-delay: 0.4s"></div>
+                                <div class="w-1 h-4 bg-rose-500 rounded-full animate-bounce"
+                                    style="animation-delay: 0.5s"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Close Button Moved Outside overflow-hidden -->
+                <button id="close-announcement"
+                    class="absolute -top-3 -right-3 w-8 h-8 bg-rose-600 rounded-full flex items-center justify-center text-white text-sm hover:bg-rose-700 transition-colors z-[60] shadow-lg border-2 border-[#0d0d12]">
+                    <i class="uil uil-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Minimized Announcement Icon -->
+        <button id="minimized-announcement"
+            class="fixed bottom-24 right-8 z-40 w-12 h-12 bg-gradient-to-r from-rose-600 to-purple-600 rounded-full flex items-center justify-center text-white text-xl shadow-xl shadow-rose-600/30 hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-20 pointer-events-none group">
+            <div class="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full animate-bounce shadow-sm"></div>
+            <i class="uil uil-bell animate-swing"></i>
+            <!-- Tooltip -->
+            <span
+                class="absolute right-full mr-4 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity translate-x-2 group-hover:translate-x-0 hidden md:block">
+                New Update!
+            </span>
+        </button>
+
+        <!-- About Section -->
+        <section id="about" class="py-4 lg:py-32 px-6 lg:px-20 reveal">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
+                        data-heading="My Intro">About Me</h2>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-4 bg-rose-600/10 rounded-3xl blur-2xl opacity-50"></div>
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="https://i.postimg.cc/Df1cGhWc/1770228379822.png"
+                                class="w-full object-cover h-[500px] transition-all duration-700 hover:scale-105">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 leading-relaxed mb-10 text-lg text-center">I'm a passionate Full Stack
+                            Developer and AI Architect based in Pretoria. I specialize in the modern web stack and
+                            cutting-edge artificial intelligence, constantly innovating my work to bring visionary ideas
+                            to life
+                            with clean, scalable code and intelligent systems that push the boundaries of what's
+                            possible.</p>
+                        <div class="grid grid-cols-3 gap-4 mb-12">
+                            <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center">
+                                <i class="uil uil-award text-2xl text-rose-500 mb-2 block"></i>
+                                <h4 class="text-white font-bold text-xs">3+ Years</h4>
+                            </div>
+                            <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center">
+                                <i class="uil uil-check-circle text-2xl text-rose-500 mb-2 block"></i>
+                                <h4 class="text-white font-bold text-xs"><span id="project-counter">0</span>+ Projects
+                                </h4>
+                            </div>
+                            <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center">
+                                <i class="uil uil-clock text-2xl text-rose-500 mb-2 block"></i>
+                                <h4 class="text-white font-bold text-xs"><span id="availability-counter">0</span>/7
+                                    Remote</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 lg:py-32 px-6 lg:px-20 bg-[#0A0A0C] reveal">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
+                        data-heading="Expertise">Technical Skills</h2>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <!-- Expandable Skill Lists Only -->
+                    <div class="space-y-6">
+                        <!-- Frontend Skills Expandable (Expanded by Default) -->
+                        <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden">
+                            <button
+                                class="w-full p-6 flex items-center justify-between hover:bg-white/[0.05] transition-all group skill-toggle"
+                                data-skill="frontend">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-10 h-10 bg-[#FF1E56]/10 rounded-lg flex items-center justify-center text-[#FF1E56]">
+                                        <i class="uil uil-angle-right text-sm transition-transform skill-arrow"
+                                            style="transform: rotate(90deg)"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h4 class="text-white font-bold text-lg">Frontend Developer</h4>
+                                        <p class="text-[#CCCCCC] text-xs mt-1">Click to collapse skills</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-[#FF1E56] text-sm font-medium">95%</span>
+                                    <p class="text-[#CCCCCC] text-xs">4 skills</p>
+                                </div>
+                            </button>
+                            <div class="skill-content border-t border-white/5 p-6 space-y-4" id="frontend-skills">
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">HTML/CSS</span>
+                                        <span class="text-[#FF1E56] text-sm">95%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="95%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">JavaScript</span>
+                                        <span class="text-[#FF1E56] text-sm">90%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="90%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">React</span>
+                                        <span class="text-[#FF1E56] text-sm">85%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="85%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">Tailwind CSS</span>
+                                        <span class="text-[#FF1E56] text-sm">88%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="88%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UI/UX Skills Expandable (Collapsed by Default) -->
+                        <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden">
+                            <button
+                                class="w-full p-6 flex items-center justify-between hover:bg-white/[0.05] transition-all group skill-toggle"
+                                data-skill="design">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-10 h-10 bg-[#FF1E56]/10 rounded-lg flex items-center justify-center text-[#FF1E56]">
+                                        <i class="uil uil-angle-right text-sm transition-transform skill-arrow"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h4 class="text-white font-bold text-lg">UI/UX Design</h4>
+                                        <p class="text-[#CCCCCC] text-xs mt-1">Click to expand skills</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-[#FF1E56] text-sm font-medium">92%</span>
+                                    <p class="text-[#CCCCCC] text-xs">4 skills</p>
+                                </div>
+                            </button>
+                            <div class="skill-content hidden border-t border-white/5 p-6 space-y-4" id="design-skills">
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">Figma</span>
+                                        <span class="text-[#FF1E56] text-sm">92%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="92%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">Sketch</span>
+                                        <span class="text-[#FF1E56] text-sm">85%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="85%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">Photoshop</span>
+                                        <span class="text-[#FF1E56] text-sm">80%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="80%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">Framer</span>
+                                        <span class="text-[#FF1E56] text-sm">70%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="70%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Backend Skills Expandable (Collapsed by Default) -->
+                        <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden">
+                            <button
+                                class="w-full p-6 flex items-center justify-between hover:bg-white/[0.05] transition-all group skill-toggle"
+                                data-skill="backend">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-10 h-10 bg-[#FF1E56]/10 rounded-lg flex items-center justify-center text-[#FF1E56]">
+                                        <i class="uil uil-angle-right text-sm transition-transform skill-arrow"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h4 class="text-white font-bold text-lg">Backend Developer</h4>
+                                        <p class="text-[#CCCCCC] text-xs mt-1">Click to expand skills</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-[#FF1E56] text-sm font-medium">90%</span>
+                                    <p class="text-[#CCCCCC] text-xs">4 skills</p>
+                                </div>
+                            </button>
+                            <div class="skill-content hidden border-t border-white/5 p-6 space-y-4" id="backend-skills">
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">Firebase</span>
+                                        <span class="text-[#FF1E56] text-sm">90%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="90%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">PHP</span>
+                                        <span class="text-[#FF1E56] text-sm">85%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="85%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">Python</span>
+                                        <span class="text-[#FF1E56] text-sm">88%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="88%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-white font-medium">GitHub</span>
+                                        <span class="text-[#FF1E56] text-sm">90%</span>
+                                    </div>
+                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
+                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
+                                            data-width="90%" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tools & Power Stack Expandable (Collapsed by Default) -->
+                            <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden">
+                                <button
+                                    class="w-full p-6 flex items-center justify-between hover:bg-white/[0.05] transition-all group skill-toggle"
+                                    data-skill="tools">
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="w-10 h-10 bg-[#FF1E56]/10 rounded-lg flex items-center justify-center text-[#FF1E56]">
+                                            <i class="uil uil-angle-right text-sm transition-transform skill-arrow"></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <h4 class="text-white font-bold text-lg">Power Stack & Creative Tools</h4>
+                                            <p class="text-[#CCCCCC] text-xs mt-1">Creative & Dev ecosystem</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-[#FF1E56] text-sm font-medium">Expert</span>
+                                        <p class="text-[#CCCCCC] text-xs">7 tools</p>
+                                    </div>
+                                </button>
+                                <div class="skill-content hidden border-t border-white/5 p-8" id="tools-skills">
+                                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                                        <!-- After Effects -->
+                                        <div
+                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-rose-500/10 hover:border-rose-500/30 transition-all group/tool">
+                                            <div
+                                                class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-500 group-hover/tool:scale-110 transition-transform">
+                                                <i class="uil uil-video text-2xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300">After Effects</span>
+                                        </div>
+                                        <!-- Blender -->
+                                        <div
+                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-orange-500/10 hover:border-orange-500/30 transition-all group/tool">
+                                            <div
+                                                class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center text-orange-500 group-hover/tool:scale-110 transition-transform">
+                                                <i class="uil uil-cube text-2xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300">Blender 3D</span>
+                                        </div>
+                                        <!-- FL Studio -->
+                                        <div
+                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all group/tool">
+                                            <div
+                                                class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center text-yellow-500 group-hover/tool:scale-110 transition-transform">
+                                                <i class="uil uil-music text-2xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300">FL Studio</span>
+                                        </div>
+                                        <!-- Framer -->
+                                        <div
+                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-blue-500/10 hover:border-blue-500/30 transition-all group/tool">
+                                            <div
+                                                class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-500 group-hover/tool:scale-110 transition-transform">
+                                                <i class="uil uil-brush-alt text-2xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300">Framer</span>
+                                        </div>
+                                        <!-- Lovable -->
+                                        <div
+                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-rose-500/10 hover:border-rose-500/30 transition-all group/tool">
+                                            <div
+                                                class="w-12 h-12 bg-rose-500/10 rounded-lg flex items-center justify-center text-rose-500 group-hover/tool:scale-110 transition-transform">
+                                                <i class="uil uil-heart text-2xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300">Lovable</span>
+                                        </div>
+                                        <!-- Bolt -->
+                                        <div
+                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all group/tool">
+                                            <div
+                                                class="w-12 h-12 bg-yellow-600/10 rounded-lg flex items-center justify-center text-yellow-500 group-hover/tool:scale-110 transition-transform">
+                                                <i class="uil uil-bolt text-2xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300">Bolt AI</span>
+                                        </div>
+                                        <!-- Android Studio -->
+                                        <div
+                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-green-500/10 hover:border-green-500/30 transition-all group/tool">
+                                            <div
+                                                class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center text-green-500 group-hover/tool:scale-110 transition-transform">
+                                                <i class="uil uil-android text-2xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300">Android Studio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="work" class="py-16 lg:py-32 px-6 lg:px-20 bg-[#0d0d12]">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
+                        data-heading="Recent Work">Recent Work</h2>
+                </div>
+
+                <div class="flex justify-center flex-wrap gap-4 mb-16" id="filter-buttons">
+                    <button
+                        class="filter-btn px-8 py-2.5 rounded-full font-medium bg-gradient-to-r from-rose-600 to-purple-600 text-white shadow-lg shadow-rose-600/20"
+                        data-filter="all">All</button>
+                    <button
+                        class="filter-btn px-8 py-2.5 rounded-full font-medium text-gray-400 bg-white/5 hover:bg-white/10 border border-transparent"
+                        data-filter="web">Web</button>
+                    <button
+                        class="filter-btn px-8 py-2.5 rounded-full font-medium text-gray-400 bg-white/5 hover:bg-white/10 border border-transparent"
+                        data-filter="app">Apps</button>
+                    <button
+                        class="filter-btn px-8 py-2.5 rounded-full font-medium text-gray-400 bg-white/5 hover:bg-white/10 border border-transparent"
+                        data-filter="software">Software</button>
+                    <button
+                        class="filter-btn px-8 py-2.5 rounded-full font-medium text-gray-400 bg-white/5 hover:bg-white/10 border border-transparent"
+                        data-filter="ai">AI Software</button>
+                </div>
+
+                <!-- Mobile Carousel Container -->
+                <div class="relative md:hidden">
+                    <!-- Left Arrow -->
+                    <button id="mobile-prev"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-rose-600/80 rounded-full flex items-center justify-center text-white shadow-lg -translate-x-4 transition-all duration-300 hover:bg-rose-600 hover:scale-110 active:scale-95">
+                        <i class="uil uil-arrow-left transition-transform duration-300"></i>
+                    </button>
+
+                    <!-- Projects Carousel -->
+                    <div class="overflow-hidden mx-8">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 transition-transform duration-300 ease-in-out"
+                            id="projects-grid">
+                            <!-- Projects will be injected here via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Right Arrow -->
+                    <button id="mobile-next"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-rose-600/80 rounded-full flex items-center justify-center text-white shadow-lg translate-x-4 transition-all duration-300 hover:bg-rose-600 hover:scale-110 active:scale-95">
+                        <i class="uil uil-arrow-right transition-transform duration-300"></i>
+                    </button>
+                </div>
+
+                <!-- Desktop Grid -->
+                <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid-desktop">
+                    <!-- Projects will be injected here via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-12 lg:py-32 px-6 lg:px-20 bg-[#121218] reveal">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-8 lg:mb-20">
+                    <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
+                        data-heading="Get In Touch">My Details</h2>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+                    <div class="space-y-6">
+                        <div id="email-trigger"
+                            class="flex items-center gap-5 lg:gap-6 p-5 lg:p-6 bg-white/[0.03] border border-white/5 rounded-2xl cursor-pointer hover:bg-white/10 transition-all hover:scale-[1.02] group">
+                            <!-- ... -->
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-rose-600/10 rounded-xl flex items-center justify-center text-rose-500 text-xl lg:text-2xl group-hover:scale-110 transition-transform flex-shrink-0">
+                                <i class="uil uil-envelope"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white font-bold text-sm">Email</h4>
+                                <p
+                                    class="text-gray-500 text-xs lg:text-sm group-hover:text-rose-500 transition-colors truncate">
+                                    lasticproductions247@gmail.com</p>
+                            </div>
+                        </div>
+                        <div id="whatsapp-trigger"
+                            class="flex items-center gap-5 lg:gap-6 p-5 lg:p-6 bg-white/[0.03] border border-white/5 rounded-2xl cursor-pointer hover:bg-white/10 transition-all hover:scale-[1.02] group">
+                            <div
+                                class="w-12 h-12 lg:w-14 lg:h-14 bg-rose-600/10 rounded-xl flex items-center justify-center text-rose-500 text-xl lg:text-2xl group-hover:scale-110 transition-transform flex-shrink-0">
+                                <i class="uil uil-whatsapp"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white font-bold text-sm">WhatsApp</h4>
+                                <p
+                                    class="text-gray-500 text-xs lg:text-sm group-hover:text-rose-500 transition-colors truncate">
+                                    +27 76 364 3994</p>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-8 text-center lg:hidden">Talk to me</h3>
+                    </div>
+                    <div class="bg-white/[0.03] border border-white/5 p-6 lg:p-10 rounded-[2rem] lg:rounded-[2.5rem]">
+                        <form class="space-y-6 lg:space-y-8">
+                            <input type="text" placeholder="Full Name"
+                                class="w-full bg-transparent border-b-2 border-white/10 py-3 lg:py-4 text-white focus:outline-none focus:border-rose-600 transition-colors">
+                            <input type="email" placeholder="Email Address"
+                                class="w-full bg-transparent border-b-2 border-white/10 py-3 lg:py-4 text-white focus:outline-none focus:border-rose-600 transition-colors">
+                            <textarea placeholder="Message" rows="4"
+                                class="w-full bg-transparent border-b-2 border-white/10 py-3 lg:py-4 text-white focus:outline-none focus:border-rose-600 transition-colors"></textarea>
+                            <button type="button"
+                                class="w-full lg:w-auto px-10 py-4 bg-rose-600 text-white rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-rose-900/20">Send
+                                Message</button>
+                        </form>
+                    </div>
+
+                    <!-- WhatsApp Modal -->
+                    <div id="whatsapp-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6">
+                        <div class="absolute inset-0 bg-black/95 backdrop-blur-xl" id="wa-modal-overlay"></div>
+                        <div
+                            class="relative bg-[#121218] w-full max-w-lg rounded-3xl border border-white/10 shadow-2xl p-8 lg:p-10">
+                            <button id="close-wa-modal" class="absolute top-6 right-6 text-gray-400 hover:text-white">
+                                <i class="uil uil-times text-2xl"></i>
+                            </button>
+                            <div class="text-center mb-8">
+                                <div
+                                    class="w-16 h-16 bg-rose-600/10 rounded-2xl flex items-center justify-center text-rose-500 text-3xl mx-auto mb-4">
+                                    <i class="uil uil-whatsapp"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-2">Send WhatsApp Message</h3>
+                                <p class="text-gray-400 text-sm">Type your message below to chat with Jaxx.</p>
+                            </div>
+                            <div class="space-y-6">
+                                <textarea id="wa-message" placeholder="Hi Jaxx, I'd like to talk about..." rows="4"
+                                    class="w-full bg-white/[0.03] border border-white/10 rounded-xl py-4 px-4 text-white focus:outline-none focus:border-rose-600 transition-colors"></textarea>
+                                <button id="send-wa-btn"
+                                    class="w-full py-4 bg-rose-600 text-white rounded-xl font-bold hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                                    Open WhatsApp <i class="uil uil-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Modal -->
+                    <div id="email-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6">
+                        <div class="absolute inset-0 bg-black/95 backdrop-blur-xl" id="email-modal-overlay"></div>
+                        <div
+                            class="relative bg-[#121218] w-full max-w-lg rounded-3xl border border-white/10 shadow-2xl p-8 lg:p-10">
+                            <button id="close-email-modal"
+                                class="absolute top-6 right-6 text-gray-400 hover:text-white">
+                                <i class="uil uil-times text-2xl"></i>
+                            </button>
+                            <div class="text-center mb-8">
+                                <div
+                                    class="w-16 h-16 bg-rose-600/10 rounded-2xl flex items-center justify-center text-rose-500 text-3xl mx-auto mb-4">
+                                    <i class="uil uil-envelope"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-2">Send an Email</h3>
+                                <p class="text-gray-400 text-sm">Write your message and I'll get back to you soon.</p>
+                            </div>
+                            <div class="space-y-6">
+                                <input type="text" id="email-subject" placeholder="Subject"
+                                    class="w-full bg-white/[0.03] border border-white/10 rounded-xl py-4 px-4 text-white focus:outline-none focus:border-rose-600 transition-colors">
+                                <textarea id="email-message" placeholder="Hi Jaxx, I'm interested in..." rows="4"
+                                    class="w-full bg-white/[0.03] border border-white/10 rounded-xl py-4 px-4 text-white focus:outline-none focus:border-rose-600 transition-colors"></textarea>
+                                <button id="send-email-btn"
+                                    class="w-full py-4 bg-rose-600 text-white rounded-xl font-bold hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                                    Open Email Client <i class="uil uil-envelope-send"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-20 px-6 lg:px-20 border-t border-white/5 text-center">
+            <h1 class="text-3xl font-bold text-white mb-6">Jaxx<span class="text-rose-600">.</span></h1>
+
+            <!-- Professional Links -->
+            <div class="flex flex-wrap justify-center gap-4 lg:gap-8 mb-10">
+                <a href="resume-jaxx.html"
+                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-6 py-3 rounded-xl transition-all hover:bg-white/5">
+                    <i class="uil uil-file-alt mr-2"></i> Professional Resume
+                </a>
+                <a href="resume-visual.html"
+                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-6 py-3 rounded-xl transition-all hover:bg-white/5">
+                    <i class="uil uil-chart-matrix mr-2"></i> Visual Matrix
+                </a>
+                <a href="nova-chatbot-preview.html"
+                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-6 py-3 rounded-xl transition-all hover:bg-white/5">
+                    <i class="uil uil-robot mr-2"></i> Nova AI Chat
+                </a>
+            </div>
+
+            <!-- Mobile Social Icons -->
+            <div class="flex justify-center gap-6 mb-8 lg:hidden">
+                <a href="https://www.linkedin.com/in/jackvdmerwe1990/" target="_blank"
+                    class="text-gray-400 hover:text-rose-500 text-2xl transition-colors"><i
+                        class="uil uil-linkedin-alt"></i></a>
+                <a href="https://github.com/jackvdmerwe" target="_blank"
+                    class="text-gray-400 hover:text-rose-500 text-2xl transition-colors"><i
+                        class="uil uil-github-alt"></i></a>
+            </div>
+
+            <p class="text-gray-600 text-[10px] uppercase tracking-tighter">© 2026 LASTIC PRODUCTIONS · CRAFTED BY JAXX
+                WITH <span class="text-rose-600">❤</span></p>
+        </footer>
+    </main>
+
+    <!-- Project Modal Template -->
+    <div id="project-modal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 lg:p-6 opacity-0 transition-all duration-500 ease-out backdrop-blur-0">
+        <div class="absolute inset-0 bg-black/80 transition-opacity duration-500 opacity-0" id="modal-overlay"></div>
+        <div id="modal-container"
+            class="relative bg-[#121218]/90 backdrop-blur-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] p-8 lg:p-12 transform scale-90 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
+            <button id="close-modal"
+                class="absolute top-6 right-6 text-gray-400 hover:text-white z-[110] transition-transform hover:rotate-90">
+                <i class="uil uil-times text-3xl"></i>
+            </button>
+            <div id="modal-content" class="flex flex-col gap-6 lg:gap-8">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const toggleMenu = () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+            } else {
+                mobileMenu.classList.add('opacity-0');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('flex');
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        };
+
+        mobileMenuBtn.onclick = toggleMenu;
+        closeMobileMenuBtn.onclick = toggleMenu;
+        mobileLinks.forEach(link => link.onclick = toggleMenu);
+
+        // Project Data
+        const projects = [
+            { id: '1', title: 'Phoneboxx E-commerce', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.phoneboxx.co.za?w=1280', tech: ['React', 'Shopify'], link: 'https://phoneboxx.co.za/', desc: 'Crafted by Jaxx to revolutionize e-commerce, integrating seamless Shopify flows with a custom React frontend for peak performance.', date: 'March 2023', role: 'Team Project' },
+            { id: '2', title: 'Medical Insight', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.medical-insight-solutions.co.za?w=1280', tech: ['Next.js', 'PostgreSQL'], link: 'https://www.medical-insight-solutions.co.za', desc: 'A healthcare solution engineered by Jaxx to bridge the gap between patient data and medical records using secure, scalable architecture.', date: 'June 2024', role: 'Team Project' },
+            { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WebSocket', 'D3.js'], link: 'https://www.vaultfunder.trade', desc: 'Architected for Serious Traders as one of South Africa\'s largest trading platforms, providing elite market access and real-time insights.', date: 'September 2024', role: 'Team Project' },
+            { id: '9', title: 'Brokers Select', category: 'web', type: 'brokers', tech: ['Next.js', 'PostgreSQL', 'Tailwind CSS'], link: 'https://brokersselect.com/', desc: 'Designed by Jaxx to simplify the Forex landscape, comparing top brokers through a premium, data-driven fintech interface.', date: 'November 2024', role: 'Team Project' },
+            { id: '7', title: 'Lisbon Hideaway', category: 'web', type: 'lisbon', tech: ['HTML5', 'CSS3', 'JavaScript'], desc: 'A boutique travel platform built by Jaxx, focusing on immersive storytelling and pixel-perfect responsive motion design.', date: 'February 2026', role: 'Solo Architect & Developer' },
+            { id: '4', title: 'June AI', category: 'app', type: 'june', tech: ['Python', 'Neural Networks'], desc: 'Jaxx developed June AI to push neural networking boundaries, creating an app that learns and adapts to user behavior in real-time.', date: 'April 2026', role: 'Solo Architect & Developer' },
+            { id: '5', title: 'Lastic.Dev', category: 'software', type: 'lastic', tech: ['Rust', 'WebAssembly'], desc: 'An elite developer ecosystem forged by Jaxx, leveraging Rust and WASM to deliver blistering performance for modern web apps.', date: 'June 2026', role: 'Solo Architect & Developer' },
+            { id: '6', title: 'Lastic IDE', category: 'software', type: 'ide', tech: ['Python', 'AI-Powered', 'Real-time'], desc: "Jaxx's specialized AI-integrated development environment, optimized for real-time coding efficiency and intelligent auto-completion.", date: 'August 2026', role: 'Solo Architect & Developer' },
+            { id: '8', title: 'Neural Nexus', category: 'ai', type: 'nexus', tech: ['PyTorch', 'Transformer', 'NLP'], desc: 'A powerhouse NLP research project by Jaxx, utilizing Transformer models to process and understand complex human-AI interactions.', date: 'October 2026', role: 'Solo Architect & Developer' },
+            { id: '10', title: 'Nova AI Chatbot', category: 'app', type: 'chatbot', tech: ['OpenAI', 'Next.js', 'Tailwind'], desc: "Jaxx's flagship conversational agent, blending OpenAI intelligence with a custom-built, ultra-responsive Next.js interface.", date: 'November 2026', role: 'Solo Architect & Developer' },
+            { id: '11', title: 'Aura Voice Intelligence', category: 'app', type: 'voice', tech: ['Whisper AI', 'PyTorch', 'FastAPI'], desc: 'A cutting-edge voice assistant system by Jaxx, specializing in Whisper AI integration for flawless speech-to-intent processing.', date: 'December 2026', role: 'Solo Architect & Developer' },
+            { id: '12', title: 'Lastic AGI Agent', category: 'ai', type: 'agent', tech: ['LangChain', 'AutoGPT', 'Python'], desc: "Jaxx's autonomous agentic model designed for complex task orchestration, utilizing advanced LangChain reasoning loops.", date: 'January 2027', role: 'Solo Architect & Developer' },
+            { id: '13', title: 'Aether Avatar', category: 'ai', type: 'avatar', tech: ['Stable Diffusion', 'DeepFace', 'TensorFlow'], desc: 'An AI-powered avatar engine created by Jaxx, using Stable Diffusion to generate hyper-realistic digital identities for the web.', date: 'February 2027', role: 'Solo Architect & Developer' },
+            { id: '14', title: 'Lastic Local AI', category: 'ai', type: 'localai', tech: ['Llama 3', 'GGUF', 'C++', 'Python'], desc: 'A high-performance local inference engine built by Jaxx, allowing users to run large language models entirely offline with zero data leakage.', date: 'March 2027', role: 'Solo Architect & Developer' }
+        ];
+
+        // Custom Previews
+        const getJunePreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#0a0a14] overflow-hidden font-['Montserrat'] group/june ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-[3000ms] group-hover/june:scale-110" style="background-image: url('https://picsum.photos/seed/ai-glow/1280/720.jpg')"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,162,255,0.15)_0%,rgba(0,0,0,0.8)_80%,rgba(0,0,0,1)_100%)]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[radial-gradient(circle,rgba(0,162,255,0.25)_0%,rgba(0,162,255,0)_70%)] rounded-full" style="animation: junePulse 4s infinite alternate"></div>
+                <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+                    <h1 class="text-xl md:text-3xl font-black text-white mb-2 uppercase tracking-wider">FROM VISION TO REALITY</h1>
+                    <p class="text-[8px] md:text-xs font-medium text-[#a0d8ff] uppercase tracking-widest opacity-80">Jaxx of Lastic Productions created the first agentic AI</p>
+                </div>
+                <div class="absolute top-4 left-6 text-[10px] font-black text-[#00a2ff] tracking-[0.2em] opacity-80">JUNE.AI</div>
+            </div>`;
+
+        const getLasticPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-black overflow-hidden font-mono group/lastic ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.05)_1px,transparent_1px)] bg-[length:50px_50px]" style="animation: grid-move 20s linear infinite"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-red-600/10 to-transparent" style="animation: scan 4s linear infinite"></div>
+                <div id="data-packets" class="absolute inset-0 pointer-events-none"></div>
+                <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+                    <div class="mb-4 px-4 py-2 border border-red-600 bg-black/80 flex items-center gap-3 relative overflow-hidden">
+                        <span class="text-xl font-bold text-red-600">L$</span>
+                        <span class="text-[8px] tracking-[0.2em] text-[#aaa] uppercase">Protocol Active</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-red-600/20 to-transparent -translate-x-full" style="animation: shine 3s infinite"></div>
+                    </div>
+                    <h2 class="text-xl md:text-3xl font-light text-white mb-2">Code that <span class="text-red-600 font-medium">owns the room</span></h2>
+                    <div class="terminal-win opacity-0 group-hover/lastic:opacity-100 transition-opacity bg-black/90 border border-red-600/40 p-3 text-left w-full max-w-[300px]">
+                        <div class="text-[#0f0] text-[10px]">> Security: Active</div>
+                        <div class="text-[#0f0] text-[10px]">> Connection established</div>
+                        <div class="text-[#0f0] text-[10px]">> Heartbeat: Stable</div>
+                    </div>
+                </div>
+            </div>`;
+
+        const getLisbonPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-gradient-to-br from-[#2e7d32] to-[#1b5e20] overflow-hidden font-['Source_Sans_Pro'] group/lisbon ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-cover bg-center opacity-30 transition-transform duration-[3000ms] group-hover/lisbon:scale-110" style="background-image: url('https://sfile.chatglm.cn/images-ppt/8c8e42f9a44e.jpg')"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(139,195,74,0.3)_0%,transparent_50%)] opacity-60"></div>
+                <div class="absolute top-0 left-0 w-full h-full" style="background: linear-gradient(135deg, transparent 0%, rgba(46,125,50,0.4) 100%)"></div>
+                <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+                    <div class="mb-3 opacity-90">
+                        <svg class="w-12 h-12 mx-auto text-[#8bc34a] animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-2xl md:text-4xl font-bold text-white mb-2" style="font-family: 'Playfair Display', serif; text-shadow: 0 2px 10px rgba(0,0,0,0.3)">Lisbon Hideaway</h1>
+                    <p class="text-xs md:text-sm font-medium text-[#c5e1a5] uppercase tracking-widest opacity-90">Luxury Accommodation · Mpumalanga</p>
+                    <div class="mt-4 flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                        <span class="text-yellow-300 text-lg">★</span>
+                        <span class="text-white font-bold text-sm">9.3</span>
+                        <span class="text-[#c5e1a5] text-xs">Guest Rating</span>
+                    </div>
+                </div>
+                <div class="absolute bottom-4 left-6 text-[10px] font-semibold text-[#8bc34a] tracking-[0.2em] opacity-70">AWARD WINNING</div>
+            </div>`;
+
+        const getIDEPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#0A1014] overflow-hidden font-['Space_Grotesk'] group/ide ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKMUNe_VIq_AAZfm1urOHA8mjxWtkm5pqQGDUuxx91V2epSQGNJLROz1qayy3VoSBwSh7XtFhLDF_qb-MtVGTz9LTK_g2JKJ4Gvp2ZZvjZ7KcotrH6t2emD-0I-ow2FgbEcUs_0sKaOLKQNr9SguifcMrgHnZiP85d9JICbOHk5QIwqfu-sKgjtw6oViD1s32LnXbWNf9MNnvoHelSBPTcgILswUQ5LQlbih5h9Nub19AUBC8i9-5mna6vrOm38nsO3NAMGvsFiVM')"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-[#00f7ff]/10 via-transparent to-black/80"></div>
+                <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+                    <div class="mb-4 flex items-center gap-3 bg-black/50 backdrop-blur-sm px-6 py-3 rounded-full border border-[#00f7ff]/30" style="box-shadow: 0 0 20px rgba(0,247,255,0.3)">
+                        <div class="w-3 h-3 bg-[#00f7ff] rounded-full animate-pulse" style="box-shadow: 0 0 10px rgba(0,247,255,0.8)"></div>
+                        <span class="text-[#00f7ff] text-xs font-bold tracking-widest uppercase">Live Session</span>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-bold text-white mb-3" style="text-shadow: 0 0 20px rgba(0,247,255,0.6), 0 0 40px rgba(0,247,255,0.4)">Lastic IDE</h1>
+                    <p class="text-sm md:text-base text-[#00f7ff]/80 mb-6 uppercase tracking-widest">AI-Powered Development Environment</p>
+                    <div class="bg-black/60 backdrop-blur-md border border-[#00f7ff]/20 rounded-lg p-4 max-w-md" style="box-shadow: 0 0 30px rgba(0,247,255,0.2)">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-[#569CD6] text-xs font-mono">def</span>
+                            <span class="text-[#DCDCAA] text-xs font-mono">main</span>
+                            <span class="text-gray-400 text-xs font-mono">():</span>
+                        </div>
+                        <div class="pl-4 text-left">
+                            <p class="text-[#CE9178] text-xs font-mono">"Welcome to the future"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-6 flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full border border-[#00f7ff]/20">
+                    <div class="w-2 h-2 bg-[#0f0] rounded-full animate-pulse"></div>
+                    <span class="text-[#00f7ff] text-[10px] font-semibold tracking-wider">ACTIVE</span>
+                </div>
+            </div>`;
+
+        const getNexusPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#1a0b2e] overflow-hidden font-['Space_Mono'] group/nexus ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,40,200,0.4),transparent)]"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                   <div class="relative w-40 h-40">
+                        <div class="absolute inset-0 rounded-full border-2 border-purple-500/30 animate-[spin_10s_linear_infinite]"></div>
+                        <div class="absolute inset-2 rounded-full border border-purple-400/20 animate-[spin_7s_linear_infinite_reverse]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-purple-600/20 rounded-full blur-xl animate-pulse"></div>
+                        </div>
+                   </div>
+                </div>
+                <!-- Floating Particles -->
+                <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-100"></div>
+                <div class="absolute bottom-1/3 right-1/4 w-3 h-3 bg-fuchsia-500 rounded-full animate-bounce delay-300"></div>
+                
+                <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+                    <h1 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-300 mb-2 mt-8">Neural Nexus</h1>
+                    <p class="text-[10px] md:text-xs text-purple-200/60 uppercase tracking-[0.3em]">Advanced Language Processing</p>
+                    <div class="mt-6 flex gap-2">
+                         <div class="w-16 h-1 bg-purple-500/30 rounded-full overflow-hidden">
+                            <div class="h-full bg-purple-500 animate-[loading_2s_ease-in-out_infinite]"></div>
+                         </div>
+                    </div>
+                </div>
+                <div class="absolute top-4 left-6 text-[10px] text-purple-400/80 tracking-widest">v2.4.0</div>
+            </div>`;
+
+        const getBrokersPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#0d0e12] overflow-hidden font-['Poppins'] group/brokers ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.1),transparent_50%)]"></div>
+                <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-green-500/50 to-transparent"></div>
+                <div class="relative z-10 h-full flex flex-col p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                            <span class="text-[10px] font-bold text-white tracking-widest uppercase">Live Markets</span>
+                        </div>
+                        <div class="text-[10px] text-gray-500 font-mono">USD/ZAR +1.2%</div>
+                    </div>
+                    <div class="flex-1 flex flex-col justify-center">
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Brokers <span class="text-green-500">Select</span></h2>
+                        <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em] mb-6">Compare & Rank Top Forex Brokers</p>
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-white/5 border border-white/10 p-3 rounded-xl backdrop-blur-sm">
+                                <div class="text-green-500 text-xs font-bold mb-1">#1 Exness</div>
+                                <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500 w-[95%]"></div>
+                                </div>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 p-3 rounded-xl backdrop-blur-sm">
+                                <div class="text-white text-xs font-bold mb-1">#2 XM.com</div>
+                                <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-500 w-[88%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-600/20 border border-green-500/30 rounded-lg">
+                        <span class="text-green-500 text-[10px] font-bold">START COMPARING NOW</span>
+                        <i class="uil uil-arrow-right text-green-500 text-xs"></i>
+                    </div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-green-500/10 blur-3xl rounded-full"></div>
+            </div>`;
+
+        const getChatbotPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#050505] overflow-hidden font-['Turret_Road'] ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_70%)]"></div>
+                <div class="p-4 h-full flex flex-col justify-end space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center animate-pulse">
+                            <i class="uil uil-robot text-blue-500 text-sm"></i>
+                        </div>
+                        <div class="bg-blue-600/10 border border-blue-500/20 px-4 py-2 rounded-2xl rounded-bl-none text-[10px] text-blue-100 backdrop-blur-md">
+                            Analyzing project metrics...
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 justify-end">
+                        <div class="bg-gray-800/40 border border-white/5 px-4 py-2 rounded-2xl rounded-br-none text-[10px] text-gray-300">
+                            Is performance optimized?
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                         <div class="w-8 h-8 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
+                            <i class="uil uil-robot text-blue-500 text-sm"></i>
+                        </div>
+                        <div class="bg-blue-600/10 border border-blue-500/20 px-4 py-2 rounded-2xl rounded-bl-none">
+                            <div class="flex gap-1">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce"></span>
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                    <span class="text-[8px] text-blue-500/80 font-bold uppercase tracking-widest">Nova AI active</span>
+                </div>
+            </div>`;
+
+        const getVoicePreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#020202] overflow-hidden flex items-center justify-center ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(225,29,72,0.05),transparent_70%)]"></div>
+                <div class="relative flex items-center gap-1.5 h-12">
+                    ${[1, 2, 3, 2, 1, 2, 3, 2, 1].map((h, i) => `
+                        <div class="w-1 bg-rose-600 rounded-full animate-[voice-pulse_1.5s_ease-in-out_infinite]" 
+                             style="height: ${20 + h * 6}px; animation-delay: ${i * 0.15}s; filter: drop-shadow(0 0 8px #e11d48);"></div>
+                    `).join('')}
+                </div>
+                <div class="absolute inset-x-0 bottom-8 flex flex-col items-center">
+                    <div class="w-10 h-10 rounded-full border border-rose-600/30 flex items-center justify-center mb-2 animate-pulse">
+                        <i class="uil uil-microphone text-rose-500 text-xl"></i>
+                    </div>
+                    <span class="text-[9px] text-rose-500/60 font-bold tracking-[0.3em] uppercase">Listening...</span>
+                </div>
+                <style>
+                    @keyframes voice-pulse {
+                        0%, 100% { transform: scaleY(1); opacity: 0.5; }
+                        50% { transform: scaleY(1.5); opacity: 1; }
+                    }
+                </style>
+            </div>`;
+
+        const getAgentPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#080808] overflow-hidden ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.1),transparent_70%)]"></div>
+                <div class="p-6 h-full flex flex-col items-center justify-center">
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full border-2 border-purple-500/20 flex items-center justify-center animate-[spin_10s_linear_infinite]">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full absolute -top-1 shadow-[0_0_10px_#a855f7]"></div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="uil uil-brain text-purple-500 text-3xl animate-pulse"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 space-y-2 w-full max-w-[150px]">
+                        <div class="h-1 bg-purple-500/20 rounded-full overflow-hidden">
+                            <div class="h-full bg-purple-500 w-2/3 animate-[loading_3s_ease-in-out_infinite]"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] text-purple-400 font-bold tracking-widest uppercase">
+                            <span>Thinking</span>
+                            <span class="animate-pulse">Active</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="data-packets-agent" class="absolute inset-0 pointer-events-none opacity-20"></div>
+            </div>`;
+
+        const getAvatarPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-gradient-to-br from-[#121212] to-[#000] overflow-hidden ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                <div class="h-full flex flex-col items-center justify-center p-4">
+                    <div class="relative w-24 h-24 mb-4">
+                        <div class="absolute inset-0 rounded-full border-t-2 border-rose-500 animate-spin"></div>
+                        <div class="absolute inset-2 rounded-full border-b-2 border-rose-500/50 animate-[spin_3s_linear_infinite_reverse]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                           <i class="uil uil-user-circle text-white/20 text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-rose-500/20 to-transparent h-1 w-full top-1/2 animate-[scan_2s_linear_infinite]"></div>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-[10px] text-rose-500 font-bold uppercase tracking-[0.4em]">Rendering Avatar</span>
+                        <div class="flex gap-0.5 justify-center mt-2">
+                             ${Array(8).fill().map((_, i) => `<div class="w-1.5 h-1.5 bg-rose-600/20 rounded-sm animate-pulse" style="animation-delay: ${i * 0.1}s"></div>`).join('')}
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    @keyframes scan {
+                        0% { transform: translateY(-50px); opacity: 0; }
+                        50% { opacity: 1; }
+                        100% { transform: translateY(50px); opacity: 0; }
+                    }
+                </style>
+            </div>`;
+
+        const getLocalAIPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#050505] overflow-hidden font-mono ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-x-0 top-0 h-8 bg-white/5 border-b border-white/10 flex items-center px-4 gap-2">
+                    <div class="flex gap-1.5">
+                        <div class="w-2.5 h-2.5 rounded-full bg-rose-500/20 border border-rose-500/40"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/40"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/40"></div>
+                    </div>
+                    <span class="text-[9px] text-gray-500 tracking-wider font-bold">Lastic Local AI Engine</span>
+                </div>
+                <div class="p-6 pt-12 space-y-3">
+                    <div class="flex gap-2 text-[10px]">
+                        <span class="text-green-500 font-bold">jaxx@lastic:~$</span>
+                        <div class="flex items-center">
+                            <span class="text-white">lastic-run</span>
+                            <span class="ml-1 px-1 bg-white text-black animate-pulse">llama3</span>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-[9px] text-gray-400 flex justify-between">
+                            <span>Loading GGUF weights...</span>
+                            <span class="text-green-500">READY</span>
+                        </div>
+                        <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                            <div class="h-full bg-green-500 w-[100%] shadow-[0_0_8px_#22c55e]"></div>
+                        </div>
+                    </div>
+                    <div class="pt-2 text-[10px] text-white/80 leading-relaxed font-['Turret_Road']">
+                        <span class="text-green-500 font-bold">[OFFLINE]</span> Model initialized on local CPU/GPU. Zero data leakage detected. High-performance LLM orchestration active.
+                    </div>
+                    <div class="flex gap-2 pt-2 items-center">
+                         <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                         <i class="uil uil-shield-check text-green-500 text-xs"></i>
+                         <span class="text-[9px] text-green-500 font-bold tracking-widest uppercase">Encryption Active</span>
+                    </div>
+                </div>
+                <div class="absolute bottom-4 right-4 text-[8px] text-gray-600 font-bold tracking-[0.2em] uppercase">100% Private AI</div>
+            </div>`;
+
+        // Mobile Carousel State
+        let currentProjectIndex = 0;
+        let previousProjectIndex = 0;
+        let filteredProjects = [];
+
+        // Render Projects
+        const renderGrid = (filter = 'all') => {
+            filteredProjects = projects.filter(p => filter === 'all' || p.category === filter);
+
+            // Mobile Carousel
+            const mobileGrid = document.getElementById('projects-grid');
+            mobileGrid.innerHTML = '';
+
+            // Desktop Grid
+            const desktopGrid = document.getElementById('projects-grid-desktop');
+            desktopGrid.innerHTML = '';
+
+            filteredProjects.forEach((p, index) => {
+                const card = createProjectCard(p, index);
+                // Add staggered animation delay
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('stagger-in');
+
+                // Mobile: Add to carousel
+                mobileGrid.appendChild(card.cloneNode(true));
+
+                // Desktop: Add to grid
+                const desktopCard = createProjectCard(p, index);
+                desktopCard.style.animationDelay = `${index * 0.1}s`;
+                desktopCard.classList.add('stagger-in');
+                desktopGrid.appendChild(desktopCard);
+            });
+
+            // Setup mobile carousel
+            setupMobileCarousel();
+
+            // Setup desktop interactions
+            setupDesktopInteractions();
+
+            spawnPackets();
+        };
+
+        const createProjectCard = (p, index) => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+
+            let preview = `<img src="${p.image}" class="project-image w-full h-full object-cover transition-transform duration-700">`;
+            if (p.type === 'june') preview = getJunePreview();
+            if (p.type === 'lastic') preview = getLasticPreview();
+            if (p.type === 'lisbon') preview = getLisbonPreview();
+            if (p.type === 'ide') preview = getIDEPreview();
+            if (p.type === 'nexus') preview = getNexusPreview();
+            if (p.type === 'brokers') preview = getBrokersPreview();
+            if (p.type === 'chatbot') preview = getChatbotPreview();
+            if (p.type === 'voice') preview = getVoicePreview();
+            if (p.type === 'agent') preview = getAgentPreview();
+            if (p.type === 'avatar') preview = getAvatarPreview();
+            if (p.type === 'localai') preview = getLocalAIPreview();
+
+            card.innerHTML = `
+                <div class="project-card-inner" onclick="openModal(${index})">
+                    <div class="card-front">
+                        <div class="aspect-video overflow-hidden relative">${preview}</div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-[10px] font-bold text-rose-500 uppercase tracking-widest">${p.category}</span>
+                                <span class="text-[10px] text-gray-500">${p.date}</span>
+                            </div>
+                            <h3 class="text-base font-bold text-white mb-2 group-hover:text-rose-500 transition-colors line-clamp-1">${p.title}</h3>
+                            <div class="details-link flex items-center text-rose-500 text-[11px] font-medium transition-all cursor-pointer">
+                                Full View <i class="uil uil-arrow-right ml-2 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+
+            return card;
+        };
+
+        const setupMobileCarousel = () => {
+            const mobileGrid = document.getElementById('projects-grid');
+            const prevBtn = document.getElementById('mobile-prev');
+            const nextBtn = document.getElementById('mobile-next');
+
+            if (!mobileGrid || filteredProjects.length === 0) return;
+
+            // Show only current project on mobile
+            updateMobileCarousel();
+
+            // Navigation events
+            prevBtn.onclick = () => {
+                currentProjectIndex = (currentProjectIndex - 1 + filteredProjects.length) % filteredProjects.length;
+                updateMobileCarousel();
+            };
+
+            nextBtn.onclick = () => {
+                currentProjectIndex = (currentProjectIndex + 1) % filteredProjects.length;
+                updateMobileCarousel();
+            };
+
+            // Touch events for swipe
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            mobileGrid.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            mobileGrid.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            const handleSwipe = () => {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe left - next project
+                        nextBtn.click();
+                    } else {
+                        // Swipe right - previous project
+                        prevBtn.click();
+                    }
+                }
+            };
+        };
+
+        const updateMobileCarousel = () => {
+            const mobileGrid = document.getElementById('projects-grid');
+            const cards = mobileGrid.querySelectorAll('.project-card');
+
+            // Determine slide direction based on previous index
+            const direction = currentProjectIndex > previousProjectIndex ? 1 : -1;
+            previousProjectIndex = currentProjectIndex;
+
+            // Hide all cards with smooth slide animation
+            cards.forEach((card, index) => {
+                card.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                card.style.opacity = '0';
+                card.style.transform = `translateX(${direction * -100}%) scale(0.8)`;
+            });
+
+            // Show current card with smooth slide animation
+            setTimeout(() => {
+                cards.forEach((card, index) => {
+                    if (index === currentProjectIndex) {
+                        card.style.display = 'block';
+                        // Start from opposite side
+                        card.style.transform = `translateX(${direction * 100}%) scale(0.8)`;
+                        card.style.opacity = '0';
+
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateX(0) scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }, 300);
+        };
+
+        const setupDesktopInteractions = () => {
+            // Simplified: Handled by inline onclick in renderGrid
+        };
+
+        const setupCardEvents = (card) => {
+            // Handled by inline onclick in renderGrid
+        };
+
+        // Modal Logic
+        const openModal = (index) => {
+            const p = filteredProjects[index];
+            const modal = document.getElementById('project-modal');
+            const overlay = document.getElementById('modal-overlay');
+            const container = document.getElementById('modal-container');
+            const content = document.getElementById('modal-content');
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            // Reflow to allow transitions
+            void modal.offsetWidth;
+
+            // Trigger animations
+            modal.classList.remove('opacity-0', 'backdrop-blur-0');
+            modal.classList.add('opacity-100', 'backdrop-blur-md');
+            overlay.classList.remove('opacity-0');
+            overlay.classList.add('opacity-100');
+            container.classList.remove('scale-90', 'opacity-0');
+            container.classList.add('scale-100', 'opacity-100');
+
+            renderModalContent(index);
+        };
+
+        const renderModalContent = (index) => {
+            const p = filteredProjects[index];
+            const content = document.getElementById('modal-content');
+            const prevIndex = (index - 1 + filteredProjects.length) % filteredProjects.length;
+            const nextIndex = (index + 1) % filteredProjects.length;
+
+            let preview = `<img src="${p.image}" class="w-full h-full object-cover rounded-2xl shadow-2xl">`;
+            if (p.type === 'june') preview = getJunePreview(true);
+            if (p.type === 'lastic') preview = getLasticPreview(true);
+            if (p.type === 'lisbon') preview = getLisbonPreview(true);
+            if (p.type === 'ide') preview = getIDEPreview(true);
+            if (p.type === 'nexus') preview = getNexusPreview(true);
+            if (p.type === 'brokers') preview = getBrokersPreview(true);
+            if (p.type === 'chatbot') preview = getChatbotPreview(true);
+            if (p.type === 'voice') preview = getVoicePreview(true);
+            if (p.type === 'agent') preview = getAgentPreview(true);
+            if (p.type === 'avatar') preview = getAvatarPreview(true);
+            if (p.type === 'localai') preview = getLocalAIPreview(true);
+
+            content.innerHTML = `
+                <div class="w-full relative group/modal-img stagger-in" style="animation-delay: 0.1s">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10 rounded-2xl"></div>
+                    <div class="aspect-video w-full max-h-[300px] lg:max-h-[450px] rounded-2xl overflow-hidden shadow-2xl">
+                        ${preview}
+                    </div>
+                </div>
+                
+                <div class="flex flex-col lg:grid lg:grid-cols-[1fr_auto] lg:gap-12 stagger-in" style="animation-delay: 0.2s">
+                    <div class="flex flex-col">
+                        <span class="text-rose-500 font-semibold text-[10px] lg:text-xs uppercase tracking-widest block mb-2 lg:mb-3">Project Deep-Dive</span>
+                        <h3 class="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2 lg:mb-4 leading-tight">${p.title}</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4 lg:mb-0 text-sm lg:text-base max-w-2xl">${p.desc}</p>
+                    </div>
+
+                    <div class="flex flex-col lg:w-72">
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div><h4 class="text-white font-bold text-[9px] uppercase tracking-tighter opacity-50">Impact</h4><p class="text-white text-[11px] font-medium leading-none mt-1">${p.role}</p></div>
+                            <div><h4 class="text-white font-bold text-[9px] uppercase tracking-tighter opacity-50">Cycle</h4><p class="text-white text-[11px] font-medium leading-none mt-1">${p.date}</p></div>
+                        </div>
+                        <div class="stagger-in" style="animation-delay: 0.3s">
+                            <h4 class="text-white font-bold text-[10px] mb-2 lg:mb-3 uppercase tracking-widest opacity-30 text-xs">Core Technology</h4>
+                            <div class="flex flex-wrap gap-2">${p.tech.map(t => `<span class="px-3 py-1.5 bg-rose-600/5 text-rose-500 text-[9px] font-bold rounded-lg border border-rose-600/10 glass-premium">${t}</span>`).join('')}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-white/5 flex flex-row gap-3 lg:gap-4 stagger-in" style="animation-delay: 0.4s">
+                    ${p.link ? `<a href="${p.link}" target="_blank" class="flex-1 py-3 lg:py-4 bg-gradient-to-r from-rose-600 to-rose-500 text-white rounded-xl lg:rounded-2xl text-xs lg:text-sm font-bold hover:scale-[1.03] transition-all text-center flex items-center justify-center gap-2 lg:gap-3 shadow-lg shadow-rose-600/20">Visit Site <i class="uil uil-external-link-alt"></i></a>` : `<button class="flex-1 py-3 lg:py-4 bg-white/5 border border-white/10 text-white/30 rounded-xl lg:rounded-2xl text-xs lg:text-sm font-bold cursor-not-allowed">Coming Soon</button>`}
+                    <button onclick="closeProjectModal()" class="flex-1 py-3 lg:py-4 border border-white/10 text-white rounded-xl lg:rounded-2xl text-xs lg:text-sm font-bold hover:bg-white/5 transition-all">Back to Projects</button>
+                </div>
+
+                <div class="flex justify-center gap-6 pt-4 border-w-5 lg:hidden">
+                    <button onclick="switchProject(${prevIndex})" class="flex items-center gap-2 text-rose-500 font-bold text-[10px] uppercase tracking-widest">
+                        <i class="uil uil-arrow-left"></i> Previous
+                    </button>
+                    <button onclick="switchProject(${nextIndex})" class="flex items-center gap-2 text-rose-500 font-bold text-[10px] uppercase tracking-widest">
+                        Next <i class="uil uil-arrow-right"></i>
+                    </button>
+                </div>`;
+        };
+
+        const switchProject = (index) => {
+            const content = document.getElementById('modal-content');
+            content.classList.add('opacity-0', 'translate-y-4');
+            content.style.transition = 'all 0.4s ease';
+
+            setTimeout(() => {
+                renderModalContent(index);
+                content.classList.remove('opacity-0', 'translate-y-4');
+                // Scroll to top of modal container
+                document.getElementById('modal-container').scrollTo({ top: 0, behavior: 'smooth' });
+            }, 400);
+        };
+
+        const closeProjectModal = () => {
+            const modal = document.getElementById('project-modal');
+            const overlay = document.getElementById('modal-overlay');
+            const container = document.getElementById('modal-container');
+
+            modal.classList.add('opacity-0', 'backdrop-blur-0');
+            overlay.classList.add('opacity-0');
+            container.classList.add('scale-95', 'opacity-0');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 500);
+        };
+
+        // Filters
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.onclick = () => {
+                // Reset all buttons
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.className = 'filter-btn px-8 py-2.5 rounded-full font-medium text-gray-400 bg-white/5 hover:bg-white/10 border border-transparent transition-all duration-300';
+                });
+                // Set active button style with the premium gradient
+                btn.className = 'filter-btn px-8 py-2.5 rounded-full font-medium bg-gradient-to-r from-rose-600 to-purple-600 text-white shadow-lg shadow-rose-600/20 transition-all duration-300';
+                renderGrid(btn.dataset.filter);
+            };
+        });
+
+        // Lastic Packets Spawn
+        const spawnPackets = () => {
+            const containers = document.querySelectorAll('#data-packets');
+            containers.forEach(container => {
+                container.innerHTML = '';
+                for (let i = 0; i < 15; i++) {
+                    const packet = document.createElement('div');
+                    packet.style.cssText = `position:absolute; width:2px; height:20px; background:#ff0000; left:${Math.random() * 100}%; animation: data-flow 8s linear infinite; animation-delay: ${Math.random() * 5}s; box-shadow: 0 0 5px #ff0000;`;
+                    container.appendChild(packet);
+                }
+            });
+        };
+
+        // Animated Counter - Looping Version
+        const animateCounter = (elementId, target, duration = 2000) => {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            let isAnimating = false;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                    // Reset and restart after a pause
+                    setTimeout(() => {
+                        current = 0;
+                        element.textContent = '0';
+                        setTimeout(() => {
+                            updateCounter();
+                        }, 500);
+                    }, 2000);
+                }
+            };
+
+            // Start animation when element is in viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isAnimating) {
+                        isAnimating = true;
+                        updateCounter();
+                        // Don't unobserve so it can restart if scrolled away and back
+                    } else if (!entry.isIntersecting && isAnimating) {
+                        isAnimating = false;
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(element);
+        };
+
+        // Initialize counters
+        animateCounter('project-counter', 20);
+        animateCounter('availability-counter', 24);
+
+        // Reveal Animation on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Initial Render
+        renderGrid();
+
+        // Close Modal
+        document.getElementById('close-modal').onclick = closeProjectModal;
+        document.getElementById('modal-overlay').onclick = closeProjectModal;
+
+        // Typewriter Effect Logic
+        const words = ["Jaxx", " a Full Stack Developer"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter');
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+
+            if (isDeleting) {
+                typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 100 : 200;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at the end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500; // Pause before typing next word
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        // Start typewriter on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Optional: wait a bit before starting
+            setTimeout(typeEffect, 1000);
+        });
+
+        // Announcement Popup Logic
+        // Announcement Popup Logic
+        const announcementPopup = document.getElementById('announcement-popup');
+        const closeAnnouncement = document.getElementById('close-announcement');
+        const minimizedAnnouncement = document.getElementById('minimized-announcement');
+        let hasShown = false;
+
+        // Show popup after scrolling past hero section
+        window.addEventListener('scroll', () => {
+            if (!hasShown) {
+                const heroSection = document.getElementById('home');
+                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+
+                if (window.scrollY > heroBottom - 200) {
+                    showAnnouncement();
+                    hasShown = true;
+                }
+            }
+        });
+
+        function showAnnouncement() {
+            announcementPopup.classList.remove('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
+            announcementPopup.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+
+            // Hide minimized
+            minimizedAnnouncement.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+            minimizedAnnouncement.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+
+            // Auto-minimize after 10 seconds (optional)
+            // setTimeout(() => minimizeAnnouncement(), 10000);
+        }
+
+        function minimizeAnnouncement() {
+            announcementPopup.classList.add('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
+            announcementPopup.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+
+            // Show minimized
+            minimizedAnnouncement.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+            minimizedAnnouncement.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        }
+
+        // Minimize on close click
+        closeAnnouncement.addEventListener('click', minimizeAnnouncement);
+
+        // Maximize on minimized click
+        minimizedAnnouncement.addEventListener('click', showAnnouncement);
+
+        // Skills Toggle Logic
+        document.querySelectorAll('.skill-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const skill = button.dataset.skill;
+                const content = document.getElementById(`${skill}-skills`);
+                const arrow = button.querySelector('.skill-arrow');
+                const instructionText = button.querySelector('.text-left p');
+                const isExpanded = !content.classList.contains('hidden');
+
+                // Close all other skills first
+                if (!isExpanded) {
+                    document.querySelectorAll('.skill-content').forEach(el => {
+                        if (!el.classList.contains('hidden') && el.id !== `${skill}-skills`) {
+                            el.classList.add('hidden');
+                            // Reset associated button state
+                            const btn = document.querySelector(`.skill-toggle[data-skill="${el.id.replace('-skills', '')}"]`);
+                            if (btn) {
+                                const arrow = btn.querySelector('.skill-arrow');
+                                const txt = btn.querySelector('.text-left p');
+                                arrow.style.transform = 'rotate(0deg)';
+                                if (arrow.classList.contains('uil-arrow-down')) {
+                                    arrow.classList.remove('uil-arrow-down');
+                                    arrow.classList.add('uil-angle-right');
+                                }
+                                txt.textContent = 'Click to expand skills';
+                            }
+                        }
+                    });
+                }
+
+                if (isExpanded) {
+                    // Collapse
+                    content.classList.add('hidden');
+                    arrow.style.transform = 'rotate(0deg)';
+                    if (arrow.classList.contains('uil-arrow-down')) {
+                        arrow.classList.remove('uil-arrow-down');
+                        arrow.classList.add('uil-angle-right');
+                    }
+                    instructionText.textContent = 'Click to expand skills';
+                } else {
+                    // Expand
+                    content.classList.remove('hidden');
+                    arrow.style.transform = 'rotate(90deg)';
+                    if (arrow.classList.contains('uil-angle-right')) {
+                        arrow.classList.remove('uil-angle-right');
+                        arrow.classList.add('uil-arrow-down');
+                    }
+                    instructionText.textContent = 'Click to collapse skills';
+                }
+            });
+        });
+
+        // WhatsApp Modal Logic
+        const waModal = document.getElementById('whatsapp-modal');
+        const waTrigger = document.getElementById('whatsapp-trigger');
+        const waClose = document.getElementById('close-wa-modal');
+        const waOverlay = document.getElementById('wa-modal-overlay');
+        const waSendBtn = document.getElementById('send-wa-btn');
+        const waTextarea = document.getElementById('wa-message');
+
+        const openWaModal = () => {
+            waModal.classList.remove('hidden');
+            waModal.classList.add('flex');
+            waTextarea.focus();
+        };
+
+        const closeWaModal = () => {
+            waModal.classList.add('hidden');
+            waModal.classList.remove('flex');
+        };
+
+        if (waTrigger) waTrigger.onclick = openWaModal;
+        if (waClose) waClose.onclick = closeWaModal;
+        if (waOverlay) waOverlay.onclick = closeWaModal;
+
+        if (waSendBtn) {
+            waSendBtn.onclick = () => {
+                const message = encodeURIComponent(waTextarea.value || "Hi I'm reaching out for one of the following services");
+                const whatsappUrl = `https://wa.me/27763643994?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+                closeWaModal();
+            };
+        }
+
+        // Email Modal Logic
+        const emailModal = document.getElementById('email-modal');
+        const emailTrigger = document.getElementById('email-trigger');
+        const emailClose = document.getElementById('close-email-modal');
+        const emailOverlay = document.getElementById('email-modal-overlay');
+        const emailSendBtn = document.getElementById('send-email-btn');
+        const emailSubject = document.getElementById('email-subject');
+        const emailMessage = document.getElementById('email-message');
+
+        const openEmailModal = () => {
+            emailModal.classList.remove('hidden');
+            emailModal.classList.add('flex');
+            emailSubject.focus();
+        };
+
+        const closeEmailModal = () => {
+            emailModal.classList.add('hidden');
+            emailModal.classList.remove('flex');
+        };
+
+        if (emailTrigger) emailTrigger.onclick = openEmailModal;
+        if (emailClose) emailClose.onclick = closeEmailModal;
+        if (emailOverlay) emailOverlay.onclick = closeEmailModal;
+
+        if (emailSendBtn) {
+            emailSendBtn.onclick = () => {
+                const subject = encodeURIComponent(emailSubject.value || "Crafting Digital Excellence Inquiry");
+                const body = encodeURIComponent(emailMessage.value || "Hi Jaxx, I'm reaching out from your Crafting Digital Excellence website!");
+                const mailtoUrl = `mailto:lasticproductions247@gmail.com?subject=${subject}&body=${body}`;
+                window.location.href = mailtoUrl;
+                closeEmailModal();
+            };
+        }
+
+        // Coming Soon Toast Logic
+        function showComingSoon(platform) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-toast toast-active flex items-center gap-4 px-6 py-4 rounded-2xl border-l-4 border-rose-600';
+            toast.innerHTML = `
+                <div class="w-10 h-10 bg-rose-600/20 rounded-full flex items-center justify-center text-rose-500">
+                    <i class="uil uil-clock text-xl"></i>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold text-sm leading-tight">${platform} Integration</h5>
+                    <p class="text-gray-400 text-xs mt-1">Status: <span class="text-rose-500 font-medium">Coming Soon</span></p>
+                </div>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(50px)';
+                toast.style.transition = 'all 0.5s ease';
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+    </script>
+    <div id="toast-container" class="fixed bottom-8 right-8 z-[200] flex flex-col gap-4 pointer-events-none"></div>
+
+    <!-- ========== SUPROSE PREMIUM JAVASCRIPT ========== -->
+    <script>
+        // Premium Particle System
+        function createPremiumParticles() {
+            const hero = document.querySelector('#home');
+            if (!hero) return;
+
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'premium-particles';
+            hero.appendChild(particlesContainer);
+
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                const tx = (Math.random() - 0.5) * 200;
+                const ty = (Math.random() - 0.5) * 200;
+
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Premium Cursor Trail
+        let cursorTrails = [];
+        function createCursorTrail(e) {
+            if (window.innerWidth < 768) return; // Disable on mobile
+
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = e.clientX + 'px';
+            trail.style.top = e.clientY + 'px';
+            document.body.appendChild(trail);
+
+            cursorTrails.push(trail);
+
+            setTimeout(() => {
+                trail.style.transform = 'scale(0)';
+                trail.style.opacity = '0';
+            }, 10);
+
+            setTimeout(() => {
+                trail.remove();
+                cursorTrails = cursorTrails.filter(t => t !== trail);
+            }, 500);
+
+            // Limit trails
+            if (cursorTrails.length > 10) {
+                const oldest = cursorTrails.shift();
+                oldest?.remove();
+            }
+        }
+
+        // Throttle cursor trail
+        let lastTrailTime = 0;
+        document.addEventListener('mousemove', (e) => {
+            const now = Date.now();
+            if (now - lastTrailTime > 50) {
+                createCursorTrail(e);
+                lastTrailTime = now;
+            }
+        });
+
+        // Magnetic Hover Effect for Buttons
+        function addMagneticEffect() {
+            const magneticElements = document.querySelectorAll('.btn-premium, .magnetic');
+
+            magneticElements.forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+
+                    const moveX = x * 0.2;
+                    const moveY = y * 0.2;
+
+                    el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                });
+
+                el.addEventListener('mouseleave', () => {
+                    el.style.transform = 'translate(0, 0)';
+                });
+            });
+        }
+
+        // Enhanced Scroll Animations
+        function enhancedScrollAnimations() {
+            const elements = document.querySelectorAll('.reveal, .premium-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('active', 'page-transition');
+                        }, index * 100);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            elements.forEach(el => observer.observe(el));
+        }
+
+        // Premium Page Load Animation
+        function premiumPageLoad() {
+            document.body.style.opacity = '0';
+
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    document.body.style.transition = 'opacity 0.8s ease';
+                    document.body.style.opacity = '1';
+                }, 100);
+            });
+        }
+
+        // Add Premium Classes to Buttons
+        function enhanceButtons() {
+            const buttons = document.querySelectorAll('a[href^="#"], button:not(#scroll-to-top):not(.skill-toggle):not(.close-card)');
+            buttons.forEach(btn => {
+                if (!btn.classList.contains('btn-premium')) {
+                    btn.classList.add('btn-premium');
+                }
+            });
+        }
+
+        // Add Premium Card Classes
+        function enhanceCards() {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (!card.classList.contains('premium-card')) {
+                    card.classList.add('premium-card');
+                }
+            });
+        }
+
+        // Parallax Effect on Scroll
+        function premiumParallax() {
+            const parallaxElements = document.querySelectorAll('.premium-card, .reveal');
+
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+
+                parallaxElements.forEach((el, index) => {
+                    const speed = 0.05 + (index % 3) * 0.02;
+                    const yPos = -(scrolled * speed);
+
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        el.style.transform = `translateY(${yPos}px)`;
+                    }
+                });
+            });
+        }
+
+        // Smooth Anchor Scrolling with Offset
+        function smoothAnchorScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+
+                    if (target) {
+                        const offset = 80;
+                        const targetPosition = target.offsetTop - offset;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Premium Skill Bar Animations
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetWidth = entry.target.getAttribute('data-width');
+
+                        // Small delay for smoother sequence
+                        setTimeout(() => {
+                            entry.target.style.width = targetWidth;
+                        }, 100);
+
+                        // Optionally unobserve if you only want it to animate once
+                        // observer.unobserve(entry.target);
+                    } else {
+                        // Reset width when it leaves view so it can animate again
+                        entry.target.style.width = '0%';
+                    }
+                });
+            }, {
+                threshold: 0.1, // Trigger as soon as a small part is visible
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            skillBars.forEach(bar => observer.observe(bar));
+        }
+
+        // Initialize All Premium Features
+        function initPremiumFeatures() {
+            createPremiumParticles();
+            addMagneticEffect();
+            enhancedScrollAnimations();
+            enhanceButtons();
+            enhanceCards();
+            smoothAnchorScroll();
+            animateSkillBars();
+
+            console.log('%c✨ SUPROSE Premium Portfolio Loaded ✨', 'color: #e11d48; font-size: 20px; font-weight: bold;');
+            console.log('%cBuilt with premium features and world-class design', 'color: #9333ea; font-size: 12px;');
+        }
+
+        // Run on DOM Content Loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initPremiumFeatures);
+        } else {
+            initPremiumFeatures();
+        }
+
+        // Add scroll indicator to hero
+        const hero = document.querySelector('#home');
+        if (hero) {
+            const scrollIndicator = document.createElement('div');
+            scrollIndicator.className = 'scroll-indicator';
+            scrollIndicator.innerHTML = '<i class="uil uil-angle-down text-3xl text-white/50"></i>';
+            hero.appendChild(scrollIndicator);
+        }
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top"
+        class="fixed bottom-8 right-8 z-[190] w-14 h-14 bg-gradient-to-br from-rose-600 to-rose-500 text-white rounded-full flex items-center justify-center shadow-lg shadow-rose-600/30 translate-y-20 opacity-0 transition-all duration-500 hover:scale-110 hover:shadow-rose-600/50 cursor-pointer pointer-events-none border border-white/10 glass">
+        <i class="uil uil-arrow-up text-2xl"></i>
+    </button>
+
+    <script>
+        // Scroll to Top Logic
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            } else {
+                scrollToTopBtn.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }
+        });
+
+        // Custom smooth scroll function
+        const smoothScrollToTop = () => {
+            const startPosition = window.pageYOffset;
+            const distance = -startPosition;
+            const duration = 1000;
+            let start = null;
+
+            const animation = (currentTime) => {
+                if (!start) start = currentTime;
+                const timeElapsed = currentTime - start;
+
+                const ease = (t, b, c, d) => {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t * t + b;
+                    t -= 2;
+                    return c / 2 * (t * t * t + 2) + b;
+                };
+
+                const nextScroll = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, nextScroll);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                } else {
+                    window.scrollTo(0, 0);
+                }
+            };
+
+            requestAnimationFrame(animation);
+        };
+
+        scrollToTopBtn.addEventListener('click', smoothScrollToTop);
+    </script>
+    <div id="toast-container" class="fixed bottom-8 right-8 z-[200] flex flex-col gap-4 pointer-events-none"></div>
+</body>
+
+</html>
