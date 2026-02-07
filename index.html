@@ -375,6 +375,17 @@
                 height: auto !important;
                 min-height: 320px !important;
                 width: 100% !important;
+                max-width: 100vw !important;
+            }
+
+            .project-card-inner {
+                height: auto !important;
+                min-height: 320px !important;
+            }
+
+            .card-front {
+                height: auto !important;
+                min-height: 320px !important;
             }
 
             .card-front .p-4 {
@@ -393,6 +404,60 @@
             .card-front span {
                 font-size: 9px !important;
             }
+
+            /* Prevent horizontal overflow */
+            body {
+                overflow-x: hidden !important;
+            }
+
+            /* Ensure grid containers don't overflow */
+            .grid {
+                max-width: 100vw !important;
+                overflow-x: hidden !important;
+            }
+
+            /* Hide scrollbars for mobile carousel */
+            .overflow-scroll {
+                overflow-x: auto !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+            }
+
+            .overflow-scroll::-webkit-scrollbar {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+            }
+
+            /* Mobile carousel container fixes */
+            #mobile-projects-scroll {
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            #mobile-projects-scroll::-webkit-scrollbar {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+            }
+
+            /* Projects grid mobile fixes */
+            #projects-grid {
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            #projects-grid::-webkit-scrollbar {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+            }
         }
 
         .project-card-inner {
@@ -408,10 +473,6 @@
 
         .project-card:hover .project-card-inner {
             transform: translateY(-12px) scale(1.02);
-            box-shadow:
-                0 20px 40px -10px rgba(0, 0, 0, 0.5),
-                0 0 20px rgba(225, 29, 72, 0.2);
-            border-color: rgba(225, 29, 72, 0.4);
             outline: none !important;
         }
 
@@ -421,6 +482,7 @@
             display: flex;
             flex-direction: column;
             outline: none !important;
+            overflow: hidden;
         }
 
         /* Purged legacy flip and mobile styles */
@@ -597,7 +659,7 @@
         }
 
         .premium-card:hover::before {
-            opacity: 1;
+            opacity: 0;
         }
 
         .premium-card:hover {
@@ -621,6 +683,20 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        /* Global scrollbar hiding for mobile */
+        @media (max-width: 768px) {
+            * {
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+            }
+            
+            *::-webkit-scrollbar {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
             }
         }
 
@@ -1106,7 +1182,7 @@
         <!-- About Section -->
         <section id="about" class="py-4 lg:py-32 px-6 lg:px-20 reveal">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20">
+                <div class="text-center mb-8">
                     <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
                         data-heading="My Intro">About Me</h2>
                 </div>
@@ -1114,10 +1190,10 @@
                     <div class="relative group">
                         <div class="absolute -inset-4 bg-rose-600/10 rounded-3xl blur-2xl opacity-50"></div>
                         <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                            <video
-                                src="https://res.cloudinary.com/dtjsghrkm/video/upload/v1770327965/grok-video-159b03cd-ee47-4c8d-9479-ed7ebd4e1aaf_bqhpll.mp4"
-                                autoplay loop muted playsinline
-                                class="w-full object-cover h-[500px] transition-all duration-700 hover:scale-105"></video>
+                            <img
+                                src="https://i.postimg.cc/QC8JjFjW/G5Pe-XVt-W-upscayl-4x-ultramix-balanced-4x.png"
+                                alt="Project showcase"
+                                class="w-full object-cover h-[500px] transition-all duration-700 hover:scale-105">
                             <div
                                 class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
                             </div>
@@ -1152,9 +1228,9 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-16 lg:py-32 px-6 lg:px-20 bg-[#0A0A0C] reveal">
+        <section id="skills" class="py-12 lg:py-32 px-6 lg:px-20 bg-[#0A0A0C] reveal">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20">
+                <div class="text-center mb-8">
                     <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
                         data-heading="Expertise">Technical Skills</h2>
                 </div>
@@ -1354,103 +1430,103 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Tools & Power Stack Expandable (Collapsed by Default) -->
-                            <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden">
-                                <button
-                                    class="w-full p-6 flex items-center justify-between hover:bg-white/[0.05] transition-all group skill-toggle"
-                                    data-skill="tools">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="w-10 h-10 bg-[#FF1E56]/10 rounded-lg flex items-center justify-center text-[#FF1E56]">
-                                            <i class="uil uil-angle-right text-sm transition-transform skill-arrow"></i>
-                                        </div>
-                                        <div class="text-left">
-                                            <h4 class="text-white font-bold text-lg">Power Stack & Creative Tools</h4>
-                                            <p class="text-[#CCCCCC] text-xs mt-1">Creative & Dev ecosystem</p>
-                                        </div>
+                        </div>
+
+                        <!-- Tools & Power Stack Expandable (Collapsed by Default) -->
+                        <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden mt-8">
+                            <button
+                                class="w-full p-6 flex items-center justify-between hover:bg-white/[0.05] transition-all group skill-toggle"
+                                data-skill="tools">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-10 h-10 bg-[#FF1E56]/10 rounded-lg flex items-center justify-center text-[#FF1E56]">
+                                        <i class="uil uil-angle-right text-sm transition-transform skill-arrow"></i>
                                     </div>
-                                    <div class="text-right">
-                                        <span class="text-[#FF1E56] text-sm font-medium">Expert</span>
-                                        <p class="text-[#CCCCCC] text-xs">7 tools</p>
+                                    <div class="text-left">
+                                        <h4 class="text-white font-bold text-lg">Power Stack & Creative Tools</h4>
+                                        <p class="text-[#CCCCCC] text-xs mt-1">Creative & Dev ecosystem</p>
                                     </div>
-                                </button>
-                                <div class="skill-content hidden border-t border-white/5 p-8" id="tools-skills">
-                                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                                        <!-- After Effects -->
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-[#FF1E56] text-sm font-medium">Expert</span>
+                                    <p class="text-[#CCCCCC] text-xs">7 tools</p>
+                                </div>
+                            </button>
+                            <div class="skill-content hidden border-t border-white/5 p-8" id="tools-skills">
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                                    <!-- After Effects -->
+                                    <div
+                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-rose-500/10 hover:border-rose-500/30 transition-all group/tool">
                                         <div
-                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-rose-500/10 hover:border-rose-500/30 transition-all group/tool">
-                                            <div
-                                                class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-500 group-hover/tool:scale-110 transition-transform">
-                                                <i class="uil uil-video text-2xl"></i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300">After Effects</span>
+                                            class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-500 group-hover/tool:scale-110 transition-transform">
+                                            <i class="uil uil-video text-2xl"></i>
                                         </div>
-                                        <!-- Blender -->
+                                        <span class="text-xs font-bold text-gray-300 text-center">After Effects</span>
+                                    </div>
+                                    <!-- Blender -->
+                                    <div
+                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-orange-500/10 hover:border-orange-500/30 transition-all group/tool">
                                         <div
-                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-orange-500/10 hover:border-orange-500/30 transition-all group/tool">
-                                            <div
-                                                class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center text-orange-500 group-hover/tool:scale-110 transition-transform">
-                                                <i class="uil uil-cube text-2xl"></i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300">Blender 3D</span>
+                                            class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center text-orange-500 group-hover/tool:scale-110 transition-transform">
+                                            <i class="uil uil-cube text-2xl"></i>
                                         </div>
-                                        <!-- FL Studio -->
+                                        <span class="text-xs font-bold text-gray-300 text-center">Blender 3D</span>
+                                    </div>
+                                    <!-- FL Studio -->
+                                    <div
+                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all group/tool">
                                         <div
-                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all group/tool">
-                                            <div
-                                                class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center text-yellow-500 group-hover/tool:scale-110 transition-transform">
-                                                <i class="uil uil-music text-2xl"></i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300">FL Studio</span>
+                                            class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center text-yellow-500 group-hover/tool:scale-110 transition-transform">
+                                            <i class="uil uil-music text-2xl"></i>
                                         </div>
-                                        <!-- Framer -->
+                                        <span class="text-xs font-bold text-gray-300">FL Studio</span>
+                                    </div>
+                                    <!-- Framer -->
+                                    <div
+                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-blue-500/10 hover:border-blue-500/30 transition-all group/tool">
                                         <div
-                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-blue-500/10 hover:border-blue-500/30 transition-all group/tool">
-                                            <div
-                                                class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-500 group-hover/tool:scale-110 transition-transform">
-                                                <i class="uil uil-brush-alt text-2xl"></i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300">Framer</span>
+                                            class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-500 group-hover/tool:scale-110 transition-transform">
+                                            <i class="uil uil-brush-alt text-2xl"></i>
                                         </div>
-                                        <!-- Lovable -->
+                                        <span class="text-xs font-bold text-gray-300">Framer</span>
+                                    </div>
+                                    <!-- Lovable -->
+                                    <div
+                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-rose-500/10 hover:border-rose-500/30 transition-all group/tool">
                                         <div
-                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-rose-500/10 hover:border-rose-500/30 transition-all group/tool">
-                                            <div
-                                                class="w-12 h-12 bg-rose-500/10 rounded-lg flex items-center justify-center text-rose-500 group-hover/tool:scale-110 transition-transform">
-                                                <i class="uil uil-heart text-2xl"></i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300">Lovable</span>
+                                            class="w-12 h-12 bg-rose-500/10 rounded-lg flex items-center justify-center text-rose-500 group-hover/tool:scale-110 transition-transform">
+                                            <i class="uil uil-heart text-2xl"></i>
                                         </div>
-                                        <!-- Bolt -->
+                                        <span class="text-xs font-bold text-gray-300">Lovable</span>
+                                    </div>
+                                    <!-- Bolt -->
+                                    <div
+                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all group/tool">
                                         <div
-                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all group/tool">
-                                            <div
-                                                class="w-12 h-12 bg-yellow-600/10 rounded-lg flex items-center justify-center text-yellow-500 group-hover/tool:scale-110 transition-transform">
-                                                <i class="uil uil-bolt text-2xl"></i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300">Bolt AI</span>
+                                            class="w-12 h-12 bg-yellow-600/10 rounded-lg flex items-center justify-center text-yellow-500 group-hover/tool:scale-110 transition-transform">
+                                            <i class="uil uil-bolt text-2xl"></i>
                                         </div>
-                                        <!-- Android Studio -->
+                                        <span class="text-xs font-bold text-gray-300">Bolt AI</span>
+                                    </div>
+                                    <!-- Android Studio -->
+                                    <div
+                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-green-500/10 hover:border-green-500/30 transition-all group/tool">
                                         <div
-                                            class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-green-500/10 hover:border-green-500/30 transition-all group/tool">
-                                            <div
-                                                class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center text-green-500 group-hover/tool:scale-110 transition-transform">
-                                                <i class="uil uil-android text-2xl"></i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300">Android Studio</span>
+                                            class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center text-green-500 group-hover/tool:scale-110 transition-transform">
+                                            <i class="uil uil-android text-2xl"></i>
                                         </div>
+                                        <span class="text-xs font-bold text-gray-300 text-center">Android Studio</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        </section>
 
         <!-- Portfolio Section -->
-        <section id="work" class="py-16 lg:py-32 px-6 lg:px-20 bg-[#0d0d12]">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
+        <section id="work" class="py-20 lg:py-32 px-6 lg:px-20 bg-[#0d0d12]">
+            <div class="w-full">
+                <div class="text-center mb-8">
                     <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
                         data-heading="Recent Work">Recent Work</h2>
                 </div>
@@ -1502,7 +1578,7 @@
                 </div>
 
                 <!-- Desktop Grid -->
-                <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid-desktop">
+                <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-0" id="projects-grid-desktop">
                     <!-- Projects will be injected here via JS -->
                 </div>
             </div>
@@ -1674,7 +1750,7 @@
                     <div class="mb-10 text-center">
                         <div
                             class="w-24 h-24 bg-rose-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-rose-600/20 overflow-hidden border border-white/10">
-                            <img src="https://i.postimg.cc/Df1cGhWc/1770228379822.png"
+                            <img src="https://i.postimg.cc/QC8JjFjW/G5Pe-XVt-W-upscayl-4x-ultramix-balanced-4x.png"
                                 class="object-cover w-full h-full" alt="Jack Identity">
                         </div>
                         <h1 class="text-2xl font-bold mb-1 leading-tight text-white">Jack van der Merwe</h1>
@@ -1796,7 +1872,7 @@
         <div id="modal-container"
             class="relative bg-[#121218]/90 backdrop-blur-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] p-8 lg:p-12 transform scale-90 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
             <button id="close-modal"
-                class="absolute top-6 right-6 text-gray-400 hover:text-white z-[110] transition-transform hover:rotate-90">
+                class="absolute top-6 right-6 text-gray-400 hover:text-white z-[110] transition-transform hover:rotate-90 btn-premium">
                 <i class="uil uil-times text-3xl"></i>
             </button>
             <div id="modal-content" class="flex flex-col gap-6 lg:gap-8">
@@ -2263,7 +2339,7 @@
                             </div>
                             ` : ''}
                         </div>
-                        <div class="p-4">
+                        <div class="p-4 text-center">
                             <div class="flex justify-between items-center mb-1">
                                 <span class="text-[10px] font-bold text-rose-500 uppercase tracking-widest">${p.category}</span>
                                 <span class="text-[10px] text-gray-500">${p.date}</span>
@@ -2281,6 +2357,7 @@
 
         const setupMobileCarousel = () => {
             const mobileGrid = document.getElementById('projects-grid');
+            const mobileScroll = document.getElementById('mobile-projects-scroll');
             const prevBtn = document.getElementById('mobile-prev');
             const nextBtn = document.getElementById('mobile-next');
             const dotsContainer = document.getElementById('mobile-carousel-dots');
@@ -2313,11 +2390,11 @@
             let touchStartX = 0;
             let touchEndX = 0;
 
-            mobileGrid.addEventListener('touchstart', (e) => {
+            mobileScroll.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
             }, { passive: true });
 
-            mobileGrid.addEventListener('touchend', (e) => {
+            mobileScroll.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
                 handleSwipe();
             }, { passive: true });
@@ -2810,12 +2887,16 @@
                             if (btn) {
                                 const arrow = btn.querySelector('.skill-arrow');
                                 const txt = btn.querySelector('.text-left p');
-                                arrow.style.transform = 'rotate(0deg)';
-                                if (arrow.classList.contains('uil-arrow-down')) {
-                                    arrow.classList.remove('uil-arrow-down');
-                                    arrow.classList.add('uil-angle-right');
+                                if (arrow) {
+                                    arrow.style.transform = 'rotate(0deg)';
+                                    if (arrow.classList.contains('uil-arrow-down')) {
+                                        arrow.classList.remove('uil-arrow-down');
+                                        arrow.classList.add('uil-angle-right');
+                                    }
                                 }
-                                txt.textContent = 'Click to expand skills';
+                                if (txt) {
+                                    txt.textContent = 'Click to expand skills';
+                                }
                             }
                         }
                     });
@@ -2824,21 +2905,29 @@
                 if (isExpanded) {
                     // Collapse
                     content.classList.add('hidden');
-                    arrow.style.transform = 'rotate(0deg)';
-                    if (arrow.classList.contains('uil-arrow-down')) {
-                        arrow.classList.remove('uil-arrow-down');
-                        arrow.classList.add('uil-angle-right');
+                    if (arrow) {
+                        arrow.style.transform = 'rotate(0deg)';
+                        if (arrow.classList.contains('uil-arrow-down')) {
+                            arrow.classList.remove('uil-arrow-down');
+                            arrow.classList.add('uil-angle-right');
+                        }
                     }
-                    instructionText.textContent = 'Click to expand skills';
+                    if (instructionText) {
+                        instructionText.textContent = 'Click to expand skills';
+                    }
                 } else {
                     // Expand
                     content.classList.remove('hidden');
-                    arrow.style.transform = 'rotate(90deg)';
-                    if (arrow.classList.contains('uil-angle-right')) {
-                        arrow.classList.remove('uil-angle-right');
-                        arrow.classList.add('uil-arrow-down');
+                    if (arrow) {
+                        arrow.style.transform = 'rotate(90deg)';
+                        if (arrow.classList.contains('uil-angle-right')) {
+                            arrow.classList.remove('uil-angle-right');
+                            arrow.classList.add('uil-arrow-down');
+                        }
                     }
-                    instructionText.textContent = 'Click to collapse skills';
+                    if (instructionText) {
+                        instructionText.textContent = 'Click to collapse skills';
+                    }
                 }
             });
         });
@@ -2932,7 +3021,6 @@
             }, 3000);
         }
     </script>
-    <div id="toast-container" class="fixed bottom-8 right-8 z-[200] flex flex-col gap-4 pointer-events-none"></div>
 
     <!-- ========== SUPROSE PREMIUM JAVASCRIPT ========== -->
     <script>
