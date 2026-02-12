@@ -1591,7 +1591,7 @@
                     <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
                         data-heading="Get In Touch">My Details</h2>
                 </div>
-                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+                <div class="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                     <div class="space-y-6">
                         <div id="email-trigger"
                             class="flex items-center gap-5 lg:gap-6 p-5 lg:p-6 bg-white/[0.03] border border-white/5 rounded-2xl cursor-pointer hover:bg-white/10 transition-all hover:scale-[1.02] group">
@@ -1737,7 +1737,7 @@
         <div class="absolute inset-0 bg-black/95 transition-opacity duration-500 opacity-0" id="resume-modal-overlay">
         </div>
         <div id="resume-modal-container"
-            class="relative w-full max-w-6xl transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
+            class="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1) my-8">
 
             <button id="close-resume-modal"
                 class="absolute -top-12 lg:top-6 lg:right-6 text-gray-400 hover:text-white z-[210] transition-transform hover:rotate-90">
@@ -1750,12 +1750,12 @@
                     <div class="mb-10 text-center">
                         <div
                             class="w-24 h-24 bg-rose-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-rose-600/20 overflow-hidden border border-white/10">
-                            <img src="https://i.postimg.cc/QC8JjFjW/G5Pe-XVt-W-upscayl-4x-ultramix-balanced-4x.png"
-                                class="object-cover w-full h-full" alt="Jack Identity">
+                            <img src="https://image2url.com/r2/default/images/1770891378613-11cd1135-9dc2-4cff-a1a2-6a82e208ab20.jpeg" class="object-cover w-full h-full"
+                                alt="Jack Identity">
                         </div>
                         <h1 class="text-2xl font-bold mb-1 leading-tight text-white">Jack van der Merwe</h1>
-                        <p class="text-rose-500 font-bold tracking-widest text-[10px] uppercase">Full Stack Architect &
-                            AI Enthusiast</p>
+                        <p class="text-rose-500 font-bold tracking-widest text-[10px] uppercase">Full Stack Architect & AI
+                            Enthusiast</p>
                     </div>
 
                     <div class="space-y-8">
@@ -1774,6 +1774,14 @@
                                     <i class="uil uil-envelope text-rose-500"></i>
                                     lasticproductions247@gmail.com
                                 </li>
+                                <li class="flex items-center gap-3 text-gray-300">
+                                    <i class="uil uil-globe text-rose-500"></i>
+                                    lasticproduction.co.za
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-300">
+                                    <i class="uil uil-github text-rose-500"></i>
+                                    <a href="https://vandermerwejack611-cloud.github.io/x/" target="_blank" class="text-gray-300 hover:text-rose-500 transition-colors">GitHub Portfolio</a>
+                                </li>
                             </ul>
                         </div>
 
@@ -1790,11 +1798,63 @@
                         </div>
 
                         <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">AI & Automation</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="resume-skill-tag">OpenAI</span>
+                                <span class="resume-skill-tag">Claude</span>
+                                <span class="resume-skill-tag">n8n</span>
+                                <span class="resume-skill-tag">Zapier</span>
+                                <span class="resume-skill-tag">Prompt Eng</span>
+                                <span class="resume-skill-tag">Ollama</span>
+                                <span class="resume-skill-tag">LangChain</span>
+                                <span class="resume-skill-tag">Llama.cpp</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Design</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="resume-skill-tag">Figma</span>
+                                <span class="resume-skill-tag">Framer</span>
+                                <span class="resume-skill-tag">Photoshop</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Creative & Power Tools
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="resume-skill-tag">After Effects</span>
+                                <span class="resume-skill-tag">Blender</span>
+                                <span class="resume-skill-tag">FL Studio</span>
+                                <span class="resume-skill-tag">Android Studio</span>
+                                <span class="resume-skill-tag">Lovable</span>
+                                <span class="resume-skill-tag">Bolt AI</span>
+                                <span class="resume-skill-tag">CursorAI</span>
+                                <span class="resume-skill-tag">LM Studio</span>
+                                <span class="resume-skill-tag">VS Code</span>
+                                <span class="resume-skill-tag">OpenCode</span>
+                            </div>
+                        </div>
+
+                        <div>
                             <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Education</h3>
-                            <div class="text-gray-300 text-xs">
-                                <p class="font-bold text-white">Matric (Grade 12)</p>
-                                <p class="mb-1">Sybrand van Niekerk High School</p>
-                                <p class="text-gray-500">Completed 2008</p>
+                            <div class="text-gray-300 text-xs space-y-3">
+                                <div>
+                                    <p class="font-bold text-white">Full Stack Web Development</p>
+                                    <p class="mb-1">Self-Taught & Online Courses</p>
+                                    <p class="text-gray-500">2024 - 2026</p>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white">AI & Machine Learning</p>
+                                    <p class="mb-1">Various Online Platforms</p>
+                                    <p class="text-gray-500">2024 - 2026</p>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white">Matric (Grade 12)</p>
+                                    <p class="mb-1">Sybrand van Niekerk High School</p>
+                                    <p class="text-gray-500">Completed 2008</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1803,11 +1863,15 @@
                 <!-- Main Content -->
                 <main class="resume-main">
                     <header class="mb-12">
-                        <h2 class="text-3xl font-extrabold mb-4 leading-tight text-white">Professional Summary</h2>
+                        <h2 class="text-rose-gradient-text text-4xl font-extrabold mb-4 leading-tight">Professional Summary</h2>
                         <p class="text-gray-400 text-sm leading-relaxed">
-                            I'm a self-taught, full-stack junior developer, rapidly advancing through Udemy's 5-part
-                            Computer Science and Audio Engineering course studies, with ongoing self-trained focus on
-                            Machine Learning, AI Integration, Android App Development, and UI/UX (Human-Centric Design).
+                            I'm a self-taught, full-stack developer, rapidly advancing through Udemy's 5-part Computer
+                            Science and Audio Engineering course studies, with ongoing self-trained focus on Machine Learning,
+                            AI Integration, Android App Development, and UI/UX (Human-Centric Design). I'm proficient in Python
+                            (automation, OpenAI/Claude APIs), JavaScript (event handling, DOM), React, Node.js + SQL (backend
+                            logic), and HTML/CSS (responsive, semantic). My whole life has been a testament of my selftraining
+                            and learning capabilities; if someone said I can't do something, I taught myself and proved them
+                            wrong.
                         </p>
                     </header>
 
@@ -1820,46 +1884,90 @@
                         <div class="resume-exp-item">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h4 class="text-lg font-bold text-white uppercase italic">Freelance AI & Automation
-                                        Developer</h4>
+                                    <h4 class="text-lg font-bold text-white uppercase italic">Full Stack AI, Automation & Web Developer</h4>
                                     <p class="text-rose-500 text-sm font-semibold">Self-Employed, Remote</p>
                                 </div>
                                 <span
-                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">May
-                                    2025 — 2027</span>
+                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2023
+                                    — 2026</span>
                             </div>
                             <ul class="text-gray-400 text-xs space-y-2 mt-4 list-disc list-inside">
-                                <li>Engineered AI-driven automations using n8n/Zapier and LLMs (OpenAI/Claude).</li>
-                                <li>Drafted and optimized neural pathways for high-conversion web ecosystems.</li>
+                                <li>Engineered AI-driven automations using n8n/Zapier and LLMs (OpenAI/Claude) to integrate
+                                    WooCommerce with Discord.</li>
+                                <li>Annotated and evaluated AI datasets (text/images/audio/video) for ML models, focusing on
+                                    quality and bias reduction.</li>
+                                <li>Developed and QA'd AI prompts and outputs for chat-based systems, ensuring clarity and
+                                    moderation.</li>
+                                <li>Built custom web solutions including WordPress websites for trading companies, handling
+                                    themes, plugins, SEO, and performance.</li>
                                 <li>Created responsive front-end/back-end features for web apps using
-                                    HTML/JS/React/Node.</li>
+                                    HTML/JS/React/Node/PHP/SQL.</li>
                             </ul>
                         </div>
 
                         <div class="resume-exp-item">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h4 class="text-lg font-bold text-white uppercase italic">Floor Manager & Barman
-                                    </h4>
-                                    <p class="text-rose-500 text-sm font-semibold">Hospitality Group, South Africa</p>
+                                    <h4 class="text-lg font-bold text-white uppercase italic">Floor Manager, Waiter, Barman</h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Restaurant Operations, Pretoria and Centurion
+                                    </p>
                                 </div>
                                 <span
                                     class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2018
                                     — 2024</span>
                             </div>
+                            <p class="text-gray-400 text-xs mt-2 italic">Managed high-volume restaurant operations, developing
+                                agile multitasking, real-time decision-making, and high-pressure client relations.</p>
+                        </div>
+
+                        <div class="resume-exp-item">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-white uppercase italic">Senior NDT Technician</h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Non-Destructive Testing, South Africa</p>
+                                </div>
+                                <span
+                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2011
+                                    — 2017</span>
+                            </div>
+                            <p class="text-gray-400 text-xs mt-2 italic">ASNT Magnetic Particle Inspection Level 2 certified.
+                                Conducted non-destructive testing on critical infrastructure, analyzing complex inspection data
+                                under strict compliance standards.</p>
                         </div>
                     </section>
 
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-                        <button onclick="window.print()"
-                            class="w-full sm:w-auto px-8 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-full transition-all flex items-center justify-center gap-2">
-                            <i class="uil uil-print"></i> Print Resume
-                        </button>
-                        <button onclick="window.print()"
-                            class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-rose-600 to-purple-600 text-white font-bold rounded-full transition-all shadow-lg shadow-rose-600/30 hover:scale-105 flex items-center justify-center gap-2">
-                            <i class="uil uil-download-alt"></i> Download CV (PDF)
-                        </button>
-                    </div>
+                    <section>
+                        <h3 class="flex items-center gap-3 text-white font-extrabold text-xl mb-8">
+                            <span class="w-8 h-[2px] bg-rose-600"></span>
+                            Recent Projects
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                                <h4 class="text-xs font-bold text-white mb-1 uppercase text-rose-500">Lastic Local AI</h4>
+                                <p class="text-[10px] text-gray-500 leading-relaxed">High-performance local inference engine
+                                    built for 100% private LLM orchestration with zero data leakage.</p>
+                            </div>
+                            <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                                <h4 class="text-xs font-bold text-white mb-1 uppercase text-rose-500">June AI</h4>
+                                <p class="text-[10px] text-gray-500 leading-relaxed">Agentic AI application pushing neural
+                                    networking boundaries to learn and adapt to user behavior in real-time.</p>
+                            </div>
+                            <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                                <h4 class="text-xs font-bold text-white mb-1 uppercase text-rose-500">Neural Nexus</h4>
+                                <p class="text-[10px] text-gray-400 leading-relaxed">Advanced NLP research project utilizing
+                                    Transformer models to architect complex human-AI interactions.</p>
+                            </div>
+                            <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                                <a href="https://vaultfunder.trade/" target="_blank" class="block">
+                                    <h4 class="text-xs font-bold text-white mb-1 uppercase text-rose-500 hover:text-rose-400 transition-colors">VaultFunder Trade</h4>
+                                    <p class="text-[10px] text-gray-400 leading-relaxed">Architected for Serious Traders as one of
+                                        South Africa's largest trading platforms, providing elite market access and real-time
+                                        insights.</p>
+                                    <p class="text-[9px] text-rose-500 font-medium mt-2 hover:text-rose-400 transition-colors">→ Visit Site</p>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
                 </main>
             </div>
         </div>
