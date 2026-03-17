@@ -17,8 +17,8 @@
         :root {
             --rose-600: #e11d48;
             --rose-500: #f43f5e;
-            --bg-dark: #0d0d12;
-            --bg-card: #121218;
+            --bg-dark: #000000;
+            --bg-card: #0d0d12;
         }
 
         * {
@@ -619,6 +619,60 @@
             }
         }
 
+        /* Power Stack Premium Tile Styles */
+        .skill-tile {
+            perspective: 1500px;
+        }
+
+        .skill-tile-inner {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            height: 100%;
+        }
+
+        .skill-tile:hover .skill-tile-inner {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px) rotateX(10deg) rotateY(10deg);
+            box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+            opacity: 0;
+            z-index: 10;
+        }
+
+        .skill-tile:hover .scan-line {
+            animation: neural-scan 2s linear infinite;
+            opacity: 1;
+        }
+
+        @keyframes neural-scan {
+            0% {
+                top: 0%;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
         /* Enhanced Glassmorphism with Depth */
         .glass-premium {
             background: rgba(13, 13, 18, 0.7);
@@ -692,7 +746,7 @@
                 scrollbar-width: none !important;
                 -ms-overflow-style: none !important;
             }
-            
+
             *::-webkit-scrollbar {
                 display: none !important;
                 width: 0 !important;
@@ -1064,7 +1118,7 @@
             <a href="javascript:void(0)" onclick="showComingSoon('Facebook')"
                 class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
                     class="uil uil-facebook-f text-xl"></i></a>
-            <a href="javascript:void(0)" onclick="showComingSoon('Instagram')"
+            <a href="https://www.instagram.com/lasticproductions/?hl=en" target="_blank"
                 class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
                     class="uil uil-instagram text-xl"></i></a>
             <a href="javascript:void(0)" onclick="showComingSoon('YouTube')"
@@ -1181,7 +1235,7 @@
 
         <!-- About Section -->
         <section id="about" class="py-4 lg:py-32 px-6 lg:px-20 reveal">
-            <div class="max-w-7xl mx-auto">
+            <div class="w-full">
                 <div class="text-center mb-8">
                     <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
                         data-heading="My Intro">About Me</h2>
@@ -1190,9 +1244,8 @@
                     <div class="relative group">
                         <div class="absolute -inset-4 bg-rose-600/10 rounded-3xl blur-2xl opacity-50"></div>
                         <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                            <img
-                                src="https://i.postimg.cc/QC8JjFjW/G5Pe-XVt-W-upscayl-4x-ultramix-balanced-4x.png"
-                                alt="Project showcase"
+                            <img src="https://i.postimg.cc/rmJ07GnR/b20aef37-35ad-4529-bd87-9686b150a6b1.jpg"
+                                alt="Profile Picture"
                                 class="w-full object-cover h-[500px] transition-all duration-700 hover:scale-105">
                             <div
                                 class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
@@ -1255,49 +1308,63 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-[#FF1E56] text-sm font-medium">95%</span>
+                                    <p class="text-[#CCCCCC] text-xs">Professional Tier</p>
                                     <p class="text-[#CCCCCC] text-xs">4 skills</p>
                                 </div>
                             </button>
-                            <div class="skill-content border-t border-white/5 p-6 space-y-4" id="frontend-skills">
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">HTML/CSS</span>
-                                        <span class="text-[#FF1E56] text-sm">95%</span>
+                            <div class="skill-content border-t border-white/5 p-8" id="frontend-skills">
+                                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                                    <!-- HTML/CSS -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-html5 text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">HTML
+                                                / CSS</span>
+                                        </div>
                                     </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="95%" style="width: 0%"></div>
+                                    <!-- JavaScript -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="material-icons text-3xl">code</i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">JavaScript</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">JavaScript</span>
-                                        <span class="text-[#FF1E56] text-sm">90%</span>
+                                    <!-- React -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-react text-3xl"></i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">React.js</span>
+                                        </div>
                                     </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="90%" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">React</span>
-                                        <span class="text-[#FF1E56] text-sm">85%</span>
-                                    </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="85%" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">Tailwind CSS</span>
-                                        <span class="text-[#FF1E56] text-sm">88%</span>
-                                    </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="88%" style="width: 0%"></div>
+                                    <!-- Tailwind -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-swatchbook text-3xl"></i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">Tailwind</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1319,49 +1386,63 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-[#FF1E56] text-sm font-medium">92%</span>
+                                    <p class="text-[#CCCCCC] text-xs">Expert Class</p>
                                     <p class="text-[#CCCCCC] text-xs">4 skills</p>
                                 </div>
                             </button>
-                            <div class="skill-content hidden border-t border-white/5 p-6 space-y-4" id="design-skills">
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">Figma</span>
-                                        <span class="text-[#FF1E56] text-sm">92%</span>
+                            <div class="skill-content hidden border-t border-white/5 p-8" id="design-skills">
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                                    <!-- Figma -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="material-icons text-3xl">gesture</i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">Figma</span>
+                                        </div>
                                     </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="92%" style="width: 0%"></div>
+                                    <!-- Photoshop -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-600 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-adobe text-3xl"></i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">Photoshop</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">Sketch</span>
-                                        <span class="text-[#FF1E56] text-sm">85%</span>
+                                    <!-- Framer -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-blue-400/10 rounded-xl flex items-center justify-center text-blue-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-brush-alt text-3xl"></i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">Framer</span>
+                                        </div>
                                     </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="85%" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">Photoshop</span>
-                                        <span class="text-[#FF1E56] text-sm">80%</span>
-                                    </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="80%" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">Framer</span>
-                                        <span class="text-[#FF1E56] text-sm">70%</span>
-                                    </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="70%" style="width: 0%"></div>
+                                    <!-- UI Design -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-layer-group text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">UI /
+                                                UX</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1383,57 +1464,71 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-[#FF1E56] text-sm font-medium">90%</span>
+                                    <p class="text-[#CCCCCC] text-xs">Mastery Tier</p>
                                     <p class="text-[#CCCCCC] text-xs">4 skills</p>
                                 </div>
                             </button>
-                            <div class="skill-content hidden border-t border-white/5 p-6 space-y-4" id="backend-skills">
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">Firebase</span>
-                                        <span class="text-[#FF1E56] text-sm">90%</span>
+                            <div class="skill-content hidden border-t border-white/5 p-8" id="backend-skills">
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                                    <!-- Python -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="material-icons text-3xl">terminal</i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">Python</span>
+                                        </div>
                                     </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="90%" style="width: 0%"></div>
+                                    <!-- Firebase -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-orange-400/10 rounded-xl flex items-center justify-center text-orange-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-fire text-3xl"></i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">Firebase</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">PHP</span>
-                                        <span class="text-[#FF1E56] text-sm">85%</span>
+                                    <!-- PHP -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="material-icons text-3xl">storage</i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest text-center">PHP
+                                                / SQL</span>
+                                        </div>
                                     </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="85%" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">Python</span>
-                                        <span class="text-[#FF1E56] text-sm">88%</span>
-                                    </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="88%" style="width: 0%"></div>
-                                    </div>
-                                </div>
-
-                                <div class="skill-item">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-white font-medium">GitHub</span>
-                                        <span class="text-[#FF1E56] text-sm">90%</span>
-                                    </div>
-                                    <div class="w-full bg-[#2A2A32] rounded-full h-2">
-                                        <div class="bg-[#FF1E56] h-2 rounded-full transition-all duration-1000 skill-progress"
-                                            data-width="90%" style="width: 0%"></div>
+                                    <!-- GitHub -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-gray-500/10 rounded-xl flex items-center justify-center text-white group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-github-alt text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Git
+                                                / Devops</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Tools & Power Stack Expandable (Collapsed by Default) -->
-                        <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden mt-8">
+                        <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden mt-8 mb-12">
                             <button
                                 class="w-full p-6 flex items-center justify-between hover:bg-white/[0.05] transition-all group skill-toggle"
                                 data-skill="tools">
@@ -1455,76 +1550,69 @@
                             <div class="skill-content hidden border-t border-white/5 p-8" id="tools-skills">
                                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
                                     <!-- After Effects -->
-                                    <div
-                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-rose-500/10 hover:border-rose-500/30 transition-all group/tool">
+                                    <div class="skill-tile group/tile">
                                         <div
-                                            class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-500 group-hover/tool:scale-110 transition-transform">
-                                            <i class="uil uil-video text-2xl"></i>
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-video text-3xl"></i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest text-center">After
+                                                Effects</span>
                                         </div>
-                                        <span class="text-xs font-bold text-gray-300 text-center">After Effects</span>
                                     </div>
                                     <!-- Blender -->
-                                    <div
-                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-orange-500/10 hover:border-orange-500/30 transition-all group/tool">
+                                    <div class="skill-tile group/tile">
                                         <div
-                                            class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center text-orange-500 group-hover/tool:scale-110 transition-transform">
-                                            <i class="uil uil-cube text-2xl"></i>
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-cube text-3xl"></i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest text-center">Blender
+                                                3D</span>
                                         </div>
-                                        <span class="text-xs font-bold text-gray-300 text-center">Blender 3D</span>
                                     </div>
                                     <!-- FL Studio -->
-                                    <div
-                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all group/tool">
+                                    <div class="skill-tile group/tile">
                                         <div
-                                            class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center text-yellow-500 group-hover/tool:scale-110 transition-transform">
-                                            <i class="uil uil-music text-2xl"></i>
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-music text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">FL
+                                                Studio</span>
                                         </div>
-                                        <span class="text-xs font-bold text-gray-300">FL Studio</span>
                                     </div>
-                                    <!-- Framer -->
-                                    <div
-                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-blue-500/10 hover:border-blue-500/30 transition-all group/tool">
+                                    <!-- Bolt AI -->
+                                    <div class="skill-tile group/tile">
                                         <div
-                                            class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-500 group-hover/tool:scale-110 transition-transform">
-                                            <i class="uil uil-brush-alt text-2xl"></i>
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-bolt text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Bolt
+                                                AI</span>
                                         </div>
-                                        <span class="text-xs font-bold text-gray-300">Framer</span>
-                                    </div>
-                                    <!-- Lovable -->
-                                    <div
-                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-rose-500/10 hover:border-rose-500/30 transition-all group/tool">
-                                        <div
-                                            class="w-12 h-12 bg-rose-500/10 rounded-lg flex items-center justify-center text-rose-500 group-hover/tool:scale-110 transition-transform">
-                                            <i class="uil uil-heart text-2xl"></i>
-                                        </div>
-                                        <span class="text-xs font-bold text-gray-300">Lovable</span>
-                                    </div>
-                                    <!-- Bolt -->
-                                    <div
-                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500/30 transition-all group/tool">
-                                        <div
-                                            class="w-12 h-12 bg-yellow-600/10 rounded-lg flex items-center justify-center text-yellow-500 group-hover/tool:scale-110 transition-transform">
-                                            <i class="uil uil-bolt text-2xl"></i>
-                                        </div>
-                                        <span class="text-xs font-bold text-gray-300">Bolt AI</span>
-                                    </div>
-                                    <!-- Android Studio -->
-                                    <div
-                                        class="flex flex-col items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:bg-green-500/10 hover:border-green-500/30 transition-all group/tool">
-                                        <div
-                                            class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center text-green-500 group-hover/tool:scale-110 transition-transform">
-                                            <i class="uil uil-android text-2xl"></i>
-                                        </div>
-                                        <span class="text-xs font-bold text-gray-300 text-center">Android Studio</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div> <!-- End Power Stack -->
+                    </div> <!-- End space-y-6 -->
+                </div> <!-- End max-w-4xl -->
+            </div> <!-- End max-w-7xl -->
+        </section>
 
         <!-- Portfolio Section -->
-        <section id="work" class="py-20 lg:py-32 px-6 lg:px-20 bg-[#0d0d12]">
+        <section id="work" class="py-20 lg:py-32 px-6 lg:px-20 bg-black">
             <div class="w-full">
                 <div class="text-center mb-8">
                     <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
@@ -1591,7 +1679,7 @@
                     <h2 class="section-title text-4xl md:text-5xl font-bold text-white inline-block"
                         data-heading="Get In Touch">My Details</h2>
                 </div>
-                <div class="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                     <div class="space-y-6">
                         <div id="email-trigger"
                             class="flex items-center gap-5 lg:gap-6 p-5 lg:p-6 bg-white/[0.03] border border-white/5 rounded-2xl cursor-pointer hover:bg-white/10 transition-all hover:scale-[1.02] group">
@@ -1706,6 +1794,10 @@
                     class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-8 py-4 rounded-xl transition-all hover:bg-white/5 btn-flash">
                     <i class="uil uil-file-alt mr-2"></i> Professional Resume
                 </a>
+                <a href="javascript:void(0)" id="resume-trigger-v2"
+                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-8 py-4 rounded-xl transition-all hover:bg-white/5 btn-flash">
+                    <i class="uil uil-file-alt mr-2"></i> Resume v2
+                </a>
 
 
             </div>
@@ -1731,13 +1823,13 @@
         </footer>
     </main>
 
-    <!-- Professional Resume Modal -->
+    <!-- Professional Resume Modal (Original) -->
     <div id="resume-modal"
         class="fixed inset-0 z-[200] hidden items-center justify-center p-4 lg:p-10 opacity-0 transition-all duration-500 ease-out backdrop-blur-0 overflow-y-auto">
         <div class="absolute inset-0 bg-black/95 transition-opacity duration-500 opacity-0" id="resume-modal-overlay">
         </div>
         <div id="resume-modal-container"
-            class="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1) my-8">
+            class="relative w-full max-w-6xl transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
 
             <button id="close-resume-modal"
                 class="absolute -top-12 lg:top-6 lg:right-6 text-gray-400 hover:text-white z-[210] transition-transform hover:rotate-90">
@@ -1750,12 +1842,12 @@
                     <div class="mb-10 text-center">
                         <div
                             class="w-24 h-24 bg-rose-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-rose-600/20 overflow-hidden border border-white/10">
-                            <img src="https://image2url.com/r2/default/images/1770891378613-11cd1135-9dc2-4cff-a1a2-6a82e208ab20.jpeg" class="object-cover w-full h-full"
-                                alt="Jack Identity">
+                            <img src="https://i.postimg.cc/rmJ07GnR/b20aef37-35ad-4529-bd87-9686b150a6b1.jpg"
+                                class="object-cover w-full h-full" alt="Jack Identity">
                         </div>
-                        <h1 class="text-2xl font-bold mb-1 leading-tight text-white">Jack van der Merwe</h1>
-                        <p class="text-rose-500 font-bold tracking-widest text-[10px] uppercase">Full Stack Architect & AI
-                            Enthusiast</p>
+                        <h1 class="text-2xl font-bold mb-1 leading-tight text-white">Jack Van Der Merwe</h1>
+                        <p class="text-rose-500 font-bold tracking-widest text-[10px] uppercase">Full Stack Architect &
+                            AI Enthusiast</p>
                     </div>
 
                     <div class="space-y-8">
@@ -1774,14 +1866,6 @@
                                     <i class="uil uil-envelope text-rose-500"></i>
                                     lasticproductions247@gmail.com
                                 </li>
-                                <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-globe text-rose-500"></i>
-                                    lasticproduction.co.za
-                                </li>
-                                <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-github text-rose-500"></i>
-                                    <a href="https://vandermerwejack611-cloud.github.io/x/" target="_blank" class="text-gray-300 hover:text-rose-500 transition-colors">GitHub Portfolio</a>
-                                </li>
                             </ul>
                         </div>
 
@@ -1798,63 +1882,11 @@
                         </div>
 
                         <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">AI & Automation</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="resume-skill-tag">OpenAI</span>
-                                <span class="resume-skill-tag">Claude</span>
-                                <span class="resume-skill-tag">n8n</span>
-                                <span class="resume-skill-tag">Zapier</span>
-                                <span class="resume-skill-tag">Prompt Eng</span>
-                                <span class="resume-skill-tag">Ollama</span>
-                                <span class="resume-skill-tag">LangChain</span>
-                                <span class="resume-skill-tag">Llama.cpp</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Design</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="resume-skill-tag">Figma</span>
-                                <span class="resume-skill-tag">Framer</span>
-                                <span class="resume-skill-tag">Photoshop</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Creative & Power Tools
-                            </h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="resume-skill-tag">After Effects</span>
-                                <span class="resume-skill-tag">Blender</span>
-                                <span class="resume-skill-tag">FL Studio</span>
-                                <span class="resume-skill-tag">Android Studio</span>
-                                <span class="resume-skill-tag">Lovable</span>
-                                <span class="resume-skill-tag">Bolt AI</span>
-                                <span class="resume-skill-tag">CursorAI</span>
-                                <span class="resume-skill-tag">LM Studio</span>
-                                <span class="resume-skill-tag">VS Code</span>
-                                <span class="resume-skill-tag">OpenCode</span>
-                            </div>
-                        </div>
-
-                        <div>
                             <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Education</h3>
-                            <div class="text-gray-300 text-xs space-y-3">
-                                <div>
-                                    <p class="font-bold text-white">Full Stack Web Development</p>
-                                    <p class="mb-1">Self-Taught & Online Courses</p>
-                                    <p class="text-gray-500">2024 - 2026</p>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-white">AI & Machine Learning</p>
-                                    <p class="mb-1">Various Online Platforms</p>
-                                    <p class="text-gray-500">2024 - 2026</p>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-white">Matric (Grade 12)</p>
-                                    <p class="mb-1">Sybrand van Niekerk High School</p>
-                                    <p class="text-gray-500">Completed 2008</p>
-                                </div>
+                            <div class="text-gray-300 text-xs">
+                                <p class="font-bold text-white">Matric (Grade 12)</p>
+                                <p class="mb-1">Sybrand van Niekerk High School</p>
+                                <p class="text-gray-500">Completed 2008</p>
                             </div>
                         </div>
                     </div>
@@ -1863,15 +1895,11 @@
                 <!-- Main Content -->
                 <main class="resume-main">
                     <header class="mb-12">
-                        <h2 class="text-rose-gradient-text text-4xl font-extrabold mb-4 leading-tight">Professional Summary</h2>
+                        <h2 class="text-3xl font-extrabold mb-4 leading-tight text-white">Professional Summary</h2>
                         <p class="text-gray-400 text-sm leading-relaxed">
-                            I'm a self-taught, full-stack developer, rapidly advancing through Udemy's 5-part Computer
-                            Science and Audio Engineering course studies, with ongoing self-trained focus on Machine Learning,
-                            AI Integration, Android App Development, and UI/UX (Human-Centric Design). I'm proficient in Python
-                            (automation, OpenAI/Claude APIs), JavaScript (event handling, DOM), React, Node.js + SQL (backend
-                            logic), and HTML/CSS (responsive, semantic). My whole life has been a testament of my selftraining
-                            and learning capabilities; if someone said I can't do something, I taught myself and proved them
-                            wrong.
+                            I'm a self-taught, full-stack junior developer, rapidly advancing through Udemy's 5-part
+                            Computer Science and Audio Engineering course studies, with ongoing self-trained focus on
+                            Machine Learning, AI Integration, Android App Development, and UI/UX (Human-Centric Design).
                         </p>
                     </header>
 
@@ -1884,90 +1912,242 @@
                         <div class="resume-exp-item">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h4 class="text-lg font-bold text-white uppercase italic">Full Stack AI, Automation & Web Developer</h4>
+                                    <h4 class="text-lg font-bold text-white uppercase italic">Freelance AI & Automation
+                                        Developer</h4>
                                     <p class="text-rose-500 text-sm font-semibold">Self-Employed, Remote</p>
                                 </div>
                                 <span
-                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2023
-                                    — 2026</span>
+                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">May
+                                    2025 — 2027</span>
                             </div>
                             <ul class="text-gray-400 text-xs space-y-2 mt-4 list-disc list-inside">
-                                <li>Engineered AI-driven automations using n8n/Zapier and LLMs (OpenAI/Claude) to integrate
-                                    WooCommerce with Discord.</li>
-                                <li>Annotated and evaluated AI datasets (text/images/audio/video) for ML models, focusing on
-                                    quality and bias reduction.</li>
-                                <li>Developed and QA'd AI prompts and outputs for chat-based systems, ensuring clarity and
-                                    moderation.</li>
-                                <li>Built custom web solutions including WordPress websites for trading companies, handling
-                                    themes, plugins, SEO, and performance.</li>
+                                <li>Engineered AI-driven automations using n8n/Zapier and LLMs (OpenAI/Claude).</li>
+                                <li>Drafted and optimized neural pathways for high-conversion web ecosystems.</li>
                                 <li>Created responsive front-end/back-end features for web apps using
-                                    HTML/JS/React/Node/PHP/SQL.</li>
+                                    HTML/JS/React/Node.</li>
                             </ul>
                         </div>
 
                         <div class="resume-exp-item">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h4 class="text-lg font-bold text-white uppercase italic">Floor Manager, Waiter, Barman</h4>
-                                    <p class="text-rose-500 text-sm font-semibold">Restaurant Operations, Pretoria and Centurion
-                                    </p>
+                                    <h4 class="text-lg font-bold text-white uppercase italic">Floor Manager & Barman
+                                    </h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Hospitality Group, South Africa</p>
                                 </div>
                                 <span
                                     class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2018
                                     — 2024</span>
                             </div>
-                            <p class="text-gray-400 text-xs mt-2 italic">Managed high-volume restaurant operations, developing
-                                agile multitasking, real-time decision-making, and high-pressure client relations.</p>
+                        </div>
+                    </section>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+                        <button onclick="window.print()"
+                            class="w-full sm:w-auto px-8 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-full transition-all flex items-center justify-center gap-2">
+                            <i class="uil uil-print"></i> Print Resume
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Modal V2 (PDF Updated) -->
+    <div id="resume-modal-v2"
+        class="fixed inset-0 z-[200] hidden items-center justify-center p-4 lg:p-10 opacity-0 transition-all duration-500 ease-out backdrop-blur-0 overflow-y-auto">
+        <div class="absolute inset-0 bg-black/95 transition-opacity duration-500 opacity-0" id="resume-modal-overlay-v2">
+        </div>
+        <div id="resume-modal-container-v2"
+            class="relative w-full max-w-6xl transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
+
+            <button id="close-resume-modal-v2"
+                class="absolute -top-12 lg:top-6 lg:right-6 text-gray-400 hover:text-white z-[210] transition-transform hover:rotate-90">
+                <i class="uil uil-times text-3xl"></i>
+            </button>
+
+            <div class="resume-modal-container">
+                <!-- Sidebar -->
+                <aside class="resume-sidebar">
+                    <div class="mb-10 text-center">
+                        <div
+                            class="w-24 h-24 bg-rose-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-rose-600/20 overflow-hidden border border-white/10">
+                            <img src="https://i.postimg.cc/rmJ07GnR/b20aef37-35ad-4529-bd87-9686b150a6b1.jpg"
+                                class="object-cover w-full h-full" alt="Jack Identity">
+                        </div>
+                        <h1 class="text-2xl font-bold mb-1 leading-tight text-white">Jack Van Der Merwe</h1>
+                        <p class="text-rose-500 font-bold tracking-widest text-[10px] uppercase">Full Stack Developer &
+                            Agentic AI Enthusiast</p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Contact</h3>
+                            <ul class="space-y-3 text-xs">
+                                <li class="flex items-center gap-3 text-gray-300">
+                                    <i class="uil uil-location-point text-rose-500"></i>
+                                    Pretoria, Gauteng, ZA
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-300">
+                                    <i class="uil uil-phone text-rose-500"></i>
+                                    +27 76 364 3994
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-300">
+                                    <i class="uil uil-envelope text-rose-500"></i>
+                                    lasticproductions247@gmail.com
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-300 overflow-hidden">
+                                    <i class="uil uil-globe text-rose-500"></i>
+                                    <span class="truncate">vandermerwejack611-cloud.github.io/x/</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Core Tech</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="resume-skill-tag">Python</span>
+                                <span class="resume-skill-tag">JavaScript</span>
+                                <span class="resume-skill-tag">React</span>
+                                <span class="resume-skill-tag">Node.js</span>
+                                <span class="resume-skill-tag">Tailwind</span>
+                                <span class="resume-skill-tag">SQL</span>
+                                <span class="resume-skill-tag">WordPress</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">AI & Automation</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="resume-skill-tag bg-purple-500/10 text-purple-400 border-purple-500/20">OpenAI</span>
+                                <span class="resume-skill-tag bg-purple-500/10 text-purple-400 border-purple-500/20">n8n</span>
+                                <span class="resume-skill-tag bg-purple-500/10 text-purple-400 border-purple-500/20">LangChain</span>
+                                <span class="resume-skill-tag bg-purple-500/10 text-purple-400 border-purple-500/20">Llama.cpp</span>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Design</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="resume-skill-tag bg-blue-500/10 text-blue-400 border-blue-500/20">Figma</span>
+                                <span class="resume-skill-tag bg-blue-500/10 text-blue-400 border-blue-500/20">Framer</span>
+                                <span class="resume-skill-tag bg-blue-500/10 text-blue-400 border-blue-500/20">Photoshop</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Creative Power Tools</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="resume-skill-tag">Bolt.AI</span>
+                                <span class="resume-skill-tag">CursorAI</span>
+                                <span class="resume-skill-tag">Blender</span>
+                                <span class="resume-skill-tag">FL Studio</span>
+                                <span class="resume-skill-tag">After Effects</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Education</h3>
+                            <div class="space-y-4">
+                                <div class="text-gray-300 text-xs">
+                                    <p class="font-bold text-white">Full Stack Web Development</p>
+                                    <p class="text-gray-500 text-[10px]">Self-Taught & Online · Since 2023</p>
+                                </div>
+                                <div class="text-gray-300 text-xs">
+                                    <p class="font-bold text-white">Computer Science Studies</p>
+                                    <p class="text-gray-500 text-[10px]">Udemy · 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="resume-main">
+                    <header class="mb-12">
+                        <h2 class="text-3xl font-extrabold mb-4 leading-tight text-white">Professional Summary</h2>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            My love for technology, machines, robots and artificial intelligence started at an early age. After a career in NDT (Non-destructive testing) and hospitality, I used every spare moment to teach myself coding. Today, I am focused on AI integration, automation, and full-stack development. My biggest project so far is my June Ai assistant, built to organize daily tasks and research. I'm dedicated to building the next best agentic systems and digital solutions for real-world problems.
+                        </p>
+                    </header>
+
+                    <section class="mb-12">
+                        <h3 class="flex items-center gap-3 text-white font-extrabold text-xl mb-8">
+                            <span class="w-8 h-[2px] bg-rose-600"></span>
+                            Experience
+                        </h3>
+
+                        <div class="resume-exp-item mb-10">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-white uppercase italic">Full Stack AI, Automation & Web Developer</h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Self-Employed & Remote Work</p>
+                                </div>
+                                <span
+                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2023 — 2026</span>
+                            </div>
+                            <ul class="text-gray-400 text-xs space-y-2 mt-4 list-disc list-inside">
+                                <li>Engineered AI-driven automations using n8n / Zapier and LLMs (OpenAI / Claude) to integrate WooCommerce with Discord.</li>
+                                <li>Annotated and evaluated AI datasets (text/images/audio/video) for ML models, focusing on quality and bias reduction.</li>
+                                <li>Developed and QA’d AI prompts and outputs for chat-based systems, ensuring clarity and moderation.</li>
+                                <li>Built custom web solutions including WordPress websites for trading companies, handling themes, plugins, and SEO.</li>
+                                <li>Created responsive front-end/back-end features for web apps using HTML / JS / React / Node / Python / PHP / SQL.</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-12">
+                            <h3 class="flex items-center gap-3 text-white font-extrabold text-xl mb-8">
+                                <span class="w-8 h-[2px] bg-rose-600"></span>
+                                Strategic Projects
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
+                                    <h5 class="text-rose-500 font-bold text-xs mb-1 uppercase">Currently In Development</h5>
+                                    <h4 class="text-white font-bold text-sm mb-2">June Ai & Neural Nexus</h4>
+                                    <p class="text-gray-400 text-[10px] leading-relaxed">Agentic AI application and advanced NLP research focusing on complex human-AI interactions.</p>
+                                </div>
+                                <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
+                                    <h5 class="text-rose-500 font-bold text-xs mb-1 uppercase">Live Ecosystems</h5>
+                                    <h4 class="text-white font-bold text-sm mb-2">Portfolio Operations</h4>
+                                    <p class="text-gray-400 text-[10px] leading-relaxed">Vaultfunder Trade, Brokers Select, and Medical Insight Solutions.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resume-exp-item mb-10">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-white uppercase italic">Floor Manager & Barman</h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Restaurant Operations in Centurion & Pretoria</p>
+                                </div>
+                                <span
+                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2018 — 2024</span>
+                            </div>
+                            <p class="text-gray-400 text-xs mt-4">Managed high-volume restaurant operations, developed multitasking skills, client relations, and dealt with on-the-go decisions while studying web development and AI.</p>
                         </div>
 
                         <div class="resume-exp-item">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
                                     <h4 class="text-lg font-bold text-white uppercase italic">Senior NDT Technician</h4>
-                                    <p class="text-rose-500 text-sm font-semibold">Non-Destructive Testing, South Africa</p>
+                                    <p class="text-rose-500 text-sm font-semibold">Mpumalanga Mining Operations</p>
                                 </div>
                                 <span
-                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2011
-                                    — 2017</span>
+                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2011 — 2017</span>
                             </div>
-                            <p class="text-gray-400 text-xs mt-2 italic">ASNT Magnetic Particle Inspection Level 2 certified.
-                                Conducted non-destructive testing on critical infrastructure, analyzing complex inspection data
-                                under strict compliance standards.</p>
+                            <p class="text-gray-400 text-xs mt-4">Conducted non-destructive testing on critical mining infrastructure. Certified in ASNT Magnetic Particle Inspection Level 2 and Ultrasonic Testing Level 2.</p>
                         </div>
                     </section>
 
-                    <section>
-                        <h3 class="flex items-center gap-3 text-white font-extrabold text-xl mb-8">
-                            <span class="w-8 h-[2px] bg-rose-600"></span>
-                            Recent Projects
-                        </h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                                <h4 class="text-xs font-bold text-white mb-1 uppercase text-rose-500">Lastic Local AI</h4>
-                                <p class="text-[10px] text-gray-500 leading-relaxed">High-performance local inference engine
-                                    built for 100% private LLM orchestration with zero data leakage.</p>
-                            </div>
-                            <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                                <h4 class="text-xs font-bold text-white mb-1 uppercase text-rose-500">June AI</h4>
-                                <p class="text-[10px] text-gray-500 leading-relaxed">Agentic AI application pushing neural
-                                    networking boundaries to learn and adapt to user behavior in real-time.</p>
-                            </div>
-                            <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                                <h4 class="text-xs font-bold text-white mb-1 uppercase text-rose-500">Neural Nexus</h4>
-                                <p class="text-[10px] text-gray-400 leading-relaxed">Advanced NLP research project utilizing
-                                    Transformer models to architect complex human-AI interactions.</p>
-                            </div>
-                            <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                                <a href="https://vaultfunder.trade/" target="_blank" class="block">
-                                    <h4 class="text-xs font-bold text-white mb-1 uppercase text-rose-500 hover:text-rose-400 transition-colors">VaultFunder Trade</h4>
-                                    <p class="text-[10px] text-gray-400 leading-relaxed">Architected for Serious Traders as one of
-                                        South Africa's largest trading platforms, providing elite market access and real-time
-                                        insights.</p>
-                                    <p class="text-[9px] text-rose-500 font-medium mt-2 hover:text-rose-400 transition-colors">→ Visit Site</p>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+                        <button onclick="window.print()"
+                            class="w-full sm:w-auto px-8 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-full transition-all flex items-center justify-center gap-2">
+                            <i class="uil uil-print"></i> Print Resume
+                        </button>
+                        <a href="Jack van der Merwe - CV.pdf" download
+                            class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-rose-600 to-purple-600 text-white font-bold rounded-full transition-all shadow-lg shadow-rose-600/30 hover:scale-105 flex items-center justify-center gap-2">
+                            <i class="uil uil-download-alt"></i> Download CV (PDF)
+                        </a>
+                    </div>
                 </main>
             </div>
         </div>
@@ -2018,7 +2198,7 @@
         // Project Data
         const projects = [
             { id: '13', title: 'Aether Avatar', category: 'ai', type: 'avatar', tech: ['Stable Diffusion', 'DeepFace', 'TensorFlow'], desc: 'An AI-powered avatar engine created by Jaxx, using Stable Diffusion to generate hyper-realistic digital identities for the web.', date: 'February 2026', role: 'Solo Architect & Developer' },
-            { id: '1', title: 'Phoneboxx E-commerce', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.phoneboxx.co.za?w=1280', tech: ['React', 'Shopify'], link: 'https://phoneboxx.co.za/', desc: 'Crafted by Jaxx to revolutionize e-commerce, integrating seamless Shopify flows with a custom React frontend for peak performance.', date: 'March 2025', role: 'Team Project' },
+            { id: '1', title: 'Phoneboxx E-commerce', category: 'web', image: 'https://i.postimg.cc/0jSQPpZD/Ecommerce-Mockup.png', tech: ['React', 'Shopify'], link: 'https://phoneboxx.co.za/', desc: 'Crafted by Jaxx to revolutionize e-commerce, integrating seamless Shopify flows with a custom React frontend for peak performance.', date: 'March 2025', role: 'Team Project' },
             { id: '2', title: 'Medical Insight', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.medical-insight-solutions.co.za?w=1280', tech: ['Next.js', 'PostgreSQL'], link: 'https://www.medical-insight-solutions.co.za', desc: 'A healthcare solution engineered by Jaxx to bridge the gap between patient data and medical records using secure, scalable architecture.', date: 'June 2025', role: 'Team Project' },
             { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WebSocket', 'D3.js'], link: 'https://www.vaultfunder.trade', desc: 'Architected for Serious Traders as one of South Africa\'s largest trading platforms, providing elite market access and real-time insights.', date: 'September 2025', role: 'Team Project' },
             { id: '9', title: 'Brokers Select', category: 'web', type: 'brokers', tech: ['Next.js', 'PostgreSQL', 'Tailwind CSS'], link: 'https://brokersselect.com/', desc: 'Designed by Jaxx to simplify the Forex landscape, comparing top brokers through a premium, data-driven fintech interface.', date: 'November 2025', role: 'Team Project' },
@@ -3424,41 +3604,52 @@
 
         // Resume Modal Toggle Logic
         const resumeTrigger = document.getElementById('resume-trigger');
+        const resumeTriggerV2 = document.getElementById('resume-trigger-v2');
         const resumeModal = document.getElementById('resume-modal');
         const closeResumeBtn = document.getElementById('close-resume-modal');
         const resumeOverlay = document.getElementById('resume-modal-overlay');
         const resumeContainer = document.getElementById('resume-modal-container');
 
-        const openResume = () => {
-            resumeModal.classList.remove('hidden');
-            resumeModal.classList.add('flex');
+        const resumeModalV2 = document.getElementById('resume-modal-v2');
+        const closeResumeBtnV2 = document.getElementById('close-resume-modal-v2');
+        const resumeOverlayV2 = document.getElementById('resume-modal-overlay-v2');
+        const resumeContainerV2 = document.getElementById('resume-modal-container-v2');
+
+        const openResume = (modal, overlay, container) => {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
             setTimeout(() => {
-                resumeModal.classList.add('backdrop-blur-xl', 'opacity-100');
-                resumeOverlay.classList.remove('opacity-0');
-                resumeOverlay.classList.add('opacity-100');
-                resumeContainer.classList.remove('scale-95', 'opacity-0');
-                resumeContainer.classList.add('scale-100', 'opacity-100');
+                modal.classList.add('backdrop-blur-xl', 'opacity-100');
+                overlay.classList.remove('opacity-0');
+                overlay.classList.add('opacity-100');
+                container.classList.remove('scale-95', 'opacity-0');
+                container.classList.add('scale-100', 'opacity-100');
             }, 10);
             document.body.style.overflow = 'hidden';
         };
 
-        const closeResume = () => {
-            resumeContainer.classList.remove('scale-100', 'opacity-100');
-            resumeContainer.classList.add('scale-95', 'opacity-0');
-            resumeOverlay.classList.remove('opacity-100');
-            resumeOverlay.classList.add('opacity-0');
-            resumeModal.classList.remove('opacity-100');
+        const closeResume = (modal, overlay, container) => {
+            container.classList.remove('scale-100', 'opacity-100');
+            container.classList.add('scale-95', 'opacity-0');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+            modal.classList.remove('opacity-100');
 
             setTimeout(() => {
-                resumeModal.classList.add('hidden');
-                resumeModal.classList.remove('flex', 'backdrop-blur-xl');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex', 'backdrop-blur-xl');
                 document.body.style.overflow = 'auto';
             }, 500);
         };
 
-        if (resumeTrigger) resumeTrigger.addEventListener('click', openResume);
-        if (closeResumeBtn) closeResumeBtn.addEventListener('click', closeResume);
-        if (resumeOverlay) resumeOverlay.addEventListener('click', closeResume);
+        if (resumeTrigger) resumeTrigger.addEventListener('click', () => openResume(resumeModal, resumeOverlay, resumeContainer));
+        if (resumeTriggerV2) resumeTriggerV2.addEventListener('click', () => openResume(resumeModalV2, resumeOverlayV2, resumeContainerV2));
+
+        if (closeResumeBtn) closeResumeBtn.addEventListener('click', () => closeResume(resumeModal, resumeOverlay, resumeContainer));
+        if (resumeOverlay) resumeOverlay.addEventListener('click', () => closeResume(resumeModal, resumeOverlay, resumeContainer));
+
+        if (closeResumeBtnV2) closeResumeBtnV2.addEventListener('click', () => closeResume(resumeModalV2, resumeOverlayV2, resumeContainerV2));
+        if (resumeOverlayV2) resumeOverlayV2.addEventListener('click', () => closeResume(resumeModalV2, resumeOverlayV2, resumeContainerV2));
     </script>
     <div id="toast-container" class="fixed bottom-8 right-8 z-[200] flex flex-col gap-4 pointer-events-none"></div>
 </body>
