@@ -291,19 +291,48 @@
         }
 
         @media (max-width: 768px) {
+            /* Fix overflow and alignment */
+            [id^="resume-modal"] {
+                align-items: flex-start !important; /* Start from top to prevent clipping */
+                padding: 16px !important;
+            }
+
             .resume-modal-container {
                 grid-template-columns: 1fr;
+                margin-top: 40px; /* Space for close button */
+                border-radius: 16px;
             }
 
             .resume-sidebar {
                 border-right: none;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                padding: 40px 24px !important;
-                display: block !important;
+                padding: 32px 20px !important;
+                text-align: center;
+            }
+
+            .resume-sidebar ul {
+                text-align: left;
+                display: inline-block;
+                max-width: 100%;
             }
 
             .resume-main {
-                padding: 40px 24px !important;
+                padding: 32px 20px !important;
+            }
+
+            .resume-exp-item {
+                padding-left: 16px;
+                margin-bottom: 24px;
+            }
+
+            .resume-exp-item h4 {
+                font-size: 16px;
+            }
+
+            /* Fix long URLs/text breaking container */
+            .truncate, span, p, a {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
         }
 
@@ -630,6 +659,7 @@
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             transform-style: preserve-3d;
             height: 100%;
+            text-align: center;
         }
 
         .skill-tile:hover .skill-tile-inner {
@@ -1317,7 +1347,7 @@
                                     <!-- HTML/CSS -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 group-hover/tile:scale-110 transition-transform">
@@ -1330,7 +1360,7 @@
                                     <!-- JavaScript -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500 group-hover/tile:scale-110 transition-transform">
@@ -1343,7 +1373,7 @@
                                     <!-- React -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 group-hover/tile:scale-110 transition-transform">
@@ -1356,7 +1386,7 @@
                                     <!-- Tailwind -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-500 group-hover/tile:scale-110 transition-transform">
@@ -1395,7 +1425,7 @@
                                     <!-- Figma -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 group-hover/tile:scale-110 transition-transform">
@@ -1408,7 +1438,7 @@
                                     <!-- Photoshop -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-600 group-hover/tile:scale-110 transition-transform">
@@ -1421,7 +1451,7 @@
                                     <!-- Framer -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-blue-400/10 rounded-xl flex items-center justify-center text-blue-400 group-hover/tile:scale-110 transition-transform">
@@ -1434,7 +1464,7 @@
                                     <!-- UI Design -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-500 group-hover/tile:scale-110 transition-transform">
@@ -1473,7 +1503,7 @@
                                     <!-- Python -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 group-hover/tile:scale-110 transition-transform">
@@ -1486,7 +1516,7 @@
                                     <!-- Firebase -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-orange-400/10 rounded-xl flex items-center justify-center text-orange-400 group-hover/tile:scale-110 transition-transform">
@@ -1499,7 +1529,7 @@
                                     <!-- PHP -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 group-hover/tile:scale-110 transition-transform">
@@ -1513,7 +1543,7 @@
                                     <!-- GitHub -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-gray-500/10 rounded-xl flex items-center justify-center text-white group-hover/tile:scale-110 transition-transform">
@@ -1552,7 +1582,7 @@
                                     <!-- After Effects -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 group-hover/tile:scale-110 transition-transform">
@@ -1566,7 +1596,7 @@
                                     <!-- Blender -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-400 group-hover/tile:scale-110 transition-transform">
@@ -1580,7 +1610,7 @@
                                     <!-- FL Studio -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500 group-hover/tile:scale-110 transition-transform">
@@ -1593,7 +1623,7 @@
                                     <!-- Bolt AI -->
                                     <div class="skill-tile group/tile">
                                         <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center gap-4 relative overflow-hidden">
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 group-hover/tile:scale-110 transition-transform">
