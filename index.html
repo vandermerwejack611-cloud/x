@@ -242,31 +242,33 @@
         /* Integrated Resume Styles */
         .resume-modal-container {
             display: grid;
-            grid-template-columns: 320px 1fr;
+            grid-template-columns: 240px 1fr;
             background: var(--bg-card);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
             color: #fff;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .resume-sidebar {
             background: rgba(255, 255, 255, 0.02);
             border-right: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 40px;
+            padding: 20px;
         }
 
         .resume-main {
-            padding: 60px;
+            padding: 30px 40px;
         }
 
         .resume-skill-tag {
             background: rgba(225, 29, 72, 0.05);
             border: 1px solid rgba(225, 29, 72, 0.1);
             color: var(--rose-600);
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 9px;
             font-weight: 700;
             text-transform: uppercase;
         }
@@ -291,48 +293,19 @@
         }
 
         @media (max-width: 768px) {
-            /* Fix overflow and alignment */
-            [id^="resume-modal"] {
-                align-items: flex-start !important; /* Start from top to prevent clipping */
-                padding: 16px !important;
-            }
-
             .resume-modal-container {
                 grid-template-columns: 1fr;
-                margin-top: 40px; /* Space for close button */
-                border-radius: 16px;
             }
 
             .resume-sidebar {
                 border-right: none;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                padding: 32px 20px !important;
-                text-align: center;
-            }
-
-            .resume-sidebar ul {
-                text-align: left;
-                display: inline-block;
-                max-width: 100%;
+                padding: 40px 24px !important;
+                display: block !important;
             }
 
             .resume-main {
-                padding: 32px 20px !important;
-            }
-
-            .resume-exp-item {
-                padding-left: 16px;
-                margin-bottom: 24px;
-            }
-
-            .resume-exp-item h4 {
-                font-size: 16px;
-            }
-
-            /* Fix long URLs/text breaking container */
-            .truncate, span, p, a {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
+                padding: 40px 24px !important;
             }
         }
 
@@ -1106,10 +1079,8 @@
                 class="text-gray-400 hover:text-rose-500 text-2xl"><i class="uil uil-github-alt"></i></a>
             <a href="https://www.linkedin.com/in/jackvdmerwe1990/" target="_blank"
                 class="text-gray-400 hover:text-rose-500 text-2xl"><i class="uil uil-linkedin-alt"></i></a>
-            <a href="javascript:void(0)" onclick="showComingSoon('Facebook')"
-                class="text-gray-400 hover:text-rose-500 text-2xl transition-all hover:scale-110"><i class="uil uil-facebook-f"></i></a>
-            <a href="https://www.instagram.com/lasticproductions/" target="_blank"
-                class="text-gray-400 hover:text-rose-500 text-2xl transition-all hover:scale-110"><i class="uil uil-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61579503786742" target="_blank"
+                class="text-gray-400 hover:text-rose-500 text-2xl"><i class="uil uil-facebook-f"></i></a>
         </div>
     </div>
 
@@ -1147,10 +1118,10 @@
             <a href="https://www.linkedin.com/in/jackvdmerwe1990/" target="_blank"
                 class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
                     class="uil uil-linkedin-alt text-xl"></i></a>
-            <a href="javascript:void(0)" onclick="showComingSoon('Facebook')"
+            <a href="https://www.facebook.com/profile.php?id=61579503786742" target="_blank"
                 class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
                     class="uil uil-facebook-f text-xl"></i></a>
-            <a href="https://www.instagram.com/lasticproductions/" target="_blank"
+            <a href="https://www.instagram.com/lasticproductions/?hl=en" target="_blank"
                 class="text-gray-600 hover:text-rose-500 transition-all hover:scale-125"><i
                     class="uil uil-instagram text-xl"></i></a>
             <a href="javascript:void(0)" onclick="showComingSoon('YouTube')"
@@ -1285,26 +1256,23 @@
                         </div>
                     </div>
                     <div>
-                        <p class="text-gray-400 leading-relaxed mb-10 text-lg text-center">My love for technology,
-                            machines, robots and artificial intelligence started at an early age. Looking back, growing
-                            up with movies such as the Matrix, Bicentennial Man, Minority Report and I, Robot, were the
-                            building blocks for the path I find myself on today. After school, I got the opportunity to
-                            work at a company that inspects mining machinery, and studied to become an NDT
-                            (Non-destructive testing) technician. This fueled my passion for technology. After an
-                            unfortunate accident, I found myself in Pretoria, working at different restaurants and bars
-                            to make a living, as work in the same field of NDT was not available. If I couldn't work on
-                            big machines, I was going to work on smaller but equally powerful machines, and so I used
-                            every spare moment to learn and teach myself website coding and development. At last, 3
-                            years ago, I took the steps to start my first web-development Wordpress project with the
-                            help of a friend and I never looked back. Today I have taught myself, and am still
-                            learning, anything and everything the world has to offer regarding front- to back-end
-                            development, app development, e-commerce, GitHub setups and most important of all, AI
-                            integration and automation. My biggest and proudest project so far is my June Ai assistant
-                            that I built to help me organise my daily tasks, do required research and help gather
-                            resources for projects. I don't want to be the next Elon, I just want to build the next
-                            best agentic systems and digital solutions for real clients with real-world problems. In my
-                            spare time I love listening to music, watching documentaries, camping, cooking, and going to
-                            the park with my dogs.</p>
+                        <p class="text-gray-400 leading-relaxed mb-6 text-lg text-justify">
+                            My love for technology, robots and artificial intelligence started at an early age, growing
+                            up with movies such as the Matrix, Bicentennial Man and Minority Report. After school, I got
+                            the opportunity to work at a company that inspects mining machinery, and studied to become
+                            an NDT (Non-destructive testing) technician, which fueled my passion for technology. Life
+                            happens, and the past 8 years I found myself in Pretoria, where I used every spare moment to
+                            learn and teach myself website coding and development. At last, 3 years ago, I took the
+                            steps to start my first web-development Wordpress project with the help of a friend and I
+                            never looked back.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed mb-10 text-lg text-justify">
+                            Today I have taught myself, and am still learning, anything and everything the world has to
+                            offer regarding front- to back-end development, app development, e-commerce, GitHub setups
+                            and most important of all, AI integration and automation. I don't want to be the next Elon,
+                            I just want to build the next best agentic systems and digital solutions for real clients
+                            with real-world problems.
+                        </p>
                         <div class="grid grid-cols-3 gap-4 mb-12">
                             <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center">
                                 <i class="uil uil-award text-2xl text-rose-500 mb-2 block"></i>
@@ -1836,13 +1804,10 @@
 
             <!-- Professional Links -->
             <div class="flex flex-wrap justify-center gap-4 lg:gap-8 mb-10">
-                <a href="javascript:void(0)" id="resume-trigger"
-                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-8 py-4 rounded-xl transition-all hover:bg-white/5 btn-flash">
-                    <i class="uil uil-file-alt mr-2"></i> Professional Resume
-                </a>
+
                 <a href="javascript:void(0)" id="resume-trigger-v2"
                     class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-8 py-4 rounded-xl transition-all hover:bg-white/5 btn-flash">
-                    <i class="uil uil-file-alt mr-2"></i> Resume v2
+                    <i class="uil uil-file-alt mr-2"></i> Professional Resume
                 </a>
 
 
@@ -1856,10 +1821,10 @@
                 <a href="https://github.com/jackvdmerwe" target="_blank"
                     class="text-gray-400 hover:text-rose-500 text-2xl transition-colors"><i
                         class="uil uil-github-alt"></i></a>
-                <a href="javascript:void(0)" onclick="showComingSoon('Facebook')"
+                <a href="https://www.facebook.com/profile.php?id=61579503786742" target="_blank"
                     class="text-gray-400 hover:text-rose-500 text-2xl transition-colors"><i
                         class="uil uil-facebook-f"></i></a>
-                <a href="https://www.instagram.com/lasticproductions/" target="_blank"
+                <a href="javascript:void(0)" onclick="showComingSoon('Instagram')"
                     class="text-gray-400 hover:text-rose-500 text-2xl transition-colors"><i
                         class="uil uil-instagram"></i></a>
             </div>
@@ -1869,147 +1834,20 @@
         </footer>
     </main>
 
-    <!-- Professional Resume Modal (Original) -->
-    <div id="resume-modal"
-        class="fixed inset-0 z-[200] hidden items-center justify-center p-4 lg:p-10 opacity-0 transition-all duration-500 ease-out backdrop-blur-0 overflow-y-auto">
-        <div class="absolute inset-0 bg-black/95 transition-opacity duration-500 opacity-0" id="resume-modal-overlay">
-        </div>
-        <div id="resume-modal-container"
-            class="relative w-full max-w-6xl transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
 
-            <button id="close-resume-modal"
-                class="absolute -top-12 lg:top-6 lg:right-6 text-gray-400 hover:text-white z-[210] transition-transform hover:rotate-90">
-                <i class="uil uil-times text-3xl"></i>
-            </button>
-
-            <div class="resume-modal-container">
-                <!-- Sidebar -->
-                <aside class="resume-sidebar">
-                    <div class="mb-10 text-center">
-                        <div
-                            class="w-24 h-24 bg-rose-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-rose-600/20 overflow-hidden border border-white/10">
-                            <img src="https://i.postimg.cc/rmJ07GnR/b20aef37-35ad-4529-bd87-9686b150a6b1.jpg"
-                                class="object-cover w-full h-full" alt="Jack Identity">
-                        </div>
-                        <h1 class="text-2xl font-bold mb-1 leading-tight text-white">Jack Van Der Merwe</h1>
-                        <p class="text-rose-500 font-bold tracking-widest text-[10px] uppercase">Full Stack Architect &
-                            AI Enthusiast</p>
-                    </div>
-
-                    <div class="space-y-8">
-                        <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Contact</h3>
-                            <ul class="space-y-3 text-xs">
-                                <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-location-point text-rose-500"></i>
-                                    Pretoria, South Africa
-                                </li>
-                                <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-phone text-rose-500"></i>
-                                    +27 76 364 3994
-                                </li>
-                                <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-envelope text-rose-500"></i>
-                                    lasticproductions247@gmail.com
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Core Tech</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="resume-skill-tag">Python</span>
-                                <span class="resume-skill-tag">JavaScript</span>
-                                <span class="resume-skill-tag">React</span>
-                                <span class="resume-skill-tag">Node.js</span>
-                                <span class="resume-skill-tag">Tailwind</span>
-                                <span class="resume-skill-tag">SQL</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Education</h3>
-                            <div class="text-gray-300 text-xs">
-                                <p class="font-bold text-white">Matric (Grade 12)</p>
-                                <p class="mb-1">Sybrand van Niekerk High School</p>
-                                <p class="text-gray-500">Completed 2008</p>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-
-                <!-- Main Content -->
-                <main class="resume-main">
-                    <header class="mb-12">
-                        <h2 class="text-3xl font-extrabold mb-4 leading-tight text-white">Professional Summary</h2>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            I'm a self-taught, full-stack junior developer, rapidly advancing through Udemy's 5-part
-                            Computer Science and Audio Engineering course studies, with ongoing self-trained focus on
-                            Machine Learning, AI Integration, Android App Development, and UI/UX (Human-Centric Design).
-                        </p>
-                    </header>
-
-                    <section class="mb-12">
-                        <h3 class="flex items-center gap-3 text-white font-extrabold text-xl mb-8">
-                            <span class="w-8 h-[2px] bg-rose-600"></span>
-                            Experience
-                        </h3>
-
-                        <div class="resume-exp-item">
-                            <div class="flex justify-between items-start mb-2">
-                                <div>
-                                    <h4 class="text-lg font-bold text-white uppercase italic">Freelance AI & Automation
-                                        Developer</h4>
-                                    <p class="text-rose-500 text-sm font-semibold">Self-Employed, Remote</p>
-                                </div>
-                                <span
-                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">May
-                                    2025 — 2027</span>
-                            </div>
-                            <ul class="text-gray-400 text-xs space-y-2 mt-4 list-disc list-inside">
-                                <li>Engineered AI-driven automations using n8n/Zapier and LLMs (OpenAI/Claude).</li>
-                                <li>Drafted and optimized neural pathways for high-conversion web ecosystems.</li>
-                                <li>Created responsive front-end/back-end features for web apps using
-                                    HTML/JS/React/Node.</li>
-                            </ul>
-                        </div>
-
-                        <div class="resume-exp-item">
-                            <div class="flex justify-between items-start mb-2">
-                                <div>
-                                    <h4 class="text-lg font-bold text-white uppercase italic">Floor Manager & Barman
-                                    </h4>
-                                    <p class="text-rose-500 text-sm font-semibold">Hospitality Group, South Africa</p>
-                                </div>
-                                <span
-                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2018
-                                    — 2024</span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-                        <button onclick="window.print()"
-                            class="w-full sm:w-auto px-8 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-full transition-all flex items-center justify-center gap-2">
-                            <i class="uil uil-print"></i> Print Resume
-                        </button>
-                    </div>
-                </main>
-            </div>
-        </div>
-    </div>
 
     <!-- Resume Modal V2 (PDF Updated) -->
     <div id="resume-modal-v2"
-        class="fixed inset-0 z-[200] hidden items-start justify-center p-2 lg:p-6 opacity-0 transition-all duration-500 ease-out backdrop-blur-0 overflow-y-auto">
-        <div class="absolute inset-0 bg-black/95 transition-opacity duration-500 opacity-0" id="resume-modal-overlay-v2">
+        class="fixed inset-0 z-[200] hidden items-start md:items-center justify-center p-4 lg:p-10 opacity-0 transition-all duration-500 ease-out backdrop-blur-0 overflow-y-auto">
+        <div class="absolute inset-0 bg-black/95 transition-opacity duration-500 opacity-0"
+            id="resume-modal-overlay-v2">
         </div>
         <div id="resume-modal-container-v2"
-            class="relative w-full max-w-5xl mt-8 transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
+            class="relative w-full max-w-4xl my-8 md:my-0 transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
 
             <button id="close-resume-modal-v2"
-                class="absolute -top-12 lg:top-6 lg:right-6 text-gray-400 hover:text-white z-[210] transition-transform hover:rotate-90">
-                <i class="uil uil-times text-3xl"></i>
+                class="fixed md:absolute top-6 right-6 text-gray-400 hover:text-white z-[210] transition-transform hover:rotate-90 bg-black/50 md:bg-transparent rounded-full p-2">
+                <i class="uil uil-times text-2xl md:text-3xl"></i>
             </button>
 
             <div class="resume-modal-container">
@@ -2031,10 +1869,6 @@
                             <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Contact</h3>
                             <ul class="space-y-3 text-xs">
                                 <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-location-point text-rose-500"></i>
-                                    Pretoria, Gauteng, ZA
-                                </li>
-                                <li class="flex items-center gap-3 text-gray-300">
                                     <i class="uil uil-phone text-rose-500"></i>
                                     +27 76 364 3994
                                 </li>
@@ -2044,50 +1878,15 @@
                                 </li>
                                 <li class="flex items-center gap-3 text-gray-300 overflow-hidden">
                                     <i class="uil uil-globe text-rose-500"></i>
-                                    <span class="truncate">vandermerwejack611-cloud.github.io/x/</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="mt-6">
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">My Links</h3>
-                            <ul class="space-y-3 text-xs">
-                                <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-linkedin-alt text-rose-500"></i>
-                                    <a href="https://www.linkedin.com/in/jackvdmerwe1990/" target="_blank"
-                                        class="hover:text-rose-400 transition-colors">LinkedIn</a>
+                                    <span class="truncate">vandermerwejack611.github.io/x/</span>
                                 </li>
                                 <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-github-alt text-rose-500"></i>
-                                    <a href="https://github.com/jackvdmerwe" target="_blank"
-                                        class="hover:text-rose-400 transition-colors">GitHub</a>
+                                    <i class="uil uil-location-point text-rose-500"></i>
+                                    Pretoria, Gauteng, ZA
                                 </li>
                                 <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-globe text-rose-500"></i>
-                                    <a href="https://vandermerwejack611-cloud.github.io/x/" target="_blank"
-                                        class="hover:text-rose-400 transition-colors">Portfolio Site</a>
-                                </li>
-                                <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-behance text-rose-500"></i>
-                                    <button type="button"
-                                        class="relative inline-flex items-center gap-2 px-3 py-1 rounded-full border border-rose-500/40 text-[10px] uppercase tracking-[2px] overflow-hidden">
-                                        <span>Behance</span>
-                                        <span
-                                            class="relative text-rose-400 before:absolute before:inset-0 before:bg-rose-500/10 before:animate-ping rounded-full">
-                                            Coming Soon
-                                        </span>
-                                    </button>
-                                </li>
-                                <li class="flex items-center gap-3 text-gray-300">
-                                    <i class="uil uil-dribbble text-rose-500"></i>
-                                    <button type="button"
-                                        class="relative inline-flex items-center gap-2 px-3 py-1 rounded-full border border-rose-500/40 text-[10px] uppercase tracking-[2px] overflow-hidden">
-                                        <span>Dribbble</span>
-                                        <span
-                                            class="relative text-rose-400 before:absolute before:inset-0 before:bg-rose-500/10 before:animate-ping rounded-full">
-                                            Coming Soon
-                                        </span>
-                                    </button>
+                                    <i class="uil uil-comment-info text-rose-500"></i>
+                                    Afrikaans & English
                                 </li>
                             </ul>
                         </div>
@@ -2101,36 +1900,50 @@
                                 <span class="resume-skill-tag">Node.js</span>
                                 <span class="resume-skill-tag">Tailwind</span>
                                 <span class="resume-skill-tag">SQL</span>
+                                <span class="resume-skill-tag">HTML</span>
+                                <span class="resume-skill-tag">CSS</span>
                                 <span class="resume-skill-tag">WordPress</span>
                             </div>
                         </div>
 
                         <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">AI & Automation</h3>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">AI &
+                                Automation</h3>
                             <div class="flex flex-wrap gap-2">
-                                <span class="resume-skill-tag bg-purple-500/10 text-purple-400 border-purple-500/20">OpenAI</span>
-                                <span class="resume-skill-tag bg-purple-500/10 text-purple-400 border-purple-500/20">n8n</span>
-                                <span class="resume-skill-tag bg-purple-500/10 text-purple-400 border-purple-500/20">LangChain</span>
-                                <span class="resume-skill-tag bg-purple-500/10 text-purple-400 border-purple-500/20">Llama.cpp</span>
+                                <span class="resume-skill-tag">OpenAI</span>
+                                <span class="resume-skill-tag">Zapier</span>
+                                <span class="resume-skill-tag">n8n</span>
+                                <span class="resume-skill-tag">Promt.Eng</span>
+                                <span class="resume-skill-tag">LangChain</span>
+                                <span class="resume-skill-tag">Ollama</span>
+                                <span class="resume-skill-tag">Llama.cpp</span>
+                                <span class="resume-skill-tag text-purple-400 border-purple-500/20">Vibecode</span>
+                            </div>
                         </div>
 
                         <div>
                             <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Design</h3>
                             <div class="flex flex-wrap gap-2">
-                                <span class="resume-skill-tag bg-blue-500/10 text-blue-400 border-blue-500/20">Figma</span>
-                                <span class="resume-skill-tag bg-blue-500/10 text-blue-400 border-blue-500/20">Framer</span>
-                                <span class="resume-skill-tag bg-blue-500/10 text-blue-400 border-blue-500/20">Photoshop</span>
+                                <span class="resume-skill-tag">Figma</span>
+                                <span class="resume-skill-tag">Framer</span>
+                                <span class="resume-skill-tag">Photoshop</span>
                             </div>
                         </div>
 
                         <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Creative Power Tools</h3>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Other Creative
+                                Power Tools</h3>
                             <div class="flex flex-wrap gap-2">
+                                <span class="resume-skill-tag">OpenCode</span>
+                                <span class="resume-skill-tag">Android Studio</span>
+                                <span class="resume-skill-tag">Lovable</span>
                                 <span class="resume-skill-tag">Bolt.AI</span>
+                                <span class="resume-skill-tag">VS Code</span>
                                 <span class="resume-skill-tag">CursorAI</span>
+                                <span class="resume-skill-tag">LM Studio</span>
+                                <span class="resume-skill-tag">After Effects</span>
                                 <span class="resume-skill-tag">Blender</span>
                                 <span class="resume-skill-tag">FL Studio</span>
-                                <span class="resume-skill-tag">After Effects</span>
                             </div>
                         </div>
 
@@ -2139,11 +1952,15 @@
                             <div class="space-y-4">
                                 <div class="text-gray-300 text-xs">
                                     <p class="font-bold text-white">Full Stack Web Development</p>
-                                    <p class="text-gray-500 text-[10px]">Self-Taught & Online · Since 2023</p>
+                                    <p class="text-gray-500 text-[10px]">Since 2023 · Self-Taught & Online Courses</p>
+                                </div>
+                                <div class="text-gray-300 text-xs">
+                                    <p class="font-bold text-white">AI & Machine Learning</p>
+                                    <p class="text-gray-500 text-[10px]">Since 2024 · Various Platforms</p>
                                 </div>
                                 <div class="text-gray-300 text-xs">
                                     <p class="font-bold text-white">Computer Science Studies</p>
-                                    <p class="text-gray-500 text-[10px]">Udemy · 2024</p>
+                                    <p class="text-gray-500 text-[10px]">2024 · Udemy (Ongoing)</p>
                                 </div>
                             </div>
                         </div>
@@ -2152,78 +1969,154 @@
 
                 <!-- Main Content -->
                 <main class="resume-main">
-                    <header class="mb-12">
-                        <h2 class="text-3xl font-extrabold mb-4 leading-tight text-white">Professional Summary</h2>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            My love for technology, machines, robots and artificial intelligence started at an early age. After a career in NDT (Non-destructive testing) and hospitality, I used every spare moment to teach myself coding. Today, I am focused on AI integration, automation, and full-stack development. My biggest project so far is my June Ai assistant, built to organize daily tasks and research. I'm dedicated to building the next best agentic systems and digital solutions for real-world problems.
+                    <header class="mb-8">
+                        <h2 class="text-2xl font-extrabold mb-3 leading-tight text-white">Professional Summary</h2>
+                        <p class="text-gray-400 text-[10px] leading-relaxed text-justify mb-4">
+                            My love for technology, robots and artificial intelligence started at an early age, growing
+                            up with movies such as the Matrix, Bicentennial Man and Minority Report. After school, I got
+                            the opportunity to work at a company that inspects mining machinery, and studied to become
+                            an NDT (Non-destructive testing) technician, which fueled my passion for technology. Life
+                            happens, and the past 8 years I found myself in Pretoria, where I used every spare moment to
+                            learn and teach myself website coding and development. At last, 3 years ago, I took the
+                            steps to start my first web-development Wordpress project with the help of a friend and I
+                            never looked back.
+                        </p>
+                        <p class="text-gray-400 text-[10px] leading-relaxed text-justify">
+                            Today I have taught myself, and am still learning, anything and everything the world has to
+                            offer regarding front- to back-end development, app development, e-commerce, GitHub setups
+                            and most important of all, AI integration and automation. I don't want to be the next Elon,
+                            I just want to build the next best agentic systems and digital solutions for real clients
+                            with real-world problems.
                         </p>
                     </header>
 
                     <section class="mb-12">
-                        <h3 class="flex items-center gap-3 text-white font-extrabold text-xl mb-8">
-                            <span class="w-8 h-[2px] bg-rose-600"></span>
+                        <h3 class="flex items-center gap-3 text-white font-extrabold text-lg mb-6">
+                            <span class="w-6 h-[2px] bg-rose-600"></span>
                             Experience
                         </h3>
 
                         <div class="resume-exp-item mb-10">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h4 class="text-lg font-bold text-white uppercase italic">Full Stack AI, Automation & Web Developer</h4>
+                                    <h4 class="text-lg font-bold text-white uppercase">FULL STACK AI, AUTOMATION & WEB
+                                        DEVELOPER</h4>
                                     <p class="text-rose-500 text-sm font-semibold">Self-Employed & Remote Work</p>
                                 </div>
                                 <span
-                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2023 — 2026</span>
+                                    class="text-[10px] font-bold text-white bg-rose-600 px-3 py-1 rounded-md uppercase italic">2023
+                                    — 2026</span>
                             </div>
-                            <ul class="text-gray-400 text-xs space-y-2 mt-4 list-disc list-inside">
-                                <li>Engineered AI-driven automations using n8n / Zapier and LLMs (OpenAI / Claude) to integrate WooCommerce with Discord.</li>
-                                <li>Annotated and evaluated AI datasets (text/images/audio/video) for ML models, focusing on quality and bias reduction.</li>
-                                <li>Developed and QA’d AI prompts and outputs for chat-based systems, ensuring clarity and moderation.</li>
-                                <li>Built custom web solutions including WordPress websites for trading companies, handling themes, plugins, and SEO.</li>
-                                <li>Created responsive front-end/back-end features for web apps using HTML / JS / React / Node / Python / PHP / SQL.</li>
+                            <ul class="text-gray-400 text-xs space-y-3 mt-4">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-rose-500 mt-1">•</span>
+                                    <span>Engineered AI-driven automations using n8n / Zapier and LLMs (OpenAI / Claude)
+                                        to integrate WooCommerce with Discord.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-rose-500 mt-1">•</span>
+                                    <span>Annotated and evaluated AI datasets (text / images / audio / video) for ML
+                                        models, focusing on quality and bias reduction.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-rose-500 mt-1">•</span>
+                                    <span>Developed and QA’d AI prompts and outputs for chat-based systems, ensuring
+                                        clarity and moderation.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-rose-500 mt-1">•</span>
+                                    <span>Built custom web solutions including WordPress websites for trading companies,
+                                        handling themes, plugins, SEO, performance and updates.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-rose-500 mt-1">•</span>
+                                    <span>Created responsive front-end / back-end features for web apps using HTML / JS
+                                        / React / Node / Python / PHP / SQL.</span>
+                                </li>
                             </ul>
-                        </div>
 
-                        <div class="mb-12">
-                            <h3 class="flex items-center gap-3 text-white font-extrabold text-xl mb-8">
-                                <span class="w-8 h-[2px] bg-rose-600"></span>
-                                Strategic Projects
-                            </h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
-                                    <h5 class="text-rose-500 font-bold text-xs mb-1 uppercase">Currently In Development</h5>
-                                    <h4 class="text-white font-bold text-sm mb-2">June Ai & Neural Nexus</h4>
-                                    <p class="text-gray-400 text-[10px] leading-relaxed">Agentic AI application and advanced NLP research focusing on complex human-AI interactions.</p>
-                                </div>
-                                <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
-                                    <h5 class="text-rose-500 font-bold text-xs mb-1 uppercase">Live Ecosystems</h5>
-                                    <h4 class="text-white font-bold text-sm mb-2">Portfolio Operations</h4>
-                                    <p class="text-gray-400 text-[10px] leading-relaxed">Vaultfunder Trade, Brokers Select, and Medical Insight Solutions.</p>
-                                </div>
+                            <div class="mt-8">
+                                <h4 class="text-rose-500 font-bold text-sm mb-4">My Work</h4>
+                                <ul class="text-gray-400 text-xs space-y-2">
+                                    <li class="flex items-center gap-2">
+                                        <span class="text-rose-500">•</span>
+                                        <a href="https://www.vaultfunder.trade" target="_blank"
+                                            class="hover:text-white transition-colors">www.vaultfunder.trade</a>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="text-rose-500">•</span>
+                                        <a href="https://www.brokersselect.com" target="_blank"
+                                            class="hover:text-white transition-colors">www.brokersselect.com</a>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="text-rose-500">•</span>
+                                        <a href="https://www.medical-insight-solutions.co.za" target="_blank"
+                                            class="hover:text-white transition-colors">www.medical-insight-solutions.co.za</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-8">
+                                <h4 class="text-rose-500 font-bold text-sm mb-4 uppercase">Currently In Development</h4>
+                                <ul class="text-gray-400 text-xs space-y-3">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-rose-500 mt-1">•</span>
+                                        <span><strong>June Ai</strong> - My personal agentic AI application, pushing
+                                            neural networking boundaries that has to learn and adapt to user behaviour
+                                            in real-time.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-rose-500 mt-1">•</span>
+                                        <span><strong>Neural Nexus</strong> - An advanced NLP research project utilizing
+                                            transformer models to archiect complex human AI interactions.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-rose-500 mt-1">•</span>
+                                        <span><strong>Aura Voice Intelligence</strong> - A cutting-edge voice assistant
+                                            system, specializing in Whisper AI integration for flawless speech-to-intent
+                                            processing.</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
                         <div class="resume-exp-item mb-10">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h4 class="text-lg font-bold text-white uppercase italic">Floor Manager & Barman</h4>
-                                    <p class="text-rose-500 text-sm font-semibold">Restaurant Operations in Centurion & Pretoria</p>
+                                    <h4 class="text-lg font-bold text-white uppercase">WAITER, BARMAN & RESTAURANT FLOOR
+                                        MANAGER</h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Restaurant Operations In Centurion &
+                                        Pretoria</p>
                                 </div>
                                 <span
-                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2018 — 2024</span>
+                                    class="text-[10px] font-bold text-white bg-rose-600 px-3 py-1 rounded-md uppercase italic">2018
+                                    — 2024</span>
                             </div>
-                            <p class="text-gray-400 text-xs mt-4">Managed high-volume restaurant operations, developed multitasking skills, client relations, and dealt with on-the-go decisions while studying web development and AI.</p>
+                            <p class="text-gray-400 text-xs mt-4 leading-relaxed">
+                                Managed high-volume restaurant operations, where I developed my multitasking skills,
+                                client relations, and dealt with on-the-go decisions. When I moved to the city, I found
+                                it difficult to start a career with my NDT and mining skills, so while I worked in
+                                shifts, I also started online research and studies regarding web development and AI in
+                                the search of finding the best career path for me.
+                            </p>
                         </div>
 
                         <div class="resume-exp-item">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h4 class="text-lg font-bold text-white uppercase italic">Senior NDT Technician</h4>
-                                    <p class="text-rose-500 text-sm font-semibold">Mpumalanga Mining Operations</p>
+                                    <h4 class="text-lg font-bold text-white uppercase">SENIOR NDT TECHNICIAN</h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Non-Destructive Testing within
+                                        Mpumalanga Mining Operations</p>
                                 </div>
                                 <span
-                                    class="text-[10px] font-bold text-gray-500 bg-white/5 px-3 py-1 rounded-full uppercase italic">2011 — 2017</span>
+                                    class="text-[10px] font-bold text-white bg-rose-600 px-3 py-1 rounded-md uppercase italic">2011
+                                    — 2017</span>
                             </div>
-                            <p class="text-gray-400 text-xs mt-4">Conducted non-destructive testing on critical mining infrastructure. Certified in ASNT Magnetic Particle Inspection Level 2 and Ultrasonic Testing Level 2.</p>
+                            <p class="text-gray-400 text-xs mt-4 leading-relaxed text-justify">
+                                Conducted non-destructive testing on critical mining infrastructure, analyzing complex
+                                inspection data under strict compliance standards. Certified in ASNT Magnetic Particle
+                                Inspection Level 2 as well as Ultrasonic Testing Level 2.
+                            </p>
                         </div>
                     </section>
 
@@ -3741,232 +3634,6 @@
         if (resumeOverlayV2) resumeOverlayV2.addEventListener('click', () => closeResume(resumeModalV2, resumeOverlayV2, resumeContainerV2));
     </script>
     <div id="toast-container" class="fixed bottom-8 right-8 z-[200] flex flex-col gap-4 pointer-events-none"></div>
-
-    <!-- Simple AI Chatbot Widget -->
-    <div id="chatbot-widget" class="fixed bottom-6 right-6 z-[190]">
-        <!-- Toggle Button -->
-        <button id="chatbot-toggle"
-            class="w-14 h-14 rounded-full bg-rose-600 shadow-lg shadow-rose-600/40 flex items-center justify-center text-white text-2xl focus:outline-none hover:scale-105 transition-transform">
-            <i class="uil uil-message"></i>
-        </button>
-
-        <!-- Chat Panel -->
-        <div id="chatbot-panel"
-            class="hidden mt-3 w-80 max-w-[90vw] bg-[#05050a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
-            <div class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
-                <div>
-                    <p class="text-xs text-gray-400 uppercase tracking-[2px]">Ask June</p>
-                    <p class="text-sm text-white font-semibold">Assistant</p>
-                </div>
-                <button id="chatbot-close" class="text-gray-500 hover:text-white">
-                    <i class="uil uil-times text-lg"></i>
-                </button>
-            </div>
-            <div id="chatbot-messages" class="px-4 py-3 space-y-3 max-h-80 overflow-y-auto text-sm">
-                <div class="flex gap-2 items-start">
-                    <div
-                        class="w-7 h-7 rounded-full bg-rose-600 flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
-                        J
-                    </div>
-                    <div
-                        class="bg-white/[0.03] border border-white/5 rounded-2xl px-3 py-2 text-gray-200 max-w-[80%]">
-                        Hi, I'm June. Choose a question below or ask me anything about Jack, his work, or this site.
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-white/10 px-3 py-2 bg-black/50">
-                <div id="chatbot-options" class="flex flex-wrap gap-2 mb-2">
-                    <button
-                        class="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-[10px] text-gray-300 hover:bg-white/10 transition-colors"
-                        data-question="Who are you?">
-                        Who are you?
-                    </button>
-                    <button
-                        class="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-[10px] text-gray-300 hover:bg-white/10 transition-colors"
-                        data-question="What services do you offer?">
-                        Services
-                    </button>
-                    <button
-                        class="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-[10px] text-gray-300 hover:bg-white/10 transition-colors"
-                        data-question="Tell me about your AI work and June assistant.">
-                        AI & June
-                    </button>
-                    <button
-                        class="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-[10px] text-gray-300 hover:bg-white/10 transition-colors"
-                        data-question="How can I contact you or work with you?">
-                        Contact
-                    </button>
-                    <button
-                        class="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-[10px] text-gray-300 hover:bg-white/10 transition-colors"
-                        data-question="Where can I see your projects and links?">
-                        Links & Projects
-                    </button>
-                </div>
-                <div
-                    class="flex items-center gap-2 rounded-2xl bg-white/[0.03] border border-white/10 px-2 py-1 focus-within:border-rose-600 transition-colors">
-                    <input id="chatbot-input" type="text" placeholder="Type your question..."
-                        class="flex-1 bg-transparent text-xs text-white placeholder:text-gray-500 focus:outline-none py-2 px-1">
-                    <button id="chatbot-send"
-                        class="px-3 py-1 rounded-xl bg-rose-600 text-white text-xs font-semibold hover:bg-rose-500 transition-colors">
-                        Send
-                    </button>
-                </div>
-                <p id="chatbot-status" class="mt-1 text-[10px] text-gray-500"></p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Simple Chatbot with clickable options (no AI backend yet)
-        (function () {
-            const toggle = document.getElementById('chatbot-toggle');
-            const panel = document.getElementById('chatbot-panel');
-            const closeBtn = document.getElementById('chatbot-close');
-            const messages = document.getElementById('chatbot-messages');
-            const input = document.getElementById('chatbot-input');
-            const send = document.getElementById('chatbot-send');
-            const status = document.getElementById('chatbot-status');
-            const optionsContainer = document.getElementById('chatbot-options');
-
-            if (!toggle || !panel || !messages || !input || !send) return;
-
-            // Predefined answers based on site content
-            const ANSWERS = {
-                'who are you?': `Jack Van Der Merwe is a Full Stack Developer and Agentic AI enthusiast based in Pretoria.\n\nHe started his journey inspired by movies like The Matrix and I, Robot, worked in NDT inspecting mining machinery, and later taught himself web development while working in hospitality. Today he focuses on full-stack apps, e‑commerce, automation and AI‑powered digital solutions.`,
-                'what services do you offer?': `Jack works across the full stack:\n\n• Front‑end: modern responsive interfaces, Tailwind, animations and UX.\n• Back‑end: APIs, automations, integrations, e‑commerce and app logic.\n• Dev tooling: GitHub setups, CI and deployment workflows.\n• AI: model integration, automations and custom assistants connected to real workflows.`,
-                'tell me about your ai work and june assistant.': `AI is at the core of Jack's work. He focuses on integrating agentic systems into real products.\n\nOne of his proudest projects is June – a personal AI assistant he built to:\n• Organise daily tasks and planning\n• Do focused research\n• Gather resources for ongoing projects\n\nThe goal isn’t just to copy big tech, but to build practical, powerful agentic systems for real clients and real‑world problems.`,
-                'how can i contact you or work with you?': `You can reach Jack via:\n\n• Email: lasticproductions247@gmail.com\n• Phone/WhatsApp: +27 76 364 3994\n• LinkedIn: jackvdmerwe1990\n\nUse the contact section on this site or send a direct email with details about your project, timeline and budget, and he’ll get back to you as soon as possible.`,
-                'where can i see your projects and links?': `You can explore Jack's work and profiles here:\n\n• Portfolio: vandermerwejack611-cloud.github.io/x/\n• GitHub: github.com/jackvdmerwe\n• LinkedIn: linkedin.com/in/jackvdmerwe1990/\n\nHe’s continually adding new full‑stack builds, AI experiments and automation projects.`
-            };
-
-            const appendMessage = (role, text) => {
-                const wrapper = document.createElement('div');
-                wrapper.className = 'flex gap-2 items-start ' + (role === 'user' ? 'justify-end' : '');
-
-                if (role === 'user') {
-                    const bubble = document.createElement('div');
-                    bubble.className = 'bg-rose-600/90 rounded-2xl px-3 py-2 text-white text-xs max-w-[80%]';
-                    bubble.textContent = text;
-                    wrapper.appendChild(bubble);
-                } else {
-                    const avatar = document.createElement('div');
-                    avatar.className = 'w-7 h-7 rounded-full bg-rose-600 flex items-center justify-center text-xs font-bold text-white flex-shrink-0';
-                    avatar.textContent = 'J';
-                    const bubble = document.createElement('div');
-                    bubble.className = 'bg-white/[0.03] border border-white/5 rounded-2xl px-3 py-2 text-gray-200 text-xs max-w-[80%] whitespace-pre-wrap';
-                    bubble.textContent = text;
-                    wrapper.appendChild(avatar);
-                    wrapper.appendChild(bubble);
-                }
-
-                messages.appendChild(wrapper);
-                messages.scrollTop = messages.scrollHeight;
-            };
-
-            const typeAssistantMessage = (text) => {
-                const wrapper = document.createElement('div');
-                wrapper.className = 'flex gap-2 items-start';
-
-                const avatar = document.createElement('div');
-                avatar.className = 'w-7 h-7 rounded-full bg-rose-600 flex items-center justify-center text-xs font-bold text-white flex-shrink-0';
-                avatar.textContent = 'J';
-
-                const bubble = document.createElement('div');
-                bubble.className = 'bg-white/[0.03] border border-white/5 rounded-2xl px-3 py-2 text-gray-200 text-xs max-w-[80%] whitespace-pre-wrap';
-
-                // Typing dots
-                const dots = document.createElement('span');
-                dots.className = 'inline-flex gap-1 text-rose-400';
-                dots.innerHTML = '<span class="animate-pulse">•</span><span class="animate-pulse delay-150">•</span><span class="animate-pulse delay-300">•</span>';
-                bubble.appendChild(dots);
-
-                wrapper.appendChild(avatar);
-                wrapper.appendChild(bubble);
-                messages.appendChild(wrapper);
-                messages.scrollTop = messages.scrollHeight;
-
-                // After short delay, start typing actual text
-                setTimeout(() => {
-                    bubble.textContent = '';
-                    let i = 0;
-                    const speed = 15; // ms per character
-                    const step = () => {
-                        if (i <= text.length) {
-                            bubble.textContent = text.slice(0, i);
-                            i += 1;
-                            messages.scrollTop = messages.scrollHeight;
-                            requestAnimationFrame(() => setTimeout(step, speed));
-                        }
-                    };
-                    step();
-                }, 400);
-            };
-
-            const setStatus = (text) => {
-                if (!status) return;
-                status.textContent = text;
-            };
-
-            const getAnswer = (questionRaw) => {
-                const key = questionRaw.trim().toLowerCase();
-                // Find exact or startsWith/contains match
-                for (const k of Object.keys(ANSWERS)) {
-                    if (key === k || key.includes(k.replace(/[?.]/g, '').trim()) || k.includes(key)) {
-                        return ANSWERS[k];
-                    }
-                }
-                return `Thanks for your message!\n\nRight now this mini‑chat is using predefined answers. Try one of the buttons above like “Services”, “AI & June” or “Links & Projects”.`;
-            };
-
-            const sendMessage = async () => {
-                const question = input.value.trim();
-                if (!question) return;
-
-                appendMessage('user', question);
-                input.value = '';
-                setStatus('');
-
-                const reply = getAnswer(question);
-                typeAssistantMessage(reply);
-            };
-
-            toggle.addEventListener('click', () => {
-                const isHidden = panel.classList.contains('hidden');
-                if (isHidden) {
-                    panel.classList.remove('hidden');
-                    setTimeout(() => input.focus(), 100);
-                } else {
-                    panel.classList.add('hidden');
-                }
-            });
-
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    panel.classList.add('hidden');
-                });
-            }
-
-            // Clickable options
-            if (optionsContainer) {
-                optionsContainer.addEventListener('click', (e) => {
-                    const btn = e.target.closest('button[data-question]');
-                    if (!btn) return;
-                    const q = btn.getAttribute('data-question') || '';
-                    if (!q) return;
-                    input.value = q;
-                    sendMessage();
-                });
-            }
-
-            send.addEventListener('click', sendMessage);
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    sendMessage();
-                }
-            });
-        })();
-    </script>
 </body>
 
 </html>
