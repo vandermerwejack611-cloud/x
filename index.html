@@ -1205,7 +1205,6 @@
         <!-- Special Announcement Popup Removed -->
 
 
-
         <!-- About Section -->
         <section id="about" class="py-4 lg:py-32 px-6 lg:px-20 reveal">
             <div class="w-full">
@@ -2237,7 +2236,7 @@
             { id: '2', title: 'Medical Insight', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.medical-insight-solutions.co.za?w=1280', tech: ['Next.js', 'PostgreSQL'], link: 'https://www.medical-insight-solutions.co.za', desc: 'I co-engineered a healthcare solution alongside one other developer to bridge the gap between patient data and medical records using secure, scalable architecture.', date: 'June 2025', role: 'Team Project' },
             { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WebSocket', 'D3.js'], link: 'https://www.vaultfunder.trade', desc: 'I joined the Serious Traders project to architect their platform as one of South Africa\'s largest trading platforms, delivering elite market access and real-time insights.', date: 'September 2025', role: 'Team Project' },
             { id: '9', title: 'Brokers Select', category: 'web', image: 'https://i.postimg.cc/6QRS4w2R/TRADE4U.png', tech: ['Next.js', 'PostgreSQL', 'Tailwind CSS'], link: 'https://brokersselect.com/', desc: 'I was called in to design a Forex comparison platform that simplifies the landscape for traders, creating a premium, data-driven fintech interface to compare top brokers.', date: 'November 2025', role: 'Team Project' },
-            { id: '7', title: 'Lisbon Hideaway', category: 'web', type: 'lisbon', tech: ['HTML5', 'CSS3', 'JavaScript'], link: 'lisbon.html', desc: 'I built a boutique travel platform focusing on immersive storytelling and pixel-perfect responsive motion design.', date: 'November 2025', role: 'Solo Architect & Developer' },
+            { id: '7', title: 'Lisbon Hideaway', category: 'web', type: 'lisbon', tech: ['HTML5', 'CSS3', 'JavaScript'], link: "javascript:openProjectPage('lisbon-page-template', 'Lisbon Hideaway')", desc: 'I built a boutique travel platform focusing on immersive storytelling and pixel-perfect responsive motion design.', date: 'November 2025', role: 'Solo Architect & Developer' },
             { id: '4', title: 'June AI', category: 'app', type: 'june', tech: ['Python', 'Neural Networks'], desc: 'I developed June AI to push neural networking boundaries, creating an app that learns and adapts to user behavior in real-time.', date: 'January 2026', role: 'Solo Architect & Developer' },
             { id: '5', title: 'Lastic.Dev', category: 'software', type: 'lastic', tech: ['Rust', 'WebAssembly'], desc: 'An elite developer ecosystem I forged, leveraging Rust and WASM to deliver blistering performance for modern web apps.', date: 'June 2025', role: 'Solo Architect & Developer' },
             { id: '6', title: 'Lastic IDE', category: 'software', type: 'ide', tech: ['Python', 'AI-Powered', 'Real-time'], desc: 'My specialized AI-integrated development environment, optimized for real-time coding efficiency and intelligent auto-completion.', date: 'August 2025', role: 'Solo Architect & Developer' },
@@ -2825,7 +2824,7 @@
                 </div>
 
                 <div class="pt-6 border-t border-white/5 flex flex-row gap-3 lg:gap-4 stagger-in" style="animation-delay: 0.4s">
-                    ${p.link ? `<a href="${p.link}" target="_blank" class="flex-1 py-3 lg:py-4 bg-gradient-to-r from-rose-600 to-rose-500 text-white rounded-xl lg:rounded-2xl text-xs lg:text-sm font-bold hover:scale-[1.03] transition-all text-center flex items-center justify-center gap-2 lg:gap-3 shadow-lg shadow-rose-600/20">Visit Site <i class="uil uil-external-link-alt"></i></a>` : `<button class="flex-1 py-3 lg:py-4 bg-white/5 border border-white/10 text-white/30 rounded-xl lg:rounded-2xl text-xs lg:text-sm font-bold cursor-not-allowed">Coming Soon</button>`}
+                    ${p.link ? `<a href="${p.link.startsWith('javascript') ? '#' : p.link}" ${p.link.startsWith('javascript') ? `onclick="${p.link.replace('javascript:', '')}; return false;"` : 'target="_blank"'} class="flex-1 py-3 lg:py-4 bg-gradient-to-r from-rose-600 to-rose-500 text-white rounded-xl lg:rounded-2xl text-xs lg:text-sm font-bold hover:scale-[1.03] transition-all text-center flex items-center justify-center gap-2 lg:gap-3 shadow-lg shadow-rose-600/20">Visit Site <i class="uil uil-external-link-alt"></i></a>` : `<button class="flex-1 py-3 lg:py-4 bg-white/5 border border-white/10 text-white/30 rounded-xl lg:rounded-2xl text-xs lg:text-sm font-bold cursor-not-allowed">Coming Soon</button>`}
                     <button onclick="closeProjectModal()" class="flex-1 py-3 lg:py-4 border border-white/10 text-white rounded-xl lg:rounded-2xl text-xs lg:text-sm font-bold hover:bg-white/5 transition-all">Back to Projects</button>
                 </div>
 
@@ -2879,6 +2878,40 @@
                 renderGrid(btn.dataset.filter);
             };
         });
+
+        // Project Page Navigation
+        function openProjectPage(templateId, title) {
+            const template = document.getElementById(templateId);
+            const overlay = document.getElementById('project-page-overlay');
+            const iframe = document.getElementById('project-page-frame');
+            const titleEl = document.getElementById('project-page-title');
+
+            if (template && overlay && iframe) {
+                titleEl.textContent = title || "Project View";
+                overlay.classList.remove('hidden');
+                overlay.classList.add('flex');
+                
+                // Inject content using srcdoc to keep it isolated but in-memory
+                iframe.srcdoc = template.innerHTML;
+                
+                // Disable main scroll to focus on overlay
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeProjectPage() {
+            const overlay = document.getElementById('project-page-overlay');
+            const iframe = document.getElementById('project-page-frame');
+            
+            if (overlay) {
+                overlay.classList.add('hidden');
+                overlay.classList.remove('flex');
+                iframe.srcdoc = '';
+                
+                // Restore main scroll
+                document.body.style.overflow = 'auto';
+            }
+        }
 
         // Lastic Packets Spawn
         const spawnPackets = () => {
@@ -3601,6 +3634,93 @@
         if (resumeOverlayV2) resumeOverlayV2.addEventListener('click', () => closeResume(resumeModalV2, resumeOverlayV2, resumeContainerV2));
     </script>
     <div id="toast-container" class="fixed bottom-8 right-8 z-[200] flex flex-col gap-4 pointer-events-none"></div>
+
+    <!-- Project Page Overlay -->
+    <div id="project-page-overlay" class="fixed inset-0 z-[250] hidden flex-col bg-black overflow-hidden">
+        <div class="flex items-center justify-between px-6 py-4 bg-[#0d0d12] border-b border-white/10">
+            <h2 id="project-page-title" class="text-white font-bold text-lg uppercase tracking-widest">Project View</h2>
+            <button onclick="closeProjectPage()" class="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white transition-all hover:scale-110 active:scale-95 bg-white/5 rounded-full border border-white/10">
+                <i class="uil uil-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="flex-1 w-full relative">
+            <iframe id="project-page-frame" class="w-full h-full border-none bg-white"></iframe>
+        </div>
+    </div>
+
+    <!-- Lisbon Hideaway Template -->
+    <template id="lisbon-page-template">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisbon Hideaway - Luxury Accommodation in Mpumalanga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-color: #2e7d32; --secondary-color: #8bc34a; --accent-color: #ff6e40; --text-dark: #333; --text-light: #fff; --bg-light: #f8f9fa; --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        body { font-family: 'Source Sans Pro', sans-serif; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); backdrop-filter: blur(10px); background-color: rgba(46, 125, 50, 0.9); }
+        header.scrolled { background-color: rgba(46, 125, 50, 0.95); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--text-light); text-decoration: none; transition: var(--transition); position: relative; }
+        .logo:hover { color: var(--secondary-color); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 30px; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; transition: var(--transition); }
+        .nav-links a:hover { color: var(--secondary-color); }
+        .hero { height: 100vh; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://sfile.chatglm.cn/images-ppt/8c8e42f9a44e.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--text-light); }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 60px; margin-bottom: 20px; }
+        .btn { display: inline-block; background: var(--secondary-color); color: var(--text-light); padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: var(--transition); }
+        .btn:hover { background: var(--primary-color); transform: translateY(-3px); }
+        section { padding: 80px 0; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 42px; text-align: center; margin-bottom: 50px; color: var(--primary-color); }
+        .accommodation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .accommodation-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .accommodation-image img { width: 100%; height: 250px; object-fit: cover; }
+        .accommodation-content { padding: 25px; }
+        footer { background: var(--primary-color); color: var(--text-light); padding: 30px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="container"><a href="#" class="logo">Lisbon Hideaway</a></nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Lisbon Hideaway</h1>
+            <p>Luxury accommodation in the heart of Mpumalanga's breathtaking landscapes</p>
+            <a href="#contact" class="btn">Book Your Stay</a>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Location & Surroundings</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto;">Nestled in Graskop, Mpumalanga, Lisbon Hideaway offers the perfect base to explore the Panorama Route. Our luxury chalets provide a tranquil retreat surrounded by natural beauty.</p>
+        </div>
+    </section>
+    <section id="accommodation">
+        <div class="container">
+            <h2 class="section-title">Our Accommodation</h2>
+            <div class="accommodation-grid">
+                <div class="accommodation-card">
+                    <div class="accommodation-image"><img src="https://sfile.chatglm.cn/images-ppt/be6cc41295e8.jpg"></div>
+                    <div class="accommodation-content"><h3>Modern Kitchen</h3><p>Fully equipped with modern appliances for your convenience.</p></div>
+                </div>
+                <div class="accommodation-card">
+                    <div class="accommodation-image"><img src="https://sfile.chatglm.cn/images-ppt/362727af5a7a.jpg"></div>
+                    <div class="accommodation-content"><h3>Luxury Chalets</h3><p>En-suite chalets with private verandas and scenic views.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer><p>© 2023 Lisbon Hideaway. All rights reserved.</p></footer>
+</body>
+</html>
+    </template>
 </body>
 
 </html>
