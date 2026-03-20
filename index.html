@@ -293,15 +293,18 @@
         }
 
         @media (max-width: 768px) {
+
             /* Fix overflow and alignment */
             [id^="resume-modal"] {
-                align-items: flex-start !important; /* Start from top to prevent clipping */
+                align-items: flex-start !important;
+                /* Start from top to prevent clipping */
                 padding: 16px !important;
             }
 
             .resume-modal-container {
                 grid-template-columns: 1fr;
-                margin-top: 40px; /* Space for close button */
+                margin-top: 40px;
+                /* Space for close button */
                 border-radius: 16px;
             }
 
@@ -332,7 +335,10 @@
             }
 
             /* Fix long URLs/text breaking container */
-            .truncate, span, p, a {
+            .truncate,
+            span,
+            p,
+            a {
                 word-wrap: break-word;
                 overflow-wrap: break-word;
             }
@@ -1109,9 +1115,11 @@
             <a href="https://www.linkedin.com/in/jackvdmerwe1990/" target="_blank"
                 class="text-gray-400 hover:text-rose-500 text-2xl"><i class="uil uil-linkedin-alt"></i></a>
             <a href="javascript:void(0)" onclick="showComingSoon('Facebook')"
-                class="text-gray-400 hover:text-rose-500 text-2xl transition-all hover:scale-110"><i class="uil uil-facebook-f"></i></a>
+                class="text-gray-400 hover:text-rose-500 text-2xl transition-all hover:scale-110"><i
+                    class="uil uil-facebook-f"></i></a>
             <a href="https://www.instagram.com/lasticproductions/" target="_blank"
-                class="text-gray-400 hover:text-rose-500 text-2xl transition-all hover:scale-110"><i class="uil uil-instagram"></i></a>
+                class="text-gray-400 hover:text-rose-500 text-2xl transition-all hover:scale-110"><i
+                    class="uil uil-instagram"></i></a>
         </div>
     </div>
 
@@ -1194,78 +1202,9 @@
             </div>
         </section>
 
-        <!-- Special Announcement Popup -->
-        <div id="announcement-popup"
-            class="fixed top-24 right-8 lg:right-12 z-50 opacity-0 translate-y-[-20px] transition-all duration-700 ease-out pointer-events-none">
-            <div
-                class="relative bg-gradient-to-r from-rose-600 via-purple-600 to-indigo-600 p-[2px] rounded-2xl shadow-2xl shadow-rose-600/25">
-                <div class="bg-[#0d0d12] rounded-2xl p-6 relative overflow-hidden">
-                    <!-- Animated Background Elements -->
-                    <div class="absolute inset-0 opacity-10">
-                        <div
-                            class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-rose-600/20 to-purple-600/20 animate-pulse">
-                        </div>
-                        <div class="absolute top-2 right-2 w-4 h-4 bg-rose-500 rounded-full animate-ping"></div>
-                        <div class="absolute bottom-2 left-2 w-3 h-3 bg-purple-500 rounded-full animate-ping"
-                            style="animation-delay: 0.5s"></div>
-                    </div>
+        <!-- Special Announcement Popup Removed -->
 
-                    <!-- Content -->
-                    <div class="relative z-10 text-center">
-                        <div class="inline-flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 bg-rose-500 rounded-full animate-pulse"></div>
-                            <span class="text-rose-400 text-xs font-bold uppercase tracking-widest">Breaking News</span>
-                            <div class="w-2 h-2 bg-rose-500 rounded-full animate-pulse"></div>
-                        </div>
 
-                        <h3 class="text-white font-bold text-lg mb-2 leading-tight">
-                            First Available Software<br>
-                            <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-purple-400">Dropping
-                                in a Week!!!</span>
-                        </h3>
-
-                        <p class="text-gray-400 text-sm mb-4">Stay tuned for something revolutionary</p>
-
-                        <div class="flex items-center justify-center gap-2">
-                            <div class="flex gap-1">
-                                <div class="w-1 h-4 bg-rose-500 rounded-full animate-bounce"></div>
-                                <div class="w-1 h-4 bg-purple-500 rounded-full animate-bounce"
-                                    style="animation-delay: 0.1s"></div>
-                                <div class="w-1 h-4 bg-indigo-500 rounded-full animate-bounce"
-                                    style="animation-delay: 0.2s"></div>
-                            </div>
-                            <span class="text-rose-400 text-xs font-medium">Get Ready</span>
-                            <div class="flex gap-1">
-                                <div class="w-1 h-4 bg-indigo-500 rounded-full animate-bounce"
-                                    style="animation-delay: 0.3s"></div>
-                                <div class="w-1 h-4 bg-purple-500 rounded-full animate-bounce"
-                                    style="animation-delay: 0.4s"></div>
-                                <div class="w-1 h-4 bg-rose-500 rounded-full animate-bounce"
-                                    style="animation-delay: 0.5s"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Close Button Moved Outside overflow-hidden -->
-                <button id="close-announcement"
-                    class="absolute -top-3 -right-3 w-8 h-8 bg-rose-600 rounded-full flex items-center justify-center text-white text-sm hover:bg-rose-700 transition-colors z-[60] shadow-lg border-2 border-[#0d0d12]">
-                    <i class="uil uil-minus"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Minimized Announcement Icon -->
-        <button id="minimized-announcement"
-            class="fixed bottom-24 right-8 z-40 w-12 h-12 bg-gradient-to-r from-rose-600 to-purple-600 rounded-full flex items-center justify-center text-white text-xl shadow-xl shadow-rose-600/30 hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none group btn-premium">
-            <div class="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full animate-bounce shadow-sm"></div>
-            <i class="uil uil-bell animate-swing"></i>
-            <!-- Tooltip -->
-            <span
-                class="absolute right-full mr-4 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity translate-x-2 group-hover:translate-x-0 hidden md:block">
-                New Update!
-            </span>
-        </button>
 
         <!-- About Section -->
         <section id="about" class="py-4 lg:py-32 px-6 lg:px-20 reveal">
@@ -1280,33 +1219,18 @@
                         <div class="relative rounded-3xl overflow-hidden shadow-2xl">
                             <img src="https://i.postimg.cc/rmJ07GnR/b20aef37-35ad-4529-bd87-9686b150a6b1.jpg"
                                 alt="Profile Picture"
-                                class="w-full object-cover h-[500px] transition-all duration-700 hover:scale-105">
+                                class="w-full object-cover object-[center_25%] h-[500px] transition-all duration-700 hover:scale-105">
                             <div
                                 class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
                             </div>
                         </div>
                     </div>
                     <div>
+                        <p class="text-gray-400 leading-relaxed mb-6 text-lg text-justify">
+                            My love for technology, robots and artificial intelligence started at an early age, growing up with movies such as the Matrix, Bicentennial Man andMinority Report. After school, I got the opportunity to work at a company that inspects mining machinery, and studied to become an NDT (Non-destructive testing) technician, which fueled my passion for technology. Life happens, and the past 8 years I found myself in Pretoria, where I used every spare moment to learn and teach myself website coding and development. At last, 3 years ago, I took the steps to start my first web-development Wordpress project with the help of a friend and I never looked back.
+                        </p>
                         <p class="text-gray-400 leading-relaxed mb-10 text-lg text-justify">
-                            My love for technology, machines, robots and artificial intelligence started at an early age.
-                            Looking back, growing up with movies such as the Matrix, Bicentennial Man, Minority
-                            Report and I, Robot, were the building blocks for the path I find myself on today.
-                            After school, I got the opportunity to work at a company that inspects mining machinery,
-                            and studied to become an NDT (Non-destructive testing) technician. This fueled my
-                            passion for technology. After an unfortunate accident, I found myself in Pretoria, working
-                            at different restaurants and bars to make a living, as work in the same field of NDT was
-                            not available. If I couldn't work on big machines, I was going to work on smaller but
-                            equally powerful machines, and so I used every spare moment to learn and teach myself
-                            website coding and development. At last, 3 years ago, I took the steps to start my first
-                            web-development Wordpress project with the help of a friend and I never looked back.
-                            Today I have taught myself, and am still learning, anything and everything the world has to
-                            offer regarding front- to back-end development, app development, e-commerce, GitHub
-                            setups and most important of all, AI integration and automation. My biggest and
-                            proudest project so far is my June Ai assistant that I built to help me organise my daily
-                            tasks, do required research and help gather resources for projects. I don't want to be
-                            the next Elon, I just want to build the next best agentic systems and digital solutions for
-                            real clients with real-world problems. In my spare time I love listening to music, watching
-                            documentaries, camping, cooking, and going to the park with my dogs.
+                            Today I have taught myself, and am still learning, anything and everything the world has to offer regarding front- to back-end development, app development, e-commerce, GitHub setups and most important of all, AI integration and automation. I don't want to be the next Elon, I just want to build the next best agentic systems and digital solutions for real clients with real-world problems.
                         </p>
                         <div class="grid grid-cols-3 gap-4 mb-12">
                             <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center">
@@ -1358,12 +1282,12 @@
                                 </div>
                                 <div class="text-right">
                                     <p class="text-[#CCCCCC] text-xs">Professional Tier</p>
-                                    <p class="text-[#CCCCCC] text-xs">4 skills</p>
+                                    <p class="text-[#CCCCCC] text-xs">5 skills</p>
                                 </div>
                             </button>
                             <div class="skill-content border-t border-white/5 p-8" id="frontend-skills">
-                                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                                    <!-- HTML/CSS -->
+                                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                                    <!-- HTML -->
                                     <div class="skill-tile group/tile">
                                         <div
                                             class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
@@ -1372,8 +1296,19 @@
                                                 class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 group-hover/tile:scale-110 transition-transform">
                                                 <i class="uil uil-html5 text-3xl"></i>
                                             </div>
-                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">HTML
-                                                / CSS</span>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">HTML5</span>
+                                        </div>
+                                    </div>
+                                    <!-- CSS -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-css3-simple text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">CSS3</span>
                                         </div>
                                     </div>
                                     <!-- JavaScript -->
@@ -1514,11 +1449,11 @@
                                 </div>
                                 <div class="text-right">
                                     <p class="text-[#CCCCCC] text-xs">Mastery Tier</p>
-                                    <p class="text-[#CCCCCC] text-xs">4 skills</p>
+                                    <p class="text-[#CCCCCC] text-xs">6 skills</p>
                                 </div>
                             </button>
                             <div class="skill-content hidden border-t border-white/5 p-8" id="backend-skills">
-                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="grid grid-cols-2 lg:grid-cols-6 gap-6">
                                     <!-- Python -->
                                     <div class="skill-tile group/tile">
                                         <div
@@ -1530,6 +1465,45 @@
                                             </div>
                                             <span
                                                 class="text-xs font-bold text-gray-300 uppercase tracking-widest">Python</span>
+                                        </div>
+                                    </div>
+                                    <!-- Node.js -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-server text-3xl"></i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">Node.js</span>
+                                        </div>
+                                    </div>
+                                    <!-- SQL -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="material-icons text-3xl">storage</i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest text-center">SQL Database</span>
+                                        </div>
+                                    </div>
+                                    <!-- WordPress -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-blue-400/10 rounded-xl flex items-center justify-center text-blue-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-wordpress text-3xl"></i>
+                                            </div>
+                                            <span
+                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest">WordPress</span>
                                         </div>
                                     </div>
                                     <!-- Firebase -->
@@ -1545,20 +1519,6 @@
                                                 class="text-xs font-bold text-gray-300 uppercase tracking-widest">Firebase</span>
                                         </div>
                                     </div>
-                                    <!-- PHP -->
-                                    <div class="skill-tile group/tile">
-                                        <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
-                                            <div class="scan-line"></div>
-                                            <div
-                                                class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 group-hover/tile:scale-110 transition-transform">
-                                                <i class="material-icons text-3xl">storage</i>
-                                            </div>
-                                            <span
-                                                class="text-xs font-bold text-gray-300 uppercase tracking-widest text-center">PHP
-                                                / SQL</span>
-                                        </div>
-                                    </div>
                                     <!-- GitHub -->
                                     <div class="skill-tile group/tile">
                                         <div
@@ -1568,8 +1528,7 @@
                                                 class="w-14 h-14 bg-gray-500/10 rounded-xl flex items-center justify-center text-white group-hover/tile:scale-110 transition-transform">
                                                 <i class="uil uil-github-alt text-3xl"></i>
                                             </div>
-                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Git
-                                                / Devops</span>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Git / Devops</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1593,11 +1552,11 @@
                                 </div>
                                 <div class="text-right">
                                     <span class="text-[#FF1E56] text-sm font-medium">Expert</span>
-                                    <p class="text-[#CCCCCC] text-xs">7 tools</p>
+                                    <p class="text-[#CCCCCC] text-xs">10 tools</p>
                                 </div>
                             </button>
                             <div class="skill-content hidden border-t border-white/5 p-8" id="tools-skills">
-                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="grid grid-cols-2 lg:grid-cols-5 gap-6">
                                     <!-- After Effects -->
                                     <div class="skill-tile group/tile">
                                         <div
@@ -1639,17 +1598,88 @@
                                                 Studio</span>
                                         </div>
                                     </div>
-                                    <!-- Bolt AI -->
+                                    <!-- VS Code -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-visual-studio text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">VS Code</span>
+                                        </div>
+                                    </div>
+                                    <!-- Cursor AI -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-purple-400/10 rounded-xl flex items-center justify-center text-purple-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="material-icons text-3xl">auto_fix_high</i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Cursor AI</span>
+                                        </div>
+                                    </div>
+                                    <!-- Android Studio -->
                                     <div class="skill-tile group/tile">
                                         <div
                                             class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-android text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Android Studio</span>
+                                        </div>
+                                    </div>
+                                    <!-- Bolt AI -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-500 group-hover/tile:scale-110 transition-transform">
                                                 <i class="uil uil-bolt text-3xl"></i>
                                             </div>
-                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Bolt
-                                                AI</span>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Bolt AI</span>
+                                        </div>
+                                    </div>
+                                    <!-- Lovable -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-heart text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Lovable</span>
+                                        </div>
+                                    </div>
+                                    <!-- LM Studio -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="material-icons text-3xl">psychology</i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">LM Studio</span>
+                                        </div>
+                                    </div>
+                                    <!-- OpenCode -->
+                                    <div class="skill-tile group/tile">
+                                        <div
+                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div
+                                                class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center text-white group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-brackets-curly text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">OpenCode</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1842,7 +1872,7 @@
 
                 <a href="javascript:void(0)" id="resume-trigger-v2"
                     class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-8 py-4 rounded-xl transition-all hover:bg-white/5 btn-flash">
-                    <i class="uil uil-file-alt mr-2"></i> Resume v2
+                    <i class="uil uil-file-alt mr-2"></i> PROFESSIONAL CV
                 </a>
 
 
@@ -1874,7 +1904,8 @@
     <!-- Resume Modal V2 (PDF Updated) -->
     <div id="resume-modal-v2"
         class="fixed inset-0 z-[200] hidden items-center justify-center p-4 lg:p-10 opacity-0 transition-all duration-500 ease-out backdrop-blur-0 overflow-y-auto">
-        <div class="absolute inset-0 bg-black/95 transition-opacity duration-500 opacity-0" id="resume-modal-overlay-v2">
+        <div class="absolute inset-0 bg-black/95 transition-opacity duration-500 opacity-0"
+            id="resume-modal-overlay-v2">
         </div>
         <div id="resume-modal-container-v2"
             class="relative w-full max-w-4xl transform scale-95 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
@@ -1891,7 +1922,7 @@
                         <div
                             class="w-24 h-24 bg-rose-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-rose-600/20 overflow-hidden border border-white/10">
                             <img src="https://i.postimg.cc/rmJ07GnR/b20aef37-35ad-4529-bd87-9686b150a6b1.jpg"
-                                class="object-cover w-full h-full" alt="Jack Identity">
+                                class="object-cover object-[center_25%] w-full h-full" alt="Jack Identity">
                         </div>
                         <h1 class="text-2xl font-bold mb-1 leading-tight text-white">Jack Van Der Merwe</h1>
                         <p class="text-rose-500 font-bold tracking-widest text-[10px] uppercase">Full Stack Developer &
@@ -1941,7 +1972,8 @@
                         </div>
 
                         <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">AI & Automation</h3>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">AI &
+                                Automation</h3>
                             <div class="flex flex-wrap gap-2">
                                 <span class="resume-skill-tag">OpenAI</span>
                                 <span class="resume-skill-tag">Zapier</span>
@@ -1964,7 +1996,8 @@
                         </div>
 
                         <div>
-                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Other Creative Power Tools</h3>
+                            <h3 class="text-gray-400 font-bold text-[10px] uppercase tracking-[2px] mb-4">Other Creative
+                                Power Tools</h3>
                             <div class="flex flex-wrap gap-2">
                                 <span class="resume-skill-tag">OpenCode</span>
                                 <span class="resume-skill-tag">Android Studio</span>
@@ -1984,7 +2017,7 @@
                             <div class="space-y-4">
                                 <div class="text-gray-300 text-xs">
                                     <p class="font-bold text-white">Full Stack Web Development</p>
-                                    <p class="text-gray-500 text-[10px]">Since 2023 · Self-Taught & Online Courses</p>
+                                    <p class="text-gray-500 text-[10px]">Since 2020 · Self-Taught & Online Courses</p>
                                 </div>
                                 <div class="text-gray-300 text-xs">
                                     <p class="font-bold text-white">AI & Machine Learning</p>
@@ -2003,8 +2036,11 @@
                 <main class="resume-main">
                     <header class="mb-8">
                         <h2 class="text-2xl font-extrabold mb-3 leading-tight text-white">Professional Summary</h2>
+                        <p class="text-gray-400 text-xs leading-relaxed text-justify mb-4">
+                            My love for technology, robots and artificial intelligence started at an early age, growing up with movies such as the Matrix, Bicentennial Man andMinority Report. After school, I got the opportunity to work at a company that inspects mining machinery, and studied to become an NDT (Non-destructive testing) technician, which fueled my passion for technology. Life happens, and the past 8 years I found myself in Pretoria, where I used every spare moment to learn and teach myself website coding and development. At last, 3 years ago, I took the steps to start my first web-development Wordpress project with the help of a friend and I never looked back.
+                        </p>
                         <p class="text-gray-400 text-xs leading-relaxed text-justify">
-                            My love for technology, machines, robots and artificial intelligence started at an early age. Looking back, growing up with movies such as the Matrix, Bicentennial Man, Minority Report and I, Robot, were the building blocks for the path I find myself on today. After school, I got the opportunity to work at a company that inspects mining machinery, and studied to become an NDT (Non-destructive testing) technician. This fueled my passion for technology. After an unfortunate accident, I found myself in Pretoria, working at different restaurants and bars to make a living, as work in the same field of NDT was not available. If I couldn't work on big machines, I was going to work on smaller but equally powerful machines, and so I used every spare moment to learn and teach myself website coding and development. At last, 3 years ago, I took the steps to start my first web-development Wordpress project with the help of a friend and I never looked back. Today I have taught myself, and am still learning, anything and everything the world has to offer regarding front- to back-end development, app development, e-commerce, GitHub setups and most important of all, AI integration and automation. My biggest and proudest project so far is my June Ai assistant that I built to help me organise my daily tasks, do required research and help gather resources for projects. I don't want to be the next Elon, I just want to build the next best agentic systems and digital solutions for real clients with real-world problems. In my spare time I love listening to music, watching documentaries, camping, cooking, and going to the park with my dogs.
+                            Today I have taught myself, and am still learning, anything and everything the world has to offer regarding front- to back-end development, app development, e-commerce, GitHub setups and most important of all, AI integration and automation. I don't want to be the next Elon, I just want to build the next best agentic systems and digital solutions for real clients with real-world problems.
                         </p>
                     </header>
 
@@ -2017,32 +2053,39 @@
                         <div class="resume-exp-item mb-10">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h4 class="text-lg font-bold text-white uppercase">FULL STACK AI, AUTOMATION & WEB DEVELOPER</h4>
+                                    <h4 class="text-lg font-bold text-white uppercase">FULL STACK AI, AUTOMATION & WEB
+                                        DEVELOPER</h4>
                                     <p class="text-rose-500 text-sm font-semibold">Self-Employed & Remote Work</p>
                                 </div>
                                 <span
-                                    class="text-[10px] font-bold text-white bg-rose-600 px-3 py-1 rounded-md uppercase italic">2023 — 2026</span>
+                                    class="text-[10px] font-bold text-white bg-rose-600 px-3 py-1 rounded-md uppercase italic">2023
+                                    — 2026</span>
                             </div>
                             <ul class="text-gray-400 text-xs space-y-3 mt-4">
                                 <li class="flex items-start gap-2">
                                     <span class="text-rose-500 mt-1">•</span>
-                                    <span>Engineered AI-driven automations using n8n / Zapier and LLMs (OpenAI / Claude) to integrate WooCommerce with Discord.</span>
+                                    <span>Engineered AI-driven automations using n8n / Zapier and LLMs (OpenAI / Claude)
+                                        to integrate WooCommerce with Discord.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-rose-500 mt-1">•</span>
-                                    <span>Annotated and evaluated AI datasets (text / images / audio / video) for ML models, focusing on quality and bias reduction.</span>
+                                    <span>Annotated and evaluated AI datasets (text / images / audio / video) for ML
+                                        models, focusing on quality and bias reduction.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-rose-500 mt-1">•</span>
-                                    <span>Developed and QA’d AI prompts and outputs for chat-based systems, ensuring clarity and moderation.</span>
+                                    <span>Developed and QA’d AI prompts and outputs for chat-based systems, ensuring
+                                        clarity and moderation.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-rose-500 mt-1">•</span>
-                                    <span>Built custom web solutions including WordPress websites for trading companies, handling themes, plugins, SEO, performance and updates.</span>
+                                    <span>Built custom web solutions including WordPress websites for trading companies,
+                                        handling themes, plugins, SEO, performance and updates.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-rose-500 mt-1">•</span>
-                                    <span>Created responsive front-end / back-end features for web apps using HTML / JS / React / Node / Python / PHP / SQL.</span>
+                                    <span>Created responsive front-end / back-end features for web apps using HTML / JS
+                                        / React / Node / Python / PHP / SQL.</span>
                                 </li>
                             </ul>
 
@@ -2051,15 +2094,18 @@
                                 <ul class="text-gray-400 text-xs space-y-2">
                                     <li class="flex items-center gap-2">
                                         <span class="text-rose-500">•</span>
-                                        <a href="https://www.vaultfunder.trade" target="_blank" class="hover:text-white transition-colors">www.vaultfunder.trade</a>
+                                        <a href="https://www.vaultfunder.trade" target="_blank"
+                                            class="hover:text-white transition-colors">www.vaultfunder.trade</a>
                                     </li>
                                     <li class="flex items-center gap-2">
                                         <span class="text-rose-500">•</span>
-                                        <a href="https://www.brokersselect.com" target="_blank" class="hover:text-white transition-colors">www.brokersselect.com</a>
+                                        <a href="https://www.brokersselect.com" target="_blank"
+                                            class="hover:text-white transition-colors">www.brokersselect.com</a>
                                     </li>
                                     <li class="flex items-center gap-2">
                                         <span class="text-rose-500">•</span>
-                                        <a href="https://www.medical-insight-solutions.co.za" target="_blank" class="hover:text-white transition-colors">www.medical-insight-solutions.co.za</a>
+                                        <a href="https://www.medical-insight-solutions.co.za" target="_blank"
+                                            class="hover:text-white transition-colors">www.medical-insight-solutions.co.za</a>
                                     </li>
                                 </ul>
                             </div>
@@ -2069,15 +2115,20 @@
                                 <ul class="text-gray-400 text-xs space-y-3">
                                     <li class="flex items-start gap-2">
                                         <span class="text-rose-500 mt-1">•</span>
-                                        <span><strong>June Ai</strong> - My personal agentic AI application, pushing neural networking boundaries that has to learn and adapt to user behaviour in real-time.</span>
+                                        <span><strong>June Ai</strong> - My personal agentic AI application, pushing
+                                            neural networking boundaries that has to learn and adapt to user behaviour
+                                            in real-time.</span>
                                     </li>
                                     <li class="flex items-start gap-2">
                                         <span class="text-rose-500 mt-1">•</span>
-                                        <span><strong>Neural Nexus</strong> - An advanced NLP research project utilizing transformer models to archiect complex human AI interactions.</span>
+                                        <span><strong>Neural Nexus</strong> - An advanced NLP research project utilizing
+                                            transformer models to archiect complex human AI interactions.</span>
                                     </li>
                                     <li class="flex items-start gap-2">
                                         <span class="text-rose-500 mt-1">•</span>
-                                        <span><strong>Aura Voice Intelligence</strong> - A cutting-edge voice assistant system, specializing in Whisper AI integration for flawless speech-to-intent processing.</span>
+                                        <span><strong>Aura Voice Intelligence</strong> - A cutting-edge voice assistant
+                                            system, specializing in Whisper AI integration for flawless speech-to-intent
+                                            processing.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -2086,14 +2137,21 @@
                         <div class="resume-exp-item mb-10">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h4 class="text-lg font-bold text-white uppercase">WAITER, BARMAN & RESTAURANT FLOOR MANAGER</h4>
-                                    <p class="text-rose-500 text-sm font-semibold">Restaurant Operations In Centurion & Pretoria</p>
+                                    <h4 class="text-lg font-bold text-white uppercase">WAITER, BARMAN & RESTAURANT FLOOR
+                                        MANAGER</h4>
+                                    <p class="text-rose-500 text-sm font-semibold">Restaurant Operations In Centurion &
+                                        Pretoria</p>
                                 </div>
                                 <span
-                                    class="text-[10px] font-bold text-white bg-rose-600 px-3 py-1 rounded-md uppercase italic">2018 — 2024</span>
+                                    class="text-[10px] font-bold text-white bg-rose-600 px-3 py-1 rounded-md uppercase italic">2018
+                                    — 2024</span>
                             </div>
                             <p class="text-gray-400 text-xs mt-4 leading-relaxed">
-                                Managed high-volume restaurant operations, where I developed my multitasking skills, client relations, and dealt with on-the-go decisions. When I moved to the city, I found it difficult to start a career with my NDT and mining skills, so while I worked in shifts, I also started online research and studies regarding web development and AI in the search of finding the best career path for me.
+                                Managed high-volume restaurant operations, where I developed my multitasking skills,
+                                client relations, and dealt with on-the-go decisions. When I moved to the city, I found
+                                it difficult to start a career with my NDT and mining skills, so while I worked in
+                                shifts, I also started online research and studies regarding web development and AI in
+                                the search of finding the best career path for me.
                             </p>
                         </div>
 
@@ -2101,13 +2159,17 @@
                             <div class="flex justify-between items-start mb-2">
                                 <div>
                                     <h4 class="text-lg font-bold text-white uppercase">SENIOR NDT TECHNICIAN</h4>
-                                    <p class="text-rose-500 text-sm font-semibold">Non-Destructive Testing within Mpumalanga Mining Operations</p>
+                                    <p class="text-rose-500 text-sm font-semibold">Non-Destructive Testing within
+                                        Mpumalanga Mining Operations</p>
                                 </div>
                                 <span
-                                    class="text-[10px] font-bold text-white bg-rose-600 px-3 py-1 rounded-md uppercase italic">2011 — 2017</span>
+                                    class="text-[10px] font-bold text-white bg-rose-600 px-3 py-1 rounded-md uppercase italic">2011
+                                    — 2017</span>
                             </div>
                             <p class="text-gray-400 text-xs mt-4 leading-relaxed text-justify">
-                                Conducted non-destructive testing on critical mining infrastructure, analyzing complex inspection data under strict compliance standards. Certified in ASNT Magnetic Particle Inspection Level 2 as well as Ultrasonic Testing Level 2.
+                                Conducted non-destructive testing on critical mining infrastructure, analyzing complex
+                                inspection data under strict compliance standards. Certified in ASNT Magnetic Particle
+                                Inspection Level 2 as well as Ultrasonic Testing Level 2.
                             </p>
                         </div>
                     </section>
@@ -2117,7 +2179,7 @@
                             class="w-full sm:w-auto px-8 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-full transition-all flex items-center justify-center gap-2">
                             <i class="uil uil-print"></i> Print Resume
                         </button>
-                        <a href="Jack van der Merwe - CV.pdf" download
+                        <a href="file:///C:/Users/Lasti/Desktop/1/MY%20INFO/Jack%20van%20der%20Merwe%20-%20CV.pdf" download
                             class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-rose-600 to-purple-600 text-white font-bold rounded-full transition-all shadow-lg shadow-rose-600/30 hover:scale-105 flex items-center justify-center gap-2">
                             <i class="uil uil-download-alt"></i> Download CV (PDF)
                         </a>
@@ -2171,20 +2233,19 @@
 
         // Project Data
         const projects = [
-            { id: '13', title: 'Aether Avatar', category: 'ai', type: 'avatar', tech: ['Stable Diffusion', 'DeepFace', 'TensorFlow'], desc: 'An AI-powered avatar engine created by Jaxx, using Stable Diffusion to generate hyper-realistic digital identities for the web.', date: 'February 2026', role: 'Solo Architect & Developer' },
-            { id: '1', title: 'Phoneboxx E-commerce', category: 'web', image: 'https://i.postimg.cc/0jSQPpZD/Ecommerce-Mockup.png', tech: ['React', 'Shopify'], link: 'https://phoneboxx.co.za/', desc: 'Crafted by Jaxx to revolutionize e-commerce, integrating seamless Shopify flows with a custom React frontend for peak performance.', date: 'March 2025', role: 'Team Project' },
-            { id: '2', title: 'Medical Insight', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.medical-insight-solutions.co.za?w=1280', tech: ['Next.js', 'PostgreSQL'], link: 'https://www.medical-insight-solutions.co.za', desc: 'A healthcare solution engineered by Jaxx to bridge the gap between patient data and medical records using secure, scalable architecture.', date: 'June 2025', role: 'Team Project' },
-            { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WebSocket', 'D3.js'], link: 'https://www.vaultfunder.trade', desc: 'Architected for Serious Traders as one of South Africa\'s largest trading platforms, providing elite market access and real-time insights.', date: 'September 2025', role: 'Team Project' },
-            { id: '9', title: 'Brokers Select', category: 'web', type: 'brokers', tech: ['Next.js', 'PostgreSQL', 'Tailwind CSS'], link: 'https://brokersselect.com/', desc: 'Designed by Jaxx to simplify the Forex landscape, comparing top brokers through a premium, data-driven fintech interface.', date: 'November 2025', role: 'Team Project' },
-            { id: '7', title: 'Lisbon Hideaway', category: 'web', type: 'lisbon', tech: ['HTML5', 'CSS3', 'JavaScript'], desc: 'A boutique travel platform built by Jaxx, focusing on immersive storytelling and pixel-perfect responsive motion design.', date: 'November 2025', role: 'Solo Architect & Developer' },
-            { id: '4', title: 'June AI', category: 'app', type: 'june', tech: ['Python', 'Neural Networks'], desc: 'Jaxx developed June AI to push neural networking boundaries, creating an app that learns and adapts to user behavior in real-time.', date: 'January 2026', role: 'Solo Architect & Developer' },
-            { id: '5', title: 'Lastic.Dev', category: 'software', type: 'lastic', tech: ['Rust', 'WebAssembly'], desc: 'An elite developer ecosystem forged by Jaxx, leveraging Rust and WASM to deliver blistering performance for modern web apps.', date: 'June 2025', role: 'Solo Architect & Developer' },
-            { id: '6', title: 'Lastic IDE', category: 'software', type: 'ide', tech: ['Python', 'AI-Powered', 'Real-time'], desc: "Jaxx's specialized AI-integrated development environment, optimized for real-time coding efficiency and intelligent auto-completion.", date: 'August 2025', role: 'Solo Architect & Developer' },
-            { id: '8', title: 'Neural Nexus', category: 'ai', type: 'nexus', tech: ['PyTorch', 'Transformer', 'NLP'], desc: 'A powerhouse NLP research project by Jaxx, utilizing Transformer models to process and understand complex human-AI interactions.', date: 'October 2026', role: 'Solo Architect & Developer' },
-            { id: '10', title: 'Nova AI Chatbot', category: 'app', type: 'chatbot', tech: ['OpenAI', 'Next.js', 'Tailwind'], desc: "Jaxx's flagship conversational agent, blending OpenAI intelligence with a custom-built, ultra-responsive Next.js interface.", date: 'November 2026', role: 'Solo Architect & Developer' },
-            { id: '11', title: 'Aura Voice Intelligence', category: 'app', type: 'voice', tech: ['Whisper AI', 'PyTorch', 'FastAPI'], desc: 'A cutting-edge voice assistant system by Jaxx, specializing in Whisper AI integration for flawless speech-to-intent processing.', date: 'December 2026', role: 'Solo Architect & Developer' },
-            { id: '12', title: 'Lastic AGI Agent', category: 'ai', type: 'agent', tech: ['LangChain', 'AutoGPT', 'Python'], desc: "Jaxx's autonomous agentic model designed for complex task orchestration, utilizing advanced LangChain reasoning loops.", date: 'January 2026', role: 'Solo Architect & Developer' },
-            { id: '14', title: 'Lastic Local AI', category: 'ai', type: 'localai', tech: ['Llama 3', 'GGUF', 'C++', 'Python'], desc: 'A high-performance local inference engine built by Jaxx, allowing users to run large language models entirely offline with zero data leakage.', date: 'March 2026', role: 'Solo Architect & Developer' }
+            { id: '1', title: 'Phoneboxx E-commerce', category: 'web', image: 'https://i.postimg.cc/0jSQPpZD/Ecommerce-Mockup.png', tech: ['React', 'Shopify'], link: 'https://phoneboxx.co.za/', desc: 'I was brought in to rebuild and finish the Phoneboxx E-commerce platform, transforming it to revolutionize online retail through seamless Shopify integration with a custom frontend that delivers instant loading and smooth navigation.', date: 'March 2025', role: 'Team Project' },
+            { id: '2', title: 'Medical Insight', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.medical-insight-solutions.co.za?w=1280', tech: ['Next.js', 'PostgreSQL'], link: 'https://www.medical-insight-solutions.co.za', desc: 'I co-engineered a healthcare solution alongside one other developer to bridge the gap between patient data and medical records using secure, scalable architecture.', date: 'June 2025', role: 'Team Project' },
+            { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WebSocket', 'D3.js'], link: 'https://www.vaultfunder.trade', desc: 'I joined the Serious Traders project to architect their platform as one of South Africa\'s largest trading platforms, delivering elite market access and real-time insights.', date: 'September 2025', role: 'Team Project' },
+            { id: '9', title: 'Brokers Select', category: 'web', image: 'https://i.postimg.cc/6QRS4w2R/TRADE4U.png', tech: ['Next.js', 'PostgreSQL', 'Tailwind CSS'], link: 'https://brokersselect.com/', desc: 'I was called in to design a Forex comparison platform that simplifies the landscape for traders, creating a premium, data-driven fintech interface to compare top brokers.', date: 'November 2025', role: 'Team Project' },
+            { id: '7', title: 'Lisbon Hideaway', category: 'web', type: 'lisbon', tech: ['HTML5', 'CSS3', 'JavaScript'], link: 'lisbon.html', desc: 'I built a boutique travel platform focusing on immersive storytelling and pixel-perfect responsive motion design.', date: 'November 2025', role: 'Solo Architect & Developer' },
+            { id: '4', title: 'June AI', category: 'app', type: 'june', tech: ['Python', 'Neural Networks'], desc: 'I developed June AI to push neural networking boundaries, creating an app that learns and adapts to user behavior in real-time.', date: 'January 2026', role: 'Solo Architect & Developer' },
+            { id: '5', title: 'Lastic.Dev', category: 'software', type: 'lastic', tech: ['Rust', 'WebAssembly'], desc: 'An elite developer ecosystem I forged, leveraging Rust and WASM to deliver blistering performance for modern web apps.', date: 'June 2025', role: 'Solo Architect & Developer' },
+            { id: '6', title: 'Lastic IDE', category: 'software', type: 'ide', tech: ['Python', 'AI-Powered', 'Real-time'], desc: 'My specialized AI-integrated development environment, optimized for real-time coding efficiency and intelligent auto-completion.', date: 'August 2025', role: 'Solo Architect & Developer' },
+            { id: '8', title: 'Neural Nexus', category: 'ai', type: 'nexus', tech: ['PyTorch', 'Transformer', 'NLP'], desc: 'A powerhouse NLP research project I developed, utilizing Transformer models to process and understand complex human-AI interactions.', date: 'October 2026', role: 'Solo Architect & Developer' },
+            { id: '10', title: 'Nova AI Chatbot', category: 'app', type: 'chatbot', tech: ['OpenAI', 'Next.js', 'Tailwind'], desc: 'My flagship conversational agent, blending OpenAI intelligence with a custom-built, ultra-responsive Next.js interface.', date: 'November 2026', role: 'Solo Architect & Developer' },
+            { id: '11', title: 'Aura Voice Intelligence', category: 'app', type: 'voice', tech: ['Whisper AI', 'PyTorch', 'FastAPI'], desc: 'A cutting-edge voice assistant system I created, specializing in Whisper AI integration for flawless speech-to-intent processing.', date: 'December 2026', role: 'Solo Architect & Developer' },
+            { id: '12', title: 'Lastic AGI Agent', category: 'ai', type: 'agent', tech: ['LangChain', 'AutoGPT', 'Python'], desc: 'My autonomous agentic model designed for complex task orchestration, utilizing advanced LangChain reasoning loops.', date: 'January 2026', role: 'Solo Architect & Developer' },
+            { id: '14', title: 'Lastic Local AI', category: 'ai', type: 'localai', tech: ['Llama 3', 'GGUF', 'C++', 'Python'], desc: 'A high-performance local inference engine I built, allowing users to run large language models entirely offline with zero data leakage.', date: 'March 2026', role: 'Solo Architect & Developer' }
         ];
 
         // Custom Previews
@@ -2457,33 +2518,7 @@
                 <div id="data-packets-agent" class="absolute inset-0 pointer-events-none opacity-20"></div>
             </div>`;
 
-        const getAvatarPreview = (isModal = false) => `
-            <div class="relative w-full h-full bg-gradient-to-br from-[#121212] to-[#000] overflow-hidden ${isModal ? 'rounded-2xl' : ''}">
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-                <div class="h-full flex flex-col items-center justify-center p-4">
-                    <div class="relative w-24 h-24 mb-4">
-                        <div class="absolute inset-0 rounded-full border-t-2 border-rose-500 animate-spin"></div>
-                        <div class="absolute inset-2 rounded-full border-b-2 border-rose-500/50 animate-[spin_3s_linear_infinite_reverse]"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                           <i class="uil uil-user-circle text-white/20 text-6xl"></i>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-rose-500/20 to-transparent h-1 w-full top-1/2 animate-[scan_2s_linear_infinite]"></div>
-                    </div>
-                    <div class="text-center">
-                        <span class="text-[10px] text-rose-500 font-bold uppercase tracking-[0.4em]">Rendering Avatar</span>
-                        <div class="flex gap-0.5 justify-center mt-2">
-                             ${Array(8).fill().map((_, i) => `<div class="w-1.5 h-1.5 bg-rose-600/20 rounded-sm animate-pulse" style="animation-delay: ${i * 0.1}s"></div>`).join('')}
-                        </div>
-                    </div>
-                </div>
-                <style>
-                    @keyframes scan {
-                        0% { transform: translateY(-50px); opacity: 0; }
-                        50% { opacity: 1; }
-                        100% { transform: translateY(50px); opacity: 0; }
-                    }
-                </style>
-            </div>`;
+
 
         const getLocalAIPreview = (isModal = false) => `
             <div class="relative w-full h-full bg-[#050505] overflow-hidden font-mono ${isModal ? 'rounded-2xl' : ''}">
@@ -2584,7 +2619,7 @@
             if (p.type === 'chatbot') preview = getChatbotPreview();
             if (p.type === 'voice') preview = getVoicePreview();
             if (p.type === 'agent') preview = getAgentPreview();
-            if (p.type === 'avatar') preview = getAvatarPreview();
+
             if (p.type === 'localai') preview = getLocalAIPreview();
 
             card.innerHTML = `
@@ -2592,14 +2627,7 @@
                     <div class="card-front h-full">
                         <div class="aspect-[16/10] md:aspect-video w-full overflow-hidden relative">
                             ${preview}
-                            ${p.id === '13' ? `
-                            <div class="absolute top-4 left-4 z-20 px-3 py-1 bg-emerald-500/90 backdrop-blur-md rounded-full border border-emerald-400/30 shadow-lg shadow-emerald-500/40">
-                                <span class="text-[8px] font-black text-white uppercase tracking-[0.2em] latest-badge flex items-center gap-1.5">
-                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-[0_0_8px_#fff]"></span>
-                                    Latest
-                                </span>
-                            </div>
-                            ` : ''}
+
                         </div>
                         <div class="p-4 text-center">
                             <div class="flex justify-between items-center mb-1">
@@ -2766,7 +2794,7 @@
             if (p.type === 'chatbot') preview = getChatbotPreview(true);
             if (p.type === 'voice') preview = getVoicePreview(true);
             if (p.type === 'agent') preview = getAgentPreview(true);
-            if (p.type === 'avatar') preview = getAvatarPreview(true);
+
             if (p.type === 'localai') preview = getLocalAIPreview(true);
 
             content.innerHTML = `
@@ -2965,19 +2993,7 @@
             setTimeout(typeEffect, 1000);
         });
 
-        // Announcement Popup Logic
-        // Announcement Popup Logic
-        const announcementPopup = document.getElementById('announcement-popup');
-        const closeAnnouncement = document.getElementById('close-announcement');
-        const minimizedAnnouncement = document.getElementById('minimized-announcement');
-        let hasShown = false;
 
-        // Show popup after scrolling past hero section
-        window.addEventListener('scroll', () => {
-            if (!hasShown) {
-                // ... (rest of logic)
-            }
-        });
 
         // Chatbot Logic
         let speechEnabled = false;
@@ -3087,48 +3103,7 @@
                 window.speechSynthesis.speak(utterance);
             }
         };
-        // Scroll Event for Announcement
-        window.addEventListener('scroll', () => {
-            if (!hasShown) {
-                const heroSection = document.getElementById('home');
-                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
 
-                if (window.scrollY > heroBottom - 200) {
-                    showAnnouncement();
-                    hasShown = true;
-                }
-            }
-        });
-
-        function showAnnouncement() {
-            announcementPopup.classList.remove('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
-            announcementPopup.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-
-            // Explicitly force style update to ensure visibility
-            announcementPopup.style.display = 'block';
-
-            // Hide minimized
-            minimizedAnnouncement.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
-            minimizedAnnouncement.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-
-            // Auto-minimize after 10 seconds (optional)
-            // setTimeout(() => minimizeAnnouncement(), 10000);
-        }
-
-        function minimizeAnnouncement() {
-            announcementPopup.classList.add('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
-            announcementPopup.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-
-            // Show minimized
-            minimizedAnnouncement.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
-            minimizedAnnouncement.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-        }
-
-        // Minimize on close click
-        closeAnnouncement.addEventListener('click', minimizeAnnouncement);
-
-        // Maximize on minimized click
-        minimizedAnnouncement.addEventListener('click', showAnnouncement);
 
         // Skills Toggle Logic
         document.querySelectorAll('.skill-toggle').forEach(button => {
@@ -3577,31 +3552,40 @@
         scrollToTopBtn.addEventListener('click', smoothScrollToTop);
 
         // Resume Modal Toggle Logic
-
-
+        const resumeTriggerV2 = document.getElementById('resume-trigger-v2');
         const resumeModalV2 = document.getElementById('resume-modal-v2');
         const closeResumeBtnV2 = document.getElementById('close-resume-modal-v2');
         const resumeOverlayV2 = document.getElementById('resume-modal-overlay-v2');
         const resumeContainerV2 = document.getElementById('resume-modal-container-v2');
 
         const openResume = (modal, overlay, container) => {
+            if (!modal) return;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             setTimeout(() => {
                 modal.classList.add('backdrop-blur-xl', 'opacity-100');
-                overlay.classList.remove('opacity-0');
-                overlay.classList.add('opacity-100');
-                container.classList.remove('scale-95', 'opacity-0');
-                container.classList.add('scale-100', 'opacity-100');
+                if (overlay) {
+                    overlay.classList.remove('opacity-0');
+                    overlay.classList.add('opacity-100');
+                }
+                if (container) {
+                    container.classList.remove('scale-95', 'opacity-0');
+                    container.classList.add('scale-100', 'opacity-100');
+                }
             }, 10);
             document.body.style.overflow = 'hidden';
         };
 
         const closeResume = (modal, overlay, container) => {
-            container.classList.remove('scale-100', 'opacity-100');
-            container.classList.add('scale-95', 'opacity-0');
-            overlay.classList.remove('opacity-100');
-            overlay.classList.add('opacity-0');
+            if (!modal) return;
+            if (container) {
+                container.classList.remove('scale-100', 'opacity-100');
+                container.classList.add('scale-95', 'opacity-0');
+            }
+            if (overlay) {
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0');
+            }
             modal.classList.remove('opacity-100');
 
             setTimeout(() => {
@@ -3611,11 +3595,7 @@
             }, 500);
         };
 
-        if (resumeTrigger) resumeTrigger.addEventListener('click', () => openResume(resumeModal, resumeOverlay, resumeContainer));
         if (resumeTriggerV2) resumeTriggerV2.addEventListener('click', () => openResume(resumeModalV2, resumeOverlayV2, resumeContainerV2));
-
-        if (closeResumeBtn) closeResumeBtn.addEventListener('click', () => closeResume(resumeModal, resumeOverlay, resumeContainer));
-        if (resumeOverlay) resumeOverlay.addEventListener('click', () => closeResume(resumeModal, resumeOverlay, resumeContainer));
 
         if (closeResumeBtnV2) closeResumeBtnV2.addEventListener('click', () => closeResume(resumeModalV2, resumeOverlayV2, resumeContainerV2));
         if (resumeOverlayV2) resumeOverlayV2.addEventListener('click', () => closeResume(resumeModalV2, resumeOverlayV2, resumeContainerV2));
