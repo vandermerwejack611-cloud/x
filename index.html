@@ -5,6 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jaxx | Full Stack Developer & AI Architect - Premium Portfolio</title>
+    <meta name="description" content="Official portfolio of Jaxx, a Full Stack Developer and AI Architect specializing in high-performance Web, App, and AI solutions. Browse my latest projects and technical expertise." />
+    <meta name="keywords" content="Full Stack Developer, AI Architect, Web Development, Portfolio, Jaxx, Lastic Productions" />
+    <meta property="og:title" content="Jaxx | Full Stack Developer & AI Architect" />
+    <meta property="og:description" content="Experience the intersection of high-end design and cutting-edge tech. View the premium portfolio of Jaxx." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1060,6 +1066,11 @@
             color: white;
         }
 
+        /* Smooth Skill Arrow Rotation */
+        .skill-arrow {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         /* Enhanced Backdrop Blur Support */
         @supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
             .glass-premium {
@@ -1422,25 +1433,25 @@
                         </div>
                     </div>
                     <div>
-                        <p class="text-gray-400 leading-relaxed mb-6 text-lg text-justify">
-                            My love for technology, robots and artificial intelligence started at an early age, growing up with movies such as the Matrix, Bicentennial Man andMinority Report. After school, I got the opportunity to work at a company that inspects mining machinery, and studied to become an NDT (Non-destructive testing) technician, which fueled my passion for technology. Life happens, and the past 8 years I found myself in Pretoria, where I used every spare moment to learn and teach myself website coding and development. At last, 3 years ago, I took the steps to start my first web-development Wordpress project with the help of a friend and I never looked back.
+                        <p class="text-gray-400 leading-relaxed mb-6 text-base md:text-lg text-left md:text-justify">
+                            My love for technology, robots and artificial intelligence started at an early age, growing up with movies such as the Matrix, Bicentennial Man and Minority Report. After school, I got the opportunity to work at a company that inspects mining machinery, and studied to become an NDT (Non-destructive testing) technician, which fueled my passion for technology. Life happens, and the past 8 years I found myself in Pretoria, where I used every spare moment to learn and teach myself website coding and development. At last, 3 years ago, I took the steps to start my first web-development Wordpress project with the help of a friend and I never looked back.
                         </p>
-                        <p class="text-gray-400 leading-relaxed mb-10 text-lg text-justify">
+                        <p class="text-gray-400 leading-relaxed mb-10 text-base md:text-lg text-left md:text-justify">
                             Today I have taught myself, and am still learning, anything and everything the world has to offer regarding front- to back-end development, app development, e-commerce, GitHub setups and most important of all, AI integration and automation. I don't want to be the next Elon, I just want to build the next best agentic systems and digital solutions for real clients with real-world problems.
                         </p>
                         <div class="grid grid-cols-3 gap-4 mb-12">
-                            <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center">
-                                <i class="uil uil-award text-2xl text-rose-500 mb-2 block"></i>
-                                <h4 class="text-white font-bold text-xs">3+ Years</h4>
+                            <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center group hover:bg-rose-600/5 hover:border-rose-500/20 transition-all duration-300">
+                                <i class="uil uil-schedule text-3xl text-rose-500 mb-2 block group-hover:scale-110 transition-transform"></i>
+                                <h4 class="text-white font-bold text-sm">3+ Years</h4>
                             </div>
-                            <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center">
-                                <i class="uil uil-check-circle text-2xl text-rose-500 mb-2 block"></i>
-                                <h4 class="text-white font-bold text-xs"><span id="project-counter">0</span>+ Projects
+                            <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center group hover:bg-rose-600/5 hover:border-rose-500/20 transition-all duration-300">
+                                <i class="uil uil-rocket text-3xl text-rose-500 mb-2 block group-hover:translate-y-[-4px] group-hover:translate-x-[4px] transition-transform"></i>
+                                <h4 class="text-white font-bold text-sm"><span id="project-counter">0</span>+ Projects
                                 </h4>
                             </div>
-                            <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center">
-                                <i class="uil uil-clock text-2xl text-rose-500 mb-2 block"></i>
-                                <h4 class="text-white font-bold text-xs"><span id="availability-counter">0</span>/7
+                            <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl text-center group hover:bg-rose-600/5 hover:border-rose-500/20 transition-all duration-300">
+                                <i class="uil uil-globe text-3xl text-rose-500 mb-2 block group-hover:rotate-12 transition-transform"></i>
+                                <h4 class="text-white font-bold text-sm"><span id="availability-counter">0</span>/7
                                     Remote</h4>
                             </div>
                         </div>
@@ -1514,7 +1525,7 @@
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500 group-hover/tile:scale-110 transition-transform">
-                                                <i class="material-icons text-3xl">code</i>
+                                                <i class="uil uil-brackets-curly text-3xl"></i>
                                             </div>
                                             <span
                                                 class="text-xs font-bold text-gray-300 uppercase tracking-widest">JavaScript</span>
@@ -1527,7 +1538,7 @@
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 group-hover/tile:scale-110 transition-transform">
-                                                <i class="uil uil-react text-3xl"></i>
+                                                <i class="uil uil-atom text-3xl"></i>
                                             </div>
                                             <span
                                                 class="text-xs font-bold text-gray-300 uppercase tracking-widest">React.js</span>
@@ -1579,7 +1590,7 @@
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 group-hover/tile:scale-110 transition-transform">
-                                                <i class="material-icons text-3xl">gesture</i>
+                                                <i class="uil uil-palette text-3xl"></i>
                                             </div>
                                             <span
                                                 class="text-xs font-bold text-gray-300 uppercase tracking-widest">Figma</span>
@@ -1657,7 +1668,7 @@
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 group-hover/tile:scale-110 transition-transform">
-                                                <i class="material-icons text-3xl">terminal</i>
+                                                <i class="uil uil-programming-language text-3xl"></i>
                                             </div>
                                             <span
                                                 class="text-xs font-bold text-gray-300 uppercase tracking-widest">Python</span>
@@ -1683,7 +1694,7 @@
                                             <div class="scan-line"></div>
                                             <div
                                                 class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 group-hover/tile:scale-110 transition-transform">
-                                                <i class="material-icons text-3xl">storage</i>
+                                                <i class="uil uil-database text-3xl"></i>
                                             </div>
                                             <span
                                                 class="text-xs font-bold text-gray-300 uppercase tracking-widest text-center">SQL Database</span>
@@ -1731,6 +1742,152 @@
                             </div>
                         </div>
 
+                        <!-- AI & Automation Expandable (Collapsed by Default) -->
+                        <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden mt-8">
+                            <button
+                                class="w-full p-6 flex items-center justify-between hover:bg-white/[0.05] transition-all group skill-toggle"
+                                data-skill="ai">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-10 h-10 bg-[#FF1E56]/10 rounded-lg flex items-center justify-center text-[#FF1E56]">
+                                        <i class="uil uil-angle-right text-sm transition-transform skill-arrow"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h4 class="text-white font-bold text-lg">AI & Automation</h4>
+                                        <p class="text-[#CCCCCC] text-xs mt-1">Intelligence & Workflow</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-[#FF1E56] text-sm font-medium">Architect</span>
+                                    <p class="text-[#CCCCCC] text-xs">12 skills</p>
+                                </div>
+                            </button>
+                            <div class="skill-content hidden border-t border-white/5 p-8" id="ai-skills">
+                                <div class="grid grid-cols-2 lg:grid-cols-6 gap-6">
+                                    <!-- OpenAI -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-robot text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">OpenAI</span>
+                                        </div>
+                                    </div>
+                                    <!-- Zapier -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-bolt-alt text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Zapier</span>
+                                        </div>
+                                    </div>
+                                    <!-- n8n -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-red-500/10 rounded-xl flex items-center justify-center text-red-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-channel text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">n8n</span>
+                                        </div>
+                                    </div>
+                                    <!-- Prompt Engineering -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-comment-alt-edit text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Prompt Eng.</span>
+                                        </div>
+                                    </div>
+                                    <!-- LangChain -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-link text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">LangChain</span>
+                                        </div>
+                                    </div>
+                                    <!-- Ollama -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-processor text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Ollama</span>
+                                        </div>
+                                    </div>
+                                    <!-- Llama.cpp -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-gray-500/10 rounded-xl flex items-center justify-center text-gray-300 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-processor text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Llama.cpp</span>
+                                        </div>
+                                    </div>
+                                    <!-- Vibecode -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-atom text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Vibecode</span>
+                                        </div>
+                                    </div>
+                                    <!-- LM Studio -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-brain text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">LM Studio</span>
+                                        </div>
+                                    </div>
+                                    <!-- Bolt AI -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-bolt text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Bolt AI</span>
+                                        </div>
+                                    </div>
+                                    <!-- Lovable -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-500 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-heart text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Lovable</span>
+                                        </div>
+                                    </div>
+                                    <!-- Cursor AI -->
+                                    <div class="skill-tile group/tile">
+                                        <div class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                                            <div class="scan-line"></div>
+                                            <div class="w-14 h-14 bg-purple-400/10 rounded-xl flex items-center justify-center text-purple-400 group-hover/tile:scale-110 transition-transform">
+                                                <i class="uil uil-pen text-3xl"></i>
+                                            </div>
+                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Cursor AI</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Tools & Power Stack Expandable (Collapsed by Default) -->
                         <div class="bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden mt-8 mb-12">
                             <button
@@ -1748,11 +1905,11 @@
                                 </div>
                                 <div class="text-right">
                                     <span class="text-[#FF1E56] text-sm font-medium">Expert</span>
-                                    <p class="text-[#CCCCCC] text-xs">10 tools</p>
+                                    <p class="text-[#CCCCCC] text-xs">6 tools</p>
                                 </div>
                             </button>
                             <div class="skill-content hidden border-t border-white/5 p-8" id="tools-skills">
-                                <div class="grid grid-cols-2 lg:grid-cols-5 gap-6">
+                                <div class="grid grid-cols-2 lg:grid-cols-6 gap-6">
                                     <!-- After Effects -->
                                     <div class="skill-tile group/tile">
                                         <div
@@ -1806,18 +1963,6 @@
                                             <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">VS Code</span>
                                         </div>
                                     </div>
-                                    <!-- Cursor AI -->
-                                    <div class="skill-tile group/tile">
-                                        <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
-                                            <div class="scan-line"></div>
-                                            <div
-                                                class="w-14 h-14 bg-purple-400/10 rounded-xl flex items-center justify-center text-purple-400 group-hover/tile:scale-110 transition-transform">
-                                                <i class="material-icons text-3xl">auto_fix_high</i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Cursor AI</span>
-                                        </div>
-                                    </div>
                                     <!-- Android Studio -->
                                     <div class="skill-tile group/tile">
                                         <div
@@ -1828,42 +1973,6 @@
                                                 <i class="uil uil-android text-3xl"></i>
                                             </div>
                                             <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Android Studio</span>
-                                        </div>
-                                    </div>
-                                    <!-- Bolt AI -->
-                                    <div class="skill-tile group/tile">
-                                        <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
-                                            <div class="scan-line"></div>
-                                            <div
-                                                class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-500 group-hover/tile:scale-110 transition-transform">
-                                                <i class="uil uil-bolt text-3xl"></i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Bolt AI</span>
-                                        </div>
-                                    </div>
-                                    <!-- Lovable -->
-                                    <div class="skill-tile group/tile">
-                                        <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
-                                            <div class="scan-line"></div>
-                                            <div
-                                                class="w-14 h-14 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-500 group-hover/tile:scale-110 transition-transform">
-                                                <i class="uil uil-heart text-3xl"></i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Lovable</span>
-                                        </div>
-                                    </div>
-                                    <!-- LM Studio -->
-                                    <div class="skill-tile group/tile">
-                                        <div
-                                            class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
-                                            <div class="scan-line"></div>
-                                            <div
-                                                class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500 group-hover/tile:scale-110 transition-transform">
-                                                <i class="material-icons text-3xl">psychology</i>
-                                            </div>
-                                            <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">LM Studio</span>
                                         </div>
                                     </div>
                                     <!-- OpenCode -->
@@ -2174,11 +2283,15 @@
                                 <span class="resume-skill-tag">OpenAI</span>
                                 <span class="resume-skill-tag">Zapier</span>
                                 <span class="resume-skill-tag">n8n</span>
-                                <span class="resume-skill-tag">Promt.Eng</span>
+                                <span class="resume-skill-tag">Prompt Engineering</span>
                                 <span class="resume-skill-tag">LangChain</span>
                                 <span class="resume-skill-tag">Ollama</span>
                                 <span class="resume-skill-tag">Llama.cpp</span>
                                 <span class="resume-skill-tag text-purple-400 border-purple-500/20">Vibecode</span>
+                                <span class="resume-skill-tag">LM Studio</span>
+                                <span class="resume-skill-tag">Bolt AI</span>
+                                <span class="resume-skill-tag">Lovable</span>
+                                <span class="resume-skill-tag">Cursor AI</span>
                             </div>
                         </div>
 
@@ -2197,11 +2310,7 @@
                             <div class="flex flex-wrap gap-2">
                                 <span class="resume-skill-tag">OpenCode</span>
                                 <span class="resume-skill-tag">Android Studio</span>
-                                <span class="resume-skill-tag">Lovable</span>
-                                <span class="resume-skill-tag">Bolt.AI</span>
                                 <span class="resume-skill-tag">VS Code</span>
-                                <span class="resume-skill-tag">CursorAI</span>
-                                <span class="resume-skill-tag">LM Studio</span>
                                 <span class="resume-skill-tag">After Effects</span>
                                 <span class="resume-skill-tag">Blender</span>
                                 <span class="resume-skill-tag">FL Studio</span>
@@ -2232,10 +2341,10 @@
                 <main class="resume-main">
                     <header class="mb-8">
                         <h2 class="text-2xl font-extrabold mb-3 leading-tight text-white">Professional Summary</h2>
-                        <p class="text-gray-400 text-xs leading-relaxed text-justify mb-4">
-                            My love for technology, robots and artificial intelligence started at an early age, growing up with movies such as the Matrix, Bicentennial Man andMinority Report. After school, I got the opportunity to work at a company that inspects mining machinery, and studied to become an NDT (Non-destructive testing) technician, which fueled my passion for technology. Life happens, and the past 8 years I found myself in Pretoria, where I used every spare moment to learn and teach myself website coding and development. At last, 3 years ago, I took the steps to start my first web-development Wordpress project with the help of a friend and I never looked back.
+                        <p class="text-gray-400 text-xs leading-relaxed text-left sm:text-justify mb-4">
+                            My love for technology, robots and artificial intelligence started at an early age, growing up with movies such as the Matrix, Bicentennial Man and Minority Report. After school, I got the opportunity to work at a company that inspects mining machinery, and studied to become an NDT (Non-destructive testing) technician, which fueled my passion for technology. Life happens, and the past 8 years I found myself in Pretoria, where I used every spare moment to learn and teach myself website coding and development. At last, 3 years ago, I took the steps to start my first web-development Wordpress project with the help of a friend and I never looked back.
                         </p>
-                        <p class="text-gray-400 text-xs leading-relaxed text-justify">
+                        <p class="text-gray-400 text-xs leading-relaxed text-left sm:text-justify">
                             Today I have taught myself, and am still learning, anything and everything the world has to offer regarding front- to back-end development, app development, e-commerce, GitHub setups and most important of all, AI integration and automation. I don't want to be the next Elon, I just want to build the next best agentic systems and digital solutions for real clients with real-world problems.
                         </p>
                     </header>
@@ -2391,10 +2500,17 @@
         <div class="absolute inset-0 bg-black/80 transition-opacity duration-500 opacity-0" id="modal-overlay"></div>
         <div id="modal-container"
             class="relative bg-[#121218]/90 backdrop-blur-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] p-8 lg:p-12 transform scale-90 opacity-0 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
-            <button id="close-modal"
-                class="absolute top-6 right-6 text-gray-400 hover:text-white z-[110] transition-transform hover:rotate-90 btn-premium">
-                <i class="uil uil-times text-3xl"></i>
-            </button>
+            <div class="absolute top-6 right-6 flex items-center gap-3 z-[110]">
+                <a id="modal-repo-link" href="#" target="_blank" 
+                    class="hidden px-5 py-2.5 bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all items-center gap-2 group">
+                    <i class="uil uil-github-alt text-base group-hover:scale-110 transition-transform"></i>
+                    Full Project Repo
+                </a>
+                <button onclick="closeProjectModal()" 
+                    class="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition-transform hover:rotate-90">
+                    <i class="uil uil-times text-2xl"></i>
+                </button>
+            </div>
             <div id="modal-content" class="flex flex-col gap-6 lg:gap-8">
                 <!-- Content injected via JS -->
             </div>
@@ -2429,19 +2545,20 @@
 
         // Project Data
         const projects = [
-            { id: '1', title: 'Phoneboxx E-commerce', category: 'web', image: 'https://i.postimg.cc/0jSQPpZD/Ecommerce-Mockup.png', tech: ['React', 'Shopify'], link: 'https://phoneboxx.co.za/', desc: 'I was brought in to rebuild and finish the Phoneboxx E-commerce platform, transforming it to revolutionize online retail through seamless Shopify integration with a custom frontend that delivers instant loading and smooth navigation.', date: 'March 2025', role: 'Team Project' },
-            { id: '2', title: 'Medical Insight', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.medical-insight-solutions.co.za?w=1280', tech: ['Next.js', 'PostgreSQL'], link: 'https://www.medical-insight-solutions.co.za', desc: 'I co-engineered a healthcare solution alongside one other developer to bridge the gap between patient data and medical records using secure, scalable architecture.', date: 'June 2025', role: 'Team Project' },
-            { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WebSocket', 'D3.js'], link: 'https://www.vaultfunder.trade', desc: 'I joined the Serious Traders project to architect their platform as one of South Africa\'s largest trading platforms, delivering elite market access and real-time insights.', date: 'September 2025', role: 'Team Project' },
-            { id: '9', title: 'Brokers Select', category: 'web', image: 'https://i.postimg.cc/6QRS4w2R/TRADE4U.png', tech: ['Next.js', 'PostgreSQL', 'Tailwind CSS'], link: 'https://brokersselect.com/', desc: 'I was called in to design a Forex comparison platform that simplifies the landscape for traders, creating a premium, data-driven fintech interface to compare top brokers.', date: 'November 2025', role: 'Team Project' },
+            { id: '1', title: 'Phoneboxx E-commerce', category: 'web', image: 'https://i.postimg.cc/0jSQPpZD/Ecommerce-Mockup.png', tech: ['WordPress', 'PHP', 'Elementor', 'Custom Plugins', 'JavaScript'], link: 'https://phoneboxx.co.za/', desc: 'I was brought in to rebuild and finish the Phoneboxx E-commerce platform. Utilizing WordPress, PHP, and HTML5/CSS3 for the core, I used Elementor for pixel-perfect UI design and custom JavaScript with Plugin Development to extend functionality without bloat.', date: 'March 2025', role: 'Team Project' },
+            { id: '2', title: 'Medical Insight', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.medical-insight-solutions.co.za?w=1280', tech: ['WordPress', 'PHP', 'Elementor', 'Custom Plugins'], link: 'https://www.medical-insight-solutions.co.za', desc: 'I was brought in by the lead developer to collaborate on this healthcare solution during my early development career. Working on a WordPress/PHP core with Elementor, I assisted in bridging the gap between patient data and medical records while contributing to a secure, medical-grade architecture.', date: 'June 2025', role: 'Team Project' },
+            { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WordPress', 'Elementor', 'PHP', 'HTML5', 'CSS3', 'JavaScript', 'Custom Plugins'], link: 'https://www.vaultfunder.trade', desc: 'I joined the Serious Traders project to architect and develop VaultFunder, one of South Africa’s largest trading platforms. I built the custom WordPress infrastructure to deliver elite market access and real-time insights.', date: 'September 2025', role: 'Team Project' },
+            { id: '9', title: 'Brokers Select', category: 'web', image: 'https://i.postimg.cc/6QRS4w2R/TRADE4U.png', tech: ['WordPress', 'Elementor', 'PHP', 'HTML5', 'CSS3', 'JavaScript', 'Custom Plugins'], link: 'https://brokersselect.com/', desc: 'I was called in to design and develop a custom WordPress-based Forex comparison platform. Utilizing custom WordPress plugin development, I simplified the landscape for traders with a premium, data-driven fintech interface.', date: 'November 2025', role: 'Team Project' },
             { id: '7', title: 'Lisbon Hideaway', category: 'web', type: 'lisbon', tech: ['HTML5', 'CSS3', 'JavaScript'], link: "javascript:openProjectPage('lisbon-page-template', 'Lisbon Hideaway')", desc: 'I built a boutique travel platform focusing on immersive storytelling and pixel-perfect responsive motion design.', date: 'November 2025', role: 'Solo Architect & Developer' },
             { id: '4', title: 'June AI', category: 'app', type: 'june', tech: ['Python', 'Neural Networks'], desc: 'I developed June AI to push neural networking boundaries, creating an app that learns and adapts to user behavior in real-time.', date: 'January 2026', role: 'Solo Architect & Developer' },
             { id: '5', title: 'Lastic.Dev', category: 'software', type: 'lastic', tech: ['Rust', 'WebAssembly'], desc: 'An elite developer ecosystem I forged, leveraging Rust and WASM to deliver blistering performance for modern web apps.', date: 'June 2025', role: 'Solo Architect & Developer' },
-            { id: '6', title: 'Lastic IDE', category: 'software', type: 'ide', tech: ['Python', 'AI-Powered', 'Real-time'], desc: 'My specialized AI-integrated development environment, optimized for real-time coding efficiency and intelligent auto-completion.', date: 'August 2025', role: 'Solo Architect & Developer' },
-            { id: '8', title: 'Neural Nexus', category: 'ai', type: 'nexus', tech: ['PyTorch', 'Transformer', 'NLP'], desc: 'A powerhouse NLP research project I developed, utilizing Transformer models to process and understand complex human-AI interactions.', date: 'October 2026', role: 'Solo Architect & Developer' },
-            { id: '10', title: 'Nova AI Chatbot', category: 'app', type: 'chatbot', tech: ['OpenAI', 'Next.js', 'Tailwind'], desc: 'My flagship conversational agent, blending OpenAI intelligence with a custom-built, ultra-responsive Next.js interface.', date: 'November 2026', role: 'Solo Architect & Developer' },
+            { id: '6', title: 'Lastic IDE', category: 'software', type: 'ide', tech: ['Python', 'AI-Powered', 'Real-time'], link: './lastic-ide.html', desc: 'My specialized AI-integrated development environment, optimized for real-time coding efficiency and intelligent auto-completion.', date: 'August 2025', role: 'Solo Architect & Developer' },
+            { id: '8', title: 'Neural Nexus', category: 'ai', type: 'nexus', tech: ['PyTorch', 'Transformer', 'NLP'], link: './neural-nexus.html', desc: 'A powerhouse NLP research project I developed, utilizing Transformer models to process and understand complex human-AI interactions.', date: 'October 2026', role: 'Solo Architect & Developer' },
+            { id: '10', title: 'Nova AI Chatbot', category: 'app', type: 'chatbot', tech: ['OpenAI', 'Next.js', 'Tailwind'], link: './nova-chatbot.html', desc: 'My flagship conversational agent, blending OpenAI intelligence with a custom-built, ultra-responsive Next.js interface.', date: 'November 2026', role: 'Solo Architect & Developer' },
             { id: '11', title: 'Aura Voice Intelligence', category: 'app', type: 'voice', tech: ['Whisper AI', 'PyTorch', 'FastAPI'], desc: 'A cutting-edge voice assistant system I created, specializing in Whisper AI integration for flawless speech-to-intent processing.', date: 'December 2026', role: 'Solo Architect & Developer' },
             { id: '12', title: 'Lastic AGI Agent', category: 'ai', type: 'agent', tech: ['LangChain', 'AutoGPT', 'Python'], desc: 'My autonomous agentic model designed for complex task orchestration, utilizing advanced LangChain reasoning loops.', date: 'January 2026', role: 'Solo Architect & Developer' },
-            { id: '14', title: 'Lastic Local AI', category: 'ai', type: 'localai', tech: ['Llama 3', 'GGUF', 'C++', 'Python'], desc: 'A high-performance local inference engine I built, allowing users to run large language models entirely offline with zero data leakage.', date: 'March 2026', role: 'Solo Architect & Developer' }
+            { id: '14', title: 'LOCAL AI ENJIN', category: 'ai', type: 'localai', tech: ['Python Backend', 'RESTful API', 'Tkinter GUI', 'Local Training/Finetuning', 'Cross-Platform'], link: './local-ai-enjin.html', desc: 'A high-performance local inference engine with a custom-designed Tkinter console and threaded real-time telemetry. Specialized in local model training and finetuning, ensuring complete data privacy.', date: 'March 2026', role: 'Solo Architect & Developer' },
+            { id: '15', title: 'YouTube Downloader', category: 'app', type: 'downloader', tech: ['Python', 'Kivy', 'yt-dlp', 'Android'], link: 'https://github.com/Lastic56/lastic-productions-YT', desc: 'I engineered a professional video downloading solution featuring real-time progress tracking for YouTube. Built using Kivy and Python, the app is fully optimized for Android with Instagram and Twitter support coming soon in V2.', date: 'April 2026', role: 'Solo Architect & Developer' }
         ];
 
         // Custom Previews
@@ -2555,6 +2672,7 @@
                 <div class="absolute top-4 left-6 text-[10px] text-purple-400/80 tracking-widest">v2.4.0</div>
             </div>`;
 
+
         const getBrokersPreview = (isModal = false) => `
             <div class="relative w-full h-full bg-[#0d0e12] overflow-hidden font-['Poppins'] group/brokers ${isModal ? 'rounded-2xl' : ''}">
                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.1),transparent_50%)]"></div>
@@ -2650,7 +2768,7 @@
                             <i class="uil uil-robot text-blue-500 text-xs"></i>
                         </div>
                         <div class="bg-blue-600/10 border border-blue-500/20 px-3 py-2 rounded-2xl rounded-tl-none text-[11px] text-blue-100 backdrop-blur-md max-w-[80%]">
-                            Systems initialized. Nova AI ready for interaction. How can I optimizing your workflow today?
+                            Systems initialized. Nova AI ready for interaction. How can I optimize your workflow today?
                         </div>
                     </div>
                 </div>
@@ -2714,45 +2832,53 @@
                 <div id="data-packets-agent" class="absolute inset-0 pointer-events-none opacity-20"></div>
             </div>`;
 
-
+        const getDownloaderPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#0d0d12] overflow-hidden font-['Poppins'] group/dl ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,30,86,0.1),transparent_50%)]"></div>
+                <div class="p-6 h-full flex flex-col items-center justify-center text-center">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-rose-600 to-rose-500 flex items-center justify-center shadow-lg shadow-rose-600/30">
+                            <i class="uil uil-download-alt text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute -top-2 -right-2 px-2 py-0.5 bg-white text-rose-600 text-[8px] font-black rounded-full shadow-md uppercase tracking-tighter">PRO</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">YouTube Downloader</h3>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-[0.2em] mb-4">Multi-Platform Optimization</p>
+                    
+                    <div class="w-full max-w-[200px] space-y-2">
+                        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
+                            <div class="h-full bg-rose-600 w-3/4 animate-[loading_2.5s_ease-in-out_infinite]"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] text-rose-500 font-bold tracking-widest uppercase opacity-70">
+                            <span>Fetching Data</span>
+                            <span class="animate-pulse">Active</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute bottom-4 left-6 flex gap-2">
+                    <div class="text-[8px] text-gray-600 font-bold border border-white/5 px-2 py-1 rounded">YT</div>
+                    <div class="text-[8px] text-gray-600 font-bold border border-white/5 px-2 py-1 rounded">TW/X</div>
+                    <div class="text-[8px] text-gray-600 font-bold border border-white/5 px-2 py-1 rounded">INSTA</div>
+                </div>
+            </div>`;
 
         const getLocalAIPreview = (isModal = false) => `
-            <div class="relative w-full h-full bg-[#050505] overflow-hidden font-mono ${isModal ? 'rounded-2xl' : ''}">
-                <div class="absolute inset-x-0 top-0 h-8 bg-white/5 border-b border-white/10 flex items-center px-4 gap-2">
-                    <div class="flex gap-1.5">
-                        <div class="w-2.5 h-2.5 rounded-full bg-rose-500/20 border border-rose-500/40"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/40"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/40"></div>
-                    </div>
-                    <span class="text-[9px] text-gray-500 tracking-wider font-bold">Lastic Local AI Engine</span>
-                </div>
-                <div class="p-6 pt-12 space-y-3">
-                    <div class="flex gap-2 text-[10px]">
-                        <span class="text-green-500 font-bold">jaxx@lastic:~$</span>
-                        <div class="flex items-center">
-                            <span class="text-white">lastic-run</span>
-                            <span class="ml-1 px-1 bg-white text-black animate-pulse">llama3</span>
+            <div class="relative w-full h-full bg-[#0a0a0c] overflow-hidden ${isModal ? 'rounded-2xl' : ''} group/enjin">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 rounded-2xl"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.1),transparent_70%)]"></div>
+                <div class="p-8 h-full flex flex-col justify-end relative z-20">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-2xl shadow-white/10 group-hover/enjin:scale-110 transition-transform duration-500">
+                            <i class="uil uil-processor text-black text-2xl"></i>
                         </div>
                     </div>
-                    <div class="space-y-1">
-                        <div class="text-[9px] text-gray-400 flex justify-between">
-                            <span>Loading GGUF weights...</span>
-                            <span class="text-green-500">READY</span>
-                        </div>
-                        <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
-                            <div class="h-full bg-green-500 w-[100%] shadow-[0_0_8px_#22c55e]"></div>
-                        </div>
-                    </div>
-                    <div class="pt-2 text-[10px] text-white/80 leading-relaxed font-['Turret_Road']">
-                        <span class="text-green-500 font-bold">[OFFLINE]</span> Model initialized on local CPU/GPU. Zero data leakage detected. High-performance LLM orchestration active.
-                    </div>
-                    <div class="flex gap-2 pt-2 items-center">
-                         <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                         <i class="uil uil-shield-check text-green-500 text-xs"></i>
-                         <span class="text-[9px] text-green-500 font-bold tracking-widest uppercase">Encryption Active</span>
+                    <h3 class="text-2xl font-black text-white leading-none mb-2 tracking-tighter">LOCAL.AI.ENJIN</h3>
+                    <p class="text-[10px] text-blue-500 font-black uppercase tracking-[0.4em] mb-4">Privacy-First Inference</p>
+                    <div class="flex gap-2">
+                        <div class="px-2 py-1 bg-white/5 border border-white/10 rounded-md text-[8px] text-gray-400 font-bold uppercase tracking-widest">CUDA</div>
+                        <div class="px-2 py-1 bg-white/5 border border-white/10 rounded-md text-[8px] text-gray-400 font-bold uppercase tracking-widest">GGUF</div>
                     </div>
                 </div>
-                <div class="absolute bottom-4 right-4 text-[8px] text-gray-600 font-bold tracking-[0.2em] uppercase">100% Private AI</div>
             </div>`;
 
         // Mobile Carousel State
@@ -2805,7 +2931,7 @@
             const card = document.createElement('div');
             card.className = 'project-card';
 
-            let preview = `<img src="${p.image}" class="project-image w-full h-full object-cover transition-transform duration-700">`;
+            let preview = `<img src="${p.image}" alt="${p.title}" class="project-image w-full h-full object-cover transition-transform duration-700">`;
             if (p.type === 'june') preview = getJunePreview();
             if (p.type === 'lastic') preview = getLasticPreview();
             if (p.type === 'lisbon') preview = getLisbonPreview();
@@ -2815,7 +2941,7 @@
             if (p.type === 'chatbot') preview = getChatbotPreview();
             if (p.type === 'voice') preview = getVoicePreview();
             if (p.type === 'agent') preview = getAgentPreview();
-
+            if (p.type === 'downloader') preview = getDownloaderPreview();
             if (p.type === 'localai') preview = getLocalAIPreview();
 
             card.innerHTML = `
@@ -2977,6 +3103,17 @@
         const renderModalContent = (index) => {
             const p = filteredProjects[index];
             const content = document.getElementById('modal-content');
+            const repoBtn = document.getElementById('modal-repo-link');
+            
+            // Handle Repository Link visibility
+            if (p.link && p.link.includes('github.com')) {
+                repoBtn.href = p.link;
+                repoBtn.classList.remove('hidden');
+                repoBtn.classList.add('flex');
+            } else {
+                repoBtn.classList.add('hidden');
+                repoBtn.classList.remove('flex');
+            }
             const prevIndex = (index - 1 + filteredProjects.length) % filteredProjects.length;
             const nextIndex = (index + 1) % filteredProjects.length;
 
@@ -2990,7 +3127,7 @@
             if (p.type === 'chatbot') preview = getChatbotPreview(true);
             if (p.type === 'voice') preview = getVoicePreview(true);
             if (p.type === 'agent') preview = getAgentPreview(true);
-
+            if (p.type === 'downloader') preview = getDownloaderPreview(true);
             if (p.type === 'localai') preview = getLocalAIPreview(true);
 
             content.innerHTML = `
@@ -3335,69 +3472,51 @@
         };
 
 
-        // Skills Toggle Logic
-        document.querySelectorAll('.skill-toggle').forEach(button => {
-            button.addEventListener('click', () => {
-                const skill = button.dataset.skill;
-                const content = document.getElementById(`${skill}-skills`);
-                const arrow = button.querySelector('.skill-arrow');
-                const instructionText = button.querySelector('.text-left p');
-                const isExpanded = !content.classList.contains('hidden');
+        // Technical Skills Category Toggles
+        function initTechnicalSkills() {
+            const skillToggles = document.querySelectorAll('.skill-toggle');
+            
+            skillToggles.forEach(button => {
+                button.onclick = () => {
+                    const skill = button.dataset.skill;
+                    const content = document.getElementById(`${skill}-skills`);
+                    const arrow = button.querySelector('.skill-arrow');
+                    const infoText = button.querySelector('.text-left p');
+                    
+                    if (!content) return;
 
-                // Close all other skills first
-                if (!isExpanded) {
-                    document.querySelectorAll('.skill-content').forEach(el => {
-                        if (!el.classList.contains('hidden') && el.id !== `${skill}-skills`) {
-                            el.classList.add('hidden');
-                            // Reset associated button state
-                            const btn = document.querySelector(`.skill-toggle[data-skill="${el.id.replace('-skills', '')}"]`);
-                            if (btn) {
-                                const arrow = btn.querySelector('.skill-arrow');
-                                const txt = btn.querySelector('.text-left p');
-                                if (arrow) {
-                                    arrow.style.transform = 'rotate(0deg)';
-                                    if (arrow.classList.contains('uil-arrow-down')) {
-                                        arrow.classList.remove('uil-arrow-down');
-                                        arrow.classList.add('uil-angle-right');
-                                    }
-                                }
-                                if (txt) {
-                                    txt.textContent = 'Click to expand skills';
+                    const isCurrentlyHidden = content.classList.contains('hidden');
+
+                    // If we are opening a category, close all others first for a clean accordion effect
+                    if (isCurrentlyHidden) {
+                        document.querySelectorAll('.skill-content').forEach(otherContent => {
+                            if (otherContent.id !== `${skill}-skills`) {
+                                otherContent.classList.add('hidden');
+                                // Reset the other buttons' arrows and text
+                                const otherSkill = otherContent.id.replace('-skills', '');
+                                const otherBtn = document.querySelector(`.skill-toggle[data-skill="${otherSkill}"]`);
+                                if (otherBtn) {
+                                    const otherArrow = otherBtn.querySelector('.skill-arrow');
+                                    const otherInfo = otherBtn.querySelector('.text-left p');
+                                    if (otherArrow) otherArrow.style.transform = 'rotate(0deg)';
+                                    if (otherInfo) otherInfo.textContent = 'Click to expand skills';
                                 }
                             }
-                        }
-                    });
-                }
+                        });
 
-                if (isExpanded) {
-                    // Collapse
-                    content.classList.add('hidden');
-                    if (arrow) {
-                        arrow.style.transform = 'rotate(0deg)';
-                        if (arrow.classList.contains('uil-arrow-down')) {
-                            arrow.classList.remove('uil-arrow-down');
-                            arrow.classList.add('uil-angle-right');
-                        }
+                        // Expand current
+                        content.classList.remove('hidden');
+                        if (arrow) arrow.style.transform = 'rotate(90deg)';
+                        if (infoText) infoText.textContent = 'Click to collapse skills';
+                    } else {
+                        // Collapse current
+                        content.classList.add('hidden');
+                        if (arrow) arrow.style.transform = 'rotate(0deg)';
+                        if (infoText) infoText.textContent = 'Click to expand skills';
                     }
-                    if (instructionText) {
-                        instructionText.textContent = 'Click to expand skills';
-                    }
-                } else {
-                    // Expand
-                    content.classList.remove('hidden');
-                    if (arrow) {
-                        arrow.style.transform = 'rotate(90deg)';
-                        if (arrow.classList.contains('uil-angle-right')) {
-                            arrow.classList.remove('uil-angle-right');
-                            arrow.classList.add('uil-arrow-down');
-                        }
-                    }
-                    if (instructionText) {
-                        instructionText.textContent = 'Click to collapse skills';
-                    }
-                }
+                };
             });
-        });
+        }
 
         // WhatsApp Modal Logic
         const waModal = document.getElementById('whatsapp-modal');
@@ -3708,6 +3827,7 @@
             enhanceCards();
             smoothAnchorScroll();
             animateSkillBars();
+            initTechnicalSkills();
 
             console.log('%c✨ SUPROSE Premium Portfolio Loaded ✨', 'color: #e11d48; font-size: 20px; font-weight: bold;');
             console.log('%cBuilt with premium features and world-class design', 'color: #9333ea; font-size: 12px;');
@@ -3852,71 +3972,496 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lisbon Hideaway - Luxury Accommodation in Mpumalanga</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Lisbon Hideaway - Your Peaceful Retreat in Mpumalanga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary-color: #2e7d32; --secondary-color: #8bc34a; --accent-color: #ff6e40; --text-dark: #333; --text-light: #fff; --bg-light: #f8f9fa; --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
-        body { font-family: 'Source Sans Pro', sans-serif; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); backdrop-filter: blur(10px); background-color: rgba(46, 125, 50, 0.9); }
-        header.scrolled { background-color: rgba(46, 125, 50, 0.95); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--text-light); text-decoration: none; transition: var(--transition); position: relative; }
-        .logo:hover { color: var(--secondary-color); }
-        .nav-links { display: flex; list-style: none; }
-        .nav-links li { margin-left: 30px; }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; transition: var(--transition); }
-        .nav-links a:hover { color: var(--secondary-color); }
-        .hero { height: 100vh; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://sfile.chatglm.cn/images-ppt/8c8e42f9a44e.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--text-light); }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 60px; margin-bottom: 20px; }
-        .btn { display: inline-block; background: var(--secondary-color); color: var(--text-light); padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: var(--transition); }
-        .btn:hover { background: var(--primary-color); transform: translateY(-3px); }
-        section { padding: 80px 0; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 42px; text-align: center; margin-bottom: 50px; color: var(--primary-color); }
-        .accommodation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .accommodation-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
-        .accommodation-image img { width: 100%; height: 250px; object-fit: cover; }
-        .accommodation-content { padding: 25px; }
-        footer { background: var(--primary-color); color: var(--text-light); padding: 30px 0; text-align: center; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f8f5;
+        }
+        
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://sfile.chatglm.cn/images-ppt/618ca72df20e.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 8vw, 80px);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: clamp(18px, 3vw, 24px);
+            max-width: 900px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(139, 69, 19, 0.95);
+            padding: 20px max(40px, calc((100% - 1120px) / 2));
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #87CEEB;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px max(40px, calc((100% - 1120px) / 2));
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #8B4513;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        /* Welcome Section */
+        .welcome {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .welcome p {
+            max-width: 80%;
+            margin: 0 auto 40px;
+            font-size: 18px;
+        }
+        
+        .highlights {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .highlight-card {
+            flex: 1;
+            min-width: 180px;
+            background-color: #f0f7f0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .highlight-card i {
+            font-size: 36px;
+            color: #228B22;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #8B4513;
+            margin-bottom: 10px;
+        }
+        
+        /* Featured Accommodation */
+        .featured-accommodation {
+            background-color: #f0f7f0;
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery img {
+            flex: 1;
+            min-width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Attractions Preview */
+        .attractions-preview {
+            background-color: white;
+        }
+        
+        .attractions-images {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .attractions-images img {
+            flex: 1;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Quick Booking */
+        .quick-booking {
+            background-color: #8B4513;
+            color: white;
+            text-align: center;
+        }
+        
+        .quick-booking h2 {
+            color: white;
+        }
+        
+        .booking-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 180px;
+        }
+        
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .cta-button {
+            background-color: #228B22;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        
+        .cta-button:hover {
+            background-color: #1F6B1F;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f0f7f0;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            color: rgba(34, 139, 34, 0.2);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            text-align: right;
+            font-weight: 700;
+            color: #8B4513;
+        }
+        
+        .rating {
+            color: #FFD700;
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 80px max(40px, calc((100% - 1120px) / 2));
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            color: #87CEEB;
+        }
+        
+        .footer-section p, .footer-section a {
+            margin-bottom: 10px;
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: #87CEEB;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #87CEEB;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            font-size: 14px;
+            color: #aaa;
+        }
     </style>
 </head>
 <body>
-    <header id="header">
-        <nav class="container"><a href="#" class="logo">Lisbon Hideaway</a></nav>
-    </header>
-    <section class="hero">
-        <div class="hero-content">
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
             <h1>Lisbon Hideaway</h1>
-            <p>Luxury accommodation in the heart of Mpumalanga's breathtaking landscapes</p>
-            <a href="#contact" class="btn">Book Your Stay</a>
-        </div>
-    </section>
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">Location & Surroundings</h2>
-            <p style="text-align:center; max-width:800px; margin:0 auto;">Nestled in Graskop, Mpumalanga, Lisbon Hideaway offers the perfect base to explore the Panorama Route. Our luxury chalets provide a tranquil retreat surrounded by natural beauty.</p>
-        </div>
-    </section>
-    <section id="accommodation">
-        <div class="container">
-            <h2 class="section-title">Our Accommodation</h2>
-            <div class="accommodation-grid">
-                <div class="accommodation-card">
-                    <div class="accommodation-image"><img src="https://sfile.chatglm.cn/images-ppt/be6cc41295e8.jpg"></div>
-                    <div class="accommodation-content"><h3>Modern Kitchen</h3><p>Fully equipped with modern appliances for your convenience.</p></div>
+            <p>Your Peaceful Retreat in the Heart of the Panorama Route</p>
+        </header>
+        
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#accommodation">Accommodation</a></li>
+                <li><a href="#attractions">Attractions</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Welcome Section -->
+        <section id="home" class="welcome">
+            <h2>Welcome to Lisbon Hideaway</h2>
+            <p>Experience the tranquility of Lisbon Hideaway, a charming guesthouse nestled in the scenic Mpumalanga countryside. Our rustic wooden cabins offer a peaceful escape from the everyday, surrounded by the calming sounds of spring waters and the beauty of nature.</p>
+            
+            <div class="highlights">
+                <div class="highlight-card">
+                    <i class="material-icons">cottage</i>
+                    <h3>Rustic Comfort</h3>
+                    <p>Cozy wooden cabins with modern amenities</p>
                 </div>
-                <div class="accommodation-card">
-                    <div class="accommodation-image"><img src="https://sfile.chatglm.cn/images-ppt/362727af5a7a.jpg"></div>
-                    <div class="accommodation-content"><h3>Luxury Chalets</h3><p>En-suite chalets with private verandas and scenic views.</p></div>
+                <div class="highlight-card">
+                    <i class="material-icons">pets</i>
+                    <h3>Farm Experience</h3>
+                    <p>Meet our friendly farm animals</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="material-icons">landscape</i>
+                    <h3>Panorama Route Base</h3>
+                    <p>Perfect location to explore nearby attractions</p>
                 </div>
             </div>
-        </div>
-    </section>
-    <footer><p>© 2023 Lisbon Hideaway. All rights reserved.</p></footer>
+        </section>
+        
+        <!-- Featured Accommodation -->
+        <section id="accommodation" class="featured-accommodation">
+            <h2>Our Accommodation</h2>
+            <div class="gallery">
+                <img src="https://sfile.chatglm.cn/images-ppt/362727af5a7a.jpg" alt="Cabin Interior">
+                <img src="https://sfile.chatglm.cn/images-ppt/88524025ce64.jpg" alt="River View">
+                <img src="https://sfile.chatglm.cn/images-ppt/62bdbde94f38.jpg" alt="Cabin Exterior">
+            </div>
+            <p>Our spacious, rustic cabins feature modern amenities while maintaining their natural charm. Each cabin offers comfortable beds, a fully equipped kitchen, and stunning views of the surrounding landscape.</p>
+        </section>
+        
+        <!-- Attractions Preview -->
+        <section id="attractions" class="attractions-preview">
+            <h2>Nearby Attractions</h2>
+            <div class="attractions-images">
+                <img src="https://sfile.chatglm.cn/images-ppt/06da23b09f65.jpg" alt="Lisbon Falls">
+                <img src="https://sfile.chatglm.cn/images-ppt/29931204cb2e.jpg" alt="God's Window">
+            </div>
+            <p>Located at the heart of the Panorama Route, Lisbon Hideaway is the perfect base to explore Mpumalanga's most stunning attractions including Lisbon Falls, God's Window, Berlin Falls, and the Blyde River Canyon.</p>
+        </section>
+        
+        <!-- Quick Booking -->
+        <section id="booking" class="quick-booking">
+            <h2>Quick Booking</h2>
+            <p>Check availability and book your stay at our peaceful hideaway</p>
+            <div class="booking-form">
+                <div class="form-group">
+                    <label for="checkin">Check-in Date</label>
+                    <input type="date" id="checkin" name="checkin">
+                </div>
+                <div class="form-group">
+                    <label for="checkout">Check-out Date</label>
+                    <input type="date" id="checkout" name="checkout">
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" name="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5+">5+ Guests</option>
+                    </select>
+                </div>
+            </div>
+            <button class="cta-button">Check Availability</button>
+        </section>
+        
+        <!-- Testimonials -->
+        <section id="testimonials" class="testimonials">
+            <h2>What Our Guests Say</h2>
+            <div class="testimonial">
+                <p>"We loved it! We were on a roadtrip with 3 kids and this was a fantastic 2 days! So peaceful! Our kids loved to explore and walk in the river! It was very close to Gods Window! Charl was a friendly and helpful host!"</p>
+                <div class="testimonial-author">
+                    - Deidré, Kempton Park
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>"The location is beyond stunning with the river and mountains surrounding you. It is also right at the heart of the panorama route. I could go on and on about the place. The location and facilities are amazing but what makes this a really special place is Charl and the animals."</p>
+                <div class="testimonial-author">
+                    - Nicole
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="material-icons">location_on</i> Lisbon Farm, 531, Graskop, Mpumalanga</p>
+                    <p><i class="material-icons">phone</i> +27 123 456 789</p>
+                    <p><i class="material-icons">email</i> info@lisbonhideaway.co.za</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#about">About Us</a><br>
+                    <a href="#accommodation">Accommodation</a><br>
+                    <a href="#attractions">Attractions</a><br>
+                    <a href="#gallery">Gallery</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="material-icons">facebook</i></a>
+                        <a href="#"><i class="material-icons">instagram</i></a>
+                        <a href="#"><i class="material-icons">twitter</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 Lisbon Hideaway. All rights reserved.
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
+
     </template>
 
     <script>
