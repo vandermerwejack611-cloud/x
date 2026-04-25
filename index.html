@@ -23,6 +23,24 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <style>
+        /* CRITICAL: HIDE BODY UNTIL LOADER IS READY */
+        .loading-lock { overflow: hidden !important; }
+        
+        #welcome-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #welcome-loader.fade-out { opacity: 0; pointer-events: none; }
+    </style>
+    <style>
         :root {
             --rose-600: #e11d48;
             --rose-500: #f43f5e;
@@ -1066,26 +1084,7 @@
             }
         }
 
-        /* ======== WELCOME LOADER ======== */
-        #welcome-loader {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            background: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        #welcome-loader.fade-out {
-            opacity: 0;
-            transform: scale(1.04);
-            pointer-events: none;
-        }
-
+        /* ======== WELCOME LOADER ANIMATIONS ======== */
         .loader-grid {
             position: absolute;
             inset: 0;
@@ -1329,7 +1328,7 @@
 </script>
 </head>
 
-<body>
+<body class="loading-lock">
 
     <!-- ===== WELCOME LOADER ===== -->
     <div id="welcome-loader" role="status" aria-label="Loading">
@@ -1346,6 +1345,27 @@
         </div>
         <p class="loader-percent" id="loader-percent">0%</p>
     </div>
+    <script>
+        /* CRITICAL LOADER FALLBACK - RUNS IMMEDIATELY */
+        (function() {
+            var l = document.getElementById('welcome-loader');
+            if (l) {
+                var kill = function() {
+                    var el = document.getElementById('welcome-loader');
+                    if (el) {
+                        el.style.display = 'none';
+                        el.remove();
+                    }
+                    document.body.classList.remove('loading-lock');
+                    document.body.style.overflow = '';
+                };
+                // Fallback 1: 4 seconds (Internal)
+                setTimeout(kill, 4000);
+                // Fallback 2: 7 seconds (Absolute)
+                setTimeout(kill, 7000);
+            }
+        })();
+    </script>
     <!-- ===== END WELCOME LOADER ===== -->
 
     <!-- Mobile Header -->
@@ -1665,7 +1685,7 @@
                                             class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
-                                                class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 group-hover/tile:scale-110 transition-transform">
+                                                class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-500 group-hover/tile:scale-110 transition-transform">
                                                 <i class="uil uil-palette text-3xl"></i>
                                             </div>
                                             <span
@@ -1938,7 +1958,7 @@
                                             class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
-                                                class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 group-hover/tile:scale-110 transition-transform">
+                                                class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 group-hover/tile:scale-110 transition-transform">
                                                 <i class="uil uil-atom text-3xl"></i>
                                             </div>
                                             <span
@@ -1990,7 +2010,7 @@
                                             class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
-                                                class="w-14 h-14 bg-purple-400/10 rounded-xl flex items-center justify-center text-purple-400 group-hover/tile:scale-110 transition-transform">
+                                                class="w-14 h-14 bg-cyan-400/10 rounded-xl flex items-center justify-center text-cyan-400 group-hover/tile:scale-110 transition-transform">
                                                 <i class="uil uil-pen text-3xl"></i>
                                             </div>
                                             <span
@@ -2029,7 +2049,7 @@
                                             class="skill-tile-inner p-6 rounded-2xl flex flex-col items-center text-center gap-4 relative overflow-hidden">
                                             <div class="scan-line"></div>
                                             <div
-                                                class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 group-hover/tile:scale-110 transition-transform">
+                                                class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-500 group-hover/tile:scale-110 transition-transform">
                                                 <i class="uil uil-video text-3xl"></i>
                                             </div>
                                             <span
@@ -2122,7 +2142,7 @@
 
                 <div class="flex justify-center flex-wrap gap-4 mb-16" id="filter-buttons">
                     <button
-                        class="filter-btn px-8 py-2.5 rounded-full font-medium bg-gradient-to-r from-rose-600 to-purple-600 text-white shadow-lg shadow-rose-600/20"
+                        class="filter-btn px-8 py-2.5 rounded-full font-medium bg-gradient-to-r from-rose-600 to-cyan-600 text-white shadow-lg shadow-rose-600/20"
                         data-filter="all">All</button>
                     <button
                         class="filter-btn px-8 py-2.5 rounded-full font-medium text-gray-400 bg-white/5 hover:bg-white/10 border border-transparent"
@@ -2220,7 +2240,7 @@
                             <textarea placeholder="Message" rows="4"
                                 class="w-full bg-transparent border-b-2 border-white/10 py-3 lg:py-4 text-white focus:outline-none focus:border-rose-600 transition-colors"></textarea>
                             <button type="button"
-                                class="w-full lg:w-auto px-10 py-4 bg-gradient-to-r from-rose-600 to-purple-600 text-white rounded-full font-bold hover:scale-105 transition-transform shadow-lg shadow-rose-600/20 btn-premium">Send
+                                class="w-full lg:w-auto px-10 py-4 bg-gradient-to-r from-rose-600 to-cyan-600 text-white rounded-full font-bold hover:scale-105 transition-transform shadow-lg shadow-rose-600/20 btn-premium">Send
                                 Message</button>
                         </form>
                     </div>
@@ -2292,8 +2312,9 @@
             <!-- Professional Links -->
             <div class="flex flex-wrap justify-center gap-4 lg:gap-8 mb-10">
 
-                <a href="Jack-van-der-Merwe-CV.pdf" download
-                    class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-8 py-4 rounded-xl transition-all hover:bg-white/5 btn-flash">
+                <a href="https://drive.google.com/uc?export=download&id=1LxTbUZ9HgCP_8VOkz-jOMsmx7laEryU6" 
+                   download="" 
+                   class="text-gray-400 hover:text-rose-500 text-[10px] font-bold uppercase tracking-widest border border-white/10 px-8 py-4 rounded-xl transition-all hover:bg-white/5 btn-flash">
                     <i class="uil uil-download-alt mr-2"></i> DOWNLOAD CV
                 </a>
             </div>
@@ -2402,7 +2423,7 @@
                                 <span class="resume-skill-tag">LangChain</span>
                                 <span class="resume-skill-tag">Ollama</span>
                                 <span class="resume-skill-tag">Llama.cpp</span>
-                                <span class="resume-skill-tag text-purple-400 border-purple-500/20">Vibecode</span>
+                                <span class="resume-skill-tag text-cyan-400 border-cyan-500/20">Vibecode</span>
                                 <span class="resume-skill-tag">LM Studio</span>
                                 <span class="resume-skill-tag">Bolt AI</span>
                                 <span class="resume-skill-tag">Lovable</span>
@@ -2546,14 +2567,11 @@
                                 <ul class="text-gray-400 text-xs space-y-3">
                                     <li class="flex items-start gap-2">
                                         <span class="text-rose-500 mt-1">•</span>
-                                        <span><strong>June Ai</strong> - My personal agentic AI application, pushing
-                                            neural networking boundaries that has to learn and adapt to user behaviour
-                                            in real-time.</span>
+                                        <span><strong>June.AI</strong> - The first agentic AI created by Jaxx of Lastic Productions. A self-evolving conversational intelligence that learns and adapts to user behaviour in real-time, pushing neural networking boundaries beyond conventional limits.</span>
                                     </li>
                                     <li class="flex items-start gap-2">
                                         <span class="text-rose-500 mt-1">•</span>
-                                        <span><strong>Neural Nexus</strong> - An advanced NLP research project utilizing
-                                            transformer models to archiect complex human AI interactions.</span>
+                                        <span><strong>Vortex Lexicon</strong> - An elite natural language orchestration engine built on custom-trained Transformer architectures. Deciphering the chaotic nuances of human-AI dialogue.</span>
                                     </li>
                                     <li class="flex items-start gap-2">
                                         <span class="text-rose-500 mt-1">•</span>
@@ -2605,8 +2623,9 @@
                         </div>
                     </section>
 
-                        <a href="Jack-van-der-Merwe-CV.pdf" download
-                            class="w-full sm:w-auto px-8 py-3 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold uppercase tracking-widest transition-all text-center flex items-center justify-center gap-2 group shadow-lg shadow-rose-600/20">
+                        <a href="https://drive.google.com/uc?export=download&id=1LxTbUZ9HgCP_8VOkz-jOMsmx7laEryU6" 
+                           download="" 
+                           class="w-full sm:w-auto px-8 py-3 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold uppercase tracking-widest transition-all text-center flex items-center justify-center gap-2 group shadow-lg shadow-rose-600/20">
                             <i class="uil uil-download-alt text-xl group-hover:scale-110 transition-transform"></i>
                             Download CV
                         </a>
@@ -2671,16 +2690,15 @@
             { id: '3', title: 'VaultFunder Trade', category: 'web', image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.vaultfunder.trade?w=1280', tech: ['WordPress', 'HTML5', 'CSS3', 'JavaScript', 'Custom Plugins', 'REST API'], link: 'https://www.vaultfunder.trade', desc: 'I joined the Serious Traders project to Developer and develop VaultFunder, one of South Africa’s largest trading platforms. I built the custom WordPress infrastructure and integrated complex REST APIs to deliver elite market access and real-time insights.', date: 'September 2025', role: 'Team Project' },
             { id: '9', title: 'Brokers Select', category: 'web', type: 'brokers', image: 'https://i.postimg.cc/gc8y1spQ/TRADE4U.png', tech: ['WordPress', 'HTML5', 'CSS3', 'JavaScript', 'Custom Plugins', 'REST API'], link: 'https://brokersselect.com/', desc: 'I was called in to design and develop a custom WordPress-based Forex comparison platform. Utilizing custom WordPress plugin development and REST API integration, I simplified the landscape for traders with a premium, data-driven fintech interface.', date: 'November 2025', role: 'Team Project' },
             { id: '7', title: 'Lisbon Hideaway', category: 'web', type: 'lisbon', image: 'https://picsum.photos/seed/lisbon/1280/720.jpg', tech: ['HTML5', 'CSS3', 'JavaScript'], link: "javascript:openProjectPage('lisbon-page-template', 'Lisbon Hideaway')", desc: 'I built a boutique travel platform focusing on immersive storytelling and pixel-perfect responsive motion design.', date: 'November 2025', role: 'Solo Developer & Developer' },
-            { id: '4', title: 'June AI', category: 'app', type: 'june', image: 'https://picsum.photos/seed/ai-glow/1280/720.jpg', tech: ['Python', 'Neural Networks'], link: "javascript:openProjectPage('june-page-template', 'June AI')", desc: 'JUNE AI - THE FIRST AGENTIC INTELLIGENCE. She thinks ahead. She acts alone.', date: 'January 2026', role: 'Solo Developer & Developer' },
+            { id: '4', title: 'June.AI', category: 'app', type: 'june', image: 'https://picsum.photos/seed/ai-glow/1280/720.jpg', tech: ['OpenAI', 'Next.js', 'Tailwind', 'Agentic AI'], link: "javascript:openProjectPage('june-page-template', 'June.AI')", desc: 'The first agentic AI by Jaxx of Lastic Productions. A self-evolving conversational intelligence that learns and adapts to user behaviour in real-time, pushing neural networking boundaries beyond conventional limits.', date: 'November 2026', role: 'Solo Developer & Architect' },
             { id: '5', title: 'Lastic.Dev', category: 'software', type: 'lastic', image: 'https://picsum.photos/seed/rust/1280/720.jpg', tech: ['Rust', 'WebAssembly'], link: "javascript:openProjectPage('lastic-page-template', 'Lastic.Dev')", desc: 'An elite developer ecosystem I forged, leveraging Rust and WASM to deliver blistering performance for modern web apps.', date: 'June 2025', role: 'Solo Developer & Developer' },
             { id: '6', title: 'Lastic IDE', category: 'software', type: 'ide', image: 'https://picsum.photos/seed/ide/1280/720.jpg', tech: ['Python', 'AI-Powered', 'Real-time'], link: "javascript:openProjectPage('ide-page-template', 'Lastic IDE')", desc: 'My specialized AI-integrated development environment, optimized for real-time coding efficiency and intelligent auto-completion.', date: 'August 2025', role: 'Solo Developer & Developer' },
-            { id: '8', title: 'Neural Nexus', category: 'ai', type: 'nexus', image: 'https://picsum.photos/seed/nexus/1280/720.jpg', tech: ['PyTorch', 'Transformer', 'NLP'], link: "javascript:openProjectPage('nexus-page-template', 'Neural Nexus')", desc: 'A powerhouse NLP research project I developed, utilizing Transformer models to process and understand complex human-AI interactions.', date: 'October 2026', role: 'Solo Developer & Developer' },
-            { id: '10', title: 'Nova AI Chatbot', category: 'app', type: 'chatbot', image: 'https://picsum.photos/seed/chatbot/1280/720.jpg', tech: ['OpenAI', 'Next.js', 'Tailwind'], link: "javascript:openProjectPage('chatbot-page-template', 'Nova AI Chatbot')", desc: 'My flagship conversational agent, blending OpenAI intelligence with a custom-built, ultra-responsive Next.js interface.', date: 'November 2026', role: 'Solo Developer & Developer' },
+            { id: '8', title: 'Vortex Lexicon', category: 'ai', type: 'vortex', image: 'https://picsum.photos/seed/vortex/1280/720.jpg', tech: ['PyTorch', 'Transformer', 'NLP', 'TensorFlow'], link: "javascript:openProjectPage('vortex-page-template', 'Vortex Lexicon')", desc: 'An elite natural language orchestration engine built on custom-trained Transformer architectures. Vortex Lexicon deciphered the chaotic nuances of human-AI dialogue, transforming raw linguistic data into structured cognitive intelligence.', date: 'October 2026', role: 'Solo Developer & Researcher' },
             { id: '11', title: 'LP Voice Intelligence', category: 'app', type: 'voice', image: 'https://picsum.photos/seed/voice/1280/720.jpg', tech: ['Whisper AI', 'PyTorch', 'FastAPI'], link: "javascript:openProjectPage('voice-page-template', 'LP Voice Intelligence')", desc: 'A cutting-edge voice assistant system I created, specializing in Whisper AI integration for flawless speech-to-intent processing.', date: 'December 2026', role: 'Solo Developer & Developer' },
             { id: '12', title: 'Lastic AGI Agent', category: 'ai', type: 'agent', image: 'https://picsum.photos/seed/agent/1280/720.jpg', tech: ['LangChain', 'AutoGPT', 'Python'], link: "javascript:openProjectPage('agent-page-template', 'Lastic AGI Agent')", desc: 'My autonomous agentic model designed for complex task orchestration, utilizing advanced LangChain reasoning loops.', date: 'January 2026', role: 'Solo Developer & Developer' },
             { id: '14', title: 'LOCAL AI ENGINE', category: 'ai', type: 'localai', image: 'https://picsum.photos/seed/aiprocessor/800/800', tech: ['Python', 'llama.cpp', 'RESTful API', 'Tkinter GUI', 'Local Training/Finetuning', 'Cross-Platform'], link: "javascript:openProjectPage('localai-page-template', 'LOCAL AI ENGINE')", repo: 'https://github.com/Lastic56/lastic-productions-YT', desc: 'A high-performance local inference engine with a custom-designed Tkinter console and threaded real-time telemetry. Specialized in local model training and finetuning, ensuring complete data privacy.', date: 'March 2026', role: 'Solo Developer & Developer' },
             { id: '15', title: 'YouTube Downloader', category: 'app', type: 'downloader', image: 'https://picsum.photos/seed/downloader/1280/720.jpg', tech: ['Python', 'Kivy', 'yt-dlp', 'Android'], link: 'https://github.com/Lastic56/lastic-productions-YT', repo: 'https://github.com/Lastic56/lastic-productions-YT', desc: 'I engineered a professional video downloading solution featuring real-time progress tracking for YouTube. Built using Kivy and Python, the app is fully optimized for Android with Instagram and Twitter support coming soon in V2.', date: 'April 2026', role: 'Solo Developer & Developer' },
-            { id: '13', title: 'Rendering Avatar', category: 'ai', type: 'avatar', image: 'https://i.postimg.cc/rmJ07GnR/b20aef37-35ad-4529-bd87-9686b150a6b1.jpg', tech: ['Stable Diffusion', 'DeepFace', 'TensorFlow'], link: "javascript:openProjectPage('avatar-page-template', 'Rendering Avatar')", desc: 'An AI-powered avatar engine I created, using Stable Diffusion to generate hyper-realistic digital identities for the web. This system bridges the gap between imagination and digital presence with pixel-perfect accuracy.', date: 'February 2026', role: 'Solo Developer & Developer' }
+            { id: '13', title: 'Rendering Avatar', category: 'ai', type: 'avatar', image: 'https://picsum.photos/seed/avatar/1280/720.jpg', tech: ['Three.js', 'WebGL', 'Stable Diffusion', 'Python', 'Real-time Rendering'], link: "javascript:openProjectPage('avatar-page-template', 'Rendering Avatar')", desc: 'A real-time AI-driven avatar rendering pipeline combining Stable Diffusion inference with WebGL shaders. Generates photorealistic digital identities from text prompts with sub-second latency and full facial rigging support.', date: 'February 2026', role: 'Solo Developer & Researcher' },
         ];
 
         // Custom Previews
@@ -2766,32 +2784,36 @@
                 </div>
             </div>`;
 
-        const getNexusPreview = (isModal = false) => `
-            <div class="relative w-full h-full bg-[#1a0b2e] overflow-hidden font-['Space_Mono'] group/nexus ${isModal ? 'rounded-2xl' : ''}">
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,40,200,0.4),transparent)]"></div>
+        const getVortexPreview = (isModal = false) => `
+            <div class="relative w-full h-full bg-[#030712] overflow-hidden font-['Space_Mono'] group/vortex ${isModal ? 'rounded-2xl' : ''}">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.15)_0%,transparent_70%)]"></div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                   <div class="relative w-40 h-40">
-                        <div class="absolute inset-0 rounded-full border-2 border-purple-500/30 animate-[spin_10s_linear_infinite]"></div>
-                        <div class="absolute inset-2 rounded-full border border-purple-400/20 animate-[spin_7s_linear_infinite_reverse]"></div>
+                    <div class="relative w-48 h-48">
+                        <!-- Outer Vortex Ring -->
+                        <div class="absolute inset-0 rounded-full border-t-2 border-cyan-500/40 animate-[spin_4s_linear_infinite]"></div>
+                        <!-- Inner Vortex Ring -->
+                        <div class="absolute inset-4 rounded-full border-b-2 border-blue-500/30 animate-[spin_3s_linear_infinite_reverse]"></div>
+                        <!-- Core -->
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-20 h-20 bg-purple-600/20 rounded-full blur-xl animate-pulse"></div>
+                            <div class="w-16 h-16 bg-cyan-600/20 rounded-full blur-2xl animate-pulse"></div>
+                            <div class="w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_20px_rgba(34,211,238,0.8)]"></div>
                         </div>
-                   </div>
+                    </div>
                 </div>
-                <!-- Floating Particles -->
-                <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-100"></div>
-                <div class="absolute bottom-1/3 right-1/4 w-3 h-3 bg-fuchsia-500 rounded-full animate-bounce delay-300"></div>
+                <!-- Data Streams -->
+                <div class="absolute top-1/4 left-1/4 w-px h-12 bg-gradient-to-b from-transparent via-cyan-500 to-transparent opacity-40 animate-[bounce_3s_infinite]"></div>
+                <div class="absolute top-1/2 right-1/4 w-px h-16 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-40 animate-[bounce_4s_infinite_reverse]"></div>
                 
                 <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
-                    <h1 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-300 mb-2 mt-8">Neural Nexus</h1>
-                    <p class="text-[10px] md:text-xs text-purple-200/60 uppercase tracking-[0.3em]">Advanced Language Processing</p>
+                    <h1 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-2 mt-8">Vortex Lexicon</h1>
+                    <p class="text-[10px] md:text-xs text-cyan-200/60 uppercase tracking-[0.3em]">Neural Language Orchestration</p>
                     <div class="mt-6 flex gap-2">
-                         <div class="w-16 h-1 bg-purple-500/30 rounded-full overflow-hidden">
-                            <div class="h-full bg-purple-500 animate-[loading_2s_ease-in-out_infinite]"></div>
+                         <div class="w-16 h-1 bg-cyan-500/30 rounded-full overflow-hidden">
+                            <div class="h-full bg-cyan-500 animate-[loading_2s_ease-in-out_infinite]"></div>
                          </div>
                     </div>
                 </div>
-                <div class="absolute top-4 left-6 text-[10px] text-purple-400/80 tracking-widest">v2.4.0</div>
+                <div class="absolute top-4 left-6 text-[10px] text-cyan-400/80 tracking-widest uppercase">Research_Core_v4</div>
             </div>`;
 
 
@@ -2849,7 +2871,7 @@
                             <i class="uil uil-robot text-blue-500 text-sm"></i>
                         </div>
                         <div>
-                            <h3 class="text-white text-xs font-bold uppercase tracking-widest">Nova AI</h3>
+                            <h3 class="text-white text-xs font-bold uppercase tracking-widest">June.AI</h3>
                             <div class="flex items-center gap-1.5">
                                 <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]"></span>
                                 <span class="text-[9px] text-green-500/80 font-mono">Online</span>
@@ -2871,7 +2893,7 @@
                                 </div>
                                 <div class="flex justify-between text-[10px]">
                                     <span class="text-gray-400">Params</span>
-                                    <span class="text-purple-400 font-mono">7 Billion</span>
+                                    <span class="text-cyan-400 font-mono">7 Billion</span>
                                 </div>
                                 <div class="flex justify-between text-[10px]">
                                     <span class="text-gray-400">Context</span>
@@ -2896,7 +2918,7 @@
                             <i class="uil uil-robot text-blue-500 text-xs"></i>
                         </div>
                         <div class="bg-blue-600/10 border border-blue-500/20 px-3 py-2 rounded-2xl rounded-tl-none text-[11px] text-blue-100 backdrop-blur-md max-w-[80%]">
-                            Systems initialized. Nova AI ready for interaction. How can I optimize your workflow today?
+                            Systems initialized. June.AI ready for interaction. How can I optimize your workflow today?
                         </div>
                     </div>
                 </div>
@@ -2940,18 +2962,18 @@
                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.1),transparent_70%)]"></div>
                 <div class="p-6 h-full flex flex-col items-center justify-center">
                     <div class="relative">
-                        <div class="w-16 h-16 rounded-full border-2 border-purple-500/20 flex items-center justify-center animate-[spin_10s_linear_infinite]">
-                            <div class="w-2 h-2 bg-purple-500 rounded-full absolute -top-1 shadow-[0_0_10px_#a855f7]"></div>
+                        <div class="w-16 h-16 rounded-full border-2 border-cyan-500/20 flex items-center justify-center animate-[spin_10s_linear_infinite]">
+                            <div class="w-2 h-2 bg-cyan-500 rounded-full absolute -top-1 shadow-[0_0_10px_#a855f7]"></div>
                         </div>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="uil uil-brain text-purple-500 text-3xl animate-pulse"></i>
+                            <i class="uil uil-brain text-cyan-500 text-3xl animate-pulse"></i>
                         </div>
                     </div>
                     <div class="mt-4 space-y-2 w-full max-w-[150px]">
-                        <div class="h-1 bg-purple-500/20 rounded-full overflow-hidden">
-                            <div class="h-full bg-purple-500 w-2/3 animate-[loading_3s_ease-in-out_infinite]"></div>
+                        <div class="h-1 bg-cyan-500/20 rounded-full overflow-hidden">
+                            <div class="h-full bg-cyan-500 w-2/3 animate-[loading_3s_ease-in-out_infinite]"></div>
                         </div>
-                        <div class="flex justify-between text-[8px] text-purple-400 font-bold tracking-widest uppercase">
+                        <div class="flex justify-between text-[8px] text-cyan-400 font-bold tracking-widest uppercase">
                             <span>Thinking</span>
                             <span class="animate-pulse">Active</span>
                         </div>
@@ -2991,55 +3013,130 @@
             </div>`;
 
         const getLocalAIPreview = (isModal = false) => `
-            <div class="relative w-full h-full bg-[#0a0a0c] overflow-hidden ${isModal ? 'rounded-2xl' : ''} group/engine">
-                <div class="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-700 group-hover/engine:scale-110" style="background-image: url('https://picsum.photos/seed/aiprocessor/800/800')"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.3),transparent_70%)] z-10"></div>
+            <div class="relative w-full h-full bg-[#050505] overflow-hidden ${isModal ? 'rounded-2xl' : ''} group/engine flex flex-col">
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.15),transparent_70%)] z-0"></div>
                 
+                <!-- Animated Background Code Lines -->
+                <div class="absolute inset-0 z-0 opacity-10 font-mono text-[8px] text-blue-500 overflow-hidden flex flex-col gap-1 p-4 pointer-events-none" style="transform: perspective(1000px) rotateX(20deg) scale(1.2);">
+                    <div class="whitespace-nowrap animate-[marquee_20s_linear_infinite]">01010111 01100101 01101100 01100011 01101111 01101101 01100101</div>
+                    <div class="whitespace-nowrap animate-[marquee_25s_linear_infinite_reverse]">import torch; import llama_cpp; model = llama_cpp.Llama(model_path="ggml-model-q4_0.gguf")</div>
+                    <div class="whitespace-nowrap animate-[marquee_18s_linear_infinite]">def process_stream(stream): for chunk in stream: yield chunk['choices'][0]['text']</div>
+                    <div class="whitespace-nowrap animate-[marquee_22s_linear_infinite_reverse]">11010010 10101010 11110000 00001111 11001100 00110011</div>
+                </div>
+
                 <!-- GitHub Repo Link Icon (Top Right) -->
                 <div class="absolute top-4 right-4 z-30">
-                    <button onclick="event.stopPropagation(); showComingSoon('GitHub App')" 
+                    <button onclick="event.stopPropagation(); window.open('https://github.com/Lastic56/lastic-productions-YT', '_blank')" 
                         class="w-10 h-10 flex items-center justify-center text-white/40 hover:text-white bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition-all hover:scale-110 group/git-icon">
                         <i class="uil uil-github-alt text-xl group-hover/git-icon:rotate-12 transition-transform"></i>
                     </button>
                 </div>
 
-                <div class="p-8 h-full flex flex-col justify-end relative z-20">
-                    <div class="mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-2xl shadow-white/10 group-hover/enjin:scale-110 transition-transform duration-500">
-                            <i class="uil uil-processor text-black text-2xl"></i>
+                <!-- Fake Terminal Window -->
+                <div class="relative z-10 m-4 mt-6 p-4 rounded-xl bg-[#0d1117]/80 backdrop-blur-md border border-white/10 shadow-2xl flex-1 flex flex-col">
+                    <div class="flex items-center gap-2 mb-3 pb-2 border-b border-white/5">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        <span class="ml-2 text-[10px] text-gray-500 font-mono tracking-wider">engine.py — bash</span>
+                    </div>
+                    <div class="font-mono text-[10px] text-gray-400 space-y-1 overflow-hidden flex-1">
+                        <div class="flex gap-2"><span class="text-green-400">➜</span><span class="text-blue-400">~/local-ai</span> <span class="text-gray-300">./start_inference.sh</span></div>
+                        <div class="text-yellow-400 opacity-0 group-hover/engine:opacity-100 transition-opacity duration-300 delay-100">[INFO] Loading Llama-3-8B-Instruct.gguf...</div>
+                        <div class="text-gray-500 opacity-0 group-hover/engine:opacity-100 transition-opacity duration-300 delay-200">Allocating 4.2GB VRAM... Done.</div>
+                        <div class="text-green-400 opacity-0 group-hover/engine:opacity-100 transition-opacity duration-300 delay-300">API Server listening on 127.0.0.1:8080</div>
+                        <div class="flex gap-1 mt-2 opacity-0 group-hover/engine:opacity-100 transition-opacity duration-300 delay-500">
+                            <span class="text-gray-300">Ready</span>
+                            <span class="w-2 h-3 bg-white/80 animate-pulse inline-block"></span>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-black text-white leading-none mb-2 tracking-tighter">LOCAL.AI.ENGINE</h3>
-                    <p class="text-[10px] text-blue-500 font-black uppercase tracking-[0.4em] mb-4">Privacy-First Inference</p>
-                    <div class="flex gap-2">
-                        <div class="px-2 py-1 bg-white/5 border border-white/10 rounded-md text-[8px] text-gray-400 font-bold uppercase tracking-widest">PY</div>
-                        <div class="px-2 py-1 bg-blue-500/10 border border-blue-500/20 rounded-md text-[8px] text-blue-400 font-bold uppercase tracking-widest">LLAMA.CPP</div>
-                        <div class="px-2 py-1 bg-white/5 border border-white/10 rounded-md text-[8px] text-gray-400 font-bold uppercase tracking-widest">GGUF</div>
+                </div>
+
+                <div class="p-6 pt-0 relative z-20 shrink-0">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+                            <i class="uil uil-processor text-blue-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black text-white leading-none tracking-tighter">LOCAL.AI.ENGINE</h3>
+                            <p class="text-[9px] text-blue-500 font-bold uppercase tracking-widest mt-1">Privacy-First Inference</p>
+                        </div>
                     </div>
                 </div>
             </div>`;
 
-        const getAvatarPreview = (isModal = false) => `
-            <div class="relative w-full h-full bg-[#0a0a0c] overflow-hidden ${isModal ? 'rounded-2xl' : ''} group/avatar">
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[4000ms] group-hover/avatar:scale-110" 
-                     style="background-image: url('https://picsum.photos/seed/cyberface/800/800')">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#e11d48]/20 via-transparent to-transparent"></div>
-                <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <div class="relative z-10 h-full flex flex-col justify-end p-8">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-2 h-2 rounded-full bg-rose-500 animate-pulse shadow-[0_0_10px_#e11d48]"></div>
-                        <span class="text-[10px] text-white font-bold uppercase tracking-[0.3em]">Neural Active</span>
+          const getAvatarPreview = (isModal = false) => {
+            const front = `
+                <div class="relative w-full h-full bg-[#0a0a0c] overflow-hidden ${isModal ? 'rounded-2xl' : ''} group/avatar">
+                    <!-- Face Swap Studio Aligned Background -->
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[5000ms] group-hover/avatar:scale-110" 
+                         style="background-image: url('https://picsum.photos/seed/face-ai/800/800')">
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-black text-white leading-tight mb-2 tracking-tighter uppercase italic">Next Gen Identities</h3>
-                    <div class="flex gap-2 opacity-0 group-hover/avatar:opacity-100 translate-y-4 group-hover/avatar:translate-y-0 transition-all duration-500">
-                        <span class="px-2 py-1 bg-white/10 border border-white/20 rounded text-[8px] text-white font-bold">STABLE DIFFUSION</span>
-                        <span class="px-2 py-1 bg-white/10 border border-white/20 rounded text-[8px] text-white font-bold">DEEPFACE</span>
+                    
+                    <!-- Lastic Brand Overlays -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#DC143C]/20 via-transparent to-black/90"></div>
+                    <div class="absolute inset-0 bg-[radial-gradient(at_0%_0%,rgba(220,20,60,0.15)_0%,transparent_50%)]"></div>
+                    
+                    <!-- Scanline (Studio Theme) -->
+                    <div class="absolute inset-0 pointer-events-none opacity-30 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(220,20,60,0.05)_50%),linear-gradient(90deg,rgba(220,20,60,0.02),rgba(0,0,0,0.02),rgba(220,20,60,0.02))] bg-[length:100%_4px,4px_100%]"></div>
+                    
+                    <div class="relative z-10 h-full flex flex-col justify-end p-8">
+                        <!-- AI Powered Badge (Studio Style) -->
+                        <div class="flex items-center gap-2 mb-3 translate-y-2 group-hover/avatar:translate-y-0 transition-transform duration-500">
+                            <div class="flex items-center justify-center p-1.5 rounded-full bg-red-500/20 border border-red-500/30 text-red-400">
+                                <i class="fas fa-bolt text-[8px]"></i>
+                            </div>
+                            <span class="text-[9px] text-red-400 font-bold tracking-[0.4em] uppercase">AI Powered</span>
+                        </div>
+                        
+                        <!-- Neural Status -->
+                        <div class="flex items-center gap-3 mb-2 translate-y-2 group-hover/avatar:translate-y-0 transition-transform duration-500 delay-75">
+                            <div class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_12px_#DC143C]"></div>
+                            <span class="text-[10px] text-white/80 font-bold uppercase tracking-[0.3em]">Neural Active</span>
+                        </div>
+                        
+                        <h3 class="text-2xl md:text-4xl font-black text-white leading-tight mb-4 tracking-tighter uppercase italic group-hover/avatar:translate-x-1 transition-all">Next Gen Identities</h3>
+                        
+                        <!-- Tech Pill Grid -->
+                        <div class="flex flex-wrap gap-2 opacity-0 group-hover/avatar:opacity-100 translate-y-4 group-hover/avatar:translate-y-0 transition-all duration-500 delay-150">
+                            <span class="px-3 py-1 bg-red-600/20 border border-red-500/30 rounded-full text-[8px] text-white font-black backdrop-blur-md uppercase tracking-widest shadow-lg shadow-red-900/20">STABLE DIFFUSION</span>
+                            <span class="px-3 py-1 bg-red-600/20 border border-red-500/30 rounded-full text-[8px] text-white font-black backdrop-blur-md uppercase tracking-widest shadow-lg shadow-red-900/20">DEEPFACE</span>
+                        </div>
                     </div>
-                </div>
-                <div class="absolute top-4 right-6 text-[10px] text-white/40 font-mono tracking-widest">v1.17_AVATAR</div>
-            </div>`;
+                    
+                    <!-- Version Tag -->
+                    <div class="absolute top-4 right-6 text-[9px] text-red-500/40 font-mono tracking-widest border border-red-500/10 px-2 py-1 bg-black/40 backdrop-blur-sm rounded">v1.17_AVATAR</div>
+                </div>`;
+
+            const back = `
+                <div class="relative h-full w-full flex flex-col items-center justify-center p-8 text-center bg-[#0a0a0c] overflow-hidden">
+                    <!-- Studio Grid Background -->
+                    <div class="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjIwLDIwLDYwLDAuNSkiLz48L3N2Zz4=')]"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-black/90"></div>
+                    
+                    <div class="relative z-10 w-full">
+                        <!-- Studio Branded Icon -->
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#DC143C] to-[#8B0000] flex items-center justify-center mx-auto mb-6 shadow-[0_10px_30px_rgba(220,20,60,0.3)] border border-white/10 group-hover/avatar:scale-110 transition-transform duration-700">
+                            <i class="fas fa-face-smile-beam text-3xl text-white"></i>
+                        </div>
+                        
+                        <div class="text-[10px] text-red-500 font-black uppercase tracking-[0.5em] mb-3">Lastic AI Engine</div>
+                        <h4 class="text-3xl font-black text-white mb-2 uppercase tracking-tighter italic">Rendering Avatar</h4>
+                        
+                        <div class="w-16 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent mx-auto mb-6"></div>
+                        
+                        <p class="text-[10px] text-gray-400 mb-8 leading-relaxed uppercase tracking-widest px-4 font-medium">
+                            Premium face swap orchestration utilizing sub-second latent diffusion inference and neural topology rigging.
+                        </p>
+                        
+                        <div class="inline-flex px-10 py-4 bg-gradient-to-r from-[#DC143C] to-[#8B0000] text-white rounded-xl text-[10px] font-black uppercase tracking-[0.3em] shadow-[0_15px_30px_rgba(220,20,60,0.4)] border border-red-400/30 hover:brightness-125 transition-all cursor-pointer">
+                            Project Deep-Dive
+                        </div>
+                    </div>
+                </div>`;
+
+            return { front, back };
+        };
 
         // Mobile Carousel State
         let currentProjectIndex = 0;
@@ -3117,7 +3214,7 @@
             if (p.type === 'lastic') preview = getLasticPreview();
             if (p.type === 'lisbon') preview = getLisbonPreview();
             if (p.type === 'ide') preview = getIDEPreview();
-            if (p.type === 'nexus') preview = getNexusPreview();
+            if (p.type === 'vortex') preview = getVortexPreview();
 
             if (p.type === 'brokers') {
                 const bPreview = getBrokersPreview();
@@ -3318,7 +3415,7 @@
             if (p.type === 'lastic') preview = getLasticPreview(true);
             if (p.type === 'lisbon') preview = getLisbonPreview(true);
             if (p.type === 'ide') preview = getIDEPreview(true);
-            if (p.type === 'nexus') preview = getNexusPreview(true);
+            if (p.type === 'vortex') preview = getVortexPreview(true);
             if (p.type === 'brokers') preview = getBrokersPreview(true);
             if (p.type === 'chatbot') preview = getChatbotPreview(true);
             if (p.type === 'voice') preview = getVoicePreview(true);
@@ -3326,6 +3423,11 @@
             if (p.type === 'downloader') preview = getDownloaderPreview(true);
             if (p.type === 'localai') preview = getLocalAIPreview(true);
             if (p.type === 'avatar') preview = getAvatarPreview(true);
+
+            // Handle preview object structure (extract front for modal)
+            if (preview && typeof preview === 'object') {
+                preview = preview.front;
+            }
 
             content.innerHTML = `
                 <div class="w-full relative group/modal-img stagger-in" style="animation-delay: 0.1s">
@@ -3405,7 +3507,7 @@
                     b.className = 'filter-btn px-8 py-2.5 rounded-full font-medium text-gray-400 bg-white/5 hover:bg-white/10 border border-transparent transition-all duration-300';
                 });
                 // Set active button style with the premium gradient
-                btn.className = 'filter-btn px-8 py-2.5 rounded-full font-medium bg-gradient-to-r from-rose-600 to-purple-600 text-white shadow-lg shadow-rose-600/20 transition-all duration-300';
+                btn.className = 'filter-btn px-8 py-2.5 rounded-full font-medium bg-gradient-to-r from-rose-600 to-cyan-600 text-white shadow-lg shadow-rose-600/20 transition-all duration-300';
                 renderGrid(btn.dataset.filter);
             };
         });
@@ -4214,7 +4316,6 @@
         </div>
     </div>
 
-    <!-- Lisbon Hideaway Template -->
     <template id="lisbon-page-template">
         <!DOCTYPE html>
         <html lang="en">
@@ -4222,513 +4323,782 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Lisbon Hideaway - Your Peaceful Retreat in Mpumalanga</title>
+            <title>Lisbon Hideaway | Premium Nature Retreat in Mpumalanga</title>
+
+            <!-- Fonts -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link
-                href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+                href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Dancing+Script:wght@700&display=swap"
                 rel="stylesheet">
+
+            <!-- Icons -->
+            <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+            <!-- Tailwind CSS (for layout utilities) -->
+            <script src="https://cdn.tailwindcss.com"></script>
+            <script>
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            colors: {
+                                'hideaway-sage': '#5d6d4e',
+                                'hideaway-wood': '#8b4513',
+                                'hideaway-cream': '#fdfcf8',
+                                'hideaway-dark': '#1a2421',
+                            },
+                            fontFamily: {
+                                'playfair': ['Playfair Display', 'serif'],
+                                'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+                            }
+                        }
+                    }
+                }
+            </script>
+
             <style>
+                :root {
+                    --primary: #5d6d4e;
+                    --accent: #8b4513;
+                    --bg: #fdfcf8;
+                    --text-dark: #1a2421;
+                }
+
                 * {
                     margin: 0;
                     padding: 0;
                     box-sizing: border-box;
+                    scroll-behavior: smooth;
                 }
 
                 body {
-                    font-family: 'Lato', sans-serif;
-                    color: #333;
-                    line-height: 1.6;
-                    background-color: #f8f8f5;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    background-color: var(--bg);
+                    color: var(--text-dark);
+                    overflow-x: hidden;
                 }
 
-                .container {
-                    width: 100%;
-                    margin: 0 auto;
+                /* Glassmorphism Header */
+                .glass-header {
+                    background: rgba(253, 252, 248, 0.8);
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                    transition: all 0.3s ease;
+                }
+
+                .glass-header.scrolled {
+                    padding: 0.75rem 0;
+                    background: rgba(253, 252, 248, 0.95);
+                }
+
+                /* Hero Ken Burns Effect */
+                .hero-section {
+                    position: relative;
+                    height: 100vh;
                     overflow: hidden;
-                }
-
-                /* Hero Section */
-                .hero {
-                    position: relative;
-                    height: 500px;
-                    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://sfile.chatglm.cn/images-ppt/618ca72df20e.jpg');
-                    background-size: cover;
-                    background-position: center;
                     display: flex;
-                    flex-direction: column;
-                    justify-content: center;
                     align-items: center;
-                    text-align: center;
-                    color: white;
-                    padding: 20px;
-                }
-
-                .hero h1 {
-                    font-family: 'Playfair Display', serif;
-                    font-size: clamp(40px, 8vw, 80px);
-                    margin-bottom: 20px;
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-                }
-
-                .hero p {
-                    font-size: clamp(18px, 3vw, 24px);
-                    max-width: 900px;
-                    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-                }
-
-                /* Navigation */
-                nav {
-                    background-color: rgba(139, 69, 19, 0.95);
-                    padding: 20px max(40px, calc((100% - 1120px) / 2));
-                    position: sticky;
-                    top: 0;
-                    z-index: 100;
-                    backdrop-filter: blur(10px);
-                }
-
-                nav ul {
-                    display: flex;
                     justify-content: center;
-                    list-style: none;
                 }
 
-                nav li {
-                    margin: 0 20px;
-                }
-
-                nav a {
-                    color: white;
-                    text-decoration: none;
-                    font-weight: 500;
-                    transition: color 0.3s;
-                }
-
-                nav a:hover {
-                    color: #87CEEB;
-                }
-
-                /* Section Styles */
-                section {
-                    padding: 80px max(40px, calc((100% - 1120px) / 2));
-                }
-
-                h2 {
-                    font-family: 'Playfair Display', serif;
-                    font-size: 36px;
-                    color: #8B4513;
-                    margin-bottom: 30px;
-                    text-align: center;
-                }
-
-                /* Welcome Section */
-                .welcome {
-                    background-color: white;
-                    text-align: center;
-                }
-
-                .welcome p {
-                    max-width: 80%;
-                    margin: 0 auto 40px;
-                    font-size: 18px;
-                }
-
-                .highlights {
-                    display: flex;
-                    justify-content: space-between;
-                    flex-wrap: wrap;
-                    gap: 20px;
-                }
-
-                .highlight-card {
-                    flex: 1;
-                    min-width: 180px;
-                    background-color: #f0f7f0;
-                    padding: 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s;
-                }
-
-                .highlight-card:hover {
-                    transform: translateY(-5px);
-                }
-
-                .highlight-card i {
-                    font-size: 36px;
-                    color: #228B22;
-                    margin-bottom: 15px;
-                }
-
-                .highlight-card h3 {
-                    font-family: 'Playfair Display', serif;
-                    font-size: 22px;
-                    color: #8B4513;
-                    margin-bottom: 10px;
-                }
-
-                /* Featured Accommodation */
-                .featured-accommodation {
-                    background-color: #f0f7f0;
-                }
-
-                .gallery {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 15px;
-                    margin-bottom: 30px;
-                }
-
-                .gallery img {
-                    flex: 1;
-                    min-width: 200px;
-                    height: 200px;
-                    object-fit: cover;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s;
-                }
-
-                .gallery img:hover {
-                    transform: scale(1.05);
-                }
-
-                /* Attractions Preview */
-                .attractions-preview {
-                    background-color: white;
-                }
-
-                .attractions-images {
-                    display: flex;
-                    gap: 15px;
-                    margin-bottom: 30px;
-                }
-
-                .attractions-images img {
-                    flex: 1;
-                    height: 200px;
-                    object-fit: cover;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                }
-
-                /* Quick Booking */
-                .quick-booking {
-                    background-color: #8B4513;
-                    color: white;
-                    text-align: center;
-                }
-
-                .quick-booking h2 {
-                    color: white;
-                }
-
-                .booking-form {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    gap: 15px;
-                    margin-top: 30px;
-                }
-
-                .form-group {
-                    display: flex;
-                    flex-direction: column;
-                    min-width: 180px;
-                }
-
-                .form-group label {
-                    margin-bottom: 5px;
-                    font-weight: 500;
-                }
-
-                .form-group input,
-                .form-group select {
-                    padding: 10px;
-                    border: none;
-                    border-radius: 4px;
-                    font-family: 'Lato', sans-serif;
-                }
-
-                .cta-button {
-                    background-color: #228B22;
-                    color: white;
-                    border: none;
-                    padding: 12px 30px;
-                    border-radius: 30px;
-                    font-weight: 700;
-                    cursor: pointer;
-                    transition: background-color 0.3s;
-                    margin-top: 20px;
-                    font-size: 16px;
-                }
-
-                .cta-button:hover {
-                    background-color: #1F6B1F;
-                }
-
-                /* Testimonials */
-                .testimonials {
-                    background-color: #f0f7f0;
-                }
-
-                .testimonial {
-                    background-color: white;
-                    padding: 25px;
-                    border-radius: 8px;
-                    margin-bottom: 20px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    position: relative;
-                }
-
-                .testimonial:before {
-                    content: '"';
-                    font-family: 'Playfair Display', serif;
-                    font-size: 80px;
-                    color: rgba(34, 139, 34, 0.2);
+                .hero-bg-wrapper {
                     position: absolute;
-                    top: -10px;
-                    left: 10px;
-                }
-
-                .testimonial p {
-                    font-style: italic;
-                    margin-bottom: 15px;
-                    position: relative;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
                     z-index: 1;
                 }
 
-                .testimonial-author {
-                    text-align: right;
-                    font-weight: 700;
-                    color: #8B4513;
+                .hero-bg {
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://sfile.chatglm.cn/images-ppt/618ca72df20e.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    animation: ken-burns 20s infinite alternate;
                 }
 
-                .rating {
-                    color: #FFD700;
-                    margin-top: 5px;
+                @keyframes ken-burns {
+                    0% { transform: scale(1); }
+                    100% { transform: scale(1.1); }
                 }
 
-                /* Footer */
-                footer {
-                    background-color: #222;
-                    color: white;
-                    text-align: center;
-                    padding: 80px max(40px, calc((100% - 1120px) / 2));
+                .grain-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+                    opacity: 0.04;
+                    pointer-events: none;
+                    z-index: 2;
                 }
 
-                .footer-content {
+                /* Section Branding */
+                .section-label {
+                    writing-mode: vertical-rl;
+                    text-orientation: mixed;
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5em;
+                    color: var(--primary);
+                    opacity: 0.3;
+                    position: absolute;
+                    left: 2rem;
+                    top: 0;
+                    height: 100%;
                     display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-                    margin-bottom: 20px;
+                    align-items: center;
                 }
 
-                .footer-section {
-                    flex: 1;
-                    min-width: 200px;
-                    margin-bottom: 20px;
+                .signature {
+                    font-family: 'Dancing Script', cursive;
+                    font-size: 2.5rem;
+                    color: var(--primary);
+                    opacity: 0.8;
                 }
 
-                .footer-section h3 {
-                    font-family: 'Playfair Display', serif;
-                    margin-bottom: 15px;
-                    color: #87CEEB;
+                /* Sophisticated Underline */
+                .nav-link {
+                    position: relative;
                 }
 
-                .footer-section p,
-                .footer-section a {
-                    margin-bottom: 10px;
-                    color: #ccc;
-                    text-decoration: none;
+                .nav-link::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    bottom: -4px;
+                    left: 0;
+                    background-color: var(--primary);
+                    transition: width 0.3s ease;
                 }
 
-                .footer-section a:hover {
-                    color: #87CEEB;
+                .nav-link:hover::after {
+                    width: 100%;
                 }
 
-                .social-icons {
-                    display: flex;
-                    justify-content: center;
-                    gap: 15px;
-                    margin-top: 20px;
+                /* Card Hover Effects */
+                .premium-card {
+                    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
                 }
 
-                .social-icons a {
+                .premium-card:hover {
+                    transform: translateY(-12px);
+                    box-shadow: 0 30px 60px rgba(93, 109, 78, 0.15);
+                }
+
+                /* Smooth Reveal */
+                .reveal {
+                    opacity: 0;
+                    transform: translateY(40px);
+                    transition: all 1.2s cubic-bezier(0.23, 1, 0.320, 1);
+                }
+
+                .reveal.active {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                /* Booking Widget Glass */
+                .booking-widget {
+                    background: rgba(255, 255, 255, 0.9);
+                    backdrop-filter: blur(8px);
+                    border: 1px solid rgba(93, 109, 78, 0.2);
+                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+                }
+
+                /* Custom Cursors or premium buttons */
+                .btn-hideaway {
+                    background: var(--primary);
                     color: white;
-                    font-size: 24px;
-                    transition: color 0.3s;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
                 }
 
-                .social-icons a:hover {
-                    color: #87CEEB;
+                .btn-hideaway::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                    transition: 0.5s;
                 }
 
-                .copyright {
-                    margin-top: 20px;
-                    padding-top: 20px;
-                    border-top: 1px solid #555;
-                    font-size: 14px;
-                    color: #aaa;
+                .btn-hideaway:hover::before {
+                    left: 100%;
+                }
+
+                .btn-hideaway:hover {
+                    background: #4a573e;
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 20px rgba(74, 87, 62, 0.3);
+                }
+
+                /* Image Grid Premium */
+                .grid-img {
+                    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+                }
+
+                .grid-img-container:hover .grid-img {
+                    transform: scale(1.05);
+                }
+
+                /* Mobile Menu */
+                #mobile-menu {
+                    transform: translateX(100%);
+                    transition: transform 0.4s ease-in-out;
+                }
+
+                #mobile-menu.active {
+                    transform: translateX(0);
+                }
+
+                /* Exit Button for Overlay Integration */
+                .exit-btn {
+                    position: fixed;
+                    top: 20px;
+                    left: 20px;
+                    background: rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(93, 109, 78, 0.3);
+                    color: var(--primary);
+                    padding: 10px 15px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    font-weight: bold;
+                    z-index: 1000;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    transition: all 0.3s;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .exit-btn:hover {
+                    color: white;
+                    background: rgba(93, 109, 78, 0.2);
+                    border-color: rgba(93, 109, 78, 0.6);
+                }
+
+                @media (max-width: 768px) {
+                    .hero-section {
+                        background-attachment: scroll;
+                        /* Disable parallax on mobile for performance */
+                        height: 70vh;
+                    }
                 }
             </style>
         </head>
 
-        <body>
-            <div class="container">
-                <!-- Hero Section -->
-                <header class="hero">
-                    <h1>Lisbon Hideaway</h1>
-                    <p>Your Peaceful Retreat in the Heart of the Panorama Route</p>
-                </header>
+        <body class="no-refresh">
 
-                <!-- Navigation -->
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#accommodation">Accommodation</a></li>
-                        <li><a href="#attractions">Attractions</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+            <button class="exit-btn" onclick="parent.closeProjectPage()">
+                <span class="material-icons text-sm">arrow_back</span>
+                BACK TO PORTFOLIO
+            </button>
+
+            <!-- Navigation -->
+            <header id="main-header"
+                class="glass-header fixed w-full z-50 py-5 px-6 md:px-12 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <span class="material-icons text-hideaway-sage text-3xl">nature_people</span>
+                    <span class="font-playfair text-2xl font-bold tracking-tight text-hideaway-dark">Lisbon <span
+                            class="text-hideaway-sage">Hideaway</span></span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav
+                    class="hidden md:flex gap-8 items-center font-jakarta font-medium text-hideaway-dark/70 text-sm uppercase tracking-widest">
+                    <a href="#home" class="nav-link text-hideaway-dark">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#accommodation" class="nav-link">Suites</a>
+                    <a href="#attractions" class="nav-link">Experience</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <a href="#booking" class="btn-hideaway px-6 py-2.5 rounded-full text-white ml-4">Book Stay</a>
                 </nav>
 
-                <!-- Welcome Section -->
-                <section id="home" class="welcome">
-                    <h2>Welcome to Lisbon Hideaway</h2>
-                    <p>Experience the tranquility of Lisbon Hideaway, a charming guesthouse nestled in the scenic
-                        Mpumalanga countryside. Our rustic wooden cabins offer a peaceful escape from the everyday,
-                        surrounded by the calming sounds of spring waters and the beauty of nature.</p>
+                <!-- Mobile Toggle -->
+                <button id="menu-toggle" class="md:hidden text-hideaway-dark">
+                    <span class="material-icons">menu</span>
+                </button>
+            </header>
 
-                    <div class="highlights">
-                        <div class="highlight-card">
-                            <i class="material-icons">cottage</i>
-                            <h3>Rustic Comfort</h3>
-                            <p>Cozy wooden cabins with modern amenities</p>
-                        </div>
-                        <div class="highlight-card">
-                            <i class="material-icons">pets</i>
-                            <h3>Farm Experience</h3>
-                            <p>Meet our friendly farm animals</p>
-                        </div>
-                        <div class="highlight-card">
-                            <i class="material-icons">landscape</i>
-                            <h3>Panorama Route Base</h3>
-                            <p>Perfect location to explore nearby attractions</p>
+            <!-- Mobile Side Menu -->
+            <div id="mobile-menu" class="fixed inset-0 bg-hideaway-cream z-[60] flex flex-col p-8 md:hidden">
+                <div class="flex justify-end mb-12">
+                    <button id="menu-close" class="text-hideaway-dark">
+                        <span class="material-icons text-4xl">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-8 text-3xl font-playfair font-bold text-hideaway-dark">
+                    <a href="#home" class="mobile-nav-link">Home</a>
+                    <a href="#about" class="mobile-nav-link">About</a>
+                    <a href="#accommodation" class="mobile-nav-link">Accommodation</a>
+                    <a href="#attractions" class="mobile-nav-link">Attractions</a>
+                    <a href="#gallery" class="mobile-nav-link">Gallery</a>
+                    <a href="#booking" class="mobile-nav-link text-hideaway-sage">Book Now</a>
+                </nav>
+                <div class="mt-auto pt-12 border-t border-hideaway-sage/20 text-hideaway-dark/60">
+                    <p>Lisbon Farm, Graskop</p>
+                    <p>Mpumalanga, South Africa</p>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <section id="home" class="hero-section">
+                <div class="hero-bg-wrapper">
+                    <div class="hero-bg"></div>
+                    <div class="grain-overlay"></div>
+                </div>
+                
+                <div class="container mx-auto px-6 relative z-10 text-center text-white">
+                    <div class="reveal">
+                        <span class="inline-block font-jakarta font-semibold uppercase tracking-[0.4em] text-xs mb-6 opacity-80">
+                            Est. 1994 • Nature Sanctuary
+                        </span>
+                        <h1 class="font-playfair text-7xl md:text-[9rem] font-bold mb-8 leading-[0.85] tracking-tight">
+                            Quiet<br><span class="italic font-light">Elegance</span>
+                        </h1>
+                        <p class="font-jakarta text-lg md:text-2xl max-w-xl mx-auto mb-12 font-light opacity-80 leading-relaxed font-serif italic">
+                            A retreat where time slows down and nature speaks.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                            <a href="#accommodation"
+                                class="btn-hideaway px-12 py-5 rounded-full font-bold text-sm tracking-[0.2em] inline-flex items-center gap-3">
+                                THE EXPERIENCE <span class="material-icons text-xl">east</span>
+                            </a>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <!-- Featured Accommodation -->
-                <section id="accommodation" class="featured-accommodation">
-                    <h2>Our Accommodation</h2>
-                    <div class="gallery">
-                        <img src="https://sfile.chatglm.cn/images-ppt/362727af5a7a.jpg" alt="Cabin Interior">
-                        <img src="https://sfile.chatglm.cn/images-ppt/88524025ce64.jpg" alt="River View">
-                        <img src="https://sfile.chatglm.cn/images-ppt/62bdbde94f38.jpg" alt="Cabin Exterior">
-                    </div>
-                    <p>Our spacious, rustic cabins feature modern amenities while maintaining their natural charm. Each
-                        cabin offers comfortable beds, a fully equipped kitchen, and stunning views of the surrounding
-                        landscape.</p>
-                </section>
+                <!-- Scroll indicator -->
+                <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 z-10">
+                    <span class="material-icons text-2xl text-white">keyboard_arrow_down</span>
+                </div>
+            </section>
 
-                <!-- Attractions Preview -->
-                <section id="attractions" class="attractions-preview">
-                    <h2>Nearby Attractions</h2>
-                    <div class="attractions-images">
-                        <img src="https://sfile.chatglm.cn/images-ppt/06da23b09f65.jpg" alt="Lisbon Falls">
-                        <img src="https://sfile.chatglm.cn/images-ppt/29931204cb2e.jpg" alt="God's Window">
-                    </div>
-                    <p>Located at the heart of the Panorama Route, Lisbon Hideaway is the perfect base to explore
-                        Mpumalanga's most stunning attractions including Lisbon Falls, God's Window, Berlin Falls, and
-                        the Blyde River Canyon.</p>
-                </section>
-
-                <!-- Quick Booking -->
-                <section id="booking" class="quick-booking">
-                    <h2>Quick Booking</h2>
-                    <p>Check availability and book your stay at our peaceful hideaway</p>
-                    <div class="booking-form">
-                        <div class="form-group">
-                            <label for="checkin">Check-in Date</label>
-                            <input type="date" id="checkin" name="checkin">
+            <!-- About / Welcome Section -->
+            <section id="about" class="py-32 px-6 md:px-12 bg-white relative overflow-hidden">
+                <div class="section-label">LISBON HIDEAWAY</div>
+                <div class="container mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-24 items-center">
+                        <div class="reveal">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-12 h-[1px] bg-hideaway-sage"></div>
+                                <span class="text-hideaway-sage font-bold uppercase tracking-[0.3em] text-xs">Our Heritage</span>
+                            </div>
+                            <h2 class="font-playfair text-5xl md:text-7xl font-bold text-hideaway-dark mb-10 leading-[1.1]">
+                                Where the <span class="italic serif font-light text-hideaway-sage">whispering pines</span> meet the sky.
+                            </h2>
+                            <p class="text-hideaway-dark/70 text-xl leading-relaxed mb-8 font-serif italic">
+                                "We didn't build just a guesthouse; we curated a sanctuary."
+                            </p>
+                            <p class="text-hideaway-dark/60 text-lg leading-relaxed mb-10">
+                                Every timber at Lisbon Hideaway has been placed with intention. Bordering a protected riverine forest, our sanctuary serves as a bridge between the comforts of luxury and the raw, untamed beauty of the Mpumalanga highveld.
+                            </p>
+                            <div class="flex items-center gap-6 mt-12">
+                                <div class="signature">Charl & Family</div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="checkout">Check-out Date</label>
-                            <input type="date" id="checkout" name="checkout">
-                        </div>
-                        <div class="form-group">
-                            <label for="guests">Number of Guests</label>
-                            <select id="guests" name="guests">
-                                <option value="1">1 Guest</option>
-                                <option value="2">2 Guests</option>
-                                <option value="3">3 Guests</option>
-                                <option value="4">4 Guests</option>
-                                <option value="5+">5+ Guests</option>
-                            </select>
+                        <div class="relative reveal group">
+                            <div class="absolute -inset-4 border border-hideaway-sage/10 translate-x-8 translate-y-8 rounded-[3rem] transition-transform group-hover:translate-x-4 group-hover:translate-y-4 duration-700"></div>
+                            <img src="https://sfile.chatglm.cn/images-ppt/62bdbde94f38.jpg"
+                                alt="Lisbon Hideaway Exterior"
+                                class="w-full h-[600px] object-cover rounded-[3rem] shadow-3xl relative z-10 filter sepia-[0.2] transition-all duration-700 group-hover:sepia-0">
                         </div>
                     </div>
-                    <button class="cta-button">Check Availability</button>
-                </section>
+                </div>
+            </section>
 
-                <!-- Testimonials -->
-                <section id="testimonials" class="testimonials">
-                    <h2>What Our Guests Say</h2>
-                    <div class="testimonial">
-                        <p>"We loved it! We were on a roadtrip with 3 kids and this was a fantastic 2 days! So peaceful!
-                            Our kids loved to explore and walk in the river! It was very close to Gods Window! Charl was
-                            a friendly and helpful host!"</p>
-                        <div class="testimonial-author">
-                            - Deidré, Kempton Park
-                            <div class="rating">★★★★★</div>
+            <!-- Features Section -->
+            <section class="py-24 bg-hideaway-cream px-6">
+                <div class="container mx-auto">
+                    <div class="text-center mb-16 reveal">
+                        <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-4">Our Unique Experience</h2>
+                        <div class="w-24 h-1 bg-hideaway-sage mx-auto"></div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Feature 1 -->
+                        <div
+                            class="premium-card bg-white p-10 rounded-3xl border border-hideaway-sage/10 text-center reveal">
+                            <div
+                                class="w-16 h-16 bg-hideaway-sage/5 rounded-2xl flex items-center justify-center mx-auto mb-8">
+                                <span class="material-icons text-4xl text-hideaway-sage">cottage</span>
+                            </div>
+                            <h3 class="font-playfair text-2xl font-bold mb-4">Rustic Comfort</h3>
+                            <p class="text-hideaway-dark/60 leading-relaxed">Cozy wooden cabins meticulously designed
+                                with modern amenities and natural charm.</p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div
+                            class="premium-card bg-white p-10 rounded-3xl border border-hideaway-sage/10 text-center reveal">
+                            <div
+                                class="w-16 h-16 bg-hideaway-sage/5 rounded-2xl flex items-center justify-center mx-auto mb-8">
+                                <span class="material-icons text-4xl text-hideaway-sage">pets</span>
+                            </div>
+                            <h3 class="font-playfair text-2xl font-bold mb-4">Farm Experience</h3>
+                            <p class="text-hideaway-dark/60 leading-relaxed">Meet our friendly farm animals. A
+                                delightful experience for families and nature lovers.</p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div
+                            class="premium-card bg-white p-10 rounded-3xl border border-hideaway-sage/10 text-center reveal">
+                            <div
+                                class="w-16 h-16 bg-hideaway-sage/5 rounded-2xl flex items-center justify-center mx-auto mb-8">
+                                <span class="material-icons text-4xl text-hideaway-sage">landscape</span>
+                            </div>
+                            <h3 class="font-playfair text-2xl font-bold mb-4">Panorama Gateway</h3>
+                            <p class="text-hideaway-dark/60 leading-relaxed">Perfectly located to explore God's Window,
+                                Lisbon Falls, and the Blyde River Canyon.</p>
                         </div>
                     </div>
-                    <div class="testimonial">
-                        <p>"The location is beyond stunning with the river and mountains surrounding you. It is also
-                            right at the heart of the panorama route. I could go on and on about the place. The location
-                            and facilities are amazing but what makes this a really special place is Charl and the
-                            animals."</p>
-                        <div class="testimonial-author">
-                            - Nicole
-                            <div class="rating">★★★★★</div>
+                </div>
+            </section>
+
+            <!-- Accommodation Section -->
+            <section id="accommodation" class="py-32 px-6 md:px-12 bg-[#f9f8f4] relative">
+                <div class="container mx-auto">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-24 reveal">
+                        <div class="max-w-3xl">
+                            <span class="text-hideaway-sage font-bold uppercase tracking-[0.4em] text-xs mb-6 inline-block">The Stay</span>
+                            <h2 class="font-playfair text-5xl md:text-7xl font-bold text-hideaway-dark mb-6 leading-tight">
+                                Curated <span class="italic font-light">Residences</span>
+                            </h2>
+                            <p class="text-hideaway-dark/60 text-xl font-serif">Handcrafted timber suites designed for disconnection.</p>
                         </div>
                     </div>
-                </section>
 
-                <!-- Footer -->
-                <footer>
-                    <div class="footer-content">
-                        <div class="footer-section">
-                            <h3>Contact Us</h3>
-                            <p><i class="material-icons">location_on</i> Lisbon Farm, 531, Graskop, Mpumalanga</p>
-                            <p><i class="material-icons">phone</i> +27 123 456 789</p>
-                            <p><i class="material-icons">email</i> info@lisbonhideaway.co.za</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Cabin 1 -->
+                        <div class="group reveal grid-img-container">
+                            <div class="relative overflow-hidden rounded-[2rem] h-[400px] mb-6 shadow-lg">
+                                <img src="https://sfile.chatglm.cn/images-ppt/362727af5a7a.jpg" alt="Cabin Interior"
+                                    class="grid-img w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-6 left-6 text-white">
+                                    <h4 class="font-playfair text-2xl font-bold">Rustic Suites</h4>
+                                    <p class="text-sm opacity-80 uppercase tracking-widest">Cozy Interior</p>
+                                </div>
+                            </div>
+                            <p class="text-hideaway-dark/60 font-light">Spacious cabins featuring king-sized beds, premium
+                                linens, and locally sourced wooden furniture.</p>
                         </div>
-                        <div class="footer-section">
-                            <h3>Quick Links</h3>
-                            <a href="#about">About Us</a><br>
-                            <a href="#accommodation">Accommodation</a><br>
-                            <a href="#attractions">Attractions</a><br>
-                            <a href="#gallery">Gallery</a>
+
+                        <!-- Cabin 2 -->
+                        <div class="group reveal grid-img-container">
+                            <div class="relative overflow-hidden rounded-[2rem] h-[400px] mb-6 shadow-lg">
+                                <img src="https://sfile.chatglm.cn/images-ppt/88524025ce64.jpg" alt="River View"
+                                    class="grid-img w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-6 left-6 text-white">
+                                    <h4 class="font-playfair text-2xl font-bold">River Views</h4>
+                                    <p class="text-sm opacity-80 uppercase tracking-widest">Scenic Terrace</p>
+                                </div>
+                            </div>
+                            <p class="text-hideaway-dark/60 font-light">Each cabin offers private balconies with stunning
+                                views of the surrounding mountains and river.</p>
                         </div>
-                        <div class="footer-section">
-                            <h3>Follow Us</h3>
-                            <div class="social-icons">
-                                <a href="#"><i class="material-icons">facebook</i></a>
-                                <a href="#"><i class="material-icons">instagram</i></a>
-                                <a href="#"><i class="material-icons">twitter</i></a>
+
+                        <!-- Cabin 3 -->
+                        <div class="group reveal grid-img-container">
+                            <div class="relative overflow-hidden rounded-[2rem] h-[400px] mb-6 shadow-lg">
+                                <img src="https://sfile.chatglm.cn/images-ppt/62bdbde94f38.jpg" alt="Cabin Exterior"
+                                    class="grid-img w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-6 left-6 text-white">
+                                    <h4 class="font-playfair text-2xl font-bold">Private Paradise</h4>
+                                    <p class="text-sm opacity-80 uppercase tracking-widest">Cottage Exterior</p>
+                                </div>
+                            </div>
+                            <p class="text-hideaway-dark/60 font-light">Independent cottages set apart to ensure maximum
+                                privacy and immersion in the wild.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nature Luxe Amenities (NEW) -->
+            <section class="py-32 bg-white px-6">
+                <div class="container mx-auto">
+                    <div class="grid md:grid-cols-4 gap-12 border-y border-hideaway-sage/10 py-24">
+                        <div class="text-center reveal">
+                            <span class="material-icons text-3xl text-hideaway-sage mb-6">local_cafe</span>
+                            <h4 class="font-playfair text-xl font-bold mb-3 italic">Artisan Grounds</h4>
+                            <p class="text-xs uppercase tracking-widest text-hideaway-dark/40">Freshly Roasted</p>
+                        </div>
+                        <div class="text-center reveal" style="transition-delay: 0.1s;">
+                            <span class="material-icons text-3xl text-hideaway-sage mb-6">spa</span>
+                            <h4 class="font-playfair text-xl font-bold mb-3 italic">Organic Linens</h4>
+                            <p class="text-xs uppercase tracking-widest text-hideaway-dark/40">Sustainable Comfort</p>
+                        </div>
+                        <div class="text-center reveal" style="transition-delay: 0.2s;">
+                            <span class="material-icons text-3xl text-hideaway-sage mb-6">fireplace</span>
+                            <h4 class="font-playfair text-xl font-bold mb-3 italic">Private Hearth</h4>
+                            <p class="text-xs uppercase tracking-widest text-hideaway-dark/40">Evening Fires</p>
+                        </div>
+                        <div class="text-center reveal" style="transition-delay: 0.3s;">
+                            <span class="material-icons text-3xl text-hideaway-sage mb-6">water_drop</span>
+                            <h4 class="font-playfair text-xl font-bold mb-3 italic">River Access</h4>
+                            <p class="text-xs uppercase tracking-widest text-hideaway-dark/40">Direct Proximity</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Attractions Section -->
+            <section id="attractions" class="py-32 bg-hideaway-dark text-white px-6 relative overflow-hidden">
+                <div class="grain-overlay opacity-[0.02]"></div>
+                <div class="container mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-24 items-center">
+                        <div class="order-2 lg:order-1 grid grid-cols-2 gap-8 reveal">
+                            <div class="overflow-hidden rounded-[2.5rem] shadow-2xl relative group">
+                                <img src="https://sfile.chatglm.cn/images-ppt/06da23b09f65.jpg" alt="Lisbon Falls"
+                                    class="h-[500px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                                <div class="absolute bottom-8 left-8">
+                                    <p class="text-[0.6rem] tracking-[0.4em] uppercase opacity-60 mb-2">Adventure</p>
+                                    <h5 class="font-playfair text-2xl font-bold italic">Lisbon Falls</h5>
+                                </div>
+                            </div>
+                            <div class="overflow-hidden rounded-[2.5rem] shadow-2xl mt-16 relative group">
+                                <img src="https://sfile.chatglm.cn/images-ppt/29931204cb2e.jpg" alt="God's Window"
+                                    class="h-[500px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                                <div class="absolute bottom-8 left-8">
+                                    <p class="text-[0.6rem] tracking-[0.4em] uppercase opacity-60 mb-2">Vista</p>
+                                    <h5 class="font-playfair text-2xl font-bold italic">God's Window</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-1 lg:order-2 reveal">
+                            <span class="text-hideaway-sage font-bold uppercase tracking-[0.4em] text-xs mb-8 block">The Perimeter</span>
+                            <h2 class="font-playfair text-5xl md:text-7xl font-bold mb-10 leading-[1.1]">The Spirit of the <span class="italic font-light">Panorama Route</span></h2>
+                            <p class="text-white/50 text-xl leading-relaxed mb-12 font-serif italic">
+                                "Nature is not a place to visit. It is home."
+                            </p>
+                            <ul class="space-y-8">
+                                <li class="flex items-start gap-6 group">
+                                    <span class="text-hideaway-sage font-playfair text-2xl italic font-bold opacity-40 group-hover:opacity-100 transition-opacity">01</span>
+                                    <div>
+                                        <h5 class="text-lg font-bold mb-2">Cascading Wonders</h5>
+                                        <p class="text-white/40 text-sm">Lisbon & Berlin Falls are just a 5-minute coastal drive.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-6 group">
+                                    <span class="text-hideaway-sage font-playfair text-2xl italic font-bold opacity-40 group-hover:opacity-100 transition-opacity">02</span>
+                                    <div>
+                                        <h5 class="text-lg font-bold mb-2">Celestial Views</h5>
+                                        <p class="text-white/40 text-sm">God’s Window offers views that stretch to Mozambique.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Section -->
+            <section id="booking" class="py-40 px-6 bg-[#fdfcf8] relative">
+                <div class="container mx-auto flex flex-col items-center">
+                    <div class="reveal text-center mb-20">
+                        <span class="text-hideaway-sage font-bold uppercase tracking-[0.4em] text-xs mb-6 block">Reservations</span>
+                        <h2 class="font-playfair text-5xl md:text-7xl font-bold text-hideaway-dark mb-6">Begin Your Journey</h2>
+                        <p class="text-hideaway-dark/40 max-w-xl mx-auto font-serif">Select your window of tranquility.</p>
+                    </div>
+                    
+                    <div class="booking-widget w-full max-w-6xl p-12 md:p-20 rounded-[4rem] reveal">
+                        <form class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                            <div class="flex flex-col gap-4">
+                                <label class="font-bold text-[0.6rem] uppercase tracking-[0.3em] text-hideaway-sage">Arrival</label>
+                                <input type="date" class="bg-transparent border-b border-hideaway-sage/20 py-4 text-hideaway-dark focus:outline-none focus:border-hideaway-sage transition-colors font-jakarta">
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <label class="font-bold text-[0.6rem] uppercase tracking-[0.3em] text-hideaway-sage">Departure</label>
+                                <input type="date" class="bg-transparent border-b border-hideaway-sage/20 py-4 text-hideaway-dark focus:outline-none focus:border-hideaway-sage transition-colors font-jakarta">
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <label class="font-bold text-[0.6rem] uppercase tracking-[0.3em] text-hideaway-sage">Guests</label>
+                                <select class="bg-transparent border-b border-hideaway-sage/20 py-4 text-hideaway-dark focus:outline-none focus:border-hideaway-sage transition-colors font-jakarta">
+                                    <option>01 Guest</option>
+                                    <option>02 Guests</option>
+                                    <option>03 Guests</option>
+                                    <option>04+ Guests</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button type="submit" class="btn-hideaway w-full py-6 rounded-2xl font-bold uppercase tracking-[0.3em] text-[0.7rem]">
+                                    Request Stay
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="py-32 bg-[#fdfcf8] px-6 relative overflow-hidden">
+                <div class="container mx-auto">
+                    <div class="text-center mb-24 reveal">
+                        <span class="text-hideaway-sage font-bold uppercase tracking-[0.4em] text-xs mb-4 block">Shared Moments</span>
+                        <h2 class="font-playfair text-5xl md:text-7xl font-bold">Nature’s <span class="italic font-light">Testament</span></h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-16">
+                        <div class="relative reveal">
+                            <div class="absolute -top-12 -left-4 signature opacity-10 text-8xl">"</div>
+                            <div class="bg-white p-16 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.03)] relative z-10">
+                                <p class="font-serif italic text-2xl text-hideaway-dark/70 leading-relaxed mb-12">
+                                    "We loved it! A roadtrip with 3 kids and this was a fantastic 2 days. Our kids loved to explore and walk in the river! It was very close to Gods Window!"
+                                </p>
+                                <div class="flex items-center gap-6">
+                                    <div class="w-16 h-16 bg-hideaway-sage/10 rounded-full flex items-center justify-center font-playfair font-bold text-hideaway-sage">D</div>
+                                    <div>
+                                        <p class="font-bold text-hideaway-dark tracking-widest text-sm uppercase">Deidré</p>
+                                        <p class="text-xs text-hideaway-dark/30 uppercase tracking-[0.2em]">Kempton Park</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative reveal" style="transition-delay: 0.2s;">
+                            <div class="absolute -top-12 -left-4 signature opacity-10 text-8xl">"</div>
+                            <div class="bg-white p-16 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.03)] relative z-10 md:mt-12">
+                                <p class="font-serif italic text-2xl text-hideaway-dark/70 leading-relaxed mb-12">
+                                    "The location is beyond stunning with the river and mountains surrounding you. What makes this a really special place is Charl and the animals."
+                                </p>
+                                <div class="flex items-center gap-6">
+                                    <div class="w-16 h-16 bg-hideaway-sage/10 rounded-full flex items-center justify-center font-playfair font-bold text-hideaway-sage">N</div>
+                                    <div>
+                                        <p class="font-bold text-hideaway-dark tracking-widest text-sm uppercase">Nicole</p>
+                                    <p class="text-xs text-hideaway-dark/30 uppercase tracking-[0.2em]">Adventurer</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="copyright">
-                        © 2026 Lisbon Hideaway. All rights reserved.
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="bg-hideaway-dark text-white pt-40 pb-20 px-6 relative overflow-hidden">
+                <div class="grain-overlay opacity-[0.03]"></div>
+                <div class="container mx-auto">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-24 mb-32 pb-24 border-b border-white/5">
+                        <div class="lg:col-span-1">
+                            <div class="flex items-center gap-3 mb-10">
+                                <span class="material-icons text-hideaway-sage text-3xl">nature_people</span>
+                                <span class="font-playfair text-3xl font-bold tracking-tight">Lisbon<br>Hideaway</span>
+                            </div>
+                            <p class="text-white/40 leading-relaxed font-serif italic text-lg">
+                                Established 1994. A sanctuary of peace in the heart of the highveld.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h5 class="font-bold uppercase tracking-[0.4em] text-[0.65rem] mb-10 text-hideaway-sage">Directory</h5>
+                            <ul class="space-y-6 text-white/40 font-jakarta text-sm">
+                                <li><a href="#about" class="hover:text-white transition-colors tracking-widest">THE STORY</a></li>
+                                <li><a href="#accommodation" class="hover:text-white transition-colors tracking-widest">RESIDENCES</a></li>
+                                <li><a href="#attractions" class="hover:text-white transition-colors tracking-widest">LOCAL VISTAS</a></li>
+                                <li><a href="#booking" class="hover:text-white transition-colors tracking-widest">RESERVATIONS</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h5 class="font-bold uppercase tracking-[0.4em] text-[0.65rem] mb-10 text-hideaway-sage">Inquiries</h5>
+                            <ul class="space-y-6 text-white/40 font-jakarta text-sm">
+                                <li class="flex items-center gap-4">
+                                    <span class="material-icons text-xs text-hideaway-sage">location_on</span>
+                                    <span>Lisbon Farm, Graskop, ZA</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <span class="material-icons text-xs text-hideaway-sage">phone</span>
+                                    <span>+27 (0) 12 345 6789</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <span class="material-icons text-xs text-hideaway-sage">email</span>
+                                    <span>stay@lisbonhideaway.co.za</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h5 class="font-bold uppercase tracking-[0.4em] text-[0.65rem] mb-10 text-hideaway-sage">Connect</h5>
+                            <div class="flex gap-6">
+                                <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-hideaway-sage hover:border-hideaway-sage transition-all duration-500">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-hideaway-sage hover:border-hideaway-sage transition-all duration-500">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </footer>
-            </div>
+
+                    <div class="flex flex-col md:row justify-between items-center gap-8 text-white/20 text-[0.6rem] tracking-[0.5em] uppercase font-bold">
+                        <p>© 2024 Lisbon Hideaway • MPUMALANGA</p>
+                        <div class="signature opacity-20 text-2xl">Handcrafted by Jaxx</div>
+                    </div>
+                </div>
+            </footer>
+
+            <script>
+                // Scroll Reveals
+                function reveal() {
+                    var reveals = document.querySelectorAll(".reveal");
+                    for (var i = 0; i < reveals.length; i++) {
+                        var windowHeight = window.innerHeight;
+                        var elementTop = reveals[i].getBoundingClientRect().top;
+                        var elementVisible = 150;
+                        if (elementTop < windowHeight - elementVisible) {
+                            reveals[i].classList.add("active");
+                        }
+                    }
+                }
+                window.addEventListener("scroll", reveal);
+                // Initial check
+                reveal();
+
+                // Header scroll effect
+                window.addEventListener('scroll', () => {
+                    const header = document.getElementById('main-header');
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+
+                // Mobile Menu Logic
+                const menuToggle = document.getElementById('menu-toggle');
+                const menuClose = document.getElementById('menu-close');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                const closeMenu = () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                };
+
+                menuClose.addEventListener('click', closeMenu);
+                mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+            </script>
         </body>
-
         </html>
-
     </template>
 
     <template id="ide-page-template">
@@ -5104,7 +5474,7 @@
                 <div class="relative z-10 w-full max-w-4xl p-8">
                     <div class="text-center mb-12">
                         <div
-                            class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[var(--primary-color)] to-purple-500 mb-6 neon-glow">
+                            class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[var(--primary-color)] to-cyan-500 mb-6 neon-glow">
                             <span class="material-symbols-outlined text-5xl text-black">code</span>
                         </div>
                         <h1 class="text-5xl font-bold text-white holographic-text mb-3">Lastic Productions</h1>
@@ -5130,8 +5500,8 @@
                         <button class="welcome-btn group" onclick="welcomeAction('openFile')">
                             <div class="flex items-center gap-4">
                                 <div
-                                    class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
-                                    <span class="material-symbols-outlined text-2xl text-purple-400">folder_open</span>
+                                    class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                                    <span class="material-symbols-outlined text-2xl text-cyan-400">folder_open</span>
                                 </div>
                                 <div class="text-left">
                                     <p class="font-semibold text-white">Open File</p>
@@ -5193,8 +5563,19 @@
                 </div>
             </div>
 
-            <div class="relative flex size-full min-h-screen flex-col bg-black/50 overflow-hidden hidden" id="mainIDE">
-                <div class="flex h-full grow">
+            <div class="relative flex size-full min-h-screen flex-col bg-[#0a1014] overflow-hidden hidden" id="mainIDE">
+                <!-- Top Menu Bar -->
+                <div class="w-full bg-[#05080a] border-b border-white/10 flex items-center px-4 py-2 text-xs text-gray-400 gap-4 shrink-0 shadow-md relative z-10">
+                    <div class="cursor-pointer hover:text-white transition-colors">File</div>
+                    <div class="cursor-pointer hover:text-white transition-colors">Edit</div>
+                    <div class="cursor-pointer hover:text-white transition-colors">Selection</div>
+                    <div class="cursor-pointer hover:text-white transition-colors">View</div>
+                    <div class="cursor-pointer hover:text-white transition-colors">Go</div>
+                    <div class="cursor-pointer hover:text-white transition-colors">Run</div>
+                    <div class="cursor-pointer hover:text-white transition-colors">Terminal</div>
+                    <div class="cursor-pointer hover:text-white transition-colors">Help</div>
+                </div>
+                <div class="flex h-full grow overflow-hidden">
                     <aside class="w-72 glass-panel border-r border-[var(--primary-color)]/20 flex flex-col">
                         <div class="p-4 border-b border-[var(--primary-color)]/20">
                             <h1 class="text-white text-xl font-bold leading-normal holographic-text">Lastic Productions
@@ -5207,35 +5588,62 @@
                                     class="text-xs font-semibold text-[var(--primary-color)] uppercase tracking-wider">Explorer</span>
                             </div>
                             <div class="px-2 pb-2">
-                                <div class="file-tree-item flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer"
-                                    onclick="openFile('main.py')">
+                                <div class="file-tree-item active flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer" onclick="openFile('main.py')" id="ft-main">
                                     <span class="material-symbols-outlined text-sm text-yellow-400">code</span>
                                     <span class="text-sm">main.py</span>
+                                </div>
+                                <div class="file-tree-item flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer" onclick="openFile('config.json')" id="ft-config">
+                                    <span class="material-symbols-outlined text-sm text-blue-400">settings</span>
+                                    <span class="text-sm">config.json</span>
+                                </div>
+                                <div class="file-tree-item flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer" onclick="openFile('utils.py')" id="ft-utils">
+                                    <span class="material-symbols-outlined text-sm text-green-400">code</span>
+                                    <span class="text-sm">utils.py</span>
+                                </div>
+                                <div class="file-tree-item flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer" onclick="openFile('README.md')" id="ft-readme">
+                                    <span class="material-symbols-outlined text-sm text-gray-400">description</span>
+                                    <span class="text-sm">README.md</span>
                                 </div>
                             </div>
                         </div>
                         <nav class="border-t border-[var(--primary-color)]/20 p-2 flex flex-col gap-1">
-                            <a
-                                class="flex items-center gap-3 px-3 py-2.5 rounded-md text-white sidebar-item active cursor-pointer">
-                                <span
-                                    class="material-symbols-outlined text-2xl text-[var(--primary-color)]">folder_open</span>
+                            <a class="flex items-center gap-3 px-3 py-2.5 rounded-md text-white sidebar-item active cursor-pointer">
+                                <span class="material-symbols-outlined text-2xl text-[var(--primary-color)]">folder_open</span>
                                 <span class="text-sm font-medium">Project</span>
                             </a>
-                            <a class="cursor-pointer flex items-center gap-3 px-3 py-2.5 rounded-md text-red-500 sidebar-item"
-                                onclick="parent.closeProjectPage()">
+                            <a class="flex items-center gap-3 px-3 py-2.5 rounded-md text-gray-400 hover:text-white hover:bg-white/5 sidebar-item cursor-pointer transition-colors">
+                                <span class="material-symbols-outlined text-2xl">extension</span>
+                                <span class="text-sm font-medium">Extensions</span>
+                            </a>
+                            <a class="cursor-pointer flex items-center gap-3 px-3 py-2.5 rounded-md text-red-500 sidebar-item hover:bg-white/5 transition-colors" onclick="parent.closeProjectPage()">
                                 <span class="material-symbols-outlined text-2xl">logout</span>
                                 <span class="text-sm font-medium">Exit IDE</span>
                             </a>
                         </nav>
                     </aside>
                     <main class="flex-1 flex flex-col overflow-hidden bg-[#0a1014]">
-                        <div class="flex-1 flex items-center justify-center p-12 text-center">
-                            <div>
-                                <span
-                                    class="material-symbols-outlined text-6xl text-[var(--primary-color)] mb-4 animate-pulse">developer_board</span>
-                                <h2 class="text-2xl font-bold text-white mb-2">Workspace Ready</h2>
-                                <p class="text-gray-400 max-w-md">Lastic IDE is fully optimized for real-time coding
-                                    efficiency and intelligent auto-completion.</p>
+                        <!-- Tab Bar -->
+                        <div class="flex items-center border-b border-white/10 bg-[#0d1318]" id="tabBar">
+                            <div class="tab-item active flex items-center gap-2 px-4 py-2.5 text-sm cursor-pointer border-b-2 border-transparent" id="tab-main" onclick="openFile('main.py')">
+                                <span class="text-yellow-400 text-xs">●</span> main.py
+                            </div>
+                        </div>
+                        <!-- Editor -->
+                        <div class="flex-1 overflow-auto scrollbar-thin p-0" id="editorContent">
+                            <div class="code-font text-sm leading-7 p-4" id="codeArea"></div>
+                        </div>
+                        <!-- Terminal -->
+                        <div class="border-t border-white/10 bg-[#080c10]" style="height:140px">
+                            <div class="flex items-center justify-between px-4 py-1.5 border-b border-white/5">
+                                <span class="text-[10px] uppercase tracking-widest text-[var(--primary-color)] font-bold">Terminal</span>
+                                <span class="text-[10px] text-gray-500">quasar@lastic:~$</span>
+                            </div>
+                            <div class="p-3 code-font text-xs overflow-auto scrollbar-thin" style="height:100px" id="terminalOutput">
+                                <div class="terminal-line text-gray-500">$ python main.py</div>
+                                <div class="terminal-line success">✓ Quasar Engine initialized</div>
+                                <div class="terminal-line">[INFO] Loading AI modules...</div>
+                                <div class="terminal-line success">✓ All systems operational — Welcome to the future.</div>
+                                <div class="flex items-center gap-1 mt-1"><span class="text-[var(--primary-color)]">❯</span><span class="terminal-cursor"></span></div>
                             </div>
                         </div>
                     </main>
@@ -5243,26 +5651,98 @@
             </div>
 
             <script>
+                const files = {
+                    'main.py': [
+                        {n:1,c:'<span style="color:#c678dd">import</span> <span style="color:#e5c07b">quasar</span>'},
+                        {n:2,c:'<span style="color:#c678dd">from</span> <span style="color:#e5c07b">utils</span> <span style="color:#c678dd">import</span> <span style="color:#61afef">initialize</span>'},
+                        {n:3,c:''},
+                        {n:4,c:'<span style="color:#c678dd">class</span> <span style="color:#e5c07b">QuasarEngine</span>:'},
+                        {n:5,c:'    <span style="color:#c678dd">def</span> <span style="color:#61afef">__init__</span>(<span style="color:#e06c75">self</span>):'},
+                        {n:6,c:'        <span style="color:#e06c75">self</span>.status = <span style="color:#98c379">"active"</span>'},
+                        {n:7,c:'        <span style="color:#e06c75">self</span>.version = <span style="color:#98c379">"2.4.1"</span>'},
+                        {n:8,c:''},
+                        {n:9,c:'    <span style="color:#c678dd">def</span> <span style="color:#61afef">run</span>(<span style="color:#e06c75">self</span>):'},
+                        {n:10,c:'        <span style="color:#61afef">print</span>(<span style="color:#98c379">"Welcome to the future"</span>)'},
+                        {n:11,c:'        <span style="color:#61afef">initialize</span>()'},
+                        {n:12,c:''},
+                        {n:13,c:'<span style="color:#c678dd">def</span> <span style="color:#61afef">main</span>():'},
+                        {n:14,c:'    engine = <span style="color:#e5c07b">QuasarEngine</span>()'},
+                        {n:15,c:'    engine.<span style="color:#61afef">run</span>()'},
+                        {n:16,c:''},
+                        {n:17,c:'<span style="color:#c678dd">if</span> __name__ == <span style="color:#98c379">"__main__"</span>:'},
+                        {n:18,c:'    <span style="color:#61afef">main</span>()'},
+                    ],
+                    'config.json': [
+                        {n:1,c:'{'},
+                        {n:2,c:'  <span style="color:#e06c75">"name"</span>: <span style="color:#98c379">"Project Quasar"</span>,'},
+                        {n:3,c:'  <span style="color:#e06c75">"version"</span>: <span style="color:#98c379">"2.4.1"</span>,'},
+                        {n:4,c:'  <span style="color:#e06c75">"engine"</span>: <span style="color:#98c379">"quasar"</span>,'},
+                        {n:5,c:'  <span style="color:#e06c75">"ai_modules"</span>: [<span style="color:#98c379">"nlp"</span>, <span style="color:#98c379">"vision"</span>, <span style="color:#98c379">"agent"</span>],'},
+                        {n:6,c:'  <span style="color:#e06c75">"debug"</span>: <span style="color:#d19a66">false</span>'},
+                        {n:7,c:'}'},
+                    ],
+                    'utils.py': [
+                        {n:1,c:'<span style="color:#5c6370"># Lastic Productions — Utility Module</span>'},
+                        {n:2,c:''},
+                        {n:3,c:'<span style="color:#c678dd">def</span> <span style="color:#61afef">initialize</span>():'},
+                        {n:4,c:'    <span style="color:#61afef">print</span>(<span style="color:#98c379">"[INFO] Loading AI modules..."</span>)'},
+                        {n:5,c:'    <span style="color:#61afef">print</span>(<span style="color:#98c379">"✓ All systems operational"</span>)'},
+                    ],
+                    'README.md': [
+                        {n:1,c:'<span style="color:#e06c75"># Project Quasar</span>'},
+                        {n:2,c:''},
+                        {n:3,c:'AI-Powered Development Environment by <span style="color:#61afef">Lastic Productions</span>.'},
+                        {n:4,c:''},
+                        {n:5,c:'<span style="color:#e06c75">## Features</span>'},
+                        {n:6,c:'- Real-time AI auto-completion'},
+                        {n:7,c:'- Intelligent error detection'},
+                        {n:8,c:'- Neural code suggestions'},
+                    ],
+                };
+                let currentFile = 'main.py';
+
                 function hideWelcomeScreen() {
                     document.getElementById('welcomeScreen').classList.add('hidden');
                     document.getElementById('mainIDE').classList.remove('hidden');
+                    if (!document.getElementById('codeArea').innerHTML) openFile('main.py');
                 }
                 function welcomeAction(a) { hideWelcomeScreen(); }
-                function openFile(f) { hideWelcomeScreen(); }
+
+                function openFile(f) {
+                    hideWelcomeScreen();
+                    currentFile = f;
+                    const data = files[f];
+                    if (!data) return;
+                    // Update tabs
+                    document.getElementById('tabBar').innerHTML = Object.keys(files).map(k =>
+                        `<div class="tab-item ${k===f?'active':''} flex items-center gap-2 px-4 py-2.5 text-sm cursor-pointer border-b-2 border-transparent" onclick="openFile('${k}')"><span class="text-xs ${k===f?'text-[var(--primary-color)]':'text-gray-500'}">●</span> ${k}</div>`
+                    ).join('');
+                    // Update file tree
+                    document.querySelectorAll('.file-tree-item').forEach(el => el.classList.remove('active'));
+                    const ftId = 'ft-' + f.split('.')[0];
+                    const ftEl = document.getElementById(ftId);
+                    if (ftEl) ftEl.classList.add('active');
+                    // Render code
+                    document.getElementById('codeArea').innerHTML = data.map(l =>
+                        `<div class="flex hover:bg-white/5 rounded"><span class="line-number select-none">${l.n}</span><span>${l.c}</span></div>`
+                    ).join('');
+                }
+                function openRecentProject(n) { hideWelcomeScreen(); openFile('main.py'); }
+                function clearRecent() { document.getElementById('recentProjects').innerHTML = '<p class="text-xs text-gray-500 px-3 py-2">No recent projects</p>'; }
             </script>
         </body>
 
         </html>
     </template>
 
-    <template id="nexus-page-template">
+    <template id="vortex-page-template">
         <!DOCTYPE html>
         <html lang="en">
 
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Neural Nexus | Transformer-based NLP Research</title>
+            <title>Vortex Lexicon | Neural Orchestration & NLP Research</title>
             <script src="https://cdn.tailwindcss.com"></script>
             <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Outfit:wght@300;400;700&display=swap"
                 rel="stylesheet">
@@ -5270,7 +5750,7 @@
             <style>
                 body {
                     font-family: 'Outfit', sans-serif;
-                    background-color: #0c001c;
+                    background-color: #030712;
                     color: #d1d5db;
                     overflow-x: hidden;
                 }
@@ -5279,30 +5759,21 @@
                     font-family: 'Space Mono', monospace;
                 }
 
-                .nexus-glow {
-                    box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+                .vortex-glow {
+                    box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
                 }
 
                 .data-stream {
-                    background: linear-gradient(180deg, transparent 0%, rgba(168, 85, 247, 0.1) 50%, transparent 100%);
+                    background: linear-gradient(180deg, transparent 0%, rgba(6, 182, 212, 0.1) 50%, transparent 100%);
                 }
 
-                @keyframes pulse-slow {
-
-                    0%,
-                    100% {
-                        opacity: 0.3;
-                        transform: scale(1);
-                    }
-
-                    50% {
-                        opacity: 0.6;
-                        transform: scale(1.1);
-                    }
+                @keyframes vortex-spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
                 }
 
-                .node-pulse {
-                    animation: pulse-slow 4s infinite ease-in-out;
+                .vortex-ring {
+                    animation: vortex-spin 20s linear infinite;
                 }
 
                 .glass-dark {
@@ -5316,8 +5787,8 @@
                 }
 
                 .token-item:hover {
-                    background: rgba(168, 85, 247, 0.15);
-                    border-color: rgba(168, 85, 247, 0.4);
+                    background: rgba(6, 182, 212, 0.15);
+                    border-color: rgba(6, 182, 212, 0.4);
                     transform: translateY(-2px);
                 }
             </style>
@@ -5326,20 +5797,19 @@
         <body class="min-h-screen flex flex-col">
             <!-- Navbar -->
             <nav
-                class="p-6 border-b border-white/5 flex justify-between items-center bg-[#0c001c]/80 backdrop-blur-md sticky top-0 z-50">
+                class="p-6 border-b border-white/5 flex justify-between items-center bg-[#030712]/80 backdrop-blur-md sticky top-0 z-50">
                 <div class="flex items-center gap-3">
                     <div
-                        class="w-10 h-10 bg-purple-600/20 border border-purple-500/40 rounded-xl flex items-center justify-center">
-                        <i class="uil uil-atom text-purple-400 text-2xl"></i>
+                        class="w-10 h-10 bg-cyan-600/20 border border-cyan-500/40 rounded-xl flex items-center justify-center">
+                        <i class="uil uil-vortex text-cyan-400 text-2xl"></i>
                     </div>
-                    <span class="font-bold tracking-tighter text-2xl text-white">NEURAL NEXUS</span>
+                    <span class="font-bold tracking-tighter text-2xl text-white uppercase">Vortex Lexicon</span>
                 </div>
                 <div class="flex gap-4 items-center">
                     <span
-                        class="text-[10px] hidden md:inline-block uppercase tracking-[0.3em] text-purple-400 font-bold px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20">Research
-                        Core :: active</span>
+                        class="text-[10px] hidden md:inline-block uppercase tracking-[0.3em] text-cyan-400 font-bold px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">TRANSFORMER_CORE :: v4.2</span>
                     <button onclick="parent.closeProjectPage()"
-                        class="flex items-center gap-2 text-xs font-semibold hover:text-white text-gray-400 transition-colors bg-white/5 px-5 py-2.5 rounded-xl border border-white/10 hover:border-purple-500/30">
+                        class="flex items-center gap-2 text-xs font-semibold hover:text-white text-gray-400 transition-colors bg-white/5 px-5 py-2.5 rounded-xl border border-white/10 hover:border-cyan-500/30">
                         <i class="uil uil-arrow-left"></i> <span>Return to Portfolio</span>
                     </button>
                 </div>
@@ -5350,65 +5820,130 @@
                     <!-- Left: Hero & Deep Dive -->
                     <section class="space-y-12">
                         <div class="space-y-6">
-                            <span class="text-purple-500 font-black text-xs uppercase tracking-[0.5em] block">Project
+                            <span class="text-cyan-500 font-black text-xs uppercase tracking-[0.5em] block">Research
                                 Deep-Dive</span>
                             <h1 class="text-5xl lg:text-7xl font-bold text-white tracking-tighter leading-none">
-                                Intelligence. <br />Decoded.</h1>
-                            <p class="text-xl text-gray-400 leading-relaxed max-w-2xl mt-8">A powerhouse NLP research
-                                project utilizing Transformer models to process and understand complex human-AI
-                                interactions.</p>
+                                Linguistic <br />Singularity.</h1>
+                            <p class="text-xl text-gray-400 leading-relaxed max-w-2xl mt-8">Vortex Lexicon is an elite NLP research architecture designed to decode the sub-textual layers of human-AI synergy using proprietary attention mechanisms.</p>
                         </div>
 
-                        <!-- Abstract visualization -->
-                        <div
-                            class="relative h-[400px] w-full rounded-3xl overflow-hidden glass-dark border border-purple-500/20 group">
-                            <div
-                                class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.1)_0%,transparent_70%)]">
-                            </div>
-                            <div
-                                class="absolute inset-0 opacity-20 data-stream bg-[length:40px_40px] bg-[linear-gradient(rgba(168,85,247,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.1)_1px,transparent_1px)]">
-                            </div>
+                        <!-- Mini-Chatbot Integration -->
+                        <div class="relative h-[400px] w-full rounded-3xl overflow-hidden glass-dark border border-cyan-500/20 group">
+                            <div id="vortex-chat-container" class="relative h-full w-full flex flex-col font-mono text-sm">
+                                <!-- Chat Header -->
+                                <div class="p-4 border-b border-cyan-500/20 bg-cyan-950/20 flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-2 h-2 bg-cyan-500 rounded-full animate-pulse shadow-[0_0_8px_#06b6d4]"></div>
+                                        <span class="text-xs font-bold text-cyan-400 tracking-widest uppercase">VORTEX_LEXICON_v4.2</span>
+                                    </div>
+                                    <span class="text-[10px] text-gray-500">NEURAL_STABLE</span>
+                                </div>
 
-                            <div class="absolute inset-0 flex items-center justify-center p-12">
-                                <div
-                                    class="relative w-full h-full flex flex-wrap gap-4 items-center justify-center opacity-40 group-hover:opacity-100 transition-opacity duration-1000">
-                                    <!-- Simulated Token Flow -->
-                                    <div
-                                        class="token-item px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-xs mono text-purple-300">
-                                        TRANSFORMER_V2</div>
-                                    <div
-                                        class="token-item px-4 py-2 rounded-lg border border-purple-500/30 bg-purple-500/10 text-xs mono text-white">
-                                        ATTENTION_WEIGHTS</div>
-                                    <div
-                                        class="token-item px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-xs mono text-purple-300">
-                                        EMBEDDING_01</div>
-                                    <div
-                                        class="token-item px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-xs mono text-purple-300">
-                                        HIDDEN_LAYER</div>
-                                    <div
-                                        class="token-item px-4 py-2 rounded-lg border border-purple-500/40 bg-purple-500/20 text-xs mono text-white">
-                                        SOFTMAX_DIST</div>
-                                    <div
-                                        class="token-item px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-xs mono text-purple-300">
-                                        QUERY_VECTOR</div>
-                                    <div
-                                        class="token-item px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-xs mono text-purple-300">
-                                        KEY_MAPPING</div>
+                                <!-- Chat Messages -->
+                                <div id="chat-flow" class="flex-1 overflow-y-auto p-6 space-y-4 scroll-smooth">
+                                    <div class="flex flex-col gap-1 max-w-[85%]">
+                                        <span class="text-[10px] text-cyan-500 font-bold ml-1 uppercase">Vortex</span>
+                                        <div class="bg-cyan-500/10 border border-cyan-500/20 p-3 rounded-2xl rounded-tl-none text-cyan-100">
+                                            Neural architecture initialized. I am ready to decode intent. How shall we proceed?
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Input Area -->
+                                <div class="p-4 border-t border-cyan-500/20 bg-[#030712]">
+                                    <form id="vortex-form" class="flex gap-2" onsubmit="return false;">
+                                        <input type="text" id="vortex-input" placeholder="Enter semantic query..." 
+                                            class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 transition-colors">
+                                        <button type="button" id="vortex-send"
+                                            class="w-10 h-10 bg-cyan-600/20 border border-cyan-500/30 rounded-xl flex items-center justify-center text-cyan-400 hover:bg-cyan-500 hover:text-white transition-all">
+                                            <i class="uil uil-message"></i>
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <!-- Processing Overlay -->
+                                <div id="vortex-processing" class="absolute inset-0 bg-[#030712]/80 backdrop-blur-sm hidden flex-col items-center justify-center z-20">
+                                    <div class="relative w-16 h-16 mb-4">
+                                        <div class="absolute inset-0 rounded-full border-t-2 border-cyan-500 animate-spin"></div>
+                                        <div class="absolute inset-2 rounded-full border-b-2 border-cyan-500/30 animate-[spin_1.5s_linear_infinite_reverse]"></div>
+                                    </div>
+                                    <span class="text-[10px] text-cyan-400 font-bold tracking-[0.3em] animate-pulse uppercase">Decoding Intent...</span>
                                 </div>
                             </div>
 
-                            <div class="absolute bottom-6 left-8 flex items-center gap-4">
-                                <div class="w-3 h-3 bg-green-500 rounded-full node-pulse shadow-[0_0_15px_#22c55e]">
-                                </div>
-                                <span class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Neural
-                                    Engine v3.0.1 Stable</span>
-                            </div>
+                            <script>
+                                (function() {
+                                    const input = document.getElementById('vortex-input');
+                                    const sendBtn = document.getElementById('vortex-send');
+                                    const flow = document.getElementById('chat-flow');
+                                    const processing = document.getElementById('vortex-processing');
+
+                                    const responses = [
+                                        "Intent decoded: High-context semantic mapping confirmed.",
+                                        "Analyzing attention heads... Multi-layer recursion complete.",
+                                        "Cross-referencing latent space coordinates. Optimization required.",
+                                        "Vortex stability at 98.4%. Ready for further linguistic input.",
+                                        "Semantic intent identified. Re-routing through neural decoder...",
+                                        "Contextual weights adjusted. The lexicon is expanding."
+                                    ];
+
+                                    function addMessage(text, isUser = false) {
+                                        const msg = document.createElement('div');
+                                        msg.className = `flex flex-col gap-1 ${isUser ? 'items-end ml-auto' : ''} max-w-[85%]`;
+                                        
+                                        const label = isUser ? 'User' : 'Vortex';
+                                        const color = isUser ? 'gray-400' : 'text-cyan-500';
+                                        const bg = isUser ? 'bg-white/5' : 'bg-cyan-500/10';
+                                        const border = isUser ? 'border-white/10' : 'border-cyan-500/20';
+                                        const textColor = isUser ? 'text-gray-200' : 'text-cyan-100';
+                                        const rounded = isUser ? 'rounded-tr-none' : 'rounded-tl-none';
+
+                                        msg.innerHTML = `
+                                            <span class="text-[10px] ${color} font-bold ${isUser ? 'mr-1' : 'ml-1'} uppercase">${label}</span>
+                                            <div class="${bg} border ${border} p-3 rounded-2xl ${rounded} ${textColor}">
+                                                ${text}
+                                            </div>
+                                        `;
+                                        
+                                        flow.appendChild(msg);
+                                        flow.scrollTop = flow.scrollHeight;
+                                    }
+
+                                    function handleSend() {
+                                        const val = input.value.trim();
+                                        if (!val) return;
+
+                                        addMessage(val, true);
+                                        input.value = '';
+                                        
+                                        processing.classList.remove('hidden');
+                                        processing.classList.add('flex');
+
+                                        setTimeout(() => {
+                                            processing.classList.add('hidden');
+                                            processing.classList.remove('flex');
+                                            
+                                            const reply = responses[Math.floor(Math.random() * responses.length)];
+                                            addMessage(reply);
+                                        }, 1200);
+                                    }
+
+                                    sendBtn.onclick = handleSend;
+                                    input.onkeypress = (e) => {
+                                        if (e.key === 'Enter') handleSend();
+                                    };
+                                })();
+                            </script>
                         </div>
 
                         <div class="space-y-6">
                             <h2 class="text-3xl font-bold text-white tracking-tight">The Vision</h2>
                             <p class="text-gray-400 leading-relaxed text-lg text-justify">
-                                Neural Nexus was born from a desire to push the boundaries of how machines interpret
+                                Vortex Lexicon was born from the need to move beyond simple keyword matching and into the realm of true semantic intent. By leveraging high-dimensional vector embeddings and multi-head self-attention, I developed a system capable of mapping the chaotic flow of human dialogue into a predictable, structured lexicon. The "Vortex" refers to the recursive processing loop where context is refined through successive transformer layers until the pure essence of the interaction is revealed.
+                            </p>
+                        </div>
+                    </section>
+                                Vortex Lexicon was born from a desire to push the boundaries of how machines interpret
                                 high-context human dialogue. By building on the PyTorch framework and implementing
                                 custom Transformer attention heads, I've created a system that doesn't just process
                                 text—it decodes intent.
@@ -5420,7 +5955,7 @@
                     <aside class="space-y-8">
                         <div class="p-8 rounded-3xl glass-dark space-y-8">
                             <div class="space-y-4">
-                                <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-purple-500">Project
+                                <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-cyan-500">Project
                                     Vital Signs</h4>
                                 <div class="space-y-6">
                                     <div class="flex justify-between items-end border-b border-white/5 pb-4">
@@ -5439,51 +5974,51 @@
                             </div>
 
                             <div class="space-y-4">
-                                <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-purple-500">Core
+                                <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-cyan-500">Core
                                     Technology</h4>
                                 <div class="flex flex-wrap gap-2">
                                     <span
-                                        class="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-xl text-xs font-bold text-purple-300">PyTorch</span>
+                                        class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-xl text-xs font-bold text-cyan-300">PyTorch</span>
                                     <span
-                                        class="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-xl text-xs font-bold text-purple-300">Transformer</span>
+                                        class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-xl text-xs font-bold text-cyan-300">Transformer</span>
                                     <span
-                                        class="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-xl text-xs font-bold text-purple-300">NLP</span>
+                                        class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-xl text-xs font-bold text-cyan-300">NLP</span>
                                     <span
-                                        class="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-xl text-xs font-bold text-purple-300">CUDA
+                                        class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-xl text-xs font-bold text-cyan-300">CUDA
                                         Toolkit</span>
                                     <span
-                                        class="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-xl text-xs font-bold text-purple-300">HuggingFace</span>
+                                        class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-xl text-xs font-bold text-cyan-300">HuggingFace</span>
                                 </div>
                             </div>
 
                             <div class="pt-4">
                                 <button
-                                    class="w-full py-4 bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-2xl text-sm font-bold text-white hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-purple-600/20">
+                                    class="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl text-sm font-bold text-white hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-cyan-600/20">
                                     Request Demo Access
                                 </button>
                             </div>
                         </div>
 
                         <div class="p-8 rounded-3xl glass-dark">
-                            <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-purple-500 mb-6">
+                            <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-cyan-500 mb-6">
                                 Benchmarking</h4>
                             <div class="space-y-4">
                                 <div class="space-y-2">
                                     <div class="flex justify-between text-[11px] font-bold">
-                                        <span>Context Awareness</span>
-                                        <span class="text-purple-400">98.4%</span>
+                                        <span>Semantic Entropy</span>
+                                        <span class="text-cyan-400">98.4%</span>
                                     </div>
                                     <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                                        <div class="h-full bg-purple-500 w-[98.4%]"></div>
+                                        <div class="h-full bg-cyan-500 w-[98.4%]"></div>
                                     </div>
                                 </div>
                                 <div class="space-y-2">
                                     <div class="flex justify-between text-[11px] font-bold">
-                                        <span>Token Processing / Sec</span>
-                                        <span class="text-purple-400">12.4k</span>
+                                        <span>Vector Resolution</span>
+                                        <span class="text-cyan-400">12.4k</span>
                                     </div>
                                     <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                                        <div class="h-full bg-purple-500 w-[85%]"></div>
+                                        <div class="h-full bg-cyan-500 w-[85%]"></div>
                                     </div>
                                 </div>
                             </div>
@@ -5524,7 +6059,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Nova AI | Flagship Conversational Agent</title>
+            <title>June.AI | Flagship Conversational Agent</title>
             <script src="https://cdn.tailwindcss.com"></script>
             <link
                 href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap"
@@ -5619,7 +6154,7 @@
                 <!-- Sidebar Info -->
                 <aside class="w-full lg:w-96 border-r border-white/5 p-8 lg:p-12 flex flex-col gap-8 bg-[#030303]">
                     <div>
-                        <h1 class="text-4xl font-bold tracking-tighter mb-4 text-white">Nova AI Chatbot</h1>
+                        <h1 class="text-4xl font-bold tracking-tighter mb-4 text-white">June.AI</h1>
                         <p class="text-gray-400 leading-relaxed text-sm">My flagship conversational agent, blending
                             OpenAI intelligence with a custom-built, ultra-responsive Next.js interface.</p>
                     </div>
@@ -5717,7 +6252,7 @@
                                 <i class="uil uil-arrow-up text-white text-2xl"></i>
                             </button>
                         </div>
-                        <p class="text-center text-[9px] text-gray-600 mt-4 tracking-widest uppercase font-bold">Nova AI
+                        <p class="text-center text-[9px] text-gray-600 mt-4 tracking-widest uppercase font-bold">June.AI
                             Version 2.4 | System Logic Ver: Stable-392</p>
                     </div>
                 </section>
@@ -5901,7 +6436,7 @@
                             <div class="p-6 bg-black border border-white/10 rounded-2xl mono text-xs leading-relaxed">
                                 <div class="text-gray-500 italic mb-4">// Generate text locally</div>
                                 <div class="flex gap-4">
-                                    <span class="text-purple-400">POST</span>
+                                    <span class="text-cyan-400">POST</span>
                                     <span class="text-white">/api/v1/generate</span>
                                 </div>
                                 <div class="mt-4 text-blue-400 font-bold">{</div>
@@ -6431,327 +6966,7 @@
                         setUIStatus("listening");
                         transcript.textContent = "...";
                         transcript.classList.add('active');
-                    };
-
-                    recognition.onresult = async (e) => {
-                        let interim = "", final = "";
-                        for (let i = e.resultIndex; i < e.results.length; i++) {
-                            if (e.results[i].isFinal) final += e.results[i][0].transcript;
-                            else interim += e.results[i][0].transcript;
-                        }
-                        transcript.textContent = interim || final;
-
-                        if (final) {
-                            addMsg("user", final);
-                            setUIStatus("processing");
-
-                            let reply = await puterResponse(final);
-
-                            addMsg("agent", reply);
-                            setUIStatus("speaking");
-                            await speak(reply);
-
-                            if (isRunning) {
-                                startListening();
-                            } else {
-                                setUIStatus("idle");
-                            }
-                        }
-                    };
-
-                    recognition.onerror = (e) => {
-                        if (e.error === "no-speech" && isRunning) {
-                            startListening();
-                        } else if (e.error !== "aborted") {
-                            setUIStatus("idle");
-                        }
-                    };
-
-                    recognition.start();
-                }
-
-                async function handleStart() {
-                    isRunning = true;
-                    startBtn.disabled = true;
-                    stopBtn.disabled = false;
-                    setUIStatus("speaking");
-                    const welcome = "Hello! I'm your voice agent. How can I help you?";
-                    addMsg("agent", welcome);
-                    await speak(welcome);
-                    if (isRunning) {
-                        startListening();
-                    }
-                }
-
-                function handleStop() {
-                    isRunning = false;
-                    startBtn.disabled = false;
-                    stopBtn.disabled = true;
-                    if (recognition) recognition.abort();
-                    window.speechSynthesis.cancel();
-                    setUIStatus("idle");
-                    transcript.textContent = "live transcript appears here...";
-                    transcript.classList.remove('active');
-                }
-
-                function toggleRunning() {
-                    if (isRunning) handleStop();
-                    else handleStart();
-                }
-            </script>
-        </body>
-
-        </html>
-    </template>
-
-    <template id="ide-page-template">
-        <!DOCTYPE html>
-        <html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Lastic Productions IDE</title>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
-                rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-            <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-            <style>
-                :root {
-                    --primary-color: #00f7ff;
-                    --glow-color: rgba(0, 247, 255, 0.6);
-                    --error-color: #f05;
-                    --error-glow-color: rgba(255, 0, 85, 0.6);
-                }
-
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
-
-                html,
-                body {
-                    height: 100%;
-                    overflow: hidden;
-                }
-
-                body {
-                    font-family: 'Space Grotesk', 'Noto Sans', sans-serif;
-                    background: #0A1014;
-                    color: #e5e7eb;
-                }
-
-                .code-font {
-                    font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
-                }
-
-                .holographic-text {
-                    text-shadow: 0 0 8px var(--glow-color), 0 0 16px var(--glow-color), 0 0 24px var(--glow-color);
-                }
-
-                .neon-glow {
-                    box-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color);
-                }
-
-                .glass-panel {
-                    background-color: rgba(23, 37, 51, 0.5);
-                    backdrop-filter: blur(12px);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                }
-
-                .sidebar-item:hover,
-                .sidebar-item.active {
-                    background-color: rgba(0, 247, 255, 0.1);
-                    box-shadow: inset 3px 0 0 0 var(--primary-color), 0 0 20px -5px var(--glow-color);
-                    transition: all 0.3s ease-in-out;
-                }
-
-                .tab-item:hover,
-                .tab-item.active {
-                    border-bottom-color: var(--primary-color);
-                    color: white;
-                    text-shadow: 0 0 8px var(--glow-color);
-                    transition: all 0.3s ease-in-out;
-                }
-
-                body::before {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: radial-gradient(ellipse at 20% 20%, rgba(0, 247, 255, 0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%), radial-gradient(ellipse at 60% 60%, rgba(236, 72, 153, 0.05) 0%, transparent 40%);
-                    z-index: -1;
-                }
-
-                .welcome-screen {
-                    background: radial-gradient(ellipse at 30% 20%, rgba(0, 247, 255, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 40%), #0A1014;
-                    animation: fadeIn 0.5s ease;
-                }
-
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                    }
-
-                    to {
-                        opacity: 1;
-                    }
-                }
-
-                .welcome-btn {
-                    background: rgba(23, 37, 51, 0.6);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    border-radius: 12px;
-                    padding: 16px;
-                    text-align: left;
-                    transition: all 0.3s ease;
-                    cursor: pointer;
-                }
-
-                .welcome-btn:hover {
-                    background: rgba(23, 37, 51, 0.8);
-                    border-color: var(--primary-color);
-                    transform: translateY(-2px);
-                    box-shadow: 0 10px 40px -10px var(--glow-color);
-                }
-
-                #mainIDE.hidden {
-                    display: none;
-                }
-            </style>
-        </head>
-
-        <body class="bg-[#0A1014] text-gray-300">
-            <div class="welcome-screen fixed inset-0 z-50 flex flex-col items-center justify-center" id="welcomeScreen">
-                <div class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
-                <div class="relative z-10 w-full max-w-4xl p-8">
-                    <div class="text-center mb-12">
-                        <div
-                            class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[var(--primary-color)] to-purple-500 mb-6 neon-glow">
-                            <span class="material-symbols-outlined text-5xl text-black">code</span>
-                        </div>
-                        <h1 class="text-5xl font-bold text-white holographic-text mb-3">Lastic Productions</h1>
-                        <p class="text-xl text-[var(--primary-color)]/70">Project Quasar IDE</p>
-                        <p class="text-sm text-gray-400 mt-2">Version 2.4.1 • Quasar Engine</p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <button class="welcome-btn group" onclick="hideWelcomeScreen()">
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-12 h-12 rounded-lg bg-[var(--primary-color)]/10 flex items-center justify-center group-hover:bg-[var(--primary-color)]/20 transition-colors">
-                                    <span
-                                        class="material-symbols-outlined text-2xl text-[var(--primary-color)]">add</span>
-                                </div>
-                                <div class="text-left">
-                                    <p class="font-semibold text-white">New File</p>
-                                    <p class="text-xs text-gray-400">Create a new file</p>
-                                </div>
-                            </div>
-                        </button>
-                        <button class="welcome-btn group" onclick="hideWelcomeScreen()">
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
-                                    <span class="material-symbols-outlined text-2xl text-purple-400">folder_open</span>
-                                </div>
-                                <div class="text-left">
-                                    <p class="font-semibold text-white">Open File</p>
-                                    <p class="text-xs text-gray-400">Open an existing file</p>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <button
-                        class="mt-8 text-gray-400 hover:text-white text-sm flex items-center gap-2 transition-colors mx-auto"
-                        onclick="hideWelcomeScreen()">
-                        <span class="material-symbols-outlined text-lg">close</span>
-                        Enter Workspace
-                    </button>
-                </div>
-            </div>
-            <div class="relative flex size-full min-h-screen flex-col bg-black/50 overflow-hidden hidden" id="mainIDE">
-                <div class="flex h-full grow">
-                    <aside class="w-72 glass-panel border-r border-[var(--primary-color)]/20 flex flex-col">
-                        <div class="p-4 border-b border-[var(--primary-color)]/20">
-                            <h1 class="text-white text-xl font-bold leading-normal holographic-text">Lastic Productions
-                            </h1>
-                            <p class="text-[var(--primary-color)]/70 text-sm font-normal">Project Quasar</p>
-                        </div>
-                        <div class="flex-1 overflow-hidden flex flex-col">
-                            <div class="px-4 py-3 flex items-center justify-between">
-                                <span
-                                    class="text-xs font-semibold text-[var(--primary-color)] uppercase tracking-wider">Explorer</span>
-                            </div>
-                            <div class="px-2 pb-2">
-                                <div class="file-tree-item flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer"
-                                    onclick="alert('Opening main.py...')">
-                                    <span class="material-symbols-outlined text-sm text-yellow-400">code</span>
-                                    <span class="text-sm">main.py</span>
-                                </div>
-                            </div>
-                        </div>
-                        <nav class="border-t border-[var(--primary-color)]/20 p-2 flex flex-col gap-1">
-                            <a href="javascript:void(0)" onclick="parent.closeProjectPage()"
-                                class="flex items-center gap-3 px-3 py-2.5 rounded-md text-red-500 sidebar-item cursor-pointer">
-                                <span class="material-symbols-outlined text-2xl">logout</span>
-                                <span class="text-sm font-medium">Exit IDE</span>
-                            </a>
-                        </nav>
-                    </aside>
-                    <main class="flex-1 flex flex-col overflow-hidden bg-[#0a1014]">
-                        <div class="flex-1 flex items-center justify-center p-12 text-center">
-                            <div>
-                                <span
-                                    class="material-symbols-outlined text-6xl text-[var(--primary-color)] mb-4 animate-pulse">developer_board</span>
-                                <h2 class="text-2xl font-bold text-white mb-2">Workspace Ready</h2>
-                                <p class="text-gray-400 max-w-md">Lastic IDE is fully optimized for real-time coding
-                                    efficiency and intelligent auto-completion.</p>
-                            </div>
-                        </div>
-                    </main>
-                </div>
-            </div>
-            <script>
-                function hideWelcomeScreen() {
-                    document.getElementById('welcomeScreen').classList.add('hidden');
-                    document.getElementById('mainIDE').classList.remove('hidden');
-                }
-            </script>
-        </body>
-
-        </html>
-    </template>
-
-    <template id="nexus-page-template">
-        <!DOCTYPE html>
-        <html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Neural Nexus | Transformer-based NLP Research</title>
-            <script src="https://cdn.tailwindcss.com"></script>
-            <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Outfit:wght@300;400;700&display=swap"
-                rel="stylesheet">
-            <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-            <style>
-                body {
-                    font-family: 'Outfit', sans-serif;
-                    background-color: #0c001c;
-                    color: #d1d5db;
-                    overflow-x: hidden;
-                }
-
-                .mono {
-                    font-family: 'Space Mono', monospace;
-                }
-
                 .nexus-glow {
-                    box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
                 }
 
                 @keyframes pulse-slow {
@@ -6785,13 +7000,13 @@
                 class="p-6 border-b border-white/5 flex justify-between items-center bg-[#0c001c]/80 backdrop-blur-md sticky top-0 z-50">
                 <div class="flex items-center gap-3">
                     <div
-                        class="w-10 h-10 bg-purple-600/20 border border-purple-500/40 rounded-xl flex items-center justify-center">
-                        <i class="uil uil-atom text-purple-400 text-2xl"></i>
+                        class="w-10 h-10 bg-cyan-600/20 border border-cyan-500/40 rounded-xl flex items-center justify-center">
+                        <i class="uil uil-atom text-cyan-400 text-2xl"></i>
                     </div>
-                    <span class="font-bold tracking-tighter text-2xl text-white">NEURAL NEXUS</span>
+                    <span class="font-bold tracking-tighter text-2xl text-white">Vortex Lexicon</span>
                 </div>
                 <button onclick="parent.closeProjectPage()"
-                    class="flex items-center gap-2 text-xs font-semibold hover:text-white text-gray-400 transition-colors bg-white/5 px-5 py-2.5 rounded-xl border border-white/10 hover:border-purple-500/30">
+                    class="flex items-center gap-2 text-xs font-semibold hover:text-white text-gray-400 transition-colors bg-white/5 px-5 py-2.5 rounded-xl border border-white/10 hover:border-cyan-500/30">
                     <i class="uil uil-arrow-left"></i> <span>Return to Portfolio</span>
                 </button>
             </nav>
@@ -6799,7 +7014,7 @@
                 <div class="grid lg:grid-cols-[1fr_400px] gap-12">
                     <section class="space-y-12">
                         <div class="space-y-6">
-                            <span class="text-purple-500 font-black text-xs uppercase tracking-[0.5em] block">Project
+                            <span class="text-cyan-500 font-black text-xs uppercase tracking-[0.5em] block">Project
                                 Deep-Dive</span>
                             <h1 class="text-5xl lg:text-7xl font-bold text-white tracking-tighter leading-none">
                                 Intelligence. Decoded.</h1>
@@ -6822,7 +7037,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Nova AI | Flagship Conversational Agent</title>
+            <title>June.AI | Flagship Conversational Agent</title>
             <script src="https://cdn.tailwindcss.com"></script>
             <link
                 href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap"
@@ -6860,7 +7075,7 @@
             </nav>
             <main class="flex-1 flex flex-col lg:flex-row">
                 <aside class="w-full lg:w-96 border-r border-white/5 p-8 lg:p-12 flex flex-col gap-8 bg-[#030303]">
-                    <h1 class="text-4xl font-bold tracking-tighter mb-4 text-white">Nova AI Chatbot</h1>
+                    <h1 class="text-4xl font-bold tracking-tighter mb-4 text-white">June.AI</h1>
                     <p class="text-gray-400 leading-relaxed text-sm">My flagship conversational agent, blending OpenAI
                         intelligence with a custom-built, ultra-responsive Next.js interface.</p>
                 </aside>
@@ -6877,7 +7092,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>June AI - The First Agentic Intelligence</title>
+            <title>June.AI - Flagship Conversational Agent</title>
             <link
                 href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Orbitron:wght@400;700;900&display=swap"
                 rel="stylesheet">
@@ -6957,7 +7172,55 @@
                     color: #a0d8ff;
                     max-width: 80%;
                     line-height: 1.4;
-                    margin-bottom: 40px;
+                    margin-bottom: 20px;
+                }
+
+                .status-indicator {
+                    font-size: 14px;
+                    color: #00ff88;
+                    font-weight: 700;
+                    margin-bottom: 10px;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .status-indicator::before {
+                    content: '';
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    background: #00ff88;
+                    border-radius: 50%;
+                    box-shadow: 0 0 10px #00ff88;
+                }
+                .terminal-prompt {
+                    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+                    background: rgba(0, 162, 255, 0.05);
+                    padding: 15px 25px;
+                    border-radius: 8px;
+                    border-left: 3px solid #00a2ff;
+                    color: #fff;
+                    font-size: 18px;
+                    margin-top: 20px;
+                    display: inline-block;
+                    backdrop-filter: blur(10px);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                }
+                .prompt {
+                    color: #00a2ff;
+                    margin-right: 10px;
+                    font-weight: bold;
+                }
+                .cursor {
+                    animation: blink 1s step-end infinite;
+                    color: #00a2ff;
+                    font-weight: bold;
+                }
+                @keyframes blink {
+                    from, to { opacity: 1; }
+                    50% { opacity: 0; }
                 }
 
                 .logo {
@@ -7113,8 +7376,12 @@
                 <div class="background"></div>
                 <div class="overlay"></div>
                 <div class="content">
-                    <h1 class="title">JUNE AI - THE FIRST AGENTIC INTELLIGENCE</h1>
-                    <p class="subtitle">She thinks ahead. She acts alone</p>
+                    <h1 class="title">June.AI</h1>
+                    <p class="status-indicator">Online</p>
+                    <p class="subtitle">Model: June-7B<br>Systems initialized. June.AI ready for interaction. How can I optimize your workflow today?</p>
+                    <div class="terminal-prompt">
+                        <span class="prompt">></span> Type a command...<span class="cursor">_</span>
+                    </div>
                     <div class="product-container">
                         <div class="neural-ai">
                             <div class="neural-network"></div>
@@ -7136,7 +7403,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="june-logo">JUNE.AI</div>
+                <div class="june-logo">NOVA.AI</div>
                 <div class="logo">L$</div>
             </div>
         </body>
@@ -7805,7 +8072,7 @@
                     color: #fff;
                 }
 
-                .glass-purple {
+                .glass-cyan {
                     background: rgba(147, 51, 234, 0.05);
                     backdrop-filter: blur(20px);
                     border: 1px solid rgba(147, 51, 234, 0.2);
@@ -7821,7 +8088,7 @@
             <div class="max-w-6xl mx-auto p-6 md:p-12 relative z-10">
                 <header class="flex justify-between items-center mb-16">
                     <div class="flex items-center gap-3">
-                        <i class="uil uil-brain text-4xl text-purple-500 animate-pulse"></i>
+                        <i class="uil uil-brain text-4xl text-cyan-500 animate-pulse"></i>
                         <h2 class="text-2xl font-bold">Lastic AGI Agent</h2>
                     </div>
                     <button onclick="parent.closeProjectPage()"
@@ -7833,11 +8100,11 @@
                 <div class="grid md:grid-cols-[1fr_400px] gap-12">
                     <div>
                         <span
-                            class="text-xs font-bold text-purple-500 tracking-widest uppercase block mb-4">Orchestration
+                            class="text-xs font-bold text-cyan-500 tracking-widest uppercase block mb-4">Orchestration
                             Protocol Active</span>
                         <h1 class="text-5xl md:text-6xl font-bold tracking-tighter mb-6 leading-tight">Autonomous
                             <br /><span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-600">Task
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Task
                                 Orchestration.</span>
                         </h1>
                         <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
@@ -7847,31 +8114,31 @@
 
                         <div class="flex flex-wrap gap-3 mb-12">
                             <span
-                                class="px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold">LangChain</span>
+                                class="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold">LangChain</span>
                             <span
-                                class="px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold">AutoGPT</span>
+                                class="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold">AutoGPT</span>
                             <span
-                                class="px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold">Python</span>
+                                class="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold">Python</span>
                             <span
-                                class="px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold">ReAct
+                                class="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold">ReAct
                                 Loop</span>
                         </div>
                     </div>
 
-                    <div class="glass-purple rounded-3xl p-6 lg:p-8 space-y-6">
-                        <div class="flex items-center gap-4 border-b border-purple-500/20 pb-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-                                <i class="uil uil-robot text-purple-400 text-xl"></i>
+                    <div class="glass-cyan rounded-3xl p-6 lg:p-8 space-y-6">
+                        <div class="flex items-center gap-4 border-b border-cyan-500/20 pb-4">
+                            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                                <i class="uil uil-robot text-cyan-400 text-xl"></i>
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg">Agent Loop Trace</h3>
-                                <p class="text-xs text-purple-400/70">Real-time thought process</p>
+                                <p class="text-xs text-cyan-400/70">Real-time thought process</p>
                             </div>
                         </div>
 
                         <div class="space-y-4 text-sm">
                             <div class="flex gap-4">
-                                <span class="text-purple-500 font-bold shrink-0">Thought:</span>
+                                <span class="text-cyan-500 font-bold shrink-0">Thought:</span>
                                 <span class="text-gray-300">I need to analyze the current environment variables to
                                     determine the execution context.</span>
                             </div>
@@ -7884,10 +8151,10 @@
                                 <span class="text-gray-300 line-clamp-2">Context identified. Proceeding to initialize
                                     sub-agents for file parsing.</span>
                             </div>
-                            <div class="flex gap-4 mt-6 pt-4 border-t border-purple-500/10">
-                                <span class="text-fuchsia-500 font-bold shrink-0 animate-pulse">Thinking...</span>
-                                <div class="w-full h-4 bg-purple-500/20 rounded-full mt-1 overflow-hidden">
-                                    <div class="h-full bg-fuchsia-500 w-1/3 animate-[pulse_2s_infinite]"></div>
+                            <div class="flex gap-4 mt-6 pt-4 border-t border-cyan-500/10">
+                                <span class="text-blue-500 font-bold shrink-0 animate-pulse">Thinking...</span>
+                                <div class="w-full h-4 bg-cyan-500/20 rounded-full mt-1 overflow-hidden">
+                                    <div class="h-full bg-blue-500 w-1/3 animate-[pulse_2s_infinite]"></div>
                                 </div>
                             </div>
                         </div>
@@ -8174,30 +8441,6 @@
 
             <main class="max-w-6xl mx-auto">
 
-                <!-- API Key Section -->
-                <div class="glass-panel rounded-xl md:rounded-2xl p-4 md:p-6 mb-4 md:mb-8 mx-2 md:mx-0 red-glow">
-                    <div class="flex flex-col gap-3">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-8 h-8 md:w-10 md:h-10 rounded-lg lastic-gradient flex items-center justify-center flex-shrink-0 shadow-lg">
-                                <i class="fas fa-key text-white text-sm md:text-base"></i>
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="font-bold text-white text-sm md:text-base uppercase tracking-wide">API Access
-                                </h3>
-                                <p class="text-xs text-gray-400 truncate">Hugging Face Key • Local Storage</p>
-                            </div>
-                        </div>
-                        <div class="relative w-full">
-                            <input type="password" id="apiKeyInput" placeholder="ENTER YOUR HF API KEY..."
-                                class="w-full bg-black/50 border border-red-900/50 rounded-lg md:rounded-xl px-3 py-2.5 md:px-4 md:py-3 text-sm focus:outline-none focus:border-red-500 transition-colors text-white placeholder-gray-600 uppercase tracking-wider pr-10">
-                            <button id="toggleKeyVisibility"
-                                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-red-400 p-1 transition-colors">
-                                <i class="fas fa-eye text-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Upload Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 px-2 md:px-0">
@@ -8350,8 +8593,6 @@
                 };
 
                 const els = {
-                    apiKeyInput: document.getElementById('apiKeyInput'),
-                    toggleKey: document.getElementById('toggleKeyVisibility'),
                     sourceDrop: document.getElementById('sourceDropZone'),
                     sourceInput: document.getElementById('sourceInput'),
                     sourcePreview: document.getElementById('sourcePreview'),
@@ -8373,21 +8614,6 @@
                     errorToast: document.getElementById('errorToast'),
                     errorMessage: document.getElementById('errorMessage')
                 };
-
-                if (state.apiKey) els.apiKeyInput.value = state.apiKey;
-
-                els.apiKeyInput.addEventListener('input', (e) => {
-                    state.apiKey = e.target.value;
-                    localStorage.setItem('hf_api_key', state.apiKey);
-                    validateForm();
-                });
-
-                els.toggleKey.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const type = els.apiKeyInput.getAttribute('type');
-                    els.apiKeyInput.setAttribute('type', type === 'password' ? 'text' : 'password');
-                    els.toggleKey.innerHTML = type === 'password' ? '<i class="fas fa-eye-slash text-sm"></i>' : '<i class="fas fa-eye text-sm"></i>';
-                });
 
                 setupUploadZone(els.sourceDrop, els.sourceInput, (file) => {
                     state.sourceFile = file;
@@ -8478,7 +8704,7 @@
                 }
 
                 function validateForm() {
-                    const isValid = state.sourceFile && state.targetFile && state.apiKey.length > 10;
+                    const isValid = state.sourceFile && state.targetFile;
                     els.swapBtn.disabled = !isValid;
                 }
 
@@ -9778,13 +10004,14 @@
     </template>
 
 
+
     <script>
         /* ===== WELCOME LOADER LOGIC ===== */
         (function () {
             const loader = document.getElementById('welcome-loader');
             const bar = document.getElementById('loader-bar');
             const pct = document.getElementById('loader-percent');
-            const MIN_TIME = 2400;
+            const MIN_TIME = 800;
 
             if (!loader) return;
 
@@ -9806,7 +10033,7 @@
             function animateBar(target) {
                 const step = () => {
                     if (progress < target) {
-                        progress = Math.min(progress + 0.8, target);
+                        progress = Math.min(progress + 2.5, target);
                         if (bar) bar.style.width = progress + '%';
                         if (pct) pct.textContent = Math.round(progress) + '%';
                         requestAnimationFrame(step);
@@ -9826,7 +10053,8 @@
                     setTimeout(() => {
                         loader.classList.add('fade-out');
                         setTimeout(() => {
-                            loader.remove();
+                            if (loader.parentNode) loader.remove();
+                            document.body.classList.remove('loading-lock');
                             document.body.style.overflow = '';
                         }, 850);
                     }, 350);
@@ -9835,19 +10063,32 @@
 
             document.body.style.overflow = 'hidden';
 
-            if (document.readyState === 'complete') {
-                animateBar(95);
+            const forceDismiss = () => {
+                animateBar(100);
                 dismiss();
+            };
+
+            // Safety fallback: Ensure loader vanishes even if assets hang
+            const fallback = setTimeout(() => {
+                forceDismiss();
+            }, 6000);
+
+            // Immediate check for interactive/complete states
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                clearTimeout(fallback);
+                forceDismiss();
             } else {
                 window.addEventListener('load', () => {
-                    animateBar(95);
-                    dismiss();
+                    clearTimeout(fallback);
+                    forceDismiss();
+                });
+                document.addEventListener('DOMContentLoaded', () => {
+                    clearTimeout(fallback);
+                    forceDismiss();
                 });
             }
         })();
         /* ===== END WELCOME LOADER LOGIC ===== */
     </script>
-
 </body>
-
 </html>
